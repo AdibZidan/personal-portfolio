@@ -9,8 +9,8 @@ import { ChessComponent } from "./chess/chess/chess.component";
 import { TaskDetailComponent } from "./task-manager/task-detail/task-detail.component";
 import { MessagesComponent } from "./task-manager/messages/messages.component";
 import { PortfolioComponent } from "./portfolio/portfolio/portfolio.component";
-import { TodosComponent } from "./todo/todos/todos.component";
-import { ItemComponent } from "./todo/item/item.component";
+// import { TodosComponent } from "./todo/todos/todos.component";
+// import { ItemComponent } from "./todo/item/item.component";
 
 @NgModule({
   declarations: [
@@ -20,8 +20,8 @@ import { ItemComponent } from "./todo/item/item.component";
     TaskDetailComponent,
     MessagesComponent,
     PortfolioComponent,
-    TodosComponent,
-    ItemComponent
+    // TodosComponent,
+    // ItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
