@@ -9,6 +9,6 @@ export const ROUTES: Routes = [
   { path: "", redirectTo: "portfolio", pathMatch: "full" },
   { path: "task-manager", component: TasksComponent },
   { path: "chess", component: ChessComponent },
-  { path: "portfolio", component: PortfolioComponent },
+  { path: "portfolio", component: PortfolioComponent }
   // { path: "todo", component: TodosComponent }
 ];
