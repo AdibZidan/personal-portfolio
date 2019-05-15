@@ -10,5 +10,5 @@ export const ROUTES: Routes = [
   { path: "task-manager", component: TasksComponent },
   { path: "chess", component: ChessComponent },
   { path: "portfolio", component: PortfolioComponent },
-  { path: "todo", component: TodosComponent }
+  // { path: "todo", component: TodosComponent }
 ];
