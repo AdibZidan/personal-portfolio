@@ -1,0 +1,55 @@
+.main-header {
+  font-size: 1.4em;
+  padding: 10px;
+  text-align: center;
+}
+
+span {
+  font-size: 1.4em;
+}
+
+p,
+ul {
+  align-self: center;
+  padding: 20px;
+}
+
+.hobbies {
+  padding-top: 10px;
+}
+
+ul li {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+a {
+  color: #414141;
+}
+
+a:hover {
+  color: green;
+}
+
+div.information {
+  max-width: 300px;
+  margin: auto;
+}
+
+div.information img {
+  max-width: 100%;
+  border: 1px solid #ccc;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-content: flex-start;
+  // align-self: flex-end;
+  background-color: #dde0e3;
+  // background-color: red;
+  color: #414141;
+  font-size: 24px;
+  height: 810px;
+}

@@ -1,0 +1,10 @@
+<div class="title">
+  <h2>
+    WHAT'S YOUR TODO?
+  </h2>
+</div>
+
+<app-add (add)="addTodo($event)"></app-add>
+
+
+<app-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-item>

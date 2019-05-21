@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #2d3436;
+  color: #ccc;
+  height: 60px;
+}
+
+nav {
+  padding-right: 20px;
+  align-self: center;
+}
+
+.github {
+  border-radius: 50%;
+  padding-right: 10px;
+}
+
+p {
+  align-self: center;
+}

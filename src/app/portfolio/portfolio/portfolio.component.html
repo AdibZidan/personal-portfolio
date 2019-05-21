@@ -1,3 +1,27 @@
-<p>
-  portfolio works!
-</p>
+<!-- <header class="main-header">
+
+  <h1>Welcome to my {{ portfolio }} !</h1>
+
+</header> -->
+<main>
+
+  <p>My name is Adib Zidan and I'm Syrian/Ukrainian. I'm 24 years old and I've been living in Austria for the past 5
+    years.</p>
+  <p>I'm also an upcoming Front-End Developer based in Vienna and will graduate really soon from <a
+      href="https://www.newaustriancodingschool.at/" target="_blank"><em>New Austrian Coding
+        School</em></a>.</p>
+
+  <p>I'm more than grateful to be given this one in a life time opportunity to become a developer in the near future.
+  </p>
+
+  <ul class="hobbies"><span>My hobbies are:</span>
+    <li *ngFor="let hobby of hobbies"> {{ hobby }} </li>
+  </ul>
+
+  <div class="information">
+    <img src="../../../assets/Adib/Adib.jpg" alt="Adib Zidan">
+  </div>
+
+</main>
+
+<app-footer></app-footer>

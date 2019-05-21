@@ -1,0 +1,15 @@
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  background-color: #2d3436;
+}
+
+.navigation a {
+  color: #aaa;
+  text-decoration: none;
+  padding: 30px;
+}
+
+.navigation a:hover {
+  color: #00c5be;
+}

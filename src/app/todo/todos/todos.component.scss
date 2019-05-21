@@ -1,0 +1,17 @@
+div.title {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  color: black;
+}
+
+h2 {
+  // border-bottom: 1px solid #dfe6e9;
+  border-bottom: 1px solid #aaa;
+  font-size: 2em;
+}
+
+h2::first-letter {
+  color: rgb(199, 80, 99);
+  // padding-right: 1px;
+}

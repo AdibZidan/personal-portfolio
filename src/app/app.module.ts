@@ -1,30 +1,43 @@
-import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { TasksComponent } from "./task-manager/tasks/tasks.component";
-import { ChessComponent } from "./chess/chess/chess.component";
-import { TaskDetailComponent } from "./task-manager/task-detail/task-detail.component";
-import { MessagesComponent } from "./task-manager/messages/messages.component";
 import { PortfolioComponent } from "./portfolio/portfolio/portfolio.component";
-// import { TodosComponent } from "./todo/todos/todos.component";
-// import { ItemComponent } from "./todo/item/item.component";
+import { MessagesComponent } from "./task-manager/messages/messages.component";
+import { TaskDetailComponent } from "./task-manager/task-detail/task-detail.component";
+import { TasksComponent } from "./task-manager/tasks/tasks.component";
+import { AddComponent } from "./todo/add/add.component";
+import { ItemComponent } from "./todo/item/item.component";
+import { TodosComponent } from "./todo/todos/todos.component";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
     AppComponent,
     TasksComponent,
-    ChessComponent,
     TaskDetailComponent,
     MessagesComponent,
     PortfolioComponent,
-    // TodosComponent,
-    // ItemComponent
+    TodosComponent,
+    ItemComponent,
+    AddComponent,
+    HeaderComponent,
+    FooterComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+export class AppModule { }
