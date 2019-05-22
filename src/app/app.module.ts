@@ -13,7 +13,6 @@ import { ItemComponent } from "./todo/item/item.component";
 import { TodosComponent } from "./todo/todos/todos.component";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    NgxWebstorageModule.forRoot()
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
