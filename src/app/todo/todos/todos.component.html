@@ -6,8 +6,8 @@
 
 <app-add (add)="addTodo($event)"></app-add>
 
-<app-item 
-  *ngFor="let todo of todos" 
-  [todo]="todo"
-  (deleteTodo)="deleteTodo($event)">
-</app-item>
+<p *ngFor="let todo of todos">
+  {{ todo.id }}
+  {{ todo.title }}
+  {{ todo.completed }}
+</p>

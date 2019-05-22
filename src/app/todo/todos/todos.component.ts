@@ -11,30 +11,35 @@ import { Todo } from "src/app/classes/Todo";
 })
 
 export class TodosComponent implements OnInit {
-  todos: Todo[];
+  todos: Todo[] = [];
 
-  constructor(
-    private todoService: TodoService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    // this.getTasks();
+    this.showLocalStorage();
   }
 
-  getTasks(): void {
-    this.todoService.getTasks().subscribe(todos => (this.todos = todos));
+  addTodo(todo: Todo) {
+    this.todos.push(todo);
+    console.log(todo);
+    this.saveTodoToLocalStorage();
+    console.log(this.todos);
   }
 
-  deleteTodo(todo: Todo): void {
-    this.todos = this.todos.filter(todoToRemove => todo.title !== todoToRemove.title);
+  saveTodoToLocalStorage(): void {
+    console.log(this.todos);
 
-    this.todoService.deleteTodo(todo).subscribe();
+    localStorage.setItem('todo', JSON.stringify(this.todos));
   }
 
-  addTodo(todo: Todo): void {
-    this.todoService
-      .addTodo(todo)
-      .subscribe((todoToAdd: Todo) => this.todos.push(todoToAdd));
+  showLocalStorage(): void {
+    const savedTodo = localStorage.getItem('todo');
+
+    if (savedTodo) {
+      this.todos = JSON.parse(savedTodo);
+    } else {
+      this.todos = [];
+    }
   }
 
 }
