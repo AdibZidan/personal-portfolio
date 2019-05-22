@@ -4,7 +4,13 @@
   </h2>
 </div>
 
-<app-add (add)="addTodo($event)"></app-add>
+<app-add-input (addTodo)="add($event)"></app-add-input>
 
+<button (click)="clearLocalStorage()">Clear your todos</button>
 
-<app-item *ngFor="let todo of todos" [todo]="todo" (deleteTodo)="deleteTodo($event)"></app-item>
+<p *ngFor="let todo of todos" class="paragraph">
+  <input type="checkbox">
+  {{ todo.id }}
+  {{ todo.title | uppercase }}
+  {{ todo.completed }}
+</p>

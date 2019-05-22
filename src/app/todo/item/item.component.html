@@ -1,9 +1,8 @@
-<div [ngClass]="setLineThrough()">
+<div>
 
   <p>
-    <input type="checkbox" (change)="onToggle(todo)" [checked]="todo.completed">
-    {{ todo.title }}
-    <button class="delete" (click)="onDelete(todo)">X</button>
+    <input type="checkbox">
+    <button class="delete">X</button>
   </p>
 
 </div>

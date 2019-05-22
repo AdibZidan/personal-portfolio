@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <input class="input" type="number" formControlName="id" placeholder="Add an ID...">
+  <input class="input" type="text" formControlName="title" placeholder="Add a title">
+  <input type="checkbox" formControlName="completed">
+
+  <app-add-button></app-add-button>
+
+</form>
+
+<ng-container *ngIf="!isValid">
+  <p>
+    Invalid form!
+  </p>
+</ng-container>
