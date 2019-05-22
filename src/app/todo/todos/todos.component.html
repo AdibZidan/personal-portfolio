@@ -4,16 +4,21 @@
   </h2>
 </div>
 
-<app-add (add)="add($event)"></app-add>
+<app-add (addTodo)="addTodo($event)"></app-add>
 
+<main class="todos">
 
+  <!-- <section class="section">
+    <span>ID: </span> <span>Title: </span> <span> Completed</span>
+  </section> -->
 
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, atque.</p>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum possimus dolore eum voluptatem nam illum dolorum
-  repellendus ratione rerum quibusdam.</p>
+  <!-- <div class="test"> -->
 
-<p *ngFor="let todo of todos" (add)="add($event)">
-  {{ todo.id }}
-  {{ todo.title }}
-  {{ todo.completed }}
-</p>
+  <p class="todo" *ngFor="let todo of todos">
+    <input type="checkbox" [checked]="todo.completed">
+    {{ todo.title }}
+  </p>
+
+  <!-- </div> -->
+
+</main>

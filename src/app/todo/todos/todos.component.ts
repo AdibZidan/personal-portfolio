@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 
 import { TodoService } from "./../services/todo.service";
 
@@ -11,10 +11,8 @@ import { Todo } from "src/app/classes/Todo";
 })
 
 export class TodosComponent implements OnInit {
-  todos: Todo[] = [
-    { id: 1, title: 'Fuck this!', completed: true },
-    { id: 2, title: 'Fuck that!', completed: true }
-  ];
+  @Input() todo: Todo;
+  todos: Todo[] = [];
 
   constructor() { }
 

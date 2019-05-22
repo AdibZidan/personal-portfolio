@@ -12,4 +12,9 @@ export class AddButtonComponent implements OnInit {
 
   ngOnInit() { }
 
+  onClick() {
+    localStorage.clear();
+    window.location.reload();
+  }
+
 }

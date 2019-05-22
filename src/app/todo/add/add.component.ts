@@ -1,6 +1,5 @@
-import { Component, OnInit, Output, Input } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EventEmitter } from 'events';
 
 import { Todo } from './../../classes/Todo';
 
@@ -11,8 +10,7 @@ import { Todo } from './../../classes/Todo';
 })
 
 export class AddComponent implements OnInit {
-  // @Input() todo: Todo;
-  @Output() addTodo = new EventEmitter();
+  @Output() addTodo = new EventEmitter<Todo>();
 
   formGroup: FormGroup;
   isValidMessage: boolean = false;
@@ -32,7 +30,6 @@ export class AddComponent implements OnInit {
   onSubmit(): void {
     if (this.formGroup.valid) {
       this.addTodo.emit(this.formGroup.value);
-      // console.log(this.formGroup.value);
     }
   }
 
