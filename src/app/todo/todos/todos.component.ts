@@ -11,7 +11,10 @@ import { Todo } from "src/app/classes/Todo";
 })
 
 export class TodosComponent implements OnInit {
-  todos: Todo[] = [];
+  todos: Todo[] = [
+    { id: 1, title: 'Fuck this!', completed: true },
+    { id: 2, title: 'Fuck that!', completed: true }
+  ];
 
   constructor() { }
 
@@ -21,9 +24,7 @@ export class TodosComponent implements OnInit {
 
   addTodo(todo: Todo) {
     this.todos.push(todo);
-    console.log(todo);
     this.saveTodoToLocalStorage();
-    console.log(this.todos);
   }
 
   saveTodoToLocalStorage(): void {

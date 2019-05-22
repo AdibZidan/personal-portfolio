@@ -10,29 +10,29 @@ import { HTTPOPTIONS } from "./../../classes/HttpOptions";
 
 export class TodoService {
 
-  private url: string = "https://jsonplaceholder.typicode.com/todos";
-  private urlLimit: string = "?_limit=5";
+  // private url: string = "https://jsonplaceholder.typicode.com/todos";
+  // private urlLimit: string = "?_limit=5";
 
-  constructor(private httpClient: HttpClient) { }
+  // constructor(private httpClient: HttpClient) { }
 
-  getTasks(): Observable<Todo[]> {
-    return this.httpClient.get<Todo[]>(`${this.url}${this.urlLimit}`);
-  }
+  // getTasks(): Observable<Todo[]> {
+  //   return this.httpClient.get<Todo[]>(`${this.url}${this.urlLimit}`);
+  // }
 
-  toggleCompleted(todo: Todo): Observable<any> {
-    const url: string = `${this.url}/${todo.id}`;
+  // toggleCompleted(todo: Todo): Observable<any> {
+  //   const url: string = `${this.url}/${todo.id}`;
 
-    return this.httpClient.put(url, todo, HTTPOPTIONS);
-  }
+  //   return this.httpClient.put(url, todo, HTTPOPTIONS);
+  // }
 
-  deleteTodo(todo: Todo): Observable<Todo> {
-    const url: string = `${this.url}/${todo.id}`;
+  // deleteTodo(todo: Todo): Observable<Todo> {
+  //   const url: string = `${this.url}/${todo.id}`;
 
-    return this.httpClient.delete<Todo>(url, HTTPOPTIONS);
-  }
+  //   return this.httpClient.delete<Todo>(url, HTTPOPTIONS);
+  // }
 
-  addTodo(todo: Todo): Observable<Todo> {
-    return this.httpClient.post<Todo>(this.url, todo, HTTPOPTIONS);
-  }
+  // addTodo(todo: Todo): Observable<Todo> {
+  //   return this.httpClient.post<Todo>(this.url, todo, HTTPOPTIONS);
+  // }
 
 }

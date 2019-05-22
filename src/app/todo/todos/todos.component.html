@@ -4,9 +4,15 @@
   </h2>
 </div>
 
-<app-add (add)="addTodo($event)"></app-add>
+<app-add (add)="add($event)"></app-add>
 
-<p *ngFor="let todo of todos">
+
+
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, atque.</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum possimus dolore eum voluptatem nam illum dolorum
+  repellendus ratione rerum quibusdam.</p>
+
+<p *ngFor="let todo of todos" (add)="add($event)">
   {{ todo.id }}
   {{ todo.title }}
   {{ todo.completed }}
