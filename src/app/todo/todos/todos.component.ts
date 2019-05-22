@@ -1,4 +1,3 @@
-import { LocalStorage, LocalStorageService } from 'ngx-webstorage';
 import { Component, OnInit } from "@angular/core";
 
 import { TodoService } from "./../services/todo.service";
@@ -14,17 +13,9 @@ import { Todo } from "src/app/classes/Todo";
 export class TodosComponent implements OnInit {
   todos: Todo[];
 
-  constructor(
-    private todoService: TodoService,
-    private localStorage: LocalStorageService
-  ) { }
+  constructor(private todoService: TodoService) { }
 
-  ngOnInit() {
-    this.getTasks();
-    this.getTodosFromLocalStorage();
-    console.log(this.localStorage.retrieve('Todos'));
-
-  }
+  ngOnInit() { this.getTasks(); }
 
   getTasks(): void {
     this.todoService.getTasks().subscribe(todos => (this.todos = todos));
@@ -40,19 +31,6 @@ export class TodosComponent implements OnInit {
     this.todoService
       .addTodo(todo)
       .subscribe((todoToAdd: Todo) => this.todos.push(todoToAdd));
-
-    this.localStorage.store('Todos', this.todos);
-    this.todos = this.localStorage.retrieve('Todos');
-
-    localStorage.setItem('Todos', JSON.stringify(this.todos));
-  }
-
-  getTodosFromLocalStorage() {
-    if (localStorage.getItem('Todos') === null) {
-      this.todos = [];
-    } else {
-      this.todos = JSON.parse(localStorage.getItem('Todos'));
-    }
   }
 
 }
