@@ -14,6 +14,7 @@ import { TodosComponent } from "./todo/todos/todos.component";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AddButtonComponent } from './todo/add-button/add-button.component';
+import { BodyComponent } from './todo/body/body.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddButtonComponent } from './todo/add-button/add-button.component';
     AddComponent,
     HeaderComponent,
     FooterComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
