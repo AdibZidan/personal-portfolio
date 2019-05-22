@@ -13,9 +13,13 @@ import { Todo } from "src/app/classes/Todo";
 export class TodosComponent implements OnInit {
   todos: Todo[];
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+    private todoService: TodoService
+  ) { }
 
-  ngOnInit() { this.getTasks(); }
+  ngOnInit() {
+    // this.getTasks();
+  }
 
   getTasks(): void {
     this.todoService.getTasks().subscribe(todos => (this.todos = todos));

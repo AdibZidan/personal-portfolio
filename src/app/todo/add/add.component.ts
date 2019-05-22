@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-
+import { Component, OnInit, Output } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: "app-add",
@@ -8,9 +9,28 @@ import { Component, OnInit } from "@angular/core";
 })
 
 export class AddComponent implements OnInit {
+  @Output() addTodo: EventEmitter = new EventEmitter();
 
-  constructor() { }
+  formGroup: FormGroup;
+  isValidMessage: boolean = false;
 
-  ngOnInit() { }
+  constructor(private formBuilder: FormBuilder) { }
+
+  ngOnInit() {
+    this.formGroup = this.formBuilder.group({
+      id: ['', Validators.required],
+      title: ['', Validators.required],
+      completed: [false]
+    });
+
+    this.formGroup.valueChanges.subscribe(() => this.isValidMessage = this.formGroup.valid);
+  }
+
+  onSubmit(): void {
+    if (this.formGroup.valid) {
+      this.addTodo.emit(this.formGroup.value);
+      console.log(this.formGroup.value);
+    }
+  }
 
 }

@@ -1,9 +1,20 @@
-<form class="form" (ngSubmit)="onSubmit()">
+<div class="outer">
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-  <input type="text" name="title" [(ngModel)]="title" placeholder="Add a task..." class="input">
+    <input class="input" type="number" placeholder="Add an ID..." formControlName="id">
+    <input class="input" type="text" placeholder="Add a task..." formControlName="title">
 
-  <div>
-    <input type="submit" value="add" class="button" />
-  </div>
+    <div class="inner">
+      <label class="label" for="completed"><span class="completed">Completed?</span></label>
+      <input class="checkbox" type="checkbox" formControlName="completed">
+    </div>
 
-</form>
+    <app-add-button></app-add-button>
+
+  </form>
+
+</div>
+
+<ng-container *ngIf="!isValidMessage">
+  <p class="invalid">FORM IS INVALID!</p>
+</ng-container>
