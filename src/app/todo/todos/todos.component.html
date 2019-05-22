@@ -1,24 +1,14 @@
-<div class="title">
+<header class="title">
   <h2>
     WHAT'S YOUR TODO?
   </h2>
-</div>
+</header>
 
-<app-add (addTodo)="addTodo($event)"></app-add>
 
 <main class="todos">
 
-  <!-- <section class="section">
-    <span>ID: </span> <span>Title: </span> <span> Completed</span>
-  </section> -->
+  <app-add (addTodo)="addTodo($event)"></app-add>
 
-  <!-- <div class="test"> -->
-
-  <p class="todo" *ngFor="let todo of todos">
-    <input type="checkbox" [checked]="todo.completed">
-    {{ todo.title }}
-  </p>
-
-  <!-- </div> -->
+  <app-body *ngFor="let todo of todos" [todo]="todo"></app-body>
 
 </main>

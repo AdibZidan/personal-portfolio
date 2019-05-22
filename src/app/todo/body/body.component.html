@@ -1,0 +1,22 @@
+<div>
+
+  <div class="pretty p-default p-curve p-toggle">
+    <input type="checkbox" [checked]="todo.completed" />
+    <div class="state p-success p-on">
+      <label>{{ todo.id }} {{ todo.title }}</label>
+    </div>
+    <div class="state p-danger p-off">
+      <label>{{ todo.id }} {{ todo.title }}</label>
+    </div>
+  </div>
+
+</div>
+
+<!-- <section class="section">
+        <span>ID: </span> <span>Title: </span> <span> Completed</span>
+      </section> -->
+
+<!-- <p class="todo" *ngFor="let todo of todos">
+      <input type="checkbox" [checked]="todo.completed">
+      {{ todo.title }}
+    </p> -->

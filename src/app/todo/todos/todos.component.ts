@@ -11,7 +11,6 @@ import { Todo } from "src/app/classes/Todo";
 })
 
 export class TodosComponent implements OnInit {
-  @Input() todo: Todo;
   todos: Todo[] = [];
 
   constructor() { }
