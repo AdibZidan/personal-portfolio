@@ -2,6 +2,7 @@ import { TodoService } from './../../services/todo.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Todo } from './../../classes/Todo';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -11,14 +12,15 @@ import { Todo } from './../../classes/Todo';
 
 export class MainComponent implements OnInit {
   todos: Todo[] = [];
+  todos$: Observable<Todo[]>;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { this.getTodos(); }
 
   getTodos(): void {
-    this.todoService.getTodos()
-      .subscribe(todosToAdd => this.todos = todosToAdd);
+    this.todos$ = this.todoService.getTodos()
+    // .subscribe(todosToAdd => this.todos = todosToAdd);
   }
 
   addTodo(todo: Todo): void {
@@ -27,7 +29,7 @@ export class MainComponent implements OnInit {
       .subscribe((todoToAdd: Todo) => this.todos.push(todoToAdd));
   }
 
-  deleteToDo(todo: Todo): void {
+  deleteTodo(todo: Todo): void {
     this.todos = this.todos
       .filter((todoToBeDeleted: Todo) =>
         todo.id !== todoToBeDeleted.id);

@@ -1,18 +1,16 @@
 .title {
   margin: auto;
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   max-width: 900px;
   padding: 30px 20px;
-  color: black;
-  background-color: #ccc;
+  background-color: #aaa;
   box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 h2 {
-  border-bottom: 1px solid #aaa;
-  font-size: 2em;
+  font-size: 3em;
 }
 
 h2::first-letter {
@@ -20,10 +18,10 @@ h2::first-letter {
 }
 
 .todos {
-  padding: 20px;
   max-width: 900px;
   margin: auto;
-  margin-bottom: 80px;
-  background-color: #ccc;
+  margin-bottom: 60px;
+  background-color: #aaa;
   box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  min-height: 66vh;
 }

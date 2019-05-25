@@ -7,9 +7,11 @@
 </header>
 
 <main class="todos">
+  <ng-container *ngIf="todos$ | async as todos">
 
-  <app-form (addTodo)="addTodo($event)"></app-form>
+    <app-form (addTodo)="addTodo($event)"></app-form>
 
-  <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteToDo($event)"></app-body>
+    <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteTodo($event)"></app-body>
 
+  </ng-container>
 </main>

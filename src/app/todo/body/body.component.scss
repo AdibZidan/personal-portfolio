@@ -7,12 +7,15 @@
 .todo {
   padding: 25px 10px;
   border-bottom: 1px solid #aaa;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .checkbox {
-  padding: 10px;
   cursor: pointer;
+}
+
+.title {
+  padding-left: 10px;
 }
 
 .delete {
@@ -48,5 +51,5 @@
 .is-complete {
   text-decoration: line-through;
   text-decoration-color: rgb(199, 80, 99);
-  animation: lineThrough 2.5s linear;
+  animation: lineThrough 2s linear;
 }

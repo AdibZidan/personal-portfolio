@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Todo } from '../../classes/Todo';
@@ -12,8 +12,8 @@ import { Todo } from '../../classes/Todo';
 export class FormComponent implements OnInit {
   @Output() addTodo = new EventEmitter<Todo>();
 
-  public formGroup: FormGroup;
-  public isValidForm: boolean = false;
+  private formGroup: FormGroup;
+  private isValidForm: boolean = false;
 
   constructor(private formBuilder: FormBuilder) { }
 

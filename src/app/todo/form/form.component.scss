@@ -1,6 +1,7 @@
 .outer {
   display: flex;
   justify-content: center;
+  padding-top: 10px;
 }
 
 .form {
@@ -8,7 +9,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 600px;
+  width: 500px;
 }
 
 .form ::placeholder {
@@ -34,7 +35,7 @@
   width: 100%;
   font-size: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   border-radius: 10px;
   color: #ccc;
 }

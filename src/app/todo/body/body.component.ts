@@ -14,13 +14,11 @@ export class BodyComponent implements OnInit {
   @Input() todo: Todo;
   @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
 
-  todos: Todo[];
-
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
 
-  setLineThrough() {
+  setLineThrough(): object {
     const lineThrough = {
       'is-complete': this.todo.completed
     };
