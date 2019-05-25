@@ -1,0 +1,29 @@
+.title {
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  padding: 30px 20px;
+  color: black;
+  background-color: #ccc;
+  box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+h2 {
+  border-bottom: 1px solid #aaa;
+  font-size: 2em;
+}
+
+h2::first-letter {
+  color: rgb(199, 80, 99);
+}
+
+.todos {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 80px;
+  background-color: #ccc;
+  box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}

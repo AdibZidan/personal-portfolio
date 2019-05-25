@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+
+import { TodoService } from './../../services/todo.service';
 
 import { Todo } from './../../classes/Todo';
 
@@ -10,9 +12,32 @@ import { Todo } from './../../classes/Todo';
 
 export class BodyComponent implements OnInit {
   @Input() todo: Todo;
+  @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
 
-  constructor() { }
+  todos: Todo[];
+
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
+
+  setLineThrough() {
+    const lineThrough = {
+      'is-complete': this.todo.completed
+    };
+
+    return lineThrough;
+  }
+
+  onToggle(todo: Todo): void {
+    todo.completed = !todo.completed;
+
+    this.todoService
+      .toggleCompleted(todo)
+      .subscribe(todoOnToggle => console.log(todoOnToggle));
+  }
+
+  onDelete(todo: Todo) {
+    this.deleteToDo.emit(todo);
+  }
 
 }

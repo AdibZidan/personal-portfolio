@@ -1,0 +1,15 @@
+<header class="title">
+
+  <h2>
+    WHAT'S YOUR TODO?
+  </h2>
+
+</header>
+
+<main class="todos">
+
+  <app-form (addTodo)="addTodo($event)"></app-form>
+
+  <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteToDo($event)"></app-body>
+
+</main>

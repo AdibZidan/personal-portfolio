@@ -1,22 +1,14 @@
-<div>
+<section class="todos">
 
-  <div class="pretty p-default p-curve p-toggle">
-    <input type="checkbox" [checked]="todo.completed" />
-    <div class="state p-success p-on">
-      <label>{{ todo.id }} {{ todo.title }}</label>
-    </div>
-    <div class="state p-danger p-off">
-      <label>{{ todo.id }} {{ todo.title }}</label>
-    </div>
-  </div>
+  <p class="todo" [ngClass]="setLineThrough()">
 
-</div>
+    <span class="checkbox">
+      <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)">
+    </span>
 
-<!-- <section class="section">
-        <span>ID: </span> <span>Title: </span> <span> Completed</span>
-      </section> -->
+    <span class="title">{{ todo.title }}</span>
+    <button class="delete" (click)="onDelete(todo)">X</button>
 
-<!-- <p class="todo" *ngFor="let todo of todos">
-      <input type="checkbox" [checked]="todo.completed">
-      {{ todo.title }}
-    </p> -->
+  </p>
+
+</section>

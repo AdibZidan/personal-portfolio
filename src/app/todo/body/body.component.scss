@@ -1,19 +1,52 @@
-@import "~pretty-checkbox/src/pretty-checkbox.scss";
-
-label {
-  font-size: 25px;
+.todos {
+  padding: 40px;
+  max-width: 960px;
+  margin: auto;
 }
 
-div {
-  display: flex;
-  flex-direction: column;
-  width: 100px;
+.todo {
+  padding: 25px 10px;
+  border-bottom: 1px solid #aaa;
+  font-size: 20px;
 }
 
-// .section {
-//   background-color: #fff;
-//   border: 1px solid red;
-//   display: flex;
-//   justify-content: space-around;
-//   width: 100%;
-// }
+.checkbox {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.delete {
+  color: #aaa;
+  background-color: #2d3436;
+  float: right;
+  padding: 4px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  border: 1px solid rgb(199, 80, 99);
+  outline: none;
+}
+
+.delete:hover {
+  color: #00c5be;
+}
+
+.delete:active {
+  background-color: rgb(199, 80, 99);
+  color: #ccc;
+}
+
+@keyframes lineThrough {
+  from {
+    text-decoration-color: transparent;
+  }
+  to {
+    text-decoration-color: auto;
+  }
+}
+
+.is-complete {
+  text-decoration: line-through;
+  text-decoration-color: rgb(199, 80, 99);
+  animation: lineThrough 2.5s linear;
+}
