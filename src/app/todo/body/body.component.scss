@@ -2,6 +2,7 @@
   padding: 40px;
   max-width: 960px;
   margin: auto;
+  border-bottom: 1px solid #2d3436;
 }
 
 .todo {
@@ -42,14 +43,21 @@
 @keyframes lineThrough {
   from {
     text-decoration-color: transparent;
+    color: black;
   }
   to {
     text-decoration-color: auto;
+  }
+  0% {
+    color: black;
+  }
+  100% {
+    opacity: 0.5;
   }
 }
 
 .is-complete {
   text-decoration: line-through;
   text-decoration-color: rgb(199, 80, 99);
-  animation: lineThrough 2s linear;
+  animation: lineThrough 2s forwards;
 }

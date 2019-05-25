@@ -5,16 +5,12 @@
   justify-content: center;
   max-width: 900px;
   padding: 30px 20px;
-  background-color: #aaa;
-  box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  color: #ccc;
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
 }
 
 h2 {
   font-size: 3em;
-}
-
-h2::first-letter {
-  color: rgb(199, 80, 99);
 }
 
 .todos {
@@ -22,6 +18,6 @@ h2::first-letter {
   margin: auto;
   margin-bottom: 60px;
   background-color: #aaa;
-  box-shadow: -2px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  min-height: 66vh;
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
+  min-height: 30vh;
 }

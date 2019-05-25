@@ -1,12 +1,12 @@
 <section class="todos">
 
-  <p class="todo" [ngClass]="setLineThrough()">
+  <p class="todo">
 
     <span class="checkbox">
       <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)">
     </span>
 
-    <span class="title">{{ todo.title }}</span>
+    <span class="title" [ngClass]="setLineThrough()">{{ todo.title }}</span>
     <button class="delete" (click)="onDelete(todo)">X</button>
 
   </p>
