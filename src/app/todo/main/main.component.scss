@@ -5,8 +5,17 @@
   justify-content: center;
   max-width: 900px;
   padding: 30px 20px;
-  color: #ccc;
+  color: #aaa;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
+}
+
+p {
+  padding: 10px;
+}
+
+p span {
+  color: black;
+  border-bottom: 1px solid #2d3436;
 }
 
 h2 {
@@ -19,5 +28,5 @@ h2 {
   margin-bottom: 60px;
   background-color: #aaa;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
-  min-height: 30vh;
+  min-height: 300px;
 }

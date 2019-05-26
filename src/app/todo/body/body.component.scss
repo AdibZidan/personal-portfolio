@@ -2,7 +2,7 @@
   padding: 40px;
   max-width: 960px;
   margin: auto;
-  border-bottom: 1px solid #2d3436;
+  border-top: 1px solid #2d3436;
 }
 
 .todo {
@@ -19,25 +19,36 @@
   padding-left: 10px;
 }
 
-.delete {
+.button {
   color: #aaa;
   background-color: #2d3436;
   float: right;
   padding: 4px 8px;
-  border-radius: 50%;
+  border-radius: 10px;
   cursor: pointer;
   border: none;
-  border: 1px solid rgb(199, 80, 99);
+  // border: 1px solid rgb(199, 80, 99);
   outline: none;
+  letter-spacing: 1px;
+  transition: transform 120ms ease-in;
 }
 
-.delete:hover {
+.button:hover {
   color: #00c5be;
 }
 
-.delete:active {
+.button:active {
   background-color: rgb(199, 80, 99);
   color: #ccc;
+  transform: scale(0.95);
+}
+
+.edit {
+  margin-right: 10px;
+}
+
+.edit:active {
+  background-color: #2d3436;
 }
 
 @keyframes lineThrough {
@@ -47,9 +58,6 @@
   }
   to {
     text-decoration-color: auto;
-  }
-  0% {
-    color: black;
   }
   100% {
     opacity: 0.5;

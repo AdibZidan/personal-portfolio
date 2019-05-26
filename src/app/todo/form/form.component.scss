@@ -1,7 +1,7 @@
 .outer {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .form {
@@ -10,6 +10,7 @@
   flex-direction: column;
   align-items: center;
   width: 500px;
+  padding: 10px;
 }
 
 .form ::placeholder {
@@ -45,7 +46,7 @@
 }
 
 .invalid {
-  padding: 15px;
+  padding-top: 15px;
   color: rgb(199, 80, 99);
   text-align: center;
   font-size: 1.6em;

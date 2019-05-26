@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { HTTPOPTIONS } from '../classes/HttpOptions'
 
@@ -16,11 +17,14 @@ export class TodoService {
   constructor(private httpClient: HttpClient) { }
 
   getTodos(): Observable<Todo[]> {
-    return this.httpClient.get<Todo[]>(this.url);
+    return this.httpClient
+      .get<Todo[]>(this.url)
+      .pipe(tap(() => console.log('Fetched tasks')));
   }
 
   addTodoToBackEnd(todo: Todo): Observable<Todo> {
-    location.reload();
+    // location.reload();
+
     return this.httpClient.post<Todo>(this.url, todo, HTTPOPTIONS);
   }
 
@@ -36,6 +40,12 @@ export class TodoService {
     location.reload();
 
     return this.httpClient.delete<Todo>(url, HTTPOPTIONS);
+  }
+
+  updateTodoFromBackEnd(todo: Todo): Observable<Todo> {
+    const url: string = `${this.url}/edit/${todo.id}`;
+
+    return this.httpClient.put<Todo>(url, todo);
   }
 
 }

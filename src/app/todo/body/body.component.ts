@@ -14,6 +14,8 @@ export class BodyComponent implements OnInit {
   @Input() todo: Todo;
   @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
 
+  private editTodo: Todo;
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
@@ -36,6 +38,10 @@ export class BodyComponent implements OnInit {
 
   onDelete(todo: Todo) {
     this.deleteToDo.emit(todo);
+  }
+
+  onEdit(todo: Todo) {
+    this.editTodo = todo;
   }
 
 }

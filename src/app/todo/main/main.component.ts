@@ -11,15 +11,15 @@ import { Observable } from 'rxjs';
 })
 
 export class MainComponent implements OnInit {
-  todos: Todo[] = [];
-  todos$: Observable<Todo[]>;
+  private todos: Todo[] = [];
+  private todos$: Observable<Todo[]>;
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { this.getTodos(); }
 
   getTodos(): void {
-    this.todos$ = this.todoService.getTodos()
+    this.todos$ = this.todoService.getTodos();
     // .subscribe(todosToAdd => this.todos = todosToAdd);
   }
 
@@ -38,5 +38,11 @@ export class MainComponent implements OnInit {
       .deleteToDoFromBackEnd(todo)
       .subscribe(todosToDelete => console.log(todosToDelete));
   }
+
+  // update() {
+  //   if (this.editTodo) {
+  //     this.todoService.updateTodoFromBackEnd(this.editTodo).subscribe()
+  //   }
+  // }
 
 }

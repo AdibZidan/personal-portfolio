@@ -6,8 +6,18 @@
       <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)">
     </span>
 
-    <span class="title" [ngClass]="setLineThrough()">{{ todo.title }}</span>
-    <button class="delete" (click)="onDelete(todo)">X</button>
+    <!-- <span *ngIf="todo !== editTodo">
+      {{ todo.title }}
+    </span> -->
+
+    <!-- <input *ngIf="todo === editTodo" [(ngModel)]="todo.title" (blur)="update()" (keyup.enter)="update()"> -->
+
+    <span class="title" [ngClass]="setLineThrough()">
+      {{ todo.title }}
+    </span>
+
+    <button class="button" (click)="onDelete(todo)">X</button>
+    <button class="button edit" (click)="onEdit(todo)">EDIT</button>
 
   </p>
 
