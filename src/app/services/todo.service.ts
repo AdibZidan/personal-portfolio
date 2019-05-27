@@ -23,7 +23,6 @@ export class TodoService {
   }
 
   addTodoToBackEnd(todo: Todo): Observable<Todo> {
-    // location.reload();
 
     return this.httpClient.post<Todo>(this.url, todo, HTTPOPTIONS);
   }
@@ -37,7 +36,6 @@ export class TodoService {
   deleteToDoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/delete/${todo.id}`;
 
-    location.reload();
 
     return this.httpClient.delete<Todo>(url, HTTPOPTIONS);
   }

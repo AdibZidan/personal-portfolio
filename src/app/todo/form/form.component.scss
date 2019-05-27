@@ -1,22 +1,25 @@
 .outer {
   display: flex;
   justify-content: center;
+
   padding-top: 5px;
 }
 
 .form {
+  width: 500px;
+  padding: 10px;
+
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 500px;
-  padding: 10px;
 }
 
 .form ::placeholder {
-  color: #aaa;
   padding-left: 10px;
   border: none;
+
+  color: #fff;
 }
 
 .form .input:hover::-webkit-input-placeholder {
@@ -24,41 +27,54 @@
 }
 
 .input {
-  background-color: #2d3436;
   cursor: pointer;
+
+  margin: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #2d3436;
+  border-radius: 10px;
+
+  font-size: 20px;
+
+  background-color: #512da8;
+  color: #fff;
 }
 
 .input:active {
-  background-color: #2d3436;
-}
-
-.input {
-  width: 100%;
-  font-size: 20px;
-  padding: 10px;
-  border: 1px solid #aaa;
-  border-radius: 10px;
-  color: #ccc;
+  background-color: #512da8;
 }
 
 .input:focus {
   outline: none;
 }
 
+.percentage::-webkit-inner-spin-button,
+.percentage::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
 .invalid {
   padding-top: 15px;
-  color: rgb(199, 80, 99);
+
+  color: #fff;
   text-align: center;
   font-size: 1.6em;
 }
 
 .inner {
+  margin: 5px;
+
   display: flex;
   justify-content: space-around;
-  background-color: #2d3436;
-  border-radius: 10px;
-  padding: 5px;
   flex-direction: column;
+
+  background-color: #512da8;
+  border: 1px solid #2d3436;
+  border-radius: 10px;
+
+  padding: 5px;
 }
 
 .label {
@@ -71,7 +87,7 @@
 }
 
 .completed {
-  color: #aaa;
+  color: #fff;
 }
 
 .completed:hover {

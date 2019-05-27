@@ -1,4 +1,8 @@
-<nav class="navigation">
+<nav class="navigation"
+  [ngStyle]="[routerLink].isActive ? {'background-color':'active_rgb(130, 133, 168)'} : {'background-color':'active_red'}">
+
   <a [routerLink]="['/portfolio']">Portfolio</a>
+
   <a [routerLink]="['/todo']">Todo</a>
+
 </nav>

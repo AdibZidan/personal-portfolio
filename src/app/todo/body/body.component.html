@@ -1,24 +1,30 @@
 <section class="todos">
 
-  <p class="todo">
+  <article class="todo">
 
-    <span class="checkbox">
-      <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)">
-    </span>
-
-    <!-- <span *ngIf="todo !== editTodo">
+    <h2>
       {{ todo.title }}
-    </span> -->
 
-    <!-- <input *ngIf="todo === editTodo" [(ngModel)]="todo.title" (blur)="update()" (keyup.enter)="update()"> -->
+      <button class="button" (click)="onDelete(todo)">X</button>
 
-    <span class="title" [ngClass]="setLineThrough()">
-      {{ todo.title }}
-    </span>
+      <button class="button edit" (click)="onEdit(todo)">EDIT</button>
 
-    <button class="button" (click)="onDelete(todo)">X</button>
-    <button class="button edit" (click)="onEdit(todo)">EDIT</button>
+    </h2>
 
-  </p>
+    <p [ngClass]="setLineThrough()">
+      <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)"
+        *ngIf="todo.description || !setLineThrough()">
+
+      <span class="percentage" *ngIf="todo.percentage">
+        {{ todo.percentage }}%
+      </span>
+
+      <span *ngIf="todo.description">
+        {{ todo.description }}
+      </span>
+
+    </p>
+
+  </article>
 
 </section>

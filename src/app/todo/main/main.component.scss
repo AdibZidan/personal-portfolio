@@ -1,32 +1,37 @@
 .title {
+  max-width: 900px;
   margin: auto;
   margin-top: 60px;
+  padding: 30px 20px;
+
   display: flex;
   justify-content: center;
-  max-width: 900px;
-  padding: 30px 20px;
-  color: #aaa;
+
+  color: #fff;
+  background-color: #512da8;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
 }
 
 p {
   padding: 10px;
-}
-
-p span {
-  color: black;
-  border-bottom: 1px solid #2d3436;
+  color: #fff;
 }
 
 h2 {
   font-size: 3em;
 }
 
+h2::first-letter {
+  color: #cacaca;
+}
+
 .todos {
   max-width: 900px;
   margin: auto;
   margin-bottom: 60px;
-  background-color: #aaa;
+  min-height: 450px;
+
+  color: #fff;
+  background: #673ab7;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
-  min-height: 300px;
 }

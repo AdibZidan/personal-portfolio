@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Todo } from '../../classes/Todo';
@@ -21,6 +21,8 @@ export class FormComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       id: [],
       title: ['', Validators.required],
+      description: [''],
+      percentage: [''],
       completed: [false]
     });
 

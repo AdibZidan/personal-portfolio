@@ -1,35 +1,61 @@
 .todos {
-  padding: 40px;
   max-width: 960px;
   margin: auto;
+  padding: 40px;
+
   border-top: 1px solid #2d3436;
 }
 
 .todo {
+  max-width: 900px;
   padding: 25px 10px;
-  border-bottom: 1px solid #aaa;
+
   font-size: 22px;
+  word-wrap: break-word;
 }
 
 .checkbox {
   cursor: pointer;
 }
 
-.title {
-  padding-left: 10px;
+.percentage {
+  margin: 5px;
+
+  background-color: #512da8;
+  color: #fff;
+
+  font-size: 18px;
+}
+
+h2 {
+  margin-bottom: 10px;
+
+  color: #cacaca;
+}
+
+.description {
+  color: #fff;
+
+  text-overflow: initial;
+  white-space: initial;
+  overflow: hidden;
 }
 
 .button {
-  color: #aaa;
-  background-color: #2d3436;
   float: right;
+
+  margin-top: 7px;
   padding: 4px 8px;
-  border-radius: 10px;
   cursor: pointer;
+
+  background-color: #512da8;
+  color: #fff;
+
+  border-radius: 10px;
   border: none;
-  // border: 1px solid rgb(199, 80, 99);
   outline: none;
   letter-spacing: 1px;
+
   transition: transform 120ms ease-in;
 }
 
@@ -40,6 +66,7 @@
 .button:active {
   background-color: rgb(199, 80, 99);
   color: #ccc;
+
   transform: scale(0.95);
 }
 
@@ -48,18 +75,18 @@
 }
 
 .edit:active {
-  background-color: #2d3436;
+  background-color: #512da8;
 }
 
 @keyframes lineThrough {
   from {
     text-decoration-color: transparent;
-    color: black;
   }
   to {
     text-decoration-color: auto;
   }
   100% {
+    color: black;
     opacity: 0.5;
   }
 }
@@ -67,5 +94,5 @@
 .is-complete {
   text-decoration: line-through;
   text-decoration-color: rgb(199, 80, 99);
-  animation: lineThrough 2s forwards;
+  animation: lineThrough 2.5s forwards;
 }

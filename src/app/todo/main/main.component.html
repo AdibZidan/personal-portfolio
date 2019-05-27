@@ -6,22 +6,20 @@
 
 </header>
 
-
 <main class="todos">
 
-  <p>
-    <span>
-      There are {{ todos.length }} todos
-    </span>
-  </p>
-
   <ng-container *ngIf="todos$ | async as todos">
+
+    <p>
+      <span *ngIf="todos.length > 1">
+        There are {{ todos.length }} todos
+      </span>
+    </p>
 
     <app-form (addTodo)="addTodo($event)"></app-form>
 
     <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteTodo($event)"></app-body>
 
   </ng-container>
-
 
 </main>

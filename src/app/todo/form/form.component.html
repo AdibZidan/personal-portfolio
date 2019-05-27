@@ -2,11 +2,18 @@
 
   <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-    <input class="input" type="text" placeholder="Add a task..." formControlName="title">
+    <input class="input" type="text" placeholder="Add a task...*" formControlName="title">
+
+    <input class="input" type="text" placeholder="Add a description..." formControlName="description">
+
+    <input class="input percentage" type="number" placeholder="Add a percentage..." min="-1" max="100" step="any"
+      formControlName="percentage">
 
     <div class="inner">
+
       <label class="label" for="completed"><span class="completed">Completed?</span></label>
       <input class="checkbox" type="checkbox" formControlName="completed">
+
     </div>
 
     <app-add-button></app-add-button>
