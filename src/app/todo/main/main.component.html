@@ -10,13 +10,14 @@
 
   <ng-container *ngIf="todos$ | async as todos">
 
+
+    <app-form (addTodo)="addTodo($event)"></app-form>
+
     <p>
-      <span *ngIf="todos.length > 1">
+      <span *ngIf="todos.length > 1" class="remove">
         There are {{ todos.length }} todos
       </span>
     </p>
-
-    <app-form (addTodo)="addTodo($event)"></app-form>
 
     <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteTodo($event)"></app-body>
 

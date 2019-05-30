@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
 
   private formGroup: FormGroup;
   private isValidForm: boolean = false;
+  private validNumberPattern: string = '^[1-9][0-9]?$|^100$'
 
   constructor(private formBuilder: FormBuilder) { }
 

@@ -9,11 +9,19 @@ import { BodyComponent } from '../body/body.component';
 
 import { LoadingSpinnerComponent } from '../../ui/loading-spinner/loading-spinner.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatDialogModule } from '@angular/material/dialog/';
+
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    BodyComponent
   ],
   declarations: [
     MainComponent,

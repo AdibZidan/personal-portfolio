@@ -6,13 +6,23 @@
 
     <input class="input" type="text" placeholder="Add a description..." formControlName="description">
 
-    <input class="input percentage" type="number" placeholder="Add a percentage..." min="-1" max="100" step="any"
+    <input class="input percentage" type="number" placeholder="Add a percentage..." [pattern]="validNumberPattern"
       formControlName="percentage">
 
     <div class="inner">
 
       <label class="label" for="completed"><span class="completed">Completed?</span></label>
-      <input class="checkbox" type="checkbox" formControlName="completed">
+
+    </div>
+
+    <div class="test">
+
+      <label class="container">
+
+        <input type="checkbox" formControlName="completed">
+        <span class="checkmark"></span>
+
+      </label>
 
     </div>
 
@@ -22,7 +32,7 @@
 
 </div>
 
-<ng-container *ngIf="!isValidForm">
+<!-- <ng-container *ngIf="!isValidForm">
 
   <p class="invalid">
     <strong>FORM IS INVALID!</strong>
@@ -30,4 +40,4 @@
 
   <app-loading-spinner></app-loading-spinner>
 
-</ng-container>
+</ng-container> -->
