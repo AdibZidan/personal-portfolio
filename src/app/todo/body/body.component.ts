@@ -1,12 +1,9 @@
-import { FormComponent } from './../form/form.component';
-import { Observable } from 'rxjs';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { TodoService } from './../../services/todo.service';
 
 import { Todo } from './../../classes/Todo';
-
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-body',
@@ -21,10 +18,7 @@ export class BodyComponent implements OnInit {
   private todos$: Observable<Todo[]>;
   private editTodo: Todo;
 
-  constructor(
-    private todoService: TodoService,
-    private dialog: MatDialog
-  ) { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
 
@@ -42,8 +36,6 @@ export class BodyComponent implements OnInit {
     this.todoService
       .toggleCompleted(todo)
       .subscribe(todoOnToggle => console.log(todoOnToggle));
-    
-    this.dialog.open(FormComponent)
   }
 
   onDelete(todo: Todo) {
@@ -74,6 +66,10 @@ export class BodyComponent implements OnInit {
   // onUpdate(index: number, newTodo: Todo) {
   //   this.todos[index] = newTodo;
 
+  // }
+
+  // Is100Percent(todo: Todo): void {
+  //   if (todo.percentage === 100) { todo.completed = true; }
   // }
 
 }
