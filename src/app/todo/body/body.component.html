@@ -1,40 +1,3 @@
-<!-- <section class="todos">
-
-  <article class="todo">
-
-    <h2>
-      {{ todo.title }}
-
-      <button class="button" (click)="onDelete(todo)">X</button>
-
-      <button class="button edit" (click)="onEdit(todo)">EDIT</button>
-
-    </h2>
-
-    <p [ngClass]="setLineThrough()">
-      <input class="checkbox" type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)"
-        *ngIf="todo.description || !setLineThrough()">
-
-
-      <label class="container">One
-        <input type="checkbox" checked="checked">
-        <span class="checkmark"></span>
-      </label>
-
-      <span class="percentage" *ngIf="todo.percentage">
-        {{ todo.percentage }}%
-      </span>
-
-      <span *ngIf="todo.description">
-        {{ todo.description }}
-      </span>
-
-    </p>
-
-  </article>
-
-</section> -->
-
 <section class="todos">
 
   <article class="todo" [ngClass]="setLineThrough()">
@@ -50,8 +13,9 @@
 
     <label class="container" *ngIf="todo.description">
 
-      <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)"
-        *ngIf="todo.description || !setLineThrough()">
+      <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)" *ngIf="todo.description">
+
+      <!-- *ngIf="todo.description || !setLineThrough()"> -->
 
       <p>
 
