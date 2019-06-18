@@ -88,12 +88,12 @@ h2 {
     text-decoration-color: auto;
   }
   100% {
-    color: black;
+    // color: black;
     opacity: 0.5;
   }
 }
 
-.is-complete:not(button) {
+.is-complete {
   text-decoration: line-through;
   text-decoration-color: rgb(199, 80, 99);
   animation: lineThrough 2.5s forwards;
