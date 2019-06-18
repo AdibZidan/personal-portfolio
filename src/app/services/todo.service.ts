@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-
-import { HTTPOPTIONS } from '../classes/HttpOptions'
 
 import { Todo } from '../classes/Todo';
 
@@ -23,21 +21,19 @@ export class TodoService {
   }
 
   addTodoToBackEnd(todo: Todo): Observable<Todo> {
-
-    return this.httpClient.post<Todo>(this.url, todo, HTTPOPTIONS);
+    return this.httpClient.post<Todo>(this.url, todo);
   }
 
   toggleCompleted(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/${todo.id}`;
 
-    return this.httpClient.put<Todo>(url, todo, HTTPOPTIONS);
+    return this.httpClient.put<Todo>(url, todo);
   }
 
   deleteToDoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/delete/${todo.id}`;
 
-
-    return this.httpClient.delete<Todo>(url, HTTPOPTIONS);
+    return this.httpClient.delete<Todo>(url);
   }
 
   updateTodoFromBackEnd(todo: Todo): Observable<Todo> {
