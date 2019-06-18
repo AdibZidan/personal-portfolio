@@ -21,8 +21,8 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
       id: [],
-      title: ['', Validators.required],
-      description: [''],
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(6)]],
       percentage: [''],
       completed: [false]
     });
@@ -37,6 +37,18 @@ export class FormComponent implements OnInit {
     } else {
       console.log('Form is invalid!');
     }
+  }
+
+  get title() {
+    return this.formGroup.get('title');
+  }
+
+  get description() {
+    return this.formGroup.get('description');
+  }
+
+  get percentage() {
+    return this.formGroup.get('percentage');
   }
 
 }
