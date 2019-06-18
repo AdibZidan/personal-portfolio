@@ -6,6 +6,7 @@
 
 span {
   font-size: 1.4em;
+  padding-bottom: 10px;
 }
 
 p,
@@ -14,13 +15,16 @@ ul {
   padding: 20px;
 }
 
-.hobbies {
-  padding-top: 10px;
-}
+// .hobbies {
+//   padding-top: 10px;
+// }
+
+// .hobbies ul {
+//   margin-bottom: 10px;
+// }
 
 ul li {
   list-style-type: none;
-  padding-left: 10px;
 }
 
 a {
@@ -42,7 +46,7 @@ div.information img {
 }
 
 main {
-  background-color: #ccc;
+  background-color: rgb(174, 177, 212);
   color: #414141;
   font-size: 24px;
   height: 810px;
