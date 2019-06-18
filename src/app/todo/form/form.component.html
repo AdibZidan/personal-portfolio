@@ -2,12 +2,38 @@
 
   <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-    <input class="input" type="text" placeholder="Add a task...*" formControlName="title">
+    <input class="input" type="text" placeholder="Task" formControlName="title">
 
-    <input class="input" type="text" placeholder="Add a description..." formControlName="description">
+    <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
 
-    <input class="input percentage" type="number" placeholder="Add a percentage..." [pattern]="validNumberPattern"
+      <ng-container *ngIf="title.errors.minlength">
+        Minimum length of 3 characters
+      </ng-container>
+
+    </ng-container>
+
+    <input class="input" type="text" placeholder="Description" formControlName="description">
+
+    <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
+
+      <ng-container *ngIf="description.errors.minlength">
+        Minimum length of 6 characters
+      </ng-container>
+
+    </ng-container>
+
+    <input class="input percentage" type="number" placeholder="Percentage" [pattern]="validNumberPattern"
       formControlName="percentage">
+
+    <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
+
+      <ng-container *ngIf="validNumberPattern">
+        Between 1 and 100
+      </ng-container>
+
+    </ng-container>
+
+
 
     <div class="inner">
 
@@ -15,7 +41,7 @@
 
     </div>
 
-    <div class="test">
+    <div class="checkbox">
 
       <label class="container">
 
@@ -41,3 +67,47 @@
   <app-loading-spinner></app-loading-spinner>
 
 </ng-container> -->
+
+
+<!-- <div class="outer">
+
+  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Add a task...</mat-label>
+      <input matInput placeholder="" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Add a description...</mat-label>
+      <input matInput placeholder="" formControlName="description">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Add a percentage...</mat-label>
+      <input matInput placeholder="" formControlName="percentage" [pattern]="validNumberPattern"
+        formControlName="percentage">
+    </mat-form-field>
+
+    <div class="inner">
+
+      <label class="label" for="completed"><span class="completed">Completed?</span></label>
+
+    </div>
+
+    <div class="test">
+
+      <label class="container">
+
+        <input type="checkbox" formControlName="completed">
+        <span class="checkmark"></span>
+
+      </label>
+
+    </div>
+
+    <app-add-button></app-add-button>
+
+  </form>
+
+</div> -->
