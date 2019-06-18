@@ -5,28 +5,36 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainComponent } from '../main/main.component';
 import { FormComponent } from '../form/form.component';
 import { AddButtonComponent } from '../add-button/add-button.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { BodyComponent } from '../body/body.component';
 
 import { LoadingSpinnerComponent } from '../../ui/loading-spinner/loading-spinner.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatDialogModule } from '@angular/material/dialog/';
+import { MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   entryComponents: [
-    BodyComponent
+    BodyComponent,
+    FormComponent
   ],
   declarations: [
     MainComponent,
     FormComponent,
     AddButtonComponent,
+    DialogComponent,
     BodyComponent,
     LoadingSpinnerComponent
   ]
