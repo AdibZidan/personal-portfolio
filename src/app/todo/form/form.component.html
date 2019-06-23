@@ -33,8 +33,6 @@
 
     </ng-container>
 
-
-
     <div class="inner">
 
       <label class="label" for="completed"><span class="completed">Completed?</span></label>
@@ -57,57 +55,3 @@
   </form>
 
 </div>
-
-<!-- <ng-container *ngIf="!isValidForm">
-
-  <p class="invalid">
-    <strong>FORM IS INVALID!</strong>
-  </p>
-
-  <app-loading-spinner></app-loading-spinner>
-
-</ng-container> -->
-
-
-<!-- <div class="outer">
-
-  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()" autocomplete="off">
-
-    <mat-form-field appearance="outline">
-      <mat-label>Add a task...</mat-label>
-      <input matInput placeholder="" formControlName="title">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Add a description...</mat-label>
-      <input matInput placeholder="" formControlName="description">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Add a percentage...</mat-label>
-      <input matInput placeholder="" formControlName="percentage" [pattern]="validNumberPattern"
-        formControlName="percentage">
-    </mat-form-field>
-
-    <div class="inner">
-
-      <label class="label" for="completed"><span class="completed">Completed?</span></label>
-
-    </div>
-
-    <div class="test">
-
-      <label class="container">
-
-        <input type="checkbox" formControlName="completed">
-        <span class="checkmark"></span>
-
-      </label>
-
-    </div>
-
-    <app-add-button></app-add-button>
-
-  </form>
-
-</div> -->
