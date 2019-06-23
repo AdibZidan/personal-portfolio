@@ -20,6 +20,12 @@ export class TodoService {
       .pipe(tap(() => console.log('Fetched tasks')));
   }
 
+  getTodo(id: number): Observable<Todo> {
+    const url: string = `${this.url}/edit/${id}`;
+
+    return this.httpClient.get<Todo>(url);
+  }
+
   addTodoToBackEnd(todo: Todo): Observable<Todo> {
     return this.httpClient.post<Todo>(this.url, todo);
   }
@@ -30,16 +36,16 @@ export class TodoService {
     return this.httpClient.put<Todo>(url, todo);
   }
 
+  editTodoFromBackEnd(todo: Todo): Observable<Todo> {
+    const url: string = `${this.url}/edit/${todo.id}`;
+
+    return this.httpClient.put<Todo>(url, todo);
+  }
+
   deleteToDoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/delete/${todo.id}`;
 
     return this.httpClient.delete<Todo>(url);
-  }
-
-  updateTodoFromBackEnd(todo: Todo): Observable<Todo> {
-    const url: string = `${this.url}/edit/${todo.id}`;
-
-    return this.httpClient.put<Todo>(url, todo);
   }
 
 }
