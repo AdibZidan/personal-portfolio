@@ -7,6 +7,7 @@ import { FormComponent } from '../form/form.component';
 import { AddButtonComponent } from '../add-button/add-button.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { BodyComponent } from '../body/body.component';
+import { EditComponent } from '../edit/edit.component';
 
 import { LoadingSpinnerComponent } from '../../ui/loading-spinner/loading-spinner.component';
 
@@ -36,6 +37,7 @@ import { RouterModule } from '@angular/router';
     AddButtonComponent,
     DialogComponent,
     BodyComponent,
+    EditComponent,
     LoadingSpinnerComponent
   ]
 })
