@@ -10,9 +10,7 @@
 
   <ng-container *ngIf="todos$ | async as todos">
 
-    <!-- <app-dialog></app-dialog> -->
-
-    <app-form (addTodo)="addTodo($event)"></app-form>
+    <app-form todo="{}" (addTodo)="addTodo($event)"></app-form>
 
     <p>
       <span *ngIf="todos.length > 1" class="remove">
