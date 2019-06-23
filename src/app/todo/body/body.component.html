@@ -7,15 +7,13 @@
 
       <button class="button" (click)="onDelete(todo)">X</button>
 
-      <button class="button edit" (click)="onEdit(todo)">EDIT</button>
+      <button class="button edit" [routerLink]="['/', 'edit-todo', todo.id]">EDIT</button>
 
     </h2>
 
     <label class="container" *ngIf="todo.description">
 
       <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)" *ngIf="todo.description">
-
-      <!-- *ngIf="todo.description || !setLineThrough()"> -->
 
       <p>
 
