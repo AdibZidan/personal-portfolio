@@ -1,6 +1,6 @@
 <section class="todos">
 
-  <article class="todo" [ngClass]="setLineThrough()">
+  <article class="todo">
 
     <h2>
       {{ todo.title }}
@@ -15,7 +15,7 @@
 
       <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)" *ngIf="todo.description">
 
-      <p>
+      <p [ngClass]="setLineThrough()">
 
         <span class="percentage" *ngIf="todo.percentage">
           {{ todo.percentage }}%
