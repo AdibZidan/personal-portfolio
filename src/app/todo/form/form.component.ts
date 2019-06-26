@@ -22,6 +22,8 @@ export class FormComponent implements OnInit {
   private isValidForm: boolean = false;
   private validNumberPattern: string = '^[1-9][0-9]?$|^100$';
 
+  private errorMessage: string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private todoService: TodoService,
@@ -50,6 +52,10 @@ export class FormComponent implements OnInit {
     } else {
       console.log('Form is invalid!');
     }
+  }
+
+  onClick(): void {
+    setTimeout(() => this.errorMessage = 'Please fill the form above', 200);
   }
 
   async edit(todo: Todo) {
