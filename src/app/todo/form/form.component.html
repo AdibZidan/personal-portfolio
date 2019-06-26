@@ -7,7 +7,7 @@
     <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
 
       <ng-container *ngIf="title.errors.minlength">
-        Minimum length of 3 characters
+        Minimum of 3 characters is required
       </ng-container>
 
     </ng-container>
@@ -17,7 +17,7 @@
     <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
 
       <ng-container *ngIf="description.errors.minlength">
-        Minimum length of 6 characters
+        Minimum of 6 characters is required
       </ng-container>
 
     </ng-container>
@@ -28,7 +28,7 @@
     <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
 
       <ng-container *ngIf="validNumberPattern">
-        Between 1 and 100
+        Between 1 and 100 is allowed
       </ng-container>
 
     </ng-container>
@@ -50,7 +50,8 @@
 
     </div>
 
-    <app-add-button></app-add-button>
+    <app-add-button (click)="onClick()"></app-add-button>
+    <p class="error">{{ errorMessage }}</p>
 
   </form>
 
