@@ -15,7 +15,7 @@
 
       <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)" *ngIf="todo.description">
 
-      <p [ngClass]="setLineThrough()">
+      <p class="text" [ngClass]="setLineThrough()">
 
         <span class="percentage" *ngIf="todo.percentage">
           {{ todo.percentage }}%
