@@ -19,6 +19,7 @@
 }
 
 .percentage {
+  display: inline-block;
   margin: 5px;
   padding: 1px;
 
@@ -72,6 +73,10 @@ h2 {
   transform: scale(0.95);
 }
 
+.text {
+  display: inline-block;
+}
+
 .edit {
   margin-right: 10px;
 }
@@ -102,7 +107,6 @@ h2 {
 // -------------------------------------------------------------- //
 
 .container {
-  display: block;
   position: relative;
   padding-left: 35px;
   // padding-left: 25px;
