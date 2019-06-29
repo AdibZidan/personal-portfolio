@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { PortfolioComponent } from '../portfolio/portfolio/portfolio.component';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { MainComponent } from '../todo/main/main.component';
 import { EditComponent } from '../todo/edit/edit.component';
 
