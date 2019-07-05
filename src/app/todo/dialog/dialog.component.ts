@@ -42,7 +42,7 @@ export class DialogComponent implements OnInit, OnDestroy {
       panelClass: 'dialog'
     });
 
-    this.matDialogRef.afterClosed().subscribe((todo: Todo) => this.save.emit(todo));
+    this.subscription = this.matDialogRef.afterClosed().subscribe((todo: Todo) => this.save.emit(todo));
   }
 
 }
