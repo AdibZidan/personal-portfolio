@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Todo } from '../classes/Todo';
@@ -12,18 +12,16 @@ export class TodoService {
 
   private url: string = 'http://localhost:3000/tasks';
 
+  private refresher$: Subject<Todo> = new Subject<Todo>();
+
   constructor(private httpClient: HttpClient) { }
+
+  get refresher() { return this.refresher$; }
 
   getTodos(): Observable<Todo[]> {
     return this.httpClient
       .get<Todo[]>(this.url)
-      .pipe(tap(() => console.log('Fetched tasks')));
-  }
-
-  getTodo(id: number): Observable<Todo> {
-    const url: string = `${this.url}/edit/${id}`;
-
-    return this.httpClient.get<Todo>(url);
+      .pipe(tap(() => console.log('Fetched tasks!')));
   }
 
   addTodoToBackEnd(todo: Todo): Observable<Todo> {
@@ -39,10 +37,13 @@ export class TodoService {
   editTodoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/edit/${todo.id}`;
 
-    return this.httpClient.put<Todo>(url, todo);
+    return this.httpClient
+      .put<Todo>(url, todo)
+      .pipe(tap(() => console.log(todo)))
+      .pipe(tap(() => this.refresher$.next()));
   }
 
-  deleteToDoFromBackEnd(todo: Todo): Observable<Todo> {
+  deleteTodoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/delete/${todo.id}`;
 
     return this.httpClient.delete<Todo>(url);
