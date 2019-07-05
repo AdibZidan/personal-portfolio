@@ -12,7 +12,9 @@ import { Todo } from './../../classes/Todo';
 })
 
 export class MainComponent implements OnInit, OnDestroy {
+
   private todos$: Observable<Todo[]>;
+
   private subscription: Subscription;
 
   constructor(private todoService: TodoService) { }
@@ -26,17 +28,17 @@ export class MainComponent implements OnInit, OnDestroy {
 
   getTodos(): void {
     this.todos$ = this.todoService.getTodos();
-    this.todoService.refresher.subscribe(() => this.getTodos());
+    this.subscription = this.todoService.refresher.subscribe(() => this.getTodos());
   }
 
   addTodo(todo: Todo): void {
-    this.todoService
+    this.subscription = this.todoService
       .addTodoToBackEnd(todo)
       .subscribe(() => this.getTodos());
   }
 
   deleteTodo(todo: Todo): void {
-    this.todoService
+    this.subscription = this.todoService
       .deleteTodoFromBackEnd(todo)
       .subscribe(() => this.getTodos());
   }
