@@ -29,7 +29,8 @@ export class DialogComponent implements OnInit {
       data: this.todo,
       autoFocus: true,
       disableClose: true,
-      width: '40%'
+      width: '600px',
+      panelClass: 'dialog'
     });
 
     this.matDialogRef.afterClosed().subscribe((todo: Todo) => this.save.emit(todo));
