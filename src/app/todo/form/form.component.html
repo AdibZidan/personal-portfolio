@@ -2,7 +2,7 @@
 
   <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
 
-    <input class="input" type="text" placeholder="Task" formControlName="title">
+    <input class="input" type="text" placeholder="Task *" formControlName="title" required>
 
     <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
 
@@ -12,7 +12,7 @@
 
     </ng-container>
 
-    <input class="input" type="text" placeholder="Description" formControlName="description">
+    <input class="input" type="text" placeholder="Description *" formControlName="description" required>
 
     <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
 
