@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { TodoService } from 'src/app/services/todo.service';
-
 import { Todo } from '../../classes/Todo';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -27,7 +25,6 @@ export class FormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private todoService: TodoService,
     private matDialogRef: MatDialogRef<FormComponent>,
     @Inject(MAT_DIALOG_DATA) private data: Todo
   ) { }
@@ -45,8 +42,7 @@ export class FormComponent implements OnInit {
       completed: [false]
     });
 
-    this.formGroup.valueChanges
-      .subscribe(() => this.isValidForm = this.formGroup.valid);
+    this.formGroup.valueChanges.subscribe(() => this.isValidForm = this.formGroup.valid);
 
     this.formGroup.patchValue(this.todo);
   }
@@ -55,8 +51,6 @@ export class FormComponent implements OnInit {
     if (this.formGroup.valid) {
       this.addTodo.emit(this.formGroup.value);
       this.matDialogRef.close(this.formGroup.value);
-    } else {
-      console.log('Form is invalid!');
     }
   }
 
