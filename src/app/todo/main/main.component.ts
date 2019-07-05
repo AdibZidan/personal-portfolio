@@ -11,8 +11,7 @@ import { Todo } from './../../classes/Todo';
   styleUrls: ['./main.component.scss']
 })
 
-export class MainComponent implements OnInit {
-  // private todos: Todo[] = [];
+export class MainComponent implements OnInit, OnDestroy {
   private todos$: Observable<Todo[]>;
   private subscription: Subscription;
 
@@ -20,24 +19,23 @@ export class MainComponent implements OnInit {
 
   ngOnInit() { this.getTodos(); }
 
+  ngOnDestroy(): void {
+    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
+    console.log('Main unsubscribed!');
+  }
+
   getTodos(): void {
     this.todos$ = this.todoService.getTodos();
     this.todoService.refresher.subscribe(() => this.getTodos());
-    // .subscribe(todosToAdd => this.todos = todosToAdd);
   }
 
   addTodo(todo: Todo): void {
     this.todoService
       .addTodoToBackEnd(todo)
       .subscribe(() => this.getTodos());
-    // .subscribe((todoToAdd: Todo) => this.todos.push(todoToAdd));
   }
 
   deleteTodo(todo: Todo): void {
-    // this.todos$ = this.todos
-    //   .filter((todoToBeDeleted: Todo) =>
-    //     todo.id !== todoToBeDeleted.id);
-
     this.todoService
       .deleteTodoFromBackEnd(todo)
       .subscribe(() => this.getTodos());
