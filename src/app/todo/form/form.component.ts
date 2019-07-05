@@ -1,9 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Todo } from '../../classes/Todo';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -11,10 +13,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./form.component.scss']
 })
 
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
   @Input() todo: Todo;
 
   @Output() addTodo = new EventEmitter<Todo>();
+
+  private subscription: Subscription;
 
   private formGroup: FormGroup;
 
@@ -30,6 +34,11 @@ export class FormComponent implements OnInit {
   ) { }
 
   ngOnInit() { this.onFormBuild(); }
+
+  ngOnDestroy(): void {
+    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
+    console.log('Form unsubscribed!');
+  }
 
   onFormBuild() {
     this.todo = this.data;
