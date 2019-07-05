@@ -12,6 +12,7 @@ import { Todo } from './../../classes/Todo';
 
 export class BodyComponent implements OnInit {
   @Input() todo: Todo;
+
   @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
 
   constructor(private todoService: TodoService) { }
@@ -29,17 +30,11 @@ export class BodyComponent implements OnInit {
   onToggle(todo: Todo): void {
     todo.completed = !todo.completed;
 
-    this.todoService
-      .toggleCompleted(todo)
-      .subscribe(todoOnToggle => console.log(todoOnToggle));
+    this.todoService.toggleCompleted(todo).subscribe(todoOnToggle => console.log(todoOnToggle));
   }
 
-  onDelete(todo: Todo) {
-    this.deleteToDo.emit(todo);
-  }
+  onDelete(todo: Todo) { this.deleteToDo.emit(todo); }
 
-  async edit(todo: Todo) {
-    await this.todoService.editTodoFromBackEnd(todo).toPromise();
-  }
+  async onEdit(todo: Todo) { await this.todoService.editTodoFromBackEnd(todo).toPromise(); }
 
 }
