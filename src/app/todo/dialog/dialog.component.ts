@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { FormComponent } from '../form/form.component';
+
+import { Todo } from 'src/app/classes/Todo';
 
 @Component({
   selector: 'app-dialog',
@@ -11,18 +13,26 @@ import { FormComponent } from '../form/form.component';
 })
 
 export class DialogComponent implements OnInit {
+  @Input() todo: Todo;
 
-  constructor(private dialog: MatDialog) { }
+  @Output() save: EventEmitter<Todo> = new EventEmitter<Todo>();
+
+  constructor(
+    private dialog: MatDialog,
+    private matDialogRef: MatDialogRef<FormComponent>
+  ) { }
 
   ngOnInit() { }
 
   onClick() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
-    dialogConfig.width = '50%';
+    this.matDialogRef = this.dialog.open(FormComponent, {
+      data: this.todo,
+      autoFocus: true,
+      disableClose: true,
+      width: '40%'
+    });
 
-    this.dialog.open(FormComponent)
+    this.matDialogRef.afterClosed().subscribe((todo: Todo) => this.save.emit(todo));
   }
 
 }
