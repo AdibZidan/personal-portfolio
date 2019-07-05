@@ -38,4 +38,8 @@ export class BodyComponent implements OnInit {
     this.deleteToDo.emit(todo);
   }
 
+  async edit(todo: Todo) {
+    await this.todoService.editTodoFromBackEnd(todo).toPromise();
+  }
+
 }
