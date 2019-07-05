@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatDialogModule, MatFormFieldModule, MatInputModule, MatIconModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
 
+import { MatDialogRef } from '@angular/material/dialog';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { RouterModule } from '@angular/router';
   ],
   entryComponents: [
     BodyComponent,
-    FormComponent
+    FormComponent,
+    DialogComponent
   ],
   declarations: [
     MainComponent,
@@ -39,7 +42,8 @@ import { RouterModule } from '@angular/router';
     BodyComponent,
     EditComponent,
     LoadingSpinnerComponent
-  ]
+  ],
+  providers: [{ provide: MatDialogRef }]
 })
 
 export class TodoModule { }
