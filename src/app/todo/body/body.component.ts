@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
+
+import { trigger, style, animate, transition, } from '@angular/animations';
 
 import { TodoService } from '../services/todo.service';
 
 import { Todo } from './../../classes/Todo';
 
-import { trigger, style, animate, transition, } from '@angular/animations';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-body',
@@ -20,7 +22,9 @@ import { trigger, style, animate, transition, } from '@angular/animations';
   ]
 })
 
-export class BodyComponent implements OnInit {
+export class BodyComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+
   @Input() todo: Todo;
 
   @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
@@ -28,6 +32,11 @@ export class BodyComponent implements OnInit {
   constructor(private todoService: TodoService) { }
 
   ngOnInit() { }
+
+  ngOnDestroy(): void {
+    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
+    console.log('Body unsubscribed!');
+  }
 
   setLineThrough(): object {
     const lineThrough = {
