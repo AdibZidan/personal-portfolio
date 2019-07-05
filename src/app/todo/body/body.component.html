@@ -7,7 +7,7 @@
 
       <button class="button" (click)="onDelete(todo)">X</button>
 
-      <button class="button edit" [routerLink]="['/', 'edit-todo', todo.id]">EDIT</button>
+      <app-dialog [todo]="todo" (save)="edit($event)"></app-dialog>
 
     </h2>
 
