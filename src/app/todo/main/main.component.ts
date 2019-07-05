@@ -22,6 +22,7 @@ export class MainComponent implements OnInit {
 
   getTodos(): void {
     this.todos$ = this.todoService.getTodos();
+    this.todoService.refresher.subscribe(() => this.getTodos());
     // .subscribe(todosToAdd => this.todos = todosToAdd);
   }
 
@@ -38,7 +39,7 @@ export class MainComponent implements OnInit {
     //     todo.id !== todoToBeDeleted.id);
 
     this.todoService
-      .deleteToDoFromBackEnd(todo)
+      .deleteTodoFromBackEnd(todo)
       .subscribe(() => this.getTodos());
   }
 
