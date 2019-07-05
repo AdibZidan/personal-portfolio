@@ -22,7 +22,7 @@ export class EditComponent implements OnInit {
 
   async ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
-    this.todo = await this.todoService.getTodo(id).toPromise();
+    // this.todo = await this.todoService.getTodo(id).toPromise();
   }
 
   async edit(todo: Todo) {
