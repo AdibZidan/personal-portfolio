@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { Todo } from '../classes/Todo';
+import { Todo } from '../../classes/Todo';
 
 @Injectable({ providedIn: 'root' })
 
