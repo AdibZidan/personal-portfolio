@@ -10,6 +10,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { TodoModule } from './todo/module/todo.module';
 
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { TodoModule } from './todo/module/todo.module';
     HttpClientModule,
     TodoModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent]
 })
 
