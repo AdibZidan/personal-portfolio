@@ -4,10 +4,20 @@ import { TodoService } from './../../services/todo.service';
 
 import { Todo } from './../../classes/Todo';
 
+import { trigger, style, animate, transition, } from '@angular/animations';
+
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.scss']
+  styleUrls: ['./body.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('1500ms', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 
 export class BodyComponent implements OnInit {
