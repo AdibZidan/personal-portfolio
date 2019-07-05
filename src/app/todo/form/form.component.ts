@@ -1,10 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { TodoService } from 'src/app/services/todo.service';
 
 import { Todo } from '../../classes/Todo';
+
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form',
@@ -15,10 +16,10 @@ import { Todo } from '../../classes/Todo';
 export class FormComponent implements OnInit {
   @Input() todo: Todo;
 
-  @Output() save = new EventEmitter<Todo>();
   @Output() addTodo = new EventEmitter<Todo>();
 
   private formGroup: FormGroup;
+
   private isValidForm: boolean = false;
   private validNumberPattern: string = '^[1-9][0-9]?$|^100$';
 
@@ -27,12 +28,17 @@ export class FormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private todoService: TodoService,
-    private router: Router
+    private matDialogRef: MatDialogRef<FormComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: Todo
   ) { }
 
-  ngOnInit() {
+  ngOnInit() { this.onFormBuild(); }
+
+  onFormBuild() {
+    this.todo = this.data;
+
     this.formGroup = this.formBuilder.group({
-      id: [],
+      id: [''],
       title: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(6)]],
       percentage: [''],
@@ -48,20 +54,13 @@ export class FormComponent implements OnInit {
   onSubmit(): void {
     if (this.formGroup.valid) {
       this.addTodo.emit(this.formGroup.value);
-      this.save.emit(this.formGroup.value);
+      this.matDialogRef.close(this.formGroup.value);
     } else {
       console.log('Form is invalid!');
     }
   }
 
-  onClick(): void {
-    setTimeout(() => this.errorMessage = 'Please fill the form above', 200);
-  }
-
-  async edit(todo: Todo) {
-    await this.todoService.editTodoFromBackEnd(todo).toPromise();
-    this.router.navigateByUrl('/todo');
-  }
+  onClick(): void { setTimeout(() => this.errorMessage = 'Please fill the form above', 200); }
 
   get title() {
     return this.formGroup.get('title');
