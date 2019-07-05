@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Todo } from '../../classes/Todo';
@@ -51,7 +52,7 @@ export class FormComponent implements OnInit, OnDestroy {
       completed: [false]
     });
 
-    this.formGroup.valueChanges.subscribe(() => this.isValidForm = this.formGroup.valid);
+    this.subscription = this.formGroup.valueChanges.subscribe(() => this.isValidForm = this.formGroup.valid);
 
     this.formGroup.patchValue(this.todo);
   }
