@@ -7,7 +7,7 @@
 
       <button class="button" (click)="onDelete(todo)">X</button>
 
-      <app-dialog [todo]="todo" (save)="edit($event)"></app-dialog>
+      <app-dialog [todo]="todo" (save)="onEdit($event)"></app-dialog>
 
     </h2>
 
