@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
-import { TodoModule } from './todo/module/todo.module';
+import { TodoModule } from './task-manager/module/todo.module';
 
 import { MAT_DIALOG_DATA } from '@angular/material';
 
