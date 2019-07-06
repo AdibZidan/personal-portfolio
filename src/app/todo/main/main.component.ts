@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Observable, Subscription } from 'rxjs';
 
 import { TodoService } from '../services/todo.service';
@@ -19,10 +20,10 @@ export class MainComponent implements OnInit, OnDestroy {
 
   constructor(private todoService: TodoService) { }
 
-  ngOnInit() { this.getTodos(); }
+  ngOnInit(): void { this.getTodos(); }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
+    this.subscription.unsubscribe();
     console.log('Main unsubscribed!');
   }
 
