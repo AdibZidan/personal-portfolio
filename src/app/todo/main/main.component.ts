@@ -28,7 +28,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   getTodos(): void {
-    this.todos$ = this.todoService.getTodos();
+    this.todos$ = this.todoService.getTodosFromBackEnd();
     this.subscription = this.todoService.refresher.subscribe(() => this.getTodos());
   }
 

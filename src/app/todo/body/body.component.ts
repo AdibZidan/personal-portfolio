@@ -50,7 +50,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   onToggle(todo: Todo): void {
     todo.completed = !todo.completed;
 
-    this.subscription = this.todoService.toggleCompleted(todo).subscribe(todoOnToggle => console.log(todoOnToggle));
+    this.subscription = this.todoService.toggleTodoFromBackEnd(todo).subscribe(todoOnToggle => console.log(todoOnToggle));
   }
 
   onDelete(todo: Todo) { this.deleteToDo.emit(todo); }

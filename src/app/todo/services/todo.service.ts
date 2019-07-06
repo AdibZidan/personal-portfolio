@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, Subject } from 'rxjs';
+
 import { tap } from 'rxjs/operators';
 
 import { Todo } from '../../classes/Todo';
@@ -18,7 +20,7 @@ export class TodoService {
 
   get refresher() { return this.refresher$; }
 
-  getTodos(): Observable<Todo[]> {
+  getTodosFromBackEnd(): Observable<Todo[]> {
     return this.httpClient
       .get<Todo[]>(this.url)
       .pipe(tap(() => console.log('Fetched tasks!')));
@@ -28,7 +30,7 @@ export class TodoService {
     return this.httpClient.post<Todo>(this.url, todo);
   }
 
-  toggleCompleted(todo: Todo): Observable<Todo> {
+  toggleTodoFromBackEnd(todo: Todo): Observable<Todo> {
     const url: string = `${this.url}/${todo.id}`;
 
     return this.httpClient.put<Todo>(url, todo);
