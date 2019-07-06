@@ -62,6 +62,7 @@ export class FormComponent implements OnInit, OnDestroy {
     if (this.formGroup.valid) {
       this.addTodo.emit(this.formGroup.value);
       this.matDialogRef.close(this.formGroup.value);
+      this.formGroup.reset();
     }
   }
 
