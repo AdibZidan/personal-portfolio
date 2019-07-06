@@ -6,7 +6,7 @@
 
     <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
 
-      <ng-container *ngIf="title.errors.minlength">
+      <ng-container *ngIf="title">
         Minimum of 3 characters is required
       </ng-container>
 
@@ -16,7 +16,7 @@
 
     <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
 
-      <ng-container *ngIf="description.errors.minlength">
+      <ng-container *ngIf="description">
         Minimum of 6 characters is required
       </ng-container>
 
