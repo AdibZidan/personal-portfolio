@@ -15,25 +15,26 @@ import { Subscription } from 'rxjs';
 })
 
 export class DialogComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
 
   @Input() todo: Todo;
 
   @Output() save: EventEmitter<Todo> = new EventEmitter<Todo>();
+
+  private subscription: Subscription;
 
   constructor(
     private dialog: MatDialog,
     private matDialogRef: MatDialogRef<FormComponent>
   ) { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
     console.log('Dialog unsubscribed!');
   }
 
-  onClick() {
+  onClick(): void {
     this.matDialogRef = this.dialog.open(FormComponent, {
       data: this.todo,
       autoFocus: true,
