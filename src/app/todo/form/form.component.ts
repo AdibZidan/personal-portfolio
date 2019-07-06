@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 import { Todo } from '../../classes/Todo';
 
@@ -15,9 +15,10 @@ import { Subscription } from 'rxjs';
 })
 
 export class FormComponent implements OnInit, OnDestroy {
+
   @Input() todo: Todo;
 
-  @Output() addTodo = new EventEmitter<Todo>();
+  @Output() addTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
 
   private subscription: Subscription;
 
@@ -34,14 +35,14 @@ export class FormComponent implements OnInit, OnDestroy {
     @Inject(MAT_DIALOG_DATA) private data: Todo
   ) { }
 
-  ngOnInit() { this.onFormBuild(); }
+  ngOnInit(): void { this.onFormBuild(); }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
+    this.subscription.unsubscribe();
     console.log('Form unsubscribed!');
   }
 
-  onFormBuild() {
+  onFormBuild(): void {
     this.todo = this.data;
 
     this.formGroup = this.formBuilder.group({
@@ -66,15 +67,15 @@ export class FormComponent implements OnInit, OnDestroy {
 
   onClick(): void { setTimeout(() => this.errorMessage = 'Please fill the form above', 200); }
 
-  get title() {
+  get title(): AbstractControl {
     return this.formGroup.get('title');
   }
 
-  get description() {
+  get description(): AbstractControl {
     return this.formGroup.get('description');
   }
 
-  get percentage() {
+  get percentage(): AbstractControl {
     return this.formGroup.get('percentage');
   }
 
