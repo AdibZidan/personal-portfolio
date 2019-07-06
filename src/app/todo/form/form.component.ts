@@ -22,12 +22,12 @@ export class FormComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
-  private formGroup: FormGroup;
+  formGroup: FormGroup;
 
-  private isValidForm: boolean = false;
-  private validNumberPattern: string = '^[1-9][0-9]?$|^100$';
+  isValidForm: boolean = false;
+  validNumberPattern: string = '^[1-9][0-9]?$|^100$';
 
-  private errorMessage: string = 'Please fill the form above';
+  errorMessage: string = 'Please fill the form above';
 
   constructor(
     private formBuilder: FormBuilder,
