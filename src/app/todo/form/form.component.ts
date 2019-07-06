@@ -27,7 +27,7 @@ export class FormComponent implements OnInit, OnDestroy {
   private isValidForm: boolean = false;
   private validNumberPattern: string = '^[1-9][0-9]?$|^100$';
 
-  private errorMessage: string = '';
+  private errorMessage: string = 'Please fill the form above';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -64,8 +64,6 @@ export class FormComponent implements OnInit, OnDestroy {
       this.matDialogRef.close(this.formGroup.value);
     }
   }
-
-  onClick(): void { setTimeout(() => this.errorMessage = 'Please fill the form above', 200); }
 
   get title(): AbstractControl {
     return this.formGroup.get('title');
