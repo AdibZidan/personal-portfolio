@@ -124,3 +124,37 @@
 .error {
   padding-top: 10px;
 }
+
+.submit {
+  margin-top: 1px;
+  padding: 10px;
+  cursor: pointer;
+
+  background-color: #512da8;
+  color: #fff;
+
+  width: 70px;
+  border: 1px solid #2d3436;
+  border-radius: 10px;
+  outline: none;
+  letter-spacing: 1px;
+
+  transition: transform 120ms ease-in;
+}
+
+.submit:active {
+  transform: scale(0.95);
+}
+
+.submit:hover {
+  color: #00c5be;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+}
+
+.disabled:hover {
+  color: #fff;
+  cursor: not-allowed;
+}
