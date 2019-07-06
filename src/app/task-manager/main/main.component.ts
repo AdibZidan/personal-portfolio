@@ -4,7 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 
 import { TodoService } from '../services/todo.service';
 
-import { Todo } from './../../classes/Todo';
+import { Todo } from '../../classes/Todo';
 
 @Component({
   selector: 'app-main',

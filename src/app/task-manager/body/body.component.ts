@@ -4,7 +4,7 @@ import { trigger, style, animate, transition, } from '@angular/animations';
 
 import { TodoService } from '../services/todo.service';
 
-import { Todo } from './../../classes/Todo';
+import { Todo } from '../../classes/Todo';
 
 import { Subscription } from 'rxjs';
 
