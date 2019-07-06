@@ -16,22 +16,23 @@ import { Subscription } from 'rxjs';
     trigger('fadeIn', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('1500ms', style({ opacity: 1 }))
+        animate('500ms', style({ opacity: 1 }))
       ])
     ])
   ]
 })
 
 export class BodyComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
 
   @Input() todo: Todo;
 
-  @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter();
+  @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter<Todo>();
+
+  private subscription: Subscription;
 
   constructor(private todoService: TodoService) { }
 
-  ngOnInit() { }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
@@ -39,7 +40,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   setLineThrough(): object {
-    const lineThrough = {
+    const lineThrough: object = {
       'is-complete': this.todo.completed
     };
 
