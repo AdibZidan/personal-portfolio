@@ -50,8 +50,13 @@
 
     </div>
 
-    <app-add-button (click)="onClick()"></app-add-button>
-    <p class="error">{{ errorMessage }}</p>
+    <ng-container *ngIf="!isValidForm">
+      <input [disabled]="!isValidForm" title="{{ errorMessage }}" class="submit disabled" type="submit" value="SUBMIT">
+    </ng-container>
+
+    <ng-container *ngIf="isValidForm">
+      <input class="submit" type="submit" value="SUBMIT">
+    </ng-container>
 
   </form>
 
