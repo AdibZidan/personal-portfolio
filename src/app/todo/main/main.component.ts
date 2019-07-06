@@ -14,7 +14,7 @@ import { Todo } from './../../classes/Todo';
 
 export class MainComponent implements OnInit, OnDestroy {
 
-  private todos$: Observable<Todo[]>;
+  todos$: Observable<Todo[]>;
 
   private subscription: Subscription;
 
