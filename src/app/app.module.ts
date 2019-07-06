@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
-import { AppComponent } from "./app.component";
 
+import { AppComponent } from "./app.component";
 import { HeaderComponent } from './header/header.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +17,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
     AppComponent,
     HeaderComponent,
     PortfolioComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
