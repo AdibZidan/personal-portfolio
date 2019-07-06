@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { MainComponent } from '../main/main.component';
 import { FormComponent } from '../form/form.component';
-import { AddButtonComponent } from '../add-button/add-button.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { BodyComponent } from '../body/body.component';
 
@@ -18,7 +17,6 @@ import { MatDialogRef } from '@angular/material/dialog';
   declarations: [
     MainComponent,
     FormComponent,
-    AddButtonComponent,
     DialogComponent,
     BodyComponent
   ],
