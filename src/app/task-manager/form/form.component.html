@@ -23,7 +23,7 @@
     </ng-container>
 
     <input class="input percentage" type="number" placeholder="Percentage" [pattern]="validNumberPattern"
-      formControlName="percentage">
+      formControlName="percentage" onkeydown="return event.keyCode !== 69">
 
     <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
 
