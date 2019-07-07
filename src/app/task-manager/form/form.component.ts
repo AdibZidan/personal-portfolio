@@ -37,10 +37,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { this.onFormBuild(); }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-    console.log('Form unsubscribed!');
-  }
+  ngOnDestroy(): void { this.subscription.unsubscribe(); }
 
   onFormBuild(): void {
     this.todo = this.data;

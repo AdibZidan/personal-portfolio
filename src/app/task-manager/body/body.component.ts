@@ -34,10 +34,7 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { }
 
-  ngOnDestroy(): void {
-    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
-    console.log('Body unsubscribed!');
-  }
+  ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
 
   setLineThrough(): object {
     const lineThrough: object = {

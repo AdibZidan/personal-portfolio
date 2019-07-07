@@ -29,10 +29,7 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { }
 
-  ngOnDestroy(): void {
-    if (this.subscription !== undefined) { this.subscription.unsubscribe(); }
-    console.log('Dialog unsubscribed!');
-  }
+  ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
 
   onClick(): void {
     this.matDialogRef = this.dialog.open(FormComponent, {

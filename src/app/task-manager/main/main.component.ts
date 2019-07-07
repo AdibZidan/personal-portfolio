@@ -22,10 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { this.getTodos(); }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-    console.log('Main unsubscribed!');
-  }
+  ngOnDestroy(): void { this.subscription.unsubscribe(); }
 
   getTodos(): void {
     this.todos$ = this.todoService.getTodosFromBackEnd();
