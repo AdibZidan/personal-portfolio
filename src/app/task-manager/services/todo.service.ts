@@ -31,7 +31,7 @@ export class TodoService {
   }
 
   toggleTodoFromBackEnd(todo: Todo): Observable<Todo> {
-    const url: string = `${this.url}/${todo.id}`;
+    const url: string = `${this.url}/update/${todo.id}`;
 
     return this.httpClient.put<Todo>(url, todo);
   }
