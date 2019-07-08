@@ -2,16 +2,11 @@
 
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
-$primary-background-color: #161b21;
-$primary-color: #f4a950;
+@import "./partials/media";
 
-@mixin easeOut {
-  transition: all 0.7s ease-out;
-}
+@import "./partials/animations";
 
-@mixin easeIn {
-  transition: all 0.7s ease-in;
-}
+@import "./partials/colors";
 
 * {
   margin: 0;
