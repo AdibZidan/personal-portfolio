@@ -1,5 +1,0 @@
-@mixin smallScreens {
-  @media (min-width: 320px) and (max-width: 480px) {
-    @content;
-  }
-}
