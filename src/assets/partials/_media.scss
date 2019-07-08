@@ -1,8 +1,10 @@
 @mixin mobileScreensAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
     main {
+      font-size: 1.6rem;
       .social-media {
         text-align: center;
+        font-size: 1.6rem;
       }
 
       &.home {
