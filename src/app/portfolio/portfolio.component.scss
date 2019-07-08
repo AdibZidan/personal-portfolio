@@ -23,7 +23,7 @@ main {
 
   &.home {
     overflow: hidden;
-    h1 {
+    .h1 {
       margin-top: 15vh;
     }
   }
@@ -55,8 +55,21 @@ a {
   color: #fff;
 }
 
-.about {
-  display: table;
-  padding: 1rem;
-  background-color: lighten($color: $primary-background-color, $amount: 5);
+@include smallScreens {
+  main {
+    .social-media {
+      text-align: center;
+    }
+
+    &.home {
+      .h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+        margin: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  }
 }
