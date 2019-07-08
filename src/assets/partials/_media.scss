@@ -1,5 +1,107 @@
-@mixin smallScreens {
+@mixin mobileScreensAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
-    @content;
+    main {
+      .social-media {
+        text-align: center;
+      }
+
+      &.home {
+        .h1 {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@mixin lowResolutionTablet {
+  @media (min-width: 481px) and (max-width: 767px) {
+    main {
+      .social-media {
+        text-align: center;
+      }
+
+      &.home {
+        .h1 {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          line-height: 1;
+          margin: 0;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &.home {
+        .h1 {
+          margin-top: 20vh;
+          margin-bottom: 2rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin tabletsAndLandscape {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &.home {
+        .h1 {
+          margin-top: 10vh;
+          margin-bottom: 2rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    main {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &.home {
+        .h1 {
+          margin-top: 15vh;
+          margin-bottom: 2rem;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+@mixin wideScreen {
+  @media (min-width: 1281px) {
+    main {
+      font-size: 1.6rem;
+      &.home {
+        .h1 {
+          margin-top: 20vh;
+          line-height: 1.8;
+        }
+      }
+    }
   }
 }
