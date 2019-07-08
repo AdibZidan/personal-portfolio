@@ -1,21 +1,36 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+$primary-background-color: #161b21;
+$primary-color: #f4a950;
+
+@mixin easeOut {
+  transition: all 0.7s ease-out;
+}
+
+@mixin easeIn {
+  transition: all 0.7s ease-in;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   font-family: "Roboto Condensed", sans-serif;
 }
 
 body {
-  // background-color: #2d3436;
-  // background-color: #ccc;
-  background-color: rgb(130, 133, 168);
+  height: 100%;
+  line-height: 1.6;
+  background-color: $primary-background-color;
 }
 
 .dialog .mat-dialog-container {
   background-color: #673ab7;
   color: #fff;
+
   border-radius: 5px;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
 }
