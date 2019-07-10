@@ -1,3 +1,5 @@
+@import "../../../assets/partials/colors";
+
 .title {
   max-width: 900px;
   margin: auto;
@@ -7,30 +9,17 @@
   display: flex;
   justify-content: center;
 
-  color: #fff;
-  background-color: #512da8;
-  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
-}
-
-p {
-  padding: 10px;
-  color: #fff;
-}
-
-.remove {
-  padding: 5px;
-
-  background-color: #512da8;
-  border: 1px solid #2d3436;
-  border-radius: 5px;
-}
-
-h2 {
-  font-size: 3em;
-}
-
-h2::first-letter {
   color: #cacaca;
+  background-color: $primary-background-color-lighten;
+  box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
+  border-radius: 10px 10px 0 0;
+  h2 {
+    font-size: 3em;
+  }
+
+  h2::first-letter {
+    color: $primary-color-lighten;
+  }
 }
 
 .todos {
@@ -39,7 +28,20 @@ h2::first-letter {
   margin-bottom: 60px;
   min-height: 450px;
 
-  color: #fff;
-  background: #673ab7;
+  color: $primary-color-lighten;
+  background-color: $primary-background-color-lighten;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
+
+  p {
+    padding: 10px;
+    color: #cacaca;
+  }
+
+  .remove {
+    padding: 5px;
+
+    background-color: $primary-background-color-lighten;
+    border: 1px solid $primary-background-color;
+    border-radius: 5px;
+  }
 }
