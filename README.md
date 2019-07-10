@@ -15,4 +15,6 @@ For the Back-End, I'm using Node.JS.
 - Un/Subscribing
 - HTTP methods
 - Node.JS
+- Responsive Design
+- Documentation
 - & **many more**!
