@@ -1,29 +1,6 @@
 @import "../body/body.component.scss";
 
-.container {
-  margin-left: 7px;
-}
-
-.checkbox {
-  height: 33px;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 28px;
-  width: 28px;
-  border-radius: 5px;
-
-  border: 1px solid #2d3436;
-
-  background-color: #512da8;
-}
-
-.container input:checked ~ .checkmark {
-  background-color: #512da8;
-}
+@import "../../../assets/partials/colors";
 
 .outer {
   display: flex;
@@ -40,40 +17,65 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
+  ::placeholder {
+    padding-left: 10px;
+    border: none;
+
+    color: #cacaca;
+  }
+
+  .input:hover::-webkit-input-placeholder {
+    color: $primary-color;
+  }
+
+  .input {
+    cursor: pointer;
+
+    margin: 5px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $primary-background-color-lighten;
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    background-color: $primary-background-color;
+    color: #cacaca;
+  }
+
+  .input:active {
+    background-color: $primary-background-color;
+  }
+
+  .input:focus {
+    outline: none;
+  }
 }
 
-.form ::placeholder {
-  padding-left: 10px;
-  border: none;
-
-  color: #fff;
+.container {
+  margin-left: 7px;
 }
 
-.form .input:hover::-webkit-input-placeholder {
-  color: #00c5be;
+.checkbox {
+  height: 33px;
 }
 
-.input {
-  cursor: pointer;
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 28px;
+  width: 28px;
+  border-radius: 5px;
 
-  margin: 5px;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #2d3436;
-  border-radius: 10px;
+  border: 1px solid $primary-background-color;
 
-  font-size: 20px;
-
-  background-color: #512da8;
-  color: #fff;
+  background-color: $primary-background-color;
 }
 
-.input:active {
-  background-color: #512da8;
-}
-
-.input:focus {
-  outline: none;
+.container input:checked ~ .checkmark {
+  background-color: $primary-background-color;
 }
 
 .percentage::-webkit-inner-spin-button,
@@ -85,7 +87,7 @@
 .invalid {
   padding-top: 15px;
 
-  color: #fff;
+  color: #cacaca;
   text-align: center;
   font-size: 1.6em;
 }
@@ -97,8 +99,8 @@
   justify-content: space-around;
   flex-direction: column;
 
-  background-color: #512da8;
-  border: 1px solid #2d3436;
+  background-color: $primary-background-color;
+  border: 1px solid $primary-background-color;
   border-radius: 10px;
 
   padding: 5px;
@@ -114,11 +116,11 @@
 }
 
 .completed {
-  color: #fff;
-}
+  color: #cacaca;
 
-.completed:hover {
-  color: #00c5be;
+  &:hover {
+    color: $primary-color;
+  }
 }
 
 .error {
@@ -130,31 +132,30 @@
   padding: 10px;
   cursor: pointer;
 
-  background-color: #512da8;
-  color: #fff;
+  background-color: $primary-background-color;
+  color: #cacaca;
 
   width: 70px;
-  border: 1px solid #2d3436;
+  border: 1px solid $primary-background-color;
   border-radius: 10px;
   outline: none;
   letter-spacing: 1px;
 
   transition: transform 120ms ease-in;
-}
 
-.submit:active {
-  transform: scale(0.95);
-}
+  &:hover:not(.disabled) {
+    color: $primary-color;
+  }
 
-.submit:hover {
-  color: #00c5be;
-}
+  &:active {
+    transform: scale(0.95);
+  }
 
-.submit:disabled {
-  opacity: 0.5;
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .disabled:hover {
-  color: #fff;
   cursor: not-allowed;
 }
