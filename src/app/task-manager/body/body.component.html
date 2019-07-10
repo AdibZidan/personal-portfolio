@@ -6,6 +6,7 @@
       {{ todo.title }}
 
       <div>
+        
         <button class="button" (click)="onDelete(todo)">X</button>
 
         <app-dialog [todo]="todo" (save)="onEdit($event)"></app-dialog>
