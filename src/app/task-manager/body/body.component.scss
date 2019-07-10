@@ -2,6 +2,8 @@
 
 @import "../../../assets/partials/checkmark";
 
+@import "../../../assets/partials/media-task-manager";
+
 .todos {
   max-width: 960px;
   margin: auto;
@@ -18,6 +20,9 @@
   }
 
   h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
 
     color: #cacaca;
@@ -58,6 +63,7 @@
   cursor: pointer;
   font-size: 22px;
   user-select: none;
+  word-break: break-word;
 
   input {
     position: absolute;
@@ -111,3 +117,5 @@
 }
 
 @include checkMark;
+
+@include mobileScreensAndPortrait;
