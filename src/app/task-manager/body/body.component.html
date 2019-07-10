@@ -5,9 +5,12 @@
     <h2>
       {{ todo.title }}
 
-      <button class="button" (click)="onDelete(todo)">X</button>
+      <div>
+        <button class="button" (click)="onDelete(todo)">X</button>
 
-      <app-dialog [todo]="todo" (save)="onEdit($event)"></app-dialog>
+        <app-dialog [todo]="todo" (save)="onEdit($event)"></app-dialog>
+
+      </div>
 
     </h2>
 
