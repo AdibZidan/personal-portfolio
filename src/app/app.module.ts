@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from './header/header.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { AboutComponent } from './portfolio/about/about.component';
 import { FooterComponent } from './footer/footer.component';
 
 import { BrowserModule } from "@angular/platform-browser";
@@ -17,7 +18,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
     AppComponent,
     HeaderComponent,
     PortfolioComponent,
-    FooterComponent
+    AboutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
