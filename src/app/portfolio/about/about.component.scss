@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap");
+
+@import "../../../assets/partials/colors";
+
+* {
+  color: #cacaca;
+}
+
+.h2 {
+  font-family: "Cedarville Cursive", cursive;
+  font-size: 4rem;
+
+  padding: 1.9rem;
+}
+
+.about {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 960px;
+  height: 100%;
+  border: 1px solid $primary-color;
+}
+
+.p {
+  font-size: 1.4rem;
+  padding: 0.3rem;
+  margin: 0.2rem;
+}
+
+ul {
+  list-style: none;
+}
