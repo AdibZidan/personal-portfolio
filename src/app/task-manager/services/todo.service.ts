@@ -41,8 +41,8 @@ export class TodoService {
 
     return this.httpClient
       .put<Todo>(url, todo)
-      .pipe(tap(() => console.log(todo)))
-      .pipe(tap(() => this.refresher$.next()));
+      .pipe(tap(() => this.refresher$.next()))
+      .pipe(tap(() => console.log(todo)));
   }
 
   deleteTodoFromBackEnd(todo: Todo): Observable<Todo> {
