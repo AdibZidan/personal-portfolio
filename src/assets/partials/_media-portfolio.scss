@@ -2,6 +2,7 @@
   @media (min-width: 320px) and (max-width: 480px) {
     main {
       font-size: 1.6rem;
+
       .social-media {
         text-align: center;
         font-size: 1.6rem;
@@ -13,8 +14,7 @@
           flex-direction: column;
           align-items: center;
           line-height: 1;
-          margin: 0;
-          margin-bottom: 2rem;
+          margin-bottom: 4rem;
         }
       }
     }
@@ -23,6 +23,16 @@
 
 @mixin lowResolutionTablet {
   @media (min-width: 481px) and (max-width: 767px) {
+    .header {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+
+      .task-manager {
+        margin-left: 15px;
+      }
+    }
+
     main {
       .social-media {
         text-align: center;
@@ -35,8 +45,12 @@
           align-items: center;
           line-height: 1;
           margin: 0;
-          margin-bottom: 2rem;
+          margin-bottom: 4rem;
         }
+      }
+
+      .social-media {
+        font-size: 1.6rem;
       }
     }
   }
@@ -51,7 +65,7 @@
       &.home {
         .h1 {
           margin-top: 20vh;
-          margin-bottom: 2rem;
+          margin-bottom: 6rem;
           line-height: 1;
         }
       }
@@ -68,10 +82,22 @@
       &.home {
         .h1 {
           margin-top: 10vh;
-          margin-bottom: 2rem;
+          margin-bottom: 4rem;
           line-height: 1;
         }
+
+        .h2 {
+          font-size: 1.8rem;
+        }
+
+        .social-media {
+          font-size: 2rem;
+        }
       }
+    }
+
+    .header {
+      font-size: 1.4rem;
     }
   }
 }
