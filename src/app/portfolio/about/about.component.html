@@ -1,5 +1,53 @@
 <section class="about">
 
-  <h2 class="h2">Hello!</h2>
+  <div class="inner">
+
+    <h2 class="h2">Hello!</h2>
+
+    <p class="p">My name is Adib Zidan, and I'm half-Syrian and half-Ukrainian based in Vienna, Austria and I'm 24
+      years old.</p>
+
+    <ul>
+      I speak 4 languages:
+      <li *ngFor="let language of languages"> {{ language }} </li>
+    </ul>
+
+    <p class="p">During my free time, I either; lift heavy weights, read books, or enhance my programming skills.</p>
+
+    <p class="p">I also graduated from the
+      <a href="https://www.newaustriancodingschool.at/" target="_blank">
+        New Austrian Coding School
+      </a>
+      on the 28th of June, 2019 and I'm more than proud that I'm finally a software developer specializing in Front-End
+      Development!
+    </p>
+
+    <hr>
+
+    <h2 class="h2">Opportunities and Challenges</h2>
+
+    <p class="p">During the very intensive 9 months training program, I had the opportunity to always work extra-hours
+      after class to enhance my programming skills.</p>
+
+    <p class="p">These extra-hours have tremendously improved my work ethic, increased both my mental and physical
+      strength and also enhanced my passion and love for technology and coding!</p>
+
+    <p class="p">What also made me not quit, was my previous experiences working as a waiter and lifting heavy weights
+      at the gym! Both were very challenging in terms of discovering my true potential and to never back down from any
+      challenge!</p>
+
+    <hr>
+
+    <h2 class="h2">Technology Stack</h2>
+
+    <ul class="technology-stack">
+
+      <li *ngFor="let technologyStack of technologyStacks">
+        {{ technologyStack }}
+      </li>
+
+    </ul>
+
+  </div>
 
 </section>
