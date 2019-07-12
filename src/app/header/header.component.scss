@@ -5,6 +5,12 @@
   background-color: lighten($color: $primary-background-color, $amount: 2);
 }
 
+.mine {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+
 .navigation-link {
   color: #cacaca;
   text-decoration: none;
