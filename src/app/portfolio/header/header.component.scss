@@ -1,5 +1,7 @@
 @import "../../../styles.scss";
 
+@import "../../../assets/partials/media-portfolio";
+
 .header {
   width: 100%;
   background-color: lighten($color: $primary-background-color, $amount: 2);
@@ -67,3 +69,7 @@
     width: 100%;
   }
 }
+
+@include lowResolutionTablet;
+
+@include tabletsAndLandscape;
