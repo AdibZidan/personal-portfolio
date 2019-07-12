@@ -4,15 +4,17 @@
 
     <ul class="menu-navigation">
 
-      <li class="navigation-item">
-        <a [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">Portfolio</a>
-        <i></i><i></i>
-      </li>
+      <div class="mine">
+        <li class="navigation-item">
+          <a [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">Portfolio</a>
+          <i></i><i></i>
+        </li>
 
-      <li class="navigation-item">
-        <a [routerLink]="['/about']" routerLinkActive="active" class="navigation-link">About</a>
-        <i></i><i></i>
-      </li>
+        <li class="navigation-item">
+          <a [routerLink]="['/about']" routerLinkActive="active" class="navigation-link down">About Me</a>
+          <i></i><i></i>
+        </li>
+      </div>
 
       <li class="navigation-item">
         <a [routerLink]="['/task-manager']" routerLinkActive="active" class="navigation-link">Task Manager</a>
