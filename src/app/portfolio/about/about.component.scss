@@ -2,33 +2,51 @@
 
 @import "../../../assets/partials/colors";
 
-* {
-  color: #cacaca;
-}
-
-.h2 {
-  font-family: "Cedarville Cursive", cursive;
-  font-size: 4rem;
-
-  padding: 1.9rem;
-}
-
 .about {
   display: flex;
-  align-content: center;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 960px;
-  height: 100%;
-  border: 1px solid $primary-color;
-}
+  margin: 1rem auto;
+  color: #cacaca;
 
-.p {
-  font-size: 1.4rem;
-  padding: 0.3rem;
-  margin: 0.2rem;
-}
+  .inner {
+    padding: 0.6rem;
+    width: 100%;
 
-ul {
-  list-style: none;
+    .h2 {
+      font-family: "Cedarville Cursive", cursive;
+      font-size: 4rem;
+      padding: 1.9rem;
+      text-align: center;
+      color: $primary-color;
+    }
+
+    hr {
+      margin: 125px;
+      border-color: $primary-color;
+    }
+
+    .p,
+    ul,
+    li {
+      line-height: 3;
+      font-size: 1.3rem;
+    }
+
+    li {
+      display: inline;
+      list-style-type: none;
+    }
+
+    a {
+      color: $primary-color;
+      font-style: italic;
+
+      &:hover {
+        color: #cacaca;
+      }
+    }
+  }
 }
