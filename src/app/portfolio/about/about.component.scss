@@ -1,5 +1,7 @@
 @import "../../../assets/partials/colors";
 
+@import "../../../assets/partials/animations";
+
 .about {
   display: flex;
   justify-content: center;
@@ -53,6 +55,15 @@
       position: fixed;
       bottom: 24px;
       right: -5px;
+
+      &:hover {
+        color: $primary-color;
+        @include easeOut;
+      }
+
+      &:not(:hover) {
+        @include easeIn;
+      }
     }
   }
 }
