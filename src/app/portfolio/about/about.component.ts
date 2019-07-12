@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class AboutComponent implements OnInit {
 
-  languages: string[] = ['English', 'Arabic', 'Russian', '& German'];
+  languages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
+
+  technologyStacks: string[] = [
+    'HTML5,', 'CSS3,', 'SCSS,',
+    'JavaScript ES6+,', 'TypeScript,', 'Angular 8,',
+    'Docker,', 'Git/GitHub,', 'Ubuntu,',
+    'Node.JS,', 'npm,', '& Visual Studio Code.'
+  ];
 
   constructor() { }
 
