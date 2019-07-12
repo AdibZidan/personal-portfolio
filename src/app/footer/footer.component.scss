@@ -1,24 +1,34 @@
+@import "../../assets/partials/colors";
+
+@import "../portfolio/portfolio.component.scss";
+
+@import "../../assets/partials/animations";
+
 footer {
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  background-color: #2d3436;
-  color: #ccc;
-  height: 60px;
-}
+  align-items: center;
+  padding: 30px;
+  font-size: 1.2rem;
+  color: #cacaca;
+  background-color: lighten($color: $primary-background-color, $amount: 2);
 
-nav {
-  padding-right: 20px;
-  align-self: center;
-}
+  p {
+    align-self: center;
+  }
 
-.github {
-  border-radius: 50%;
-  padding-right: 10px;
-}
+  @include socialMedia;
 
-p {
-  align-self: center;
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
+      @include easeOut;
+    }
+
+    &:not(:hover) {
+      @include easeIn;
+    }
+  }
 }
