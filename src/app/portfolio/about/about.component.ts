@@ -21,4 +21,5 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() { }
 
+  onClick() { window.scroll({ top: 0, left: 0, behavior: 'smooth' }); }
 }
