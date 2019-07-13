@@ -9,7 +9,7 @@ import { FooterComponent } from './portfolio/footer/footer.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
-import { TodoModule } from './task-manager/module/todo.module';
+import { TaskModule } from './task-manager/module/task.module';
 
 import { MAT_DIALOG_DATA } from '@angular/material';
 
@@ -25,7 +25,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    TodoModule
+    TaskModule
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent]
