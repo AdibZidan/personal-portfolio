@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Observable, Subscription } from 'rxjs';
 
-import { TodoService } from '../services/todo.service';
+import { TaskService } from '../services/task.service';
 
-import { Todo } from '../../classes/Todo';
+import { Task } from '../../classes/Task';
 
 @Component({
   selector: 'app-main',
@@ -14,31 +14,31 @@ import { Todo } from '../../classes/Todo';
 
 export class MainComponent implements OnInit, OnDestroy {
 
-  todos$: Observable<Todo[]>;
+  tasks$: Observable<Task[]>;
 
   private subscription: Subscription;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void { this.getTodos(); }
+  ngOnInit(): void { this.getTasks(); }
 
   ngOnDestroy(): void { this.subscription.unsubscribe(); }
 
-  getTodos(): void {
-    this.todos$ = this.todoService.getTodosFromBackEnd();
-    this.subscription = this.todoService.refresher.subscribe(() => this.getTodos());
+  getTasks(): void {
+    this.tasks$ = this.taskService.getTasksFromBackEnd();
+    this.subscription = this.taskService.refresher.subscribe(() => this.getTasks());
   }
 
-  addTodo(todo: Todo): void {
-    this.subscription = this.todoService
-      .addTodoToBackEnd(todo)
-      .subscribe(() => this.getTodos());
+  addTask(task: Task): void {
+    this.subscription = this.taskService
+      .addTaskToBackEnd(task)
+      .subscribe(() => this.getTasks());
   }
 
-  deleteTodo(todo: Todo): void {
-    this.subscription = this.todoService
-      .deleteTodoFromBackEnd(todo)
-      .subscribe(() => this.getTodos());
+  deleteTask(task: Task): void {
+    this.subscription = this.taskService
+      .deleteTaskFromBackEnd(task)
+      .subscribe(() => this.getTasks());
   }
 
 }
