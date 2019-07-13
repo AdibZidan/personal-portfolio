@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } fro
 
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
-import { Todo } from '../../classes/Todo';
+import { Task } from '../../classes/Task';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -16,9 +16,9 @@ import { Subscription } from 'rxjs';
 
 export class FormComponent implements OnInit, OnDestroy {
 
-  @Input() todo: Todo;
+  @Input() task: Task;
 
-  @Output() addTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() addTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
@@ -32,7 +32,7 @@ export class FormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private matDialogRef: MatDialogRef<FormComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: Todo
+    @Inject(MAT_DIALOG_DATA) private data: Task
   ) { }
 
   ngOnInit(): void { this.onFormBuild(); }
@@ -40,7 +40,7 @@ export class FormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void { this.subscription.unsubscribe(); }
 
   onFormBuild(): void {
-    this.todo = this.data;
+    this.task = this.data;
 
     this.formGroup = this.formBuilder.group({
       id: [''],
@@ -52,12 +52,12 @@ export class FormComponent implements OnInit, OnDestroy {
 
     this.subscription = this.formGroup.valueChanges.subscribe(() => this.isValidForm = this.formGroup.valid);
 
-    this.formGroup.patchValue(this.todo);
+    this.formGroup.patchValue(this.task);
   }
 
   onSubmit(): void {
     if (this.formGroup.valid) {
-      this.addTodo.emit(this.formGroup.value);
+      this.addTask.emit(this.formGroup.value);
       this.matDialogRef.close(this.formGroup.value);
       this.formGroup.reset();
     }
