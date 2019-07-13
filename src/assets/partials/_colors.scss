@@ -4,4 +4,7 @@ $primary-background-color-lighten: #2a3440;
 
 $primary-color: #f4a950;
 
-$primary-color-lighten: lighten($color: $primary-color, $amount: 2);
+$primary-color-lighten: lighten(
+  $color: $primary-color,
+  $amount: 2
+);
