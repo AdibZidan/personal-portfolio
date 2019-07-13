@@ -4,14 +4,14 @@
 
 @mixin mobileScreensAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
-    .todos {
+    .tasks {
       max-width: 960px;
       margin: auto;
       padding: 40px;
 
       border-top: 1px solid $primary-background-color;
 
-      .todo {
+      .task {
         max-width: 900px;
         padding: 25px 10px;
 
@@ -91,7 +91,6 @@
       text-overflow: initial;
       white-space: initial;
       overflow: hidden;
-
     }
 
     .text {
