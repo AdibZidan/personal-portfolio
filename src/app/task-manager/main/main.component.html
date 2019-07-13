@@ -1,24 +1,24 @@
 <header class="title">
 
   <h2>
-    WHAT'S YOUR TODO?
+    WHAT'S YOUR TASK?
   </h2>
 
 </header>
 
-<main class="todos">
+<main class="tasks">
 
-  <ng-container *ngIf="todos$ | async as todos">
+  <ng-container *ngIf="tasks$ | async as tasks">
 
-    <app-form [todo]="todos" (addTodo)="addTodo($event)"></app-form>
+    <app-form [task]="tasks" (addTask)="addTask($event)"></app-form>
 
     <p>
-      <span *ngIf="todos.length > 1" class="remove">
-        There are {{ todos.length }} todos
+      <span *ngIf="tasks.length > 1" class="remove">
+        There are {{ tasks.length }} tasks
       </span>
     </p>
 
-    <app-body *ngFor="let todo of todos" [todo]="todo" (deleteToDo)="deleteTodo($event)"></app-body>
+    <app-body *ngFor="let task of tasks" [task]="task" (deleteTask)="deleteTask($event)"></app-body>
 
   </ng-container>
 
