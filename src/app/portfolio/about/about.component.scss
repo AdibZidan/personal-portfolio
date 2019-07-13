@@ -43,9 +43,18 @@
     a {
       color: $primary-color;
       font-style: italic;
+      text-decoration: none;
+      border-bottom: 1px solid $primary-color;
+      padding-bottom: 1px;
 
       &:hover {
         color: #cacaca;
+        border-bottom: 1px solid #cacaca;
+        @include easeOut;
+      }
+
+      &:not(:hover) {
+        @include easeIn;
       }
     }
 
