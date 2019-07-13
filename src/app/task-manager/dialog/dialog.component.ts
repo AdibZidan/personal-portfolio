@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { FormComponent } from '../form/form.component';
 
-import { Todo } from 'src/app/classes/Todo';
+import { Task } from 'src/app/classes/Task';
 
 import { Subscription } from 'rxjs';
 
@@ -16,9 +16,9 @@ import { Subscription } from 'rxjs';
 
 export class DialogComponent implements OnInit, OnDestroy {
 
-  @Input() todo: Todo;
+  @Input() task: Task;
 
-  @Output() save: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() save: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
@@ -33,14 +33,14 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   onClick(): void {
     this.matDialogRef = this.dialog.open(FormComponent, {
-      data: this.todo,
+      data: this.task,
       autoFocus: true,
       disableClose: true,
       width: '600px',
       panelClass: 'dialog'
     });
 
-    this.subscription = this.matDialogRef.afterClosed().subscribe((todo: Todo) => this.save.emit(todo));
+    this.subscription = this.matDialogRef.afterClosed().subscribe((task: Task) => this.save.emit(task));
   }
 
 }
