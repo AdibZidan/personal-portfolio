@@ -3,20 +3,23 @@
     main {
       font-size: 1.6rem;
 
-      .social-media {
-        text-align: center;
-        font-size: 1.6rem;
-      }
-
       &.home {
         .h1 {
           display: flex;
           flex-direction: column;
           align-items: center;
           line-height: 1;
-          margin-bottom: 4rem;
+          margin: 0.9rem 0 4rem 0;
         }
       }
+
+      .social-media {
+        width: 250px;
+      }
+    }
+
+    .mine {
+      background-color: #fff;
     }
   }
 }
