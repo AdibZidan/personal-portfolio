@@ -2,9 +2,9 @@ import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angu
 
 import { trigger, style, animate, transition, } from '@angular/animations';
 
-import { TodoService } from '../services/todo.service';
+import { TaskService } from '../services/task.service';
 
-import { Todo } from '../../classes/Todo';
+import { Task } from '../../classes/Task';
 
 import { Subscription } from 'rxjs';
 
@@ -24,13 +24,13 @@ import { Subscription } from 'rxjs';
 
 export class BodyComponent implements OnInit, OnDestroy {
 
-  @Input() todo: Todo;
+  @Input() task: Task;
 
-  @Output() deleteToDo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
-  constructor(private todoService: TodoService) { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void { }
 
@@ -38,20 +38,20 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   setLineThrough(): object {
     const lineThrough: object = {
-      'is-complete': this.todo.completed
+      'is-complete': this.task.completed
     };
 
     return lineThrough;
   }
 
-  onToggle(todo: Todo): void {
-    todo.completed = !todo.completed;
+  onToggle(task: Task): void {
+    task.completed = !task.completed;
 
-    this.subscription = this.todoService.toggleTodoFromBackEnd(todo).subscribe(todoOnToggle => console.log(todoOnToggle));
+    this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe(taskOnToggle => console.log(taskOnToggle));
   }
 
-  onDelete(todo: Todo) { this.deleteToDo.emit(todo); }
+  onDelete(task: Task) { this.deleteTask.emit(task); }
 
-  async onEdit(todo: Todo) { await this.todoService.editTodoFromBackEnd(todo).toPromise(); }
+  async onEdit(task: Task) { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
 
 }
