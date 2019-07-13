@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 
 import { tap } from 'rxjs/operators';
 
-import { Task } from '../../classes/Task';
+import { Task } from '../interface/Task'; 
 
 @Injectable({ providedIn: 'root' })
 

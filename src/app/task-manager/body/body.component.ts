@@ -4,7 +4,7 @@ import { trigger, style, animate, transition, } from '@angular/animations';
 
 import { TaskService } from '../services/task.service';
 
-import { Task } from '../../classes/Task';
+import { Task } from '../interface/Task';
 
 import { Subscription } from 'rxjs';
 

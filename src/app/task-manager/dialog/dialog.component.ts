@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { FormComponent } from '../form/form.component';
 
-import { Task } from 'src/app/classes/Task';
+import { Task } from 'src/app/task-manager/interface/Task';
 
 import { Subscription } from 'rxjs';
 

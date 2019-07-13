@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } fro
 
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
-import { Task } from '../../classes/Task';
+import { Task } from '../interface/Task';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
