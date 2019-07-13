@@ -1,32 +1,32 @@
-<section @fadeIn class="todos">
+<section @fadeIn class="tasks">
 
-  <article class="todo">
+  <article class="task">
 
     <h2>
-      {{ todo.title }}
+      {{ task.title }}
 
       <div>
-        
-        <button class="button" (click)="onDelete(todo)">X</button>
 
-        <app-dialog [todo]="todo" (save)="onEdit($event)"></app-dialog>
+        <button class="button" (click)="onDelete(task)">X</button>
+
+        <app-dialog [task]="task" (save)="onEdit($event)"></app-dialog>
 
       </div>
 
     </h2>
 
-    <label class="container" *ngIf="todo.description">
+    <label class="container" *ngIf="task.description">
 
-      <input type="checkbox" [checked]="todo.completed" (click)="onToggle(todo)" *ngIf="todo.description">
+      <input type="checkbox" [checked]="task.completed" (click)="onToggle(task)" *ngIf="task.description">
 
       <p class="text" [ngClass]="setLineThrough()">
 
-        <span class="percentage" *ngIf="todo.percentage">
-          {{ todo.percentage }}%
+        <span class="percentage" *ngIf="task.percentage">
+          {{ task.percentage }}%
         </span>
 
-        <span *ngIf="todo.description">
-          {{ todo.description }}
+        <span *ngIf="task.description">
+          {{ task.description }}
         </span>
 
       </p>
