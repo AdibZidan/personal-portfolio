@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap");
 
 @import "../../styles.scss";
 
@@ -26,7 +26,7 @@ main {
   &.home {
     overflow: hidden;
     .h1 {
-      font-family: "Cedarville Cursive", cursive;
+      font-family: "Dancing Script", cursive;
       margin: 15vh 0 10px 0;
     }
   }
@@ -51,7 +51,7 @@ h2 {
 }
 
 .last-name {
-  font-family: "Cedarville Cursive", cursive;
+  font-family: "Dancing Script", cursive;
   color: $primary-color;
 }
 
