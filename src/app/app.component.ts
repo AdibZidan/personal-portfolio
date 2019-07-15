@@ -16,7 +16,7 @@ export class AppComponent {
   prepare(outlet: RouterOutlet) {
     const animation: RouterOutlet = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 
-    return animation
+    return animation;
   }
 
 }
