@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule } from '@angular/router';
 
-import { ROUTES } from './routes/routes';
+import { routes } from './routes/routes';
 
-ROUTES;
+routes;
 
 @NgModule({
-  imports: [RouterModule.forRoot(ROUTES)],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 

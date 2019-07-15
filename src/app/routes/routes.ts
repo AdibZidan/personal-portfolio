@@ -6,7 +6,7 @@ import { AboutComponent } from './../portfolio/about/about.component';
 
 import { MainComponent } from '../task-manager/main/main.component';
 
-export const ROUTES: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: 'portfolio', pathMatch: 'full' },
   { path: 'portfolio', component: PortfolioComponent, data: { animation: 'portfolio' } },
   { path: 'about-me', component: AboutComponent, data: { animation: 'about-me' } },
