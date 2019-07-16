@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { easeIn } from './../assets/animations/animation';
+import { easeIn } from '../assets/animations/animations';
 
 import { RouterOutlet } from '@angular/router';
 
