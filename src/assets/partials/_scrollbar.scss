@@ -1,0 +1,18 @@
+@mixin scrollBar {
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $primary-background-color;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #cacaca;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}
