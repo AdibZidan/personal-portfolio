@@ -59,11 +59,10 @@
     }
 
     .arrow {
-      padding: 10px;
       cursor: pointer;
       position: fixed;
-      bottom: 24px;
-      right: -5px;
+      bottom: 40px;
+      right: 10px;
 
       &:hover {
         color: $primary-color;
