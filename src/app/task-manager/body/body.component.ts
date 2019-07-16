@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
 
-import { trigger, style, animate, transition, } from '@angular/animations';
+import { fadeIn } from '../../../assets/animations/animations';
 
 import { TaskService } from '../services/task.service';
 
@@ -12,14 +12,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss'],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms', style({ opacity: 1 }))
-      ])
-    ])
-  ]
+  animations: [fadeIn]
 })
 
 export class BodyComponent implements OnInit, OnDestroy {
