@@ -1,12 +1,19 @@
-import { TestBed } from '@angular/core/testing';
+import { TaskService } from "./task.service";
 
-import { TaskService } from './task.service';
+import { HttpClient } from '@angular/common/http';
 
-describe('TaskService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+describe('Task Service', () => {
 
-  it('should be created', () => {
-    const service: TaskService = TestBed.get(TaskService);
-    expect(service).toBeTruthy();
+  it('Should exist', () => { expect(TaskService).toBeDefined(); });
+
+  it('Should be built with 1 argument; HttpClient type', () => {
+
+    let httpClient: HttpClient;
+
+    const taskService = new TaskService(httpClient);
+
+    expect(taskService instanceof TaskService).toBe(true);
+
   });
+
 });
