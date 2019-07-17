@@ -128,7 +128,7 @@ describe('Task Service', () => {
 
     const url: string = `${taskService.url}/delete/${mockTask.id}`;
 
-    taskService.deleteTaskFromBackEnd(mockTask).subscribe(task => expect(task).toBe(task));
+    taskService.deleteTaskFromBackEnd(mockTask).subscribe(task => expect(task).toBe(mockTask));
 
     const request = httpTestingController.expectOne(url);
 
