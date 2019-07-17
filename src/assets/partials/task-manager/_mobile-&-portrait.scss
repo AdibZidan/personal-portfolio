@@ -1,0 +1,133 @@
+@mixin mobile {
+  // MainComponent
+  .title {
+    max-width: 300px;
+    margin-top: 50px;
+
+    h2 {
+      font-size: 1.9rem;
+      text-align: center;
+    }
+  }
+
+  .remove {
+    font-size: 0.7rem;
+  }
+
+  .tasks {
+    max-width: 300px;
+    min-height: 100%;
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+  // ---
+
+  // FormComponent
+  .form {
+    width: 200px;
+
+    ::placeholder {
+      font-size: 0.8rem;
+    }
+
+    .input {
+      font-size: 0.8rem;
+    }
+
+    span {
+      font-size: 0.7rem;
+    }
+  }
+
+  .checkmark {
+    height: 20px;
+    width: 25px;
+  }
+
+  .container .checkmark:after {
+    left: 8px;
+    top: 1px;
+  }
+
+  .inner {
+    display: none;
+  }
+
+  .submit {
+    margin: -5px 0 0 0;
+    padding: 5px;
+    font-size: 0.7rem;
+  }
+  // ---
+
+  // BodyComponent
+  .tasks {
+    padding: 5px;
+    font-size: 0.7rem;
+    .task {
+      font-size: 0.7rem;
+      padding: 10px 0;
+      width: 100%;
+
+      div {
+        margin-top: 5px;
+        float: right;
+        width: 100px;
+      }
+    }
+
+    h2 {
+      display: inline-block;
+      word-break: break-word;
+      font-size: 1.2rem;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .button {
+      padding: 2px;
+    }
+
+    span {
+      font-size: 0.8rem;
+    }
+
+    .checkmark {
+      height: 20px;
+      width: 25px;
+      top: 9px;
+      left: 0;
+    }
+
+    .checkmark:after {
+      left: 8px;
+      top: 1px;
+    }
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+  }
+  // ---
+
+  // DialogComponent
+  .button {
+    padding: 2px;
+
+    border-radius: 5px;
+    letter-spacing: 0;
+    font-size: 0.7rem;
+  }
+
+  .edit {
+    &:active {
+      color: $primary-color;
+      background-color: $primary-background-color;
+    }
+  }
+  // ---
+}
