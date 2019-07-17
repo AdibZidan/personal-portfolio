@@ -1,5 +1,7 @@
 @import "../../../assets/partials/colors";
 
+@import "../../../assets/partials/media-task-manager";
+
 .title {
   max-width: 900px;
   margin: auto;
@@ -46,3 +48,5 @@
     border-radius: 5px;
   }
 }
+
+@include mobileScreensAndPortrait;
