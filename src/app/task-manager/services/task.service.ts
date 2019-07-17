@@ -6,13 +6,13 @@ import { Observable, Subject } from 'rxjs';
 
 import { tap } from 'rxjs/operators';
 
-import { Task } from '../interface/Task'; 
+import { Task } from '../interface/Task';
 
 @Injectable({ providedIn: 'root' })
 
 export class TaskService {
 
-  private url: string = 'http://localhost:3000/tasks';
+  url: string = 'http://localhost:3000/tasks';
 
   private refresher$: Subject<Task> = new Subject<Task>();
 
