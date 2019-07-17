@@ -1,5 +1,7 @@
 @import "../../../assets/partials/colors";
 
+@import "../../../assets/partials/media-task-manager";
+
 .button {
   float: right;
 
@@ -36,3 +38,5 @@
     background-color: $primary-background-color;
   }
 }
+
+@include mobileScreensAndPortrait;

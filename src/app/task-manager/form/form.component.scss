@@ -2,6 +2,8 @@
 
 @import "../../../assets/partials/colors";
 
+@import "../../../assets/partials/media-task-manager";
+
 .outer {
   display: flex;
   justify-content: center;
@@ -159,3 +161,5 @@
 .disabled:hover {
   cursor: not-allowed;
 }
+
+@include mobileScreensAndPortrait;
