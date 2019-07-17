@@ -12,7 +12,32 @@ describe('Task Service', () => {
 
   let taskService: TaskService, httpTestingController: HttpTestingController;
 
+  let mockTasks: Task[], mockTask: Task;
+
   beforeEach(() => {
+
+    mockTasks = [{
+      id: 1,
+      title: 'This is a test!',
+      description: 'I love testing!',
+      percentage: 69,
+      completed: false
+    },
+    {
+      id: 2,
+      title: 'Wake up at 6 A.M',
+      description: 'Drink lots water and prepare coffee',
+      percentage: 10,
+      completed: false
+    }, {
+      id: 3,
+      title: 'This is a another test!',
+      description: 'I love testing! --- This message was marked as spam!',
+      percentage: 100,
+      completed: true
+    }];
+
+    mockTask = mockTasks[0];
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
@@ -41,27 +66,6 @@ describe('Task Service', () => {
 
   it('Should retrieve tasks via a GET request', () => {
 
-    const mockTasks: Task[] = [{
-      id: 1,
-      title: 'This is a test!',
-      description: 'I love testing!',
-      percentage: 69,
-      completed: false
-    },
-    {
-      id: 2,
-      title: 'Wake up at 6 A.M',
-      description: 'Drink lots water and prepare coffee',
-      percentage: 10,
-      completed: false
-    }, {
-      id: 3,
-      title: 'This is a another test!',
-      description: 'I love testing! --- This message was marked as spam!',
-      percentage: 100,
-      completed: true
-    }];
-
     taskService.getTasksFromBackEnd().subscribe(tasks => {
 
       const length = tasks.length;
@@ -82,19 +86,25 @@ describe('Task Service', () => {
 
   it('Should add a task via a POST request', () => {
 
-    const mockTask: Task = {
-      id: 1,
-      title: 'Test!',
-      description: 'Testing!',
-      percentage: 100,
-      completed: true
-    };
-
     taskService.addTaskToBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
 
     const request = httpTestingController.expectOne(taskService.url);
 
     expect(request.request.method).toEqual('POST');
+
+    request.flush(mockTask);
+
+  });
+
+  it('Should toggle the completed task via a PUT request', () => {
+
+    const url: string = `${taskService.url}/update/${mockTask.id}`;
+
+    taskService.toggleTaskFromBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
+
+    const request = httpTestingController.expectOne(url);
+
+    expect(request.request.method).toEqual('PUT');
 
     request.flush(mockTask);
 
