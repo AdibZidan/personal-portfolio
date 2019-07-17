@@ -1,25 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AboutComponent } from "./about.component";
 
-import { AboutComponent } from './about.component';
+describe('About Component', () => {
 
-describe('AboutComponent', () => {
-  let component: AboutComponent;
-  let fixture: ComponentFixture<AboutComponent>;
+  it('Should exist', () => { expect(AboutComponent).toBeDefined(); });
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ AboutComponent ]
-    })
-    .compileComponents();
-  }));
+  it('Should be built with zero arguments', () => {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AboutComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    const aboutComponent = new AboutComponent();
+
+    expect(aboutComponent instanceof AboutComponent).toBe(true);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
