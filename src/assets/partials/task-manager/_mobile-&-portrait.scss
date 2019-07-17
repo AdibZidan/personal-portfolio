@@ -66,6 +66,7 @@
   .tasks {
     padding: 5px;
     font-size: 0.7rem;
+
     .task {
       font-size: 0.7rem;
       padding: 10px 0;
@@ -75,6 +76,10 @@
         margin-top: 5px;
         float: right;
         width: 100px;
+      }
+
+      span {
+        font-size: 0.9rem;
       }
     }
 
@@ -88,10 +93,6 @@
 
     .button {
       padding: 2px;
-    }
-
-    span {
-      font-size: 0.8rem;
     }
 
     .checkmark {
