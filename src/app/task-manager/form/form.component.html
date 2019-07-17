@@ -7,7 +7,7 @@
     <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
 
       <ng-container *ngIf="title">
-        Minimum of 3 characters is required
+        <span>Minimum of 3 characters is required</span>
       </ng-container>
 
     </ng-container>
@@ -17,7 +17,7 @@
     <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
 
       <ng-container *ngIf="description">
-        Minimum of 6 characters is required
+        <span>Minimum of 6 characters is required</span>
       </ng-container>
 
     </ng-container>
@@ -28,7 +28,7 @@
     <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
 
       <ng-container *ngIf="validNumberPattern">
-        Between 1 and 100 is allowed
+        <span>Between 1 and 100 is allowed</span>
       </ng-container>
 
     </ng-container>
