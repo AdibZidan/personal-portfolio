@@ -1,24 +1,15 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { RouterTestingModule } from '@angular/router/testing';
-
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+describe('Application Component', () => {
 
-  it('Should create the application', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const application = fixture.debugElement.componentInstance;
-    expect(application).toBeTruthy();
+  it('Should exist', () => { expect(AppComponent).toBeDefined(); });
+
+  it('Should be built with zero arguments', () => {
+
+    const appComponent = new AppComponent();
+
+    expect(appComponent instanceof AppComponent).toBe(true);
+
   });
+
 });
