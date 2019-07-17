@@ -1,25 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HeaderComponent } from "./header.component";
 
-import { HeaderComponent } from './header.component';
+describe('Header Component', () => {
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+  it('Should exist', () => { expect(HeaderComponent).toBeDefined(); });
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
-  }));
+  it('Should be built with no arguments', () => {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    const headerComponent = new HeaderComponent();
+
+    expect(headerComponent instanceof HeaderComponent).toBe(true);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
