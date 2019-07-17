@@ -24,4 +24,5 @@ Make sure to install the latest version of:
 - Documentation
 - Git/GitHub in depth
 - SCSS: *partials*
+- Tests: *Jest* & *Jasmine*
 - & **many more**!
