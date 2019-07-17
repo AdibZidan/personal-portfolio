@@ -1,25 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DialogComponent } from "./dialog.component";
 
-import { DialogComponent } from './dialog.component';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { FormComponent } from '../form/form.component';
 
-describe('DialogComponent', () => {
-  let component: DialogComponent;
-  let fixture: ComponentFixture<DialogComponent>;
+describe('Dialog Component', () => {
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ DialogComponent ]
-    })
-    .compileComponents();
-  }));
+  it('Should exist', () => { expect(DialogComponent).toBeDefined(); });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(DialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('Should be built with 2 arguments; MatDialog and MatDialogRef<FormComponent> types', () => {
+
+    let matDialog: MatDialog, matDialogRef: MatDialogRef<FormComponent>;
+
+    const appComponent = new DialogComponent(matDialog, matDialogRef);
+
+    expect(appComponent instanceof DialogComponent).toBe(true);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
