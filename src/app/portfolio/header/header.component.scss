@@ -2,6 +2,8 @@
 
 @import "../../../assets/partials/media-portfolio";
 
+@import "../../../assets/partials/media-task-manager";
+
 .header {
   width: 100%;
   background-color: lighten($color: $primary-background-color, $amount: 2);
@@ -73,3 +75,5 @@
 
   @include tabletsAndLandscape;
 }
+
+@include mobileScreensAndPortrait;
