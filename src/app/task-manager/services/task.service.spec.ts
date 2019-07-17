@@ -8,6 +8,8 @@ import { TaskService } from "./task.service";
 
 import { Task } from '../interface/Task';
 
+import { tasksMock, taskMock } from './mock/mock';
+
 describe('Task Service', () => {
 
   let taskService: TaskService, httpTestingController: HttpTestingController;
@@ -16,28 +18,9 @@ describe('Task Service', () => {
 
   beforeEach(() => {
 
-    mockTasks = [{
-      id: 1,
-      title: 'This is a test!',
-      description: 'I love testing!',
-      percentage: 69,
-      completed: false
-    },
-    {
-      id: 2,
-      title: 'Wake up at 6 A.M',
-      description: 'Drink lots water and prepare coffee',
-      percentage: 10,
-      completed: false
-    }, {
-      id: 3,
-      title: 'This is a another test!',
-      description: 'I love testing! --- This message was marked as spam!',
-      percentage: 100,
-      completed: true
-    }];
+    mockTasks = tasksMock;
 
-    mockTask = mockTasks[0];
+    mockTask = taskMock;
 
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
