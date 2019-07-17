@@ -1,25 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MainComponent } from "./main.component";
 
-import { MainComponent } from './main.component';
+import { TaskService } from '../services/task.service';
 
-describe('MainComponent', () => {
-  let component: MainComponent;
-  let fixture: ComponentFixture<MainComponent>;
+describe('Main Component', () => {
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ MainComponent ]
-    })
-    .compileComponents();
-  }));
+  it('Should exist', () => { expect(MainComponent).toBeDefined(); });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(MainComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  it('Should be built with 1 argument; TaskService type', () => {
+
+    let taskService: TaskService;
+
+    const mainComponent = new MainComponent(taskService);
+
+    expect(mainComponent instanceof MainComponent).toBe(true);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
