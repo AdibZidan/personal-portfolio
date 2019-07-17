@@ -80,4 +80,24 @@ describe('Task Service', () => {
 
   });
 
+  it('Should add a task via a POST request', () => {
+
+    const mockTask: Task = {
+      id: 1,
+      title: 'Test!',
+      description: 'Testing!',
+      percentage: 100,
+      completed: true
+    };
+
+    taskService.addTaskToBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
+
+    const request = httpTestingController.expectOne(taskService.url);
+
+    expect(request.request.method).toEqual('POST');
+
+    request.flush(mockTask);
+
+  });
+
 });
