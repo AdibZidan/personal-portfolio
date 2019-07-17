@@ -1,25 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { PortfolioComponent } from "./portfolio.component";
 
-import { PortfolioComponent } from './portfolio.component';
+describe('Portfolio Component', () => {
 
-describe('PortfolioComponent', () => {
-  let component: PortfolioComponent;
-  let fixture: ComponentFixture<PortfolioComponent>;
+  it('Should exist', () => { expect(PortfolioComponent).toBeDefined(); })
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PortfolioComponent ]
-    })
-    .compileComponents();
-  }));
+  it('Should be built with zero arguments', () => {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PortfolioComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    const portfolioComponent = new PortfolioComponent();
+
+    expect(portfolioComponent instanceof PortfolioComponent).toBe(true);
+
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
