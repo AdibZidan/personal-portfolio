@@ -19,7 +19,7 @@ describe('Footer Component', () => {
 
     expect(expectedYear).toBe(currentYear);
 
-  })
+  });
 
 });
 
