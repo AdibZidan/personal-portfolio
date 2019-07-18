@@ -10,7 +10,7 @@ describe('Task Service', () => {
 
     let httpClient: HttpClient;
 
-    const taskService = new TaskService(httpClient);
+    const taskService: TaskService = new TaskService(httpClient);
 
     expect(taskService instanceof TaskService).toBe(true);
 

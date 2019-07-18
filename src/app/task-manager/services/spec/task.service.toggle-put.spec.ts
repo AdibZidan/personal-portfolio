@@ -1,5 +1,7 @@
 import { taskService, httpTestingController, mockTask } from '../mock/mock-service.spec';
 
+import { TestRequest } from '@angular/common/http/testing';
+
 describe('PUT/toggle request', () => {
 
     it('Should toggle the completed task via a PUT request', () => {
@@ -8,9 +10,11 @@ describe('PUT/toggle request', () => {
 
         taskService.toggleTaskFromBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
 
-        const request = httpTestingController.expectOne(url);
+        const request: TestRequest = httpTestingController.expectOne(url);
 
-        expect(request.request.method).toEqual('PUT');
+        const method: string = request.request.method;
+
+        expect(method).toEqual('PUT');
 
         request.flush(mockTask);
 
