@@ -1,4 +1,4 @@
-import { taskService, mockTasks, httpTestingController } from '../mock/mock-service';
+import { taskService, mockTasks, httpTestingController } from '../mock/mock-service.spec';
 
 describe('GET request', () => {
 

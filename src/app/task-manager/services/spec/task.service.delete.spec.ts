@@ -1,4 +1,4 @@
-import { taskService, httpTestingController, mockTask } from '../mock/mock-service';
+import { taskService, httpTestingController, mockTask } from '../mock/mock-service.spec';
 
 describe('DELETE request', () => {
 
