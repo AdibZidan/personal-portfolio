@@ -13,7 +13,7 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
 
-  prepare(outlet: RouterOutlet) {
+  prepare(outlet: RouterOutlet): RouterOutlet {
     const animation: RouterOutlet = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
 
     return animation;
