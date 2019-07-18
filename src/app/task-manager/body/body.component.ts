@@ -43,8 +43,8 @@ export class BodyComponent implements OnInit, OnDestroy {
     this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe(taskOnToggle => console.log(taskOnToggle));
   }
 
-  onDelete(task: Task) { this.deleteTask.emit(task); }
+  onDelete(task: Task): void { this.deleteTask.emit(task); }
 
-  async onEdit(task: Task) { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
+  async onEdit(task: Task): Promise<void> { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
 
 }
