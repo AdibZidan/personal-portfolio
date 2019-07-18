@@ -1,4 +1,4 @@
-import { BodyComponent } from "./body.component";
+import { BodyComponent } from './body.component';
 
 import { TaskService } from '../services/task.service';
 
