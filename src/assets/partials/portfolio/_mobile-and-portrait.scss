@@ -1,7 +1,13 @@
 @mixin mobile-and-portrait {
   .header {
+    font-size: 0.8rem;
+
     .menu-navigation {
+      display: flex;
+      position: relative;
+      justify-content: space-around;
       padding: 20px;
+      width: 100%;
     }
 
     .mine {
