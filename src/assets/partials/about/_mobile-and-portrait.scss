@@ -1,0 +1,29 @@
+@mixin mobile-and-portrait {
+  .about {
+    width: 100%;
+    align-content: center;
+    align-items: center;
+
+    .inner {
+      .h2 {
+        font-size: 2.1rem;
+        padding: 0.7rem;
+      }
+
+      hr {
+        margin: 20px 10px;
+      }
+
+      .p,
+      ul,
+      li {
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .arrow {
+        display: none;
+      }
+    }
+  }
+}
