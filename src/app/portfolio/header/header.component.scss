@@ -70,10 +70,10 @@
       @include easeOut;
     }
   }
-
-  @include lowResolutionTablet;
-
-  @include tabletsAndLandscape;
 }
 
 @include mobileScreensAndPortrait;
+
+@include lowResolutionTablet;
+
+@include tabletsAndLandscape;
