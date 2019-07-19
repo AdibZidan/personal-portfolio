@@ -2,6 +2,8 @@
 
 @import "../../styles.scss";
 
+@import "../../assets/partials/media-portfolio";
+
 main {
   padding: 4rem;
   height: 100%;
@@ -55,8 +57,23 @@ h2 {
   color: $primary-color;
 }
 
-a {
-  color: #cacaca;
+.social-media {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+
+  a {
+    color: #cacaca;
+    padding: 0.4rem;
+
+    &:hover {
+      color: $primary-color;
+      @include easeOut;
+    }
+
+    &:not(:hover) {
+      @include easeIn;
+    }
+  }
 }
 
 @mixin socialMedia {
