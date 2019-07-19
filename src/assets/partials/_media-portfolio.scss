@@ -2,6 +2,9 @@
   @media (min-width: 320px) and (max-width: 480px) {
     main {
       font-size: 1.6rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 
       &.home {
         .h1 {
@@ -11,16 +14,16 @@
           line-height: 1;
           margin: 0.9rem 0 4rem 0;
         }
+
+        .h2 {
+          font-size: 2rem;
+        }
       }
 
       .social-media {
         display: flex;
         justify-content: center;
       }
-    }
-
-    .mine {
-      background-color: #fff;
     }
   }
 }
