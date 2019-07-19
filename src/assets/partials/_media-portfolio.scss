@@ -1,5 +1,53 @@
 @mixin mobileScreensAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
+    .header {
+      .menu-navigation {
+        padding: 20px;
+      }
+
+      .mine {
+        justify-content: space-evenly;
+        width: 100%;
+      }
+
+      .navigation-item {
+        position: relative;
+
+        i {
+          display: block;
+          width: 100%;
+          height: 1px;
+        }
+
+        i:nth-child(2) {
+          width: 0;
+          transition-property: none;
+        }
+
+        &:hover i:nth-child(2) {
+          width: 0;
+        }
+      }
+
+      .navigation-link {
+        &:hover {
+          transition-property: none;
+        }
+
+        &:not(:hover) {
+          transition-property: none;
+        }
+      }
+
+      .active {
+        transition-property: none;
+
+        &:hover {
+          transition-property: none;
+        }
+      }
+    }
+
     main {
       font-size: 1.6rem;
       display: flex;
