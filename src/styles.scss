@@ -12,6 +12,8 @@
 
 @import "./assets/partials/colors";
 
+@import "./assets/partials/media-task-manager";
+
 * {
   margin: 0;
   padding: 0;
@@ -37,3 +39,5 @@ body {
 }
 
 @include scrollBar;
+
+@include lowResolutionTablet;
