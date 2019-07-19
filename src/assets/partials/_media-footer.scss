@@ -1,0 +1,7 @@
+@import "./footer/mobile-and-portrait";
+
+@mixin mobileScreenAndPortrait {
+  @media (min-width: 320px) and (max-width: 480px) {
+    @include mobile-and-portrait;
+  }
+}
