@@ -2,6 +2,8 @@
 
 @import "../../../assets/partials/animations";
 
+@import "../../../assets/partials/media-about";
+
 .about {
   display: flex;
   justify-content: center;
@@ -75,3 +77,5 @@
     }
   }
 }
+
+@include mobileScreenAndPortrait;

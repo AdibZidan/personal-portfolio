@@ -4,6 +4,8 @@
 
 @import "../../../assets/partials/animations";
 
+@import "../../../assets/partials/media-footer";
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -40,3 +42,5 @@ footer {
     }
   }
 }
+
+@include mobileScreenAndPortrait;
