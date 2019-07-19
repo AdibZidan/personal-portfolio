@@ -4,6 +4,8 @@
 
 @import "./task-manager/mobile-&-portrait";
 
+@import "./task-manager/low-resolution-tablet";
+
 @mixin mobileScreensAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
     @include mobile;
@@ -12,6 +14,7 @@
 
 @mixin lowResolutionTablet {
   @media (min-width: 481px) and (max-width: 767px) {
+    @include low-resolution-tablet;
   }
 }
 
