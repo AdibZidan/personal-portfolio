@@ -36,7 +36,7 @@ export class DialogComponent implements OnInit, OnDestroy {
       data: this.task,
       autoFocus: true,
       disableClose: true,
-      width: '600px',
+      width: '0 auto',
       panelClass: 'dialog'
     });
 
