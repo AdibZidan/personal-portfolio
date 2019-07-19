@@ -1,0 +1,16 @@
+@mixin mobile-and-portrait {
+  footer {
+    padding: 20px;
+    font-size: 0.5rem;
+
+    .social-media {
+      display: flex;
+      font-size: 0.5rem;
+      margin: 0;
+
+      a {
+        padding: 0.4rem;
+      }
+    }
+  }
+}
