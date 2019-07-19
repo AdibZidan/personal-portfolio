@@ -1,0 +1,32 @@
+@mixin low-resolution-tablet {
+  .header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .task-manager {
+      margin-left: 15px;
+    }
+  }
+
+  main {
+    .social-media {
+      text-align: center;
+    }
+
+    &.home {
+      .h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+        margin: 0;
+        margin-bottom: 4rem;
+      }
+    }
+
+    .social-media {
+      font-size: 1.6rem;
+    }
+  }
+}

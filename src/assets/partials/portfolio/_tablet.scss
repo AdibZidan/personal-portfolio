@@ -1,0 +1,20 @@
+@mixin tab-let {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.home {
+      .h1 {
+        margin: 10vh 0 6rem 0;
+        line-height: 1;
+      }
+
+      .h2 {
+        font-size: 1.9rem;
+      }
+      .social-media {
+        font-size: 1.9rem;
+      }
+    }
+  }
+}

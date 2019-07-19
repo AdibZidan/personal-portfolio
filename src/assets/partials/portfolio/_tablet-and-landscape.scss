@@ -1,0 +1,25 @@
+@mixin tablet-and-landscape {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.home {
+      .h1 {
+        margin: 10vh 0 4rem 0;
+        line-height: 1;
+      }
+
+      .h2 {
+        font-size: 1.8rem;
+      }
+
+      .social-media {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .header {
+    font-size: 1.4rem;
+  }
+}

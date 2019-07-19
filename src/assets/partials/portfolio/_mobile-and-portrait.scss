@@ -1,0 +1,75 @@
+@mixin mobile-and-portrait {
+  .header {
+    .menu-navigation {
+      padding: 20px;
+    }
+
+    .mine {
+      justify-content: space-evenly;
+      width: 100%;
+    }
+
+    .navigation-item {
+      position: relative;
+
+      i {
+        display: block;
+        width: 100%;
+        height: 1px;
+      }
+
+      i:nth-child(2) {
+        width: 0;
+        transition-property: none;
+      }
+
+      &:hover i:nth-child(2) {
+        width: 0;
+      }
+    }
+
+    .navigation-link {
+      &:hover {
+        transition-property: none;
+      }
+
+      &:not(:hover) {
+        transition-property: none;
+      }
+    }
+
+    .active {
+      transition-property: none;
+
+      &:hover {
+        transition-property: none;
+      }
+    }
+  }
+
+  main {
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &.home {
+      .h1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 1;
+        margin: 0.9rem 0 4rem 0;
+      }
+
+      .h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .social-media {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
