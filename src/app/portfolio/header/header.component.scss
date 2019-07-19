@@ -72,8 +72,8 @@
   }
 }
 
-@include mobileScreensAndPortrait;
+@include mobileScreenAndPortrait;
 
 @include lowResolutionTablet;
 
-@include tabletsAndLandscape;
+@include tabletAndLandscape;

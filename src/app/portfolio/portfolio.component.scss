@@ -95,13 +95,13 @@ h2 {
   }
 }
 
-@include mobileScreensAndPortrait;
+@include mobileScreenAndPortrait;
 
 @include lowResolutionTablet;
 
 @include tablet;
 
-@include tabletsAndLandscape;
+@include tabletAndLandscape;
 
 @include desktop;
 
