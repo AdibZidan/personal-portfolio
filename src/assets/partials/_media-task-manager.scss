@@ -6,34 +6,34 @@
 
 @import "./task-manager/low-resolution-tablet";
 
-@mixin mobileScreensAndPortrait {
+@mixin mobile-screen-and-portrait {
   @media (min-width: 320px) and (max-width: 480px) {
     @include mobile;
   }
 }
 
-@mixin lowResolutionTablet {
+@mixin low-resolution-tab-let {
   @media (min-width: 481px) and (max-width: 767px) {
     @include low-resolution-tablet;
   }
 }
 
-@mixin tablet {
+@mixin tab-let {
   @media (min-width: 768px) and (max-width: 1024px) {
   }
 }
 
-@mixin tabletsAndLandscape {
+@mixin tab-let-and-landscape {
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   }
 }
 
-@mixin desktop {
+@mixin desk-top {
   @media (min-width: 1025px) and (max-width: 1280px) {
   }
 }
 
-@mixin wideScreen {
+@mixin wide-screen {
   @media (min-width: 1281px) {
   }
 }
