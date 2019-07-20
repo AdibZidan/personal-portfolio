@@ -4,12 +4,18 @@ This repository includes my Portfolio, About Me and Task-Manager; which are a wo
 
 The Task-Manager is built using Angular 8 and is already CRUD ready.
 
-For the Back-End, I'm using Node.JS.
+For the Back-End, I'm using Node.JS; which is in a private repository.
 
 ## Instructions:
 
 Make sure to install the latest version of:
 - [Node.JS & npm](https://nodejs.org/en/).
+
+## Accomplishments:
+
+- Portfolio, About Me & Task Manager are fully responsive
+- Tests for each Component
+- Dynamic SCSS mixins
 
 ## What I've learned
 
@@ -25,4 +31,5 @@ Make sure to install the latest version of:
 - Git/GitHub in depth
 - SCSS: *partials*
 - Tests: *Jest* & *Jasmine*
+- Searching *new* & *advanced* topics more efficiently
 - & **many more**!
