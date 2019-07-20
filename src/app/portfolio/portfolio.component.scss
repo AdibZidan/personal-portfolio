@@ -76,25 +76,6 @@ h2 {
   }
 }
 
-@mixin socialMedia {
-  .social-media {
-    margin-top: 1rem;
-
-    a {
-      padding: 0.4rem;
-
-      &:hover {
-        color: $primary-color;
-        @include easeOut;
-      }
-
-      &:not(:hover) {
-        @include easeIn;
-      }
-    }
-  }
-}
-
 @include mobileScreenAndPortrait;
 
 @include lowResolutionTablet;
