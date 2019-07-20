@@ -1,0 +1,17 @@
+@mixin low-resolution-tablet {
+  footer {
+    margin-top: 40px;
+    padding: 30px;
+    font-size: 0.8rem;
+
+    .social-media {
+      display: flex;
+      font-size: 0.8rem;
+      margin: 0;
+
+      a {
+        padding: 0.4rem;
+      }
+    }
+  }
+}
