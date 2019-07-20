@@ -1,7 +1,15 @@
 @import "./footer/mobile-and-portrait";
 
+@import "./footer/low-resolution-tablet";
+
 @mixin mobileScreenAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
     @include mobile-and-portrait;
+  }
+}
+
+@mixin lowResolutionTablet {
+  @media (min-width: 481px) and (max-width: 767px) {
+    @include low-resolution-tablet;
   }
 }
