@@ -1,14 +1,4 @@
 @mixin low-resolution-tablet {
-  .header {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-    .task-manager {
-      margin-left: 15px;
-    }
-  }
-
   main {
     .social-media {
       text-align: center;
