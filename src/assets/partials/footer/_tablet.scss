@@ -1,11 +1,12 @@
 @mixin tab-let {
   footer {
     padding: 20px;
-    font-size: 0.4rem;
+    font-size: 0.8rem;
+    justify-content: space-around;
 
     .social-media {
       display: flex;
-      font-size: 0.5rem;
+      font-size: 0.8rem;
       margin: 0;
 
       a {
