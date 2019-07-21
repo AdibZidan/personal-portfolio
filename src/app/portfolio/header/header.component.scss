@@ -1,7 +1,5 @@
 @import "../../../styles.scss";
 
-@import "../../../assets/partials/media-portfolio";
-
 @import "../../../assets/partials/media-header";
 
 .header {
@@ -70,4 +68,4 @@
 
 @include lowResolutionTablet;
 
-@include tabletAndLandscape;
+@include tablet;
