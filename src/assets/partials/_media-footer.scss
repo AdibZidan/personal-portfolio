@@ -2,6 +2,8 @@
 
 @import "./footer/low-resolution-tablet";
 
+@import "./footer/tablet";
+
 @mixin mobileScreenAndPortrait {
   @media (min-width: 320px) and (max-width: 480px) {
     @include mobile-and-portrait;
