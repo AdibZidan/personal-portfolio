@@ -3,15 +3,13 @@
   .title {
     max-width: 300px;
     margin-top: 50px;
+    padding: 15px 0;
+    border-radius: 0;
 
     h2 {
-      font-size: 1.9rem;
+      font-size: 1.2rem;
       text-align: center;
     }
-  }
-
-  .remove {
-    font-size: 0.7rem;
   }
 
   .tasks {
@@ -21,24 +19,47 @@
     p {
       font-size: 0.7rem;
     }
+
+    .remove {
+      padding: 3px;
+      font-size: 0.5rem;
+      border-radius: 0;
+    }
   }
   // ---
 
   // FormComponent
   .form {
     width: 200px;
+    padding: 0;
 
     ::placeholder {
-      font-size: 0.8rem;
+      font-size: 0.6rem;
+      padding: 5px;
     }
 
     .input {
-      font-size: 0.8rem;
+      padding: 5px;
+      font-size: 0.6rem;
+      border-radius: 0;
     }
 
     span {
-      font-size: 0.7rem;
+      font-size: 0.5rem;
+      border-radius: 0;
     }
+  }
+
+  .checkbox {
+    display: none;
+    // align-self: center;
+    // align-content: center;
+    // border: 1px solid red;
+    // cursor: pointer;
+    // margin-top: 8px;
+    // border: 1px solid white;
+    // display: flex;
+    // justify-content: center;
   }
 
   .checkmark {
@@ -56,54 +77,69 @@
   }
 
   .submit {
-    margin: -5px 0 0 0;
-    padding: 5px;
-    font-size: 0.7rem;
+    margin: 5px 0 0 0;
+    padding: 3px;
+    width: 50px;
+    font-size: 0.5rem;
+    border-radius: 0;
   }
   // ---
 
   // BodyComponent
   .tasks {
     padding: 5px;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 
     .task {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       padding: 10px 0;
       width: 100%;
 
+      h2 {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+      }
+
       div {
-        margin-top: 5px;
+        margin-top: 3px;
         float: right;
         width: 100px;
       }
 
       span {
-        font-size: 0.9rem;
+        font-size: 0.6rem;
       }
     }
 
     h2 {
       display: inline-block;
       word-break: break-word;
-      font-size: 1.2rem;
+      font-size: 1rem;
       text-overflow: ellipsis;
       width: 100%;
     }
 
     .button {
       padding: 2px;
+      font-size: 0.5rem;
+      border-radius: 0;
+      text-transform: lowercase;
     }
 
     .checkmark {
-      height: 20px;
-      width: 25px;
-      top: 9px;
+      // height: 20px;
+      // width: 25px;
+      height: 17px;
+      width: 17px;
+      // top: 9px;
+      top: 11px;
       left: 0;
     }
 
     .checkmark:after {
-      left: 8px;
+      // left: 8px;
+      // top: 1px;
+      left: 5px;
       top: 1px;
     }
   }
@@ -112,6 +148,7 @@
     display: block;
     width: 100%;
     font-size: 20px;
+    padding-left: 20px;
   }
   // ---
 
@@ -119,9 +156,9 @@
   .button {
     padding: 2px;
 
-    border-radius: 5px;
+    border-radius: 0;
     letter-spacing: 0;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
   }
 
   .edit {
