@@ -49,11 +49,15 @@
 
     </ul>
 
-    <div class="arrow">
+    <ng-container *ngIf="showArrow">
 
-      <i class="fas fa-arrow-up fa-1x" title="Scroll up" (click)="onClick()"></i>
+      <div class="arrow">
 
-    </div>
+        <i class="fas fa-arrow-up fa-1x" title="Scroll up" (click)="onClick()"></i>
+
+      </div>
+
+    </ng-container>
 
   </div>
 
