@@ -1,0 +1,40 @@
+@mixin tab-let {
+  .header {
+    font-size: 0.8rem;
+
+    .menu-navigation {
+      justify-content: space-around;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .navigation-item {
+      i:nth-child(2) {
+        width: 0;
+        transition-property: none;
+      }
+
+      &:hover i:nth-child(2) {
+        width: 0;
+      }
+    }
+
+    .navigation-link {
+      &:hover {
+        transition-property: none;
+      }
+
+      &:not(:hover) {
+        transition-property: none;
+      }
+    }
+
+    .active {
+      transition-property: none;
+
+      &:hover {
+        transition-property: none;
+      }
+    }
+  }
+}
