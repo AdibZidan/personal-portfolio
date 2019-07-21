@@ -52,14 +52,6 @@
 
   .checkbox {
     display: none;
-    // align-self: center;
-    // align-content: center;
-    // border: 1px solid red;
-    // cursor: pointer;
-    // margin-top: 8px;
-    // border: 1px solid white;
-    // display: flex;
-    // justify-content: center;
   }
 
   .checkmark {
@@ -127,18 +119,14 @@
     }
 
     .checkmark {
-      // height: 20px;
-      // width: 25px;
       height: 17px;
       width: 17px;
-      // top: 9px;
+
       top: 11px;
       left: 0;
     }
 
     .checkmark:after {
-      // left: 8px;
-      // top: 1px;
       left: 5px;
       top: 1px;
     }
