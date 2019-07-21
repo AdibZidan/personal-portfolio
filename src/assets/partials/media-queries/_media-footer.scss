@@ -1,0 +1,23 @@
+@import "../footer/mobile-and-portrait";
+
+@import "../footer/low-resolution-tablet";
+
+@import "../footer/tablet";
+
+@mixin mobileScreenAndPortrait {
+  @media (min-width: 320px) and (max-width: 480px) {
+    @include mobile-and-portrait;
+  }
+}
+
+@mixin lowResolutionTablet {
+  @media (min-width: 481px) and (max-width: 767px) {
+    @include low-resolution-tablet;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @include tab-let;
+  }
+}

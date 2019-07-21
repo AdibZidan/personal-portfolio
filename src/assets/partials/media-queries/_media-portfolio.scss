@@ -1,0 +1,47 @@
+@import "../portfolio/mobile-and-portrait";
+
+@import "../portfolio/low-resolution-tablet";
+
+@import "../portfolio/tablet";
+
+@import "../portfolio/tablet-and-landscape";
+
+@import "../portfolio/desk-top";
+
+@import "../portfolio/wide-screen";
+
+@mixin mobileScreenAndPortrait {
+  @media (min-width: 320px) and (max-width: 480px) {
+    @include mobile-and-portrait;
+  }
+}
+
+@mixin lowResolutionTablet {
+  @media (min-width: 481px) and (max-width: 767px) {
+    @include low-resolution-tablet;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @include tab-let;
+  }
+}
+
+@mixin tabletAndLandscape {
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    @include tablet-and-landscape;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    @include desk-top;
+  }
+}
+
+@mixin wideScreen {
+  @media (min-width: 1281px) {
+    @include wide-screen;
+  }
+}
