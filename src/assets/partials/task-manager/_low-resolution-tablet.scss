@@ -3,6 +3,8 @@
   .title {
     max-width: 450px;
     margin-top: 50px;
+    padding: 15px 0;
+    border-radius: 0;
 
     h2 {
       font-size: 2.1rem;
@@ -10,35 +12,47 @@
     }
   }
 
-  .remove {
-    font-size: 0.7rem;
-  }
-
   .tasks {
     max-width: 450px;
     min-height: 100%;
 
     p {
-      font-size: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .remove {
+      padding: 3px;
+      margin-left: -5px;
+      font-size: 0.7rem;
+      border-radius: 0;
     }
   }
   // ---
 
   // FormComponent
   .form {
-    width: 350px;
+    width: 250px;
+    padding: 0;
 
     ::placeholder {
-      font-size: 1rem;
+      font-size: 0.8rem;
+      padding: 5px;
     }
 
     .input {
-      font-size: 1rem;
+      padding: 5px;
+      font-size: 0.8rem;
+      border-radius: 0;
     }
 
     span {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
+      border-radius: 0;
     }
+  }
+
+  .checkbox {
+    display: none;
   }
 
   .checkmark {
@@ -51,60 +65,70 @@
     top: 1px;
   }
 
-  .label {
-    padding: 0;
-    font-size: 0.6rem;
+  .inner {
+    display: none;
   }
 
   .submit {
-    margin: -5px 0 0 0;
-    padding: 8px;
+    margin: 5px 0 0 0;
+    padding: 3px;
+    width: 50px;
     font-size: 0.7rem;
+    border-radius: 0;
   }
   // ---
 
   // BodyComponent
   .tasks {
     padding: 5px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
     .task {
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       padding: 10px 0;
       width: 100%;
 
+      h2 {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+      }
+
       div {
-        margin-top: 5px;
+        margin-top: 3px;
         float: right;
         width: 100px;
       }
 
       span {
-        font-size: 1.1rem;
+        font-size: 0.8rem;
       }
     }
 
     h2 {
       display: inline-block;
       word-break: break-word;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       text-overflow: ellipsis;
       width: 100%;
     }
 
     .button {
-      padding: 3px;
+      padding: 2px;
+      font-size: 0.6rem;
+      border-radius: 0;
+      text-transform: uppercase;
     }
 
     .checkmark {
-      height: 20px;
-      width: 25px;
-      top: 9px;
+      height: 17px;
+      width: 17px;
+
+      top: 10px;
       left: 0;
     }
 
     .checkmark:after {
-      left: 8px;
+      left: 5px;
       top: 1px;
     }
   }
@@ -113,16 +137,18 @@
     display: block;
     width: 100%;
     font-size: 20px;
+    padding-left: 20px;
   }
   // ---
 
   // DialogComponent
   .button {
-    padding: 3px;
+    padding: 2px;
 
-    border-radius: 5px;
+    border-radius: 0;
     letter-spacing: 0;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
   }
 
   .edit {
@@ -130,10 +156,6 @@
       color: $primary-color;
       background-color: $primary-background-color;
     }
-  }
-
-  .dialog .mat-dialog-container {
-    width: 100%;
   }
   // ---
 }
