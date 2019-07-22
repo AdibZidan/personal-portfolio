@@ -1,7 +1,7 @@
 @mixin mobile-and-portrait {
   footer {
     padding: 20px;
-    font-size: 0.7rem;
+    font-size: 0.4rem;
 
     .social-media {
       display: flex;
@@ -9,6 +9,7 @@
       margin: 0;
 
       a {
+        font-size: 0.5rem;
         padding: 0.4rem;
       }
     }
