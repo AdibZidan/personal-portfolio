@@ -4,21 +4,15 @@ describe('About Component', () => {
 
   let aboutComponent: AboutComponent;
 
-  it('Should exist', () => { expect(AboutComponent).toBeDefined(); });
+  it('Should exist', () => expect(AboutComponent).toBeDefined());
 
-  beforeEach(() => { aboutComponent = new AboutComponent(); });
+  beforeEach(() => aboutComponent = new AboutComponent());
 
-  it('Should be built with zero arguments', () => {
-
-    expect(aboutComponent instanceof AboutComponent).toBe(true);
-
-  });
+  it('Should be built with zero arguments', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
   it('Should have languages array', () => {
 
-    const expectedLanguages: string[] = [
-      'English,', 'Arabic,', 'Russian', '& German.'
-    ];
+    const expectedLanguages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
 
     const actualLanguages = aboutComponent.languages;
 

@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 
 describe('Header Component', () => {
 
-  it('Should exist', () => { expect(HeaderComponent).toBeDefined(); });
+  it('Should exist', () => expect(HeaderComponent).toBeDefined());
 
   it('Should be built with 1 argument; TitleService', () => {
 
@@ -12,7 +12,7 @@ describe('Header Component', () => {
 
     const headerComponent = new HeaderComponent(titleService);
 
-    expect(headerComponent instanceof HeaderComponent).toBe(true);
+    expect(headerComponent instanceof HeaderComponent).toBeTruthy();
 
   });
 
