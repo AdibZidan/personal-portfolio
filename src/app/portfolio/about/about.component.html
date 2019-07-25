@@ -43,8 +43,19 @@
 
     <ul class="technology-stack">
 
-      <li *ngFor="let technologyStack of technologyStacks">
-        {{ technologyStack }}
+      <span>Front-End:</span>
+      <li *ngFor="let frontEndStack of frontEndStacks">
+        {{ frontEndStack }}
+      </li>
+
+      <span>Back-End:</span>
+      <li>
+        {{ backEndStack }}
+      </li>
+
+      <span>Other:</span>
+      <li *ngFor="let otherStack of otherStacks">
+        {{ otherStack }}
       </li>
 
     </ul>
