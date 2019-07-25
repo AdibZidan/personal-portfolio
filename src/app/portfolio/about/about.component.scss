@@ -35,11 +35,17 @@
     li {
       line-height: 2;
       font-size: 1.3rem;
-    }
 
-    li {
-      display: inline;
-      list-style-type: none;
+      li {
+        display: inline;
+        list-style-type: none;
+      }
+
+      span {
+        display: block;
+        font-size: 1.4rem;
+        color: $primary-color;
+      }
     }
 
     a {
