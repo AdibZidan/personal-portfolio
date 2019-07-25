@@ -1,5 +1,9 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 
+import { frontEnd, backEnd, other } from './language/technology-stack';
+
+import { languages } from './language/language';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -8,28 +12,24 @@ import { Component, OnInit, HostListener } from '@angular/core';
 
 export class AboutComponent implements OnInit {
 
-  showArrow: boolean = false;
+  public showArrow: boolean = false;
 
-  languages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
-
-  technologyStacks: string[] = [
-    'HTML5,', 'CSS3,', 'SCSS,',
-    'JavaScript ES6+,', 'TypeScript,', 'Angular 8,',
-    'Docker,', 'Git/GitHub,', 'Ubuntu,',
-    'Node.JS,', 'npm,', '& Visual Studio Code.'
-  ];
+  public languages = languages;
+  public frontEndStacks = frontEnd
+  public backEndStack = backEnd;
+  public otherStacks = other;
 
   constructor() { }
 
   ngOnInit(): void { }
 
-  onClick(): void {
+  public onClick(): void {
     this.showArrow = false;
     this.scrollUp();
   }
 
   @HostListener('window:scroll', [])
-  onScroll(): void { this.isUserOnBottom(); }
+  public onScroll(): void { this.isUserOnBottom(); }
 
   private scrollUp(): void { window.scroll({ top: 0, left: 0, behavior: 'smooth' }); }
 
