@@ -26,4 +26,4 @@ beforeEach(() => {
 
 });
 
-afterEach(() => { httpTestingController.verify(); });
+afterEach(() => httpTestingController.verify());
