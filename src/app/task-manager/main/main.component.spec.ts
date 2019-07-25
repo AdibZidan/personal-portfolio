@@ -4,7 +4,7 @@ import { TaskService } from '../services/task.service';
 
 describe('Main Component', () => {
 
-  it('Should exist', () => { expect(MainComponent).toBeDefined(); });
+  it('Should exist', () => expect(MainComponent).toBeDefined());
 
   it('Should be built with 1 argument; TaskService type', () => {
 
@@ -12,7 +12,7 @@ describe('Main Component', () => {
 
     const mainComponent = new MainComponent(taskService);
 
-    expect(mainComponent instanceof MainComponent).toBe(true);
+    expect(mainComponent instanceof MainComponent).toBeTruthy();
 
   });
 

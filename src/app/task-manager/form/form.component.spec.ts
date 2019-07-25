@@ -6,7 +6,7 @@ import { Task } from '../interface/Task';
 
 describe('Form Component', () => {
 
-  it('Should exist', () => { expect(FormComponent).toBeDefined(); });
+  it('Should exist', () => expect(FormComponent).toBeDefined());
 
   it('Should be built with 3 arguments; FormBuilder, MatDialogRef<FormComponent> and Task', () => {
 
@@ -14,7 +14,7 @@ describe('Form Component', () => {
 
     const formComponent = new FormComponent(formBuilder, matDialogRef, data);
 
-    expect(formComponent instanceof FormComponent).toBe(true);
+    expect(formComponent instanceof FormComponent).toBeTruthy();
 
   });
 
