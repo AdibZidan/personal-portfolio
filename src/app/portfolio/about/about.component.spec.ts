@@ -20,18 +20,40 @@ describe('About Component', () => {
 
   });
 
-  it('Should have technologyStacks array', () => {
+  it('Should have frontEndStacks array', () => {
 
-    const expectedTechnologyStacks: string[] = [
-      'HTML5,', 'CSS3,', 'SCSS,',
-      'JavaScript ES6+,', 'TypeScript,', 'Angular 8,',
-      'Docker,', 'Git/GitHub,', 'Ubuntu,',
-      'Node.JS,', 'npm,', '& Visual Studio Code.'
+    const expectedFrontEndStacks: string[] = [
+      'HTML5,', 'CSS3 / SCSS,',
+      'JavaScript ES6+ / TypeScript,',
+      'and Angular 8'
     ];
 
-    const actualTechnologyStacks = aboutComponent.technologyStacks;
+    const actualTechnologyStacks: string[] = aboutComponent.frontEndStacks;
 
-    expect(expectedTechnologyStacks).toEqual(actualTechnologyStacks);
+    expect(expectedFrontEndStacks).toEqual(actualTechnologyStacks);
+
+  });
+
+  it('Should have a backEndStack string', () => {
+
+    const expectedBackEndStack: string = 'Node.JS';
+
+    const actualBackendStack: string = aboutComponent.backEndStack;
+
+    expect(expectedBackEndStack).toBe(actualBackendStack);
+
+  });
+
+  it('Should have otherStacks array', () => {
+
+    const expectedOtherStacks: string[] = [
+      'Docker,', 'Git/GitHub,', 'Ubuntu,',
+      'Windows 10,', 'NPM', '& Visual Studio Code.'
+    ];
+
+    const actualOtherStacks: string[] = aboutComponent.otherStacks;
+
+    expect(expectedOtherStacks).toEqual(actualOtherStacks);
 
   });
 
