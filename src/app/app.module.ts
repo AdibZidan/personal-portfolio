@@ -6,7 +6,6 @@ import { HeaderComponent } from './portfolio/header/header.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
-import { PortfolioModule } from './portfolio/module/portfolio.module';
 import { TaskModule } from './task-manager/module/task.module';
 
 import { MAT_DIALOG_DATA } from '@angular/material';
@@ -20,7 +19,6 @@ import { MAT_DIALOG_DATA } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    PortfolioModule,
     TaskModule
   ],
   providers: [{ provide: MAT_DIALOG_DATA, useValue: {} }],
