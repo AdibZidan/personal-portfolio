@@ -9,3 +9,13 @@ export const lazyLoadPortfolioComponent: LoadChildrenCallback = async () => {
     return portfolioModule;
 
 };
+
+export const lazyLoadAboutComponent: LoadChildrenCallback = async () => {
+
+    const module = await import('../../portfolio/about/route/about.module');
+
+    const aboutModule = module.AboutModule;
+
+    return aboutModule;
+
+};
