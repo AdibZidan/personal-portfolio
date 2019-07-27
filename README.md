@@ -14,7 +14,7 @@ Make sure to install the latest version of:
 ## Accomplishments:
 
 - Portfolio, About Me & Task Manager are fully responsive
-- Tests for each Component
+- Basic tests for each Component
 - Dynamic SCSS mixins
 
 ## What I've learned
@@ -32,4 +32,5 @@ Make sure to install the latest version of:
 - SCSS: *partials*
 - Tests: *Jest* & *Jasmine*
 - Searching *new* & *advanced* topics more efficiently
+- *Lazy Loading*
 - & **many more**!
