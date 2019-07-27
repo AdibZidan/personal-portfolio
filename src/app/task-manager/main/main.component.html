@@ -8,6 +8,10 @@
 
 <main class="tasks">
 
+  <p>
+    <span class="remove date">Today is: {{ date | date:'mediumDate' }} and it's {{ date | date:'mediumTime' }}</span>
+  </p>
+
   <ng-container *ngIf="tasks$ | async as tasks">
 
     <app-form [task]="tasks" (addTask)="addTask($event)"></app-form>
