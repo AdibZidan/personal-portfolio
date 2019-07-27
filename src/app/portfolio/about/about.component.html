@@ -2,63 +2,103 @@
 
   <div class="inner">
 
-    <h2 class="h2">Hello!</h2>
+    <section>
 
-    <p class="p">My name is Adib Zidan, I'm half-Syrian and half-Ukrainian based in Vienna, Austria and I'm 24
-      years old.</p>
+      <h2 class="h2">Hello!</h2>
 
-    <ul>
-      I speak 4 languages:
-      <li *ngFor="let language of languages"> {{ language }} </li>
-    </ul>
+      <p class="p">My name is Adib Zidan, I'm half-Syrian and half-Ukrainian based in Vienna, Austria and I'm 24
+        years old.</p>
 
-    <p class="p">During my free time, I either; lift heavy weights, read books, or enhance my programming skills.</p>
+      <ul>
+        I speak 4 languages:
+        <li *ngFor="let language of languages"> {{ language }} </li>
+      </ul>
 
-    <p class="p">I also graduated from the
-      <a href="https://www.newaustriancodingschool.at/" title="New Austrian Coding School" target="_blank">
-        New Austrian Coding School
-      </a>
-      on the 28th of June, 2019 and I'm more than proud that I'm finally a software developer specializing in Front-End
-      Development!
-    </p>
+      <p class="p">During my free time, I either; lift heavy weights, read books, or enhance my programming skills.</p>
 
-    <hr>
+      <p class="p">I also graduated from the
+        <a href="https://www.newaustriancodingschool.at/" title="New Austrian Coding School" target="_blank">
+          New Austrian Coding School
+        </a>
+        on the 28th of June, 2019 and I'm more than proud that I'm finally a software developer specializing in
+        Front-End
+        Development!
+      </p>
 
-    <h2 class="h2">Opportunities and Challenges</h2>
-
-    <p class="p">During the very intensive 9 month training program, I had the opportunity to always work extra-hours
-      after class to enhance my programming skills.</p>
-
-    <p class="p">These extra-hours have tremendously improved my work ethic, increased both my mental and physical
-      strength and also enhanced my passion and love for technology and coding!</p>
-
-    <p class="p">What also made me to even push for more, was my previous experiences working as a waiter and lifting
-      heavy weights
-      at the gym! Both were very challenging in terms of discovering my true potential and to never back down from any
-      challenge!</p>
+    </section>
 
     <hr>
 
-    <h2 class="h2">Technology Stack</h2>
+    <section>
 
-    <ul class="technology-stack">
+      <h2 class="h2">Opportunities and Challenges</h2>
 
-      <span>Front-End:</span>
-      <li *ngFor="let frontEndStack of frontEndStacks">
-        {{ frontEndStack }}
-      </li>
+      <p class="p">During the very intensive 9 month training program, I had the opportunity to always work extra-hours
+        after class to enhance my programming skills.</p>
 
-      <span>Back-End:</span>
-      <li>
-        {{ backEndStack }}
-      </li>
+      <p class="p">These extra-hours have tremendously improved my work ethic, increased both my mental and physical
+        strength and also enhanced my passion and love for technology and coding!</p>
 
-      <span>Other:</span>
-      <li *ngFor="let otherStack of otherStacks">
-        {{ otherStack }}
-      </li>
+      <p class="p">What also made me to even push further, was my previous experiences working as a waiter and lifting
+        heavy weights
+        at the gym! Both were very challenging in terms of discovering my true potential and to never back down from any
+        challenge!</p>
 
-    </ul>
+    </section>
+
+    <hr>
+
+    <section>
+
+      <h2 class="h2">Final Project - Humanitarian clothing portal</h2>
+
+      <p class="p">I had the opportunity to work with 6 wonderful people and we created an application
+        called Apparel.</p>
+
+      <p class="p">The team consisted of 7 total members; 2 Product Owners, 3 Back-End & 2 Front-End developers.</p>
+
+      <p class="p">Apparel is a web-application where a humanitarian organization can offer apparel to those in need.
+      </p>
+
+      <p class="p">The humanitarian organization receives donated clothing and the users of the application can select
+        the
+        clothing they need from the catalogue and mark them as reserved.</p>
+
+      <p class="p">The users can then go to the apparel warehouse and receive them.</p>
+
+      <p class="p">In the future, volunteers could sign up to
+        deliver these apparels to the location of the person in need via geolocation.</p>
+
+      <p class="p">It was developed with a microservice infrastructure and Scrum.</p>
+
+    </section>
+
+    <hr>
+
+    <section>
+
+      <h2 class="h2">My Technology Stack</h2>
+
+      <ul class="technology-stack">
+
+        <span>Front-End:</span>
+        <li *ngFor="let frontEndStack of frontEndStacks">
+          {{ frontEndStack }}
+        </li>
+
+        <span>Back-End:</span>
+        <li>
+          {{ backEndStack }}
+        </li>
+
+        <span>Other:</span>
+        <li *ngFor="let otherStack of otherStacks">
+          {{ otherStack }}
+        </li>
+
+      </ul>
+
+    </section>
 
     <ng-container *ngIf="showArrow">
 
