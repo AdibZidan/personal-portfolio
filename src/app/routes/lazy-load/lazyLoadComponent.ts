@@ -20,7 +20,7 @@ export const lazyLoadAboutComponent: LoadChildrenCallback = async () => {
 
 };
 
-export const lasyLoadTaskManager: LoadChildrenCallback = async () => {
+export const lazyLoadTaskManager: LoadChildrenCallback = async () => {
 
     const module = await import('../../task-manager/route/task-manager.module');
 
