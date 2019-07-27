@@ -14,31 +14,39 @@ import { Task } from '../interface/Task';
 
 export class MainComponent implements OnInit, OnDestroy {
 
-  tasks$: Observable<Task[]>;
+  public tasks$: Observable<Task[]>;
+
+  public date: number = Date.now();
 
   private subscription: Subscription;
 
   constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void { this.getTasks(); }
+  ngOnInit(): void {
+    this.getTasks();
+    this.updateTime();
+  }
+
 
   ngOnDestroy(): void { this.subscription.unsubscribe(); }
 
-  getTasks(): void {
+  public getTasks(): void {
     this.tasks$ = this.taskService.getTasksFromBackEnd();
     this.subscription = this.taskService.refresher.subscribe(() => this.getTasks());
   }
 
-  addTask(task: Task): void {
+  public addTask(task: Task): void {
     this.subscription = this.taskService
       .addTaskToBackEnd(task)
       .subscribe(() => this.getTasks());
   }
 
-  deleteTask(task: Task): void {
+  public deleteTask(task: Task): void {
     this.subscription = this.taskService
       .deleteTaskFromBackEnd(task)
       .subscribe(() => this.getTasks());
   }
+
+  private updateTime(): void { setInterval(() => this.date = Date.now(), 1000); }
 
 }
