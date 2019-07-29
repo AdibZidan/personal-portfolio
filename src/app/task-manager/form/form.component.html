@@ -55,7 +55,7 @@
     </ng-container>
 
     <ng-container *ngIf="isValidForm">
-      <input class="submit" type="submit" value="SUBMIT">
+      <input [disabled]="isValidForm || !isValidForm" class="submit disabled" type="submit" value="SUBMIT">
     </ng-container>
 
   </form>
