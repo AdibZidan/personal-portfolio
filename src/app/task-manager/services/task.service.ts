@@ -6,13 +6,15 @@ import { Observable, Subject } from 'rxjs';
 
 import { tap } from 'rxjs/operators';
 
+import { environment } from 'src/environments/environment';
+
 import { Task } from '../interface/Task';
 
 @Injectable({ providedIn: 'root' })
 
 export class TaskService {
 
-  url: string = 'http://localhost:3000/tasks';
+  public baseUrl: string = environment.baseUrl;
 
   private refresher$: Subject<Task> = new Subject<Task>();
 
@@ -22,22 +24,22 @@ export class TaskService {
 
   getTasksFromBackEnd(): Observable<Task[]> {
     return this.httpClient
-      .get<Task[]>(this.url)
+      .get<Task[]>(this.baseUrl)
       .pipe(tap(() => console.log('Fetched tasks!')));
   }
 
   addTaskToBackEnd(task: Task): Observable<Task> {
-    return this.httpClient.post<Task>(this.url, task);
+    return this.httpClient.post<Task>(this.baseUrl, task);
   }
 
   toggleTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.url}/update/${task.id}`;
+    const url: string = `${this.baseUrl}/update/${task.id}`;
 
     return this.httpClient.put<Task>(url, task);
   }
 
   editTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.url}/edit/${task.id}`;
+    const url: string = `${this.baseUrl}/edit/${task.id}`;
 
     return this.httpClient
       .put<Task>(url, task)
@@ -46,7 +48,7 @@ export class TaskService {
   }
 
   deleteTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.url}/delete/${task.id}`;
+    const url: string = `${this.baseUrl}/delete/${task.id}`;
 
     return this.httpClient.delete<Task>(url);
   }
