@@ -6,7 +6,7 @@ describe('PUT/toggle request', () => {
 
     it('Should toggle the completed task via a PUT request', () => {
 
-        const url: string = `${taskService.url}/update/${mockTask.id}`;
+        const url: string = `${taskService.baseUrl}/update/${mockTask.id}`;
 
         taskService.toggleTaskFromBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
 

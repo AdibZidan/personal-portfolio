@@ -8,7 +8,7 @@ describe('POST request', () => {
 
         taskService.addTaskToBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
 
-        const url: string = taskService.url;
+        const url: string = taskService.baseUrl;
 
         const request: TestRequest = httpTestingController.expectOne(url);
 

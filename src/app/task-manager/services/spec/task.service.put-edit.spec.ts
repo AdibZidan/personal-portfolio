@@ -6,7 +6,7 @@ describe('PUT/edit request', () => {
 
     it('Should edit a task via a PUT request', () => {
 
-        const url: string = `${taskService.url}/edit/${mockTask.id}`;
+        const url: string = `${taskService.baseUrl}/edit/${mockTask.id}`;
 
         taskService.editTaskFromBackEnd(mockTask).subscribe(task => expect(task).toBe(mockTask));
 

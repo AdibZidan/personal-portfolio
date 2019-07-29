@@ -16,7 +16,7 @@ describe('GET request', () => {
 
         });
 
-        const url: string = taskService.url;
+        const url: string = taskService.baseUrl;
 
         const request: TestRequest = httpTestingController.expectOne(url);
 
