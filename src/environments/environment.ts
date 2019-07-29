@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:3000/tasks'
+  // baseUrl: 'http://localhost:3000/tasks'
+  baseUrl: 'http://www.adibzidan.com:3000/tasks'
 };
 
 /*
