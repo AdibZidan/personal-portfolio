@@ -59,6 +59,11 @@
       transform: scale(0.95);
     }
   }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
 
 .container {
