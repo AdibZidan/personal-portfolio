@@ -23,9 +23,7 @@ export class TaskService {
   get refresher() { return this.refresher$; }
 
   getTasksFromBackEnd(): Observable<Task[]> {
-    return this.httpClient
-      .get<Task[]>(this.baseUrl)
-      .pipe(tap(() => console.log('Fetched tasks!')));
+    return this.httpClient.get<Task[]>(this.baseUrl);
   }
 
   addTaskToBackEnd(task: Task): Observable<Task> {
@@ -43,8 +41,7 @@ export class TaskService {
 
     return this.httpClient
       .put<Task>(url, task)
-      .pipe(tap(() => this.refresher$.next()))
-      .pipe(tap(() => console.log(task)));
+      .pipe(tap(() => this.refresher$.next()));
   }
 
   deleteTaskFromBackEnd(task: Task): Observable<Task> {
