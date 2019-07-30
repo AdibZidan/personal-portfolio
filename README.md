@@ -1,5 +1,7 @@
 # Angular-Projects
 
+This project is live. Head over [here](http://www.adibzidan.com) to access it.
+
 This repository includes my Portfolio, About Me and Task-Manager; which are a work in progress.
 
 The Task-Manager is built using Angular 8 and is already CRUD ready.
@@ -33,4 +35,5 @@ Make sure to install the latest version of:
 - Tests: *Jest* & *Jasmine*
 - Searching *new* & *advanced* topics more efficiently
 - *Lazy Loading*
+- Deploying Angular with Node.JS into a server
 - & **many more**!
