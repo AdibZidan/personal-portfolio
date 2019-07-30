@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
 
-import { fadeIn } from '../../../assets/animations/animations';
+import { fadeIn, setLine } from '../../../assets/animations/animations';
 
 import { TaskService } from '../services/task.service';
 
@@ -17,9 +17,9 @@ import { Subscription } from 'rxjs';
 
 export class BodyComponent implements OnInit, OnDestroy {
 
-  @Input() task: Task;
+  @Input() public task: Task;
 
-  @Output() deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() public deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
@@ -29,22 +29,16 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
 
-  setLineThrough(): object {
-    const lineThrough: object = {
-      'is-complete': this.task.completed
-    };
+  public setLineThrough(): object { return setLine(this.task); }
 
-    return lineThrough;
-  }
-
-  onToggle(task: Task): void {
+  public onToggle(task: Task): void {
     task.completed = !task.completed;
 
-    this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe(taskOnToggle => console.log(taskOnToggle));
+    this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe();
   }
 
-  onDelete(task: Task): void { this.deleteTask.emit(task); }
+  public onDelete(task: Task): void { this.deleteTask.emit(task); }
 
-  async onEdit(task: Task): Promise<void> { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
+  public async onEdit(task: Task): Promise<void> { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
 
 }
