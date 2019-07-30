@@ -39,6 +39,11 @@
   }
 }
 
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @include mobile-screen-and-portrait;
 
 @include low-resolution-tab-let;
