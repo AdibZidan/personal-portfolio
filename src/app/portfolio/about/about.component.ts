@@ -4,6 +4,8 @@ import { frontEnd, backEnd, other } from './language/technology-stack';
 
 import { languages } from './language/language';
 
+import { Title } from '@angular/platform-browser';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -19,9 +21,9 @@ export class AboutComponent implements OnInit {
   public backEndStack = backEnd;
   public otherStacks = other;
 
-  constructor() { }
+  constructor(private titleService: Title) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.changeTitle(); }
 
   public onClick(): void {
     this.showArrow = false;
@@ -40,5 +42,7 @@ export class AboutComponent implements OnInit {
       this.showArrow = true;
     }
   }
+
+  private changeTitle(): void { this.titleService.setTitle('About Me'); }
 
 }

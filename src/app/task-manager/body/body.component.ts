@@ -4,6 +4,8 @@ import { fadeIn, setLine } from '../../../assets/animations/animations';
 
 import { TaskService } from '../services/task.service';
 
+import { Title } from '@angular/platform-browser';
+
 import { Task } from '../interface/Task';
 
 import { Subscription } from 'rxjs';
@@ -23,9 +25,9 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   private subscription: Subscription;
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private titleService: Title) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.changeTitle(); }
 
   ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
 
@@ -40,5 +42,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   public onDelete(task: Task): void { this.deleteTask.emit(task); }
 
   public async onEdit(task: Task): Promise<void> { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
+
+  private changeTitle(): void { this.titleService.setTitle('Task Manager'); }
 
 }
