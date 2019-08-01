@@ -3,6 +3,8 @@
     padding: 20px;
     font-size: 0.8rem;
     justify-content: space-around;
+    flex-direction: column;
+    font-size: 1.2rem;
 
     .social-media {
       display: flex;
@@ -11,6 +13,7 @@
 
       a {
         padding: 0.4rem;
+        font-size: 1.3rem;
       }
     }
   }
