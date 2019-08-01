@@ -1,14 +1,16 @@
 import { AboutComponent } from "./about.component";
 
+import { Title } from '@angular/platform-browser';
+
 describe('About Component', () => {
 
-  let aboutComponent: AboutComponent;
+  let aboutComponent: AboutComponent, titleService: Title;
 
   it('Should exist', () => expect(AboutComponent).toBeDefined());
 
-  beforeEach(() => aboutComponent = new AboutComponent());
+  beforeEach(() => aboutComponent = new AboutComponent(titleService));
 
-  it('Should be built with zero arguments', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
+  it('Should be built with one argument; Title type', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
   it('Should have languages array', () => {
 
