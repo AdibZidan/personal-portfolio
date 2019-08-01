@@ -1,19 +1,19 @@
 @mixin mobile {
   // MainComponent
   .title {
-    max-width: 300px;
+    max-width: 95%;
     margin-top: 50px;
     padding: 15px 0;
     border-radius: 0;
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       text-align: center;
     }
   }
 
   .tasks {
-    max-width: 300px;
+    max-width: 95%;
     min-height: 100%;
 
     p {
@@ -32,6 +32,7 @@
   // FormComponent
   .form {
     width: 200px;
+    width: 80%;
     padding: 0;
 
     ::placeholder {
@@ -89,7 +90,7 @@
       width: 100%;
 
       h2 {
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin-bottom: 0;
       }
 
@@ -100,7 +101,7 @@
       }
 
       span {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
       }
     }
 
