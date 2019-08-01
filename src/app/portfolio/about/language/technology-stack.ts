@@ -1,7 +1,7 @@
 export const frontEnd: string[] = [
     'HTML5,', 'CSS3 / SCSS,',
-    'JavaScript ES6+ / TypeScript,',
-    'and Angular 8'
+    'JavaScript ES6+ / TypeScript',
+    '& Angular 8'
 ];
 
 export const backEnd: string = 'Node.JS';
