@@ -59,4 +59,12 @@ describe('About Component', () => {
 
   });
 
+  it('Should return my current age', () => {
+    const bornYear: number = new Date('January 1, 1995').getFullYear(),
+      expectedAge: number = new Date().getFullYear() - bornYear,
+      actualAge: number = aboutComponent.age;
+
+    expect(expectedAge).toBe(actualAge);
+  });
+
 });
