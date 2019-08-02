@@ -30,6 +30,13 @@ export class AboutComponent implements OnInit {
     this.scrollUp();
   }
 
+  public get age(): number {
+    const currentYear: number = new Date().getFullYear(),
+      bornYear: number = new Date('January 1, 1995').getFullYear(), currentAge = currentYear - bornYear;
+
+    return currentAge;
+  }
+
   @HostListener('window:scroll', [])
   public onScroll(): void { this.isUserOnBottom(); }
 
