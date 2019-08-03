@@ -32,7 +32,8 @@ export class AboutComponent implements OnInit {
 
   public get age(): number {
     const currentYear: number = new Date().getFullYear(),
-      bornYear: number = new Date('January 1, 1995').getFullYear(), currentAge = currentYear - bornYear;
+      bornYear: number = new Date('January 1, 1995').getFullYear(),
+      currentAge = currentYear - bornYear;
 
     return currentAge;
   }
