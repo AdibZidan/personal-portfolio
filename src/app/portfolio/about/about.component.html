@@ -75,28 +75,36 @@
 
     <hr>
 
-    <section>
+    <h2 class="h2">My Technology Stack</h2>
 
-      <h2 class="h2">My Technology Stack</h2>
+    <section class="technologies">
 
-      <ul class="technology-stack">
+      <div class="technologies-1 technologies-2">
+        <ul class="technology-stack">
+          <span>Front-End:</span>
+          <li *ngFor="let frontEndStack of frontEndStacks">
+            {{ frontEndStack }}
+          </li>
+        </ul>
+      </div>
 
-        <span>Front-End:</span>
-        <li *ngFor="let frontEndStack of frontEndStacks">
-          {{ frontEndStack }}
-        </li>
+      <div class="technologies-1 technologies-2">
+        <ul class="technology-stack">
+          <span>Back-End:</span>
+          <li>
+            {{ backEndStack }}
+          </li>
+        </ul>
+      </div>
 
-        <span>Back-End:</span>
-        <li>
-          {{ backEndStack }}
-        </li>
-
-        <span>Other:</span>
-        <li *ngFor="let otherStack of otherStacks">
-          {{ otherStack }}
-        </li>
-
-      </ul>
+      <div class="technologies-1 technologies-2">
+        <ul class="technology-stack">
+          <span>Other:</span>
+          <li *ngFor="let otherStack of otherStacks">
+            {{ otherStack }}
+          </li>
+        </ul>
+      </div>
 
     </section>
 
