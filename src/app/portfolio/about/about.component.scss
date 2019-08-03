@@ -48,6 +48,22 @@
       }
     }
 
+    .technologies {
+      display: flex;
+      align-items: center;
+      margin-bottom: 125px;
+
+      .technologies-1 {
+        width: calc(100% / 3);
+        height: 100%;
+      }
+
+      .technologies-2 {
+        align-self: flex-start;
+        text-align: center;
+      }
+    }
+
     a {
       color: $primary-color;
       font-style: italic;
