@@ -12,6 +12,12 @@ describe('About Component', () => {
 
   it('Should be built with one argument; Title type', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
+  it('Should have a showArrow with a false value', () => {
+    const expectedArrowValue = aboutComponent.showArrow;
+
+    expect(expectedArrowValue).toBeFalsy();
+  });
+
   it('Should have languages array', () => {
 
     const expectedLanguages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
@@ -60,11 +66,13 @@ describe('About Component', () => {
   });
 
   it('Should return my current age', () => {
+
     const bornYear: number = new Date('January 1, 1995').getFullYear(),
       expectedAge: number = new Date().getFullYear() - bornYear,
       actualAge: number = aboutComponent.age;
 
     expect(expectedAge).toBe(actualAge);
+
   });
 
 });
