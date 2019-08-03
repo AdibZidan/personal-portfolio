@@ -40,16 +40,16 @@ export class AboutComponent implements OnInit {
   @HostListener('window:scroll', [])
   public onScroll(): void { this.isUserOnBottom(); }
 
-  private scrollUp(): void { window.scroll({ top: 0, left: 0, behavior: 'smooth' }); }
+  public scrollUp(): void { window.scroll({ top: 0, left: 0, behavior: 'smooth' }); }
 
-  private isUserOnBottom(): void { this.onBottom(); }
+  public isUserOnBottom(): void { this.onBottom(); }
 
-  private onBottom(): void {
+  public onBottom(): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       this.showArrow = true;
     }
   }
 
-  private changeTitle(): void { this.titleService.setTitle('About Me'); }
+  public changeTitle(): void { this.titleService.setTitle('About Me'); }
 
 }
