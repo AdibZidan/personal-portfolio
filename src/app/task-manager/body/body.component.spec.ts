@@ -6,16 +6,12 @@ import { Title } from '@angular/platform-browser';
 
 describe('Body Component', () => {
 
+  let bodyComponent: BodyComponent, taskService: TaskService, titleService: Title;
+
+  beforeEach(() => bodyComponent = new BodyComponent(taskService, titleService));
+
   it('Should exist', () => expect(BodyComponent).toBeDefined());
 
-  it('Should be built with 2 arguments; TaskService and Title type', () => {
-
-    let taskService: TaskService, titleService: Title;
-
-    const bodyComponent = new BodyComponent(taskService, titleService);
-
-    expect(bodyComponent instanceof BodyComponent).toBeTruthy();
-
-  });
+  it('Should be built with 2 arguments; TaskService and Title type', () => expect(bodyComponent instanceof BodyComponent).toBeTruthy());
 
 });
