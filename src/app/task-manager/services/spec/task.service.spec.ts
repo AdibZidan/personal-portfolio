@@ -4,16 +4,12 @@ import { TaskService } from "../task.service";
 
 describe('Task Service', () => {
 
-  it('Should exist', () => expect(TaskService).toBeDefined());
+  let taskService: TaskService, httpClient: HttpClient;
 
-  it('Should be built with 1 argument; HttpClient type', () => {
+  beforeEach(() => taskService = new TaskService(httpClient));
 
-    let httpClient: HttpClient;
+  it('Should exist', () => expect(taskService).toBeDefined());
 
-    const taskService: TaskService = new TaskService(httpClient);
-
-    expect(taskService instanceof TaskService).toBeTruthy();
-
-  });
+  it('Should be built with 1 argument; HttpClient type', () => expect(taskService instanceof TaskService).toBeTruthy());
 
 });

@@ -2,11 +2,13 @@ import { taskService, httpTestingController, mockTask } from '../mock/mock-servi
 
 import { TestRequest } from '@angular/common/http/testing';
 
+import { Task } from '../../interface/Task';
+
 describe('POST request', () => {
 
     it('Should add a task via a POST request', () => {
 
-        taskService.addTaskToBackEnd(mockTask).subscribe(task => expect(task).toEqual(mockTask));
+        taskService.addTaskToBackEnd(mockTask).subscribe((taskToBeAdded: Task) => expect(taskToBeAdded).toEqual(mockTask));
 
         const url: string = taskService.baseUrl;
 

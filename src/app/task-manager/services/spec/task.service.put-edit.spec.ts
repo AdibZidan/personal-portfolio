@@ -2,13 +2,15 @@ import { taskService, httpTestingController, mockTask } from '../mock/mock-servi
 
 import { TestRequest } from '@angular/common/http/testing';
 
+import { Task } from '../../interface/Task';
+
 describe('PUT/edit request', () => {
 
     it('Should edit a task via a PUT request', () => {
 
         const url: string = `${taskService.baseUrl}/edit/${mockTask.id}`;
 
-        taskService.editTaskFromBackEnd(mockTask).subscribe(task => expect(task).toBe(mockTask));
+        taskService.editTaskFromBackEnd(mockTask).subscribe((taskToBeEdited: Task) => expect(taskToBeEdited).toBe(mockTask));
 
         const request: TestRequest = httpTestingController.expectOne(url);
 

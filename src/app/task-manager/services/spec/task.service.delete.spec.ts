@@ -2,13 +2,15 @@ import { taskService, httpTestingController, mockTask } from '../mock/mock-servi
 
 import { TestRequest } from '@angular/common/http/testing';
 
+import { Task } from '../../interface/Task';
+
 describe('DELETE request', () => {
 
     it('Should delete a task via a DELETE request', () => {
 
         const url: string = `${taskService.baseUrl}/delete/${mockTask.id}`;
 
-        taskService.deleteTaskFromBackEnd(mockTask).subscribe(task => expect(task).toBe(mockTask));
+        taskService.deleteTaskFromBackEnd(mockTask).subscribe((taskToBeDeleted: Task) => expect(taskToBeDeleted).toBe(mockTask));
 
         const request: TestRequest = httpTestingController.expectOne(url);
 
