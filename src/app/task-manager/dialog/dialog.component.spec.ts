@@ -1,19 +1,26 @@
 import { DialogComponent } from "./dialog.component";
 
 import { MatDialog, MatDialogRef } from '@angular/material';
+
 import { FormComponent } from '../form/form.component';
+
+import { taskMock } from '../services/mock/mock';
 
 describe('Dialog Component', () => {
 
+  let dialogComponent: DialogComponent, matDialog: MatDialog, matDialogRef: MatDialogRef<FormComponent>;
+
+  beforeEach(() => dialogComponent = new DialogComponent(matDialog, matDialogRef));
+
   it('Should exist', () => expect(DialogComponent).toBeDefined());
 
-  it('Should be built with 2 arguments; MatDialog and MatDialogRef<FormComponent> types', () => {
+  it('Should be built with 2 arguments; MatDialog and MatDialogRef<FormComponent> types', () => expect(dialogComponent instanceof DialogComponent).toBeTruthy());
 
-    let matDialog: MatDialog, matDialogRef: MatDialogRef<FormComponent>;
+  it(`Should have a task 'input'`, () => {
 
-    const dialogComponent = new DialogComponent(matDialog, matDialogRef);
+    const taskInput = dialogComponent.task = taskMock;
 
-    expect(dialogComponent instanceof DialogComponent).toBeTruthy();
+    expect(taskInput).toBe(taskMock);
 
   });
 
