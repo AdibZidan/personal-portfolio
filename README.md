@@ -1,6 +1,6 @@
 # Angular-Projects
 
-This project is live. Head over [here](http://www.adibzidan.com) to access it.
+This project is live. Head over [here](https://www.adibzidan.com) to access it.
 
 This repository includes my Portfolio, About Me and Task-Manager; which are a work in progress.
 
@@ -18,6 +18,7 @@ Make sure to install the latest version of:
 - Portfolio, About Me & Task Manager are fully responsive
 - Basic tests for each Component
 - Dynamic SCSS mixins
+- Deployed with HTTPS
 
 ## What I've learned
 
