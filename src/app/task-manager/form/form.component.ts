@@ -16,18 +16,16 @@ import { Subscription } from 'rxjs';
 
 export class FormComponent implements OnInit, OnDestroy {
 
-  @Input() task: Task;
+  @Input() public task: Task;
 
-  @Output() addTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() public addTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
-  formGroup: FormGroup;
-
-  isValidForm: boolean = false;
-  validNumberPattern: string = '^[1-9][0-9]?$|^100$';
-
-  errorMessage: string = 'Please fill the form above';
+  public formGroup: FormGroup;
+  public isValidForm: boolean = false;
+  public validNumberPattern: string = '^[1-9][0-9]?$|^100$';
+  public errorMessage: string = 'Please fill the form above';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,16 +61,10 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   }
 
-  get title(): AbstractControl {
-    return this.formGroup.get('title');
-  }
+  get title(): AbstractControl { return this.formGroup.get('title'); }
 
-  get description(): AbstractControl {
-    return this.formGroup.get('description');
-  }
+  get description(): AbstractControl { return this.formGroup.get('description'); }
 
-  get percentage(): AbstractControl {
-    return this.formGroup.get('percentage');
-  }
+  get percentage(): AbstractControl { return this.formGroup.get('percentage'); }
 
 }
