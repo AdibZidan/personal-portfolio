@@ -16,16 +16,13 @@ import { Subscription } from 'rxjs';
 
 export class DialogComponent implements OnInit, OnDestroy {
 
-  @Input() task: Task;
+  @Input() public task: Task;
 
-  @Output() save: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output() public save: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
 
-  constructor(
-    private dialog: MatDialog,
-    private matDialogRef: MatDialogRef<FormComponent>
-  ) { }
+  constructor(private dialog: MatDialog, private matDialogRef: MatDialogRef<FormComponent>) { }
 
   ngOnInit(): void { }
 
