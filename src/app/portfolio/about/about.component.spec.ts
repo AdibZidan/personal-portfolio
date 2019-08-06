@@ -6,16 +6,18 @@ describe('About Component', () => {
 
   let aboutComponent: AboutComponent, titleService: Title;
 
-  it('Should exist', () => expect(AboutComponent).toBeDefined());
-
   beforeEach(() => aboutComponent = new AboutComponent(titleService));
+
+  it('Should exist', () => expect(aboutComponent).toBeDefined());
 
   it('Should be built with one argument; Title type', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
   it('Should have a showArrow with a false value', () => {
+
     const expectedArrowValue = aboutComponent.showArrow;
 
     expect(expectedArrowValue).toBeFalsy();
+
   });
 
   it('Should have languages array', () => {

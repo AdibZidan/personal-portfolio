@@ -12,7 +12,7 @@ describe('Dialog Component', () => {
 
   beforeEach(() => dialogComponent = new DialogComponent(matDialog, matDialogRef));
 
-  it('Should exist', () => expect(DialogComponent).toBeDefined());
+  it('Should exist', () => expect(dialogComponent).toBeDefined());
 
   it('Should be built with 2 arguments; MatDialog and MatDialogRef<FormComponent> types', () => expect(dialogComponent instanceof DialogComponent).toBeTruthy());
 

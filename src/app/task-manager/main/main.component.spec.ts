@@ -4,16 +4,12 @@ import { TaskService } from '../services/task.service';
 
 describe('Main Component', () => {
 
-  it('Should exist', () => expect(MainComponent).toBeDefined());
+  let mainComponent: MainComponent, taskService: TaskService;
 
-  it('Should be built with 1 argument; TaskService type', () => {
+  beforeEach(() => mainComponent = new MainComponent(taskService));
 
-    let taskService: TaskService;
+  it('Should exist', () => expect(mainComponent).toBeDefined());
 
-    const mainComponent = new MainComponent(taskService);
-
-    expect(mainComponent instanceof MainComponent).toBeTruthy();
-
-  });
+  it('Should be built with 1 argument; TaskService type', () => expect(mainComponent instanceof MainComponent).toBeTruthy());
 
 });

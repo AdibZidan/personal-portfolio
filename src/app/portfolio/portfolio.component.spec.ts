@@ -8,7 +8,7 @@ describe('Portfolio Component', () => {
 
   beforeEach(() => portfolioComponent = new PortfolioComponent(titleService));
 
-  it('Should exist', () => expect(PortfolioComponent).toBeDefined());
+  it('Should exist', () => expect(portfolioComponent).toBeDefined());
 
   it('Should be built with one argument; Title type', () => expect(portfolioComponent instanceof PortfolioComponent).toBeTruthy());
 

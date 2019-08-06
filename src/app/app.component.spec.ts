@@ -6,7 +6,7 @@ describe('Application Component', () => {
 
   beforeEach(() => appComponent = new AppComponent());
 
-  it('Should exist', () => expect(AppComponent).toBeDefined());
+  it('Should exist', () => expect(appComponent).toBeDefined());
 
   it('Should be built with zero arguments', () => expect(appComponent instanceof AppComponent).toBeTruthy());
 

@@ -1,21 +1,19 @@
 import { FormComponent } from "./form.component";
 
 import { FormBuilder } from '@angular/forms';
+
 import { MatDialogRef } from '@angular/material';
+
 import { Task } from '../interface/Task';
 
 describe('Form Component', () => {
 
-  it('Should exist', () => expect(FormComponent).toBeDefined());
+  let formComponent: FormComponent, formBuilder: FormBuilder, matDialogRef: MatDialogRef<FormComponent>, data: Task;
 
-  it('Should be built with 3 arguments; FormBuilder, MatDialogRef<FormComponent> and Task', () => {
+  beforeEach(() => formComponent = new FormComponent(formBuilder, matDialogRef, data));
 
-    let formBuilder: FormBuilder, matDialogRef: MatDialogRef<FormComponent>, data: Task;
+  it('Should exist', () => expect(formComponent).toBeDefined());
 
-    const formComponent = new FormComponent(formBuilder, matDialogRef, data);
-
-    expect(formComponent instanceof FormComponent).toBeTruthy();
-
-  });
+  it('Should be built with 3 arguments; FormBuilder, MatDialogRef<FormComponent> and Task', () => expect(formComponent instanceof FormComponent).toBeTruthy());
 
 });

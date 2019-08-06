@@ -16,7 +16,7 @@ describe('Body Component', () => {
 
   beforeEach(() => bodyComponent = new BodyComponent(taskService, titleService));
 
-  it('Should exist', () => expect(BodyComponent).toBeDefined());
+  it('Should exist', () => expect(bodyComponent).toBeDefined());
 
   it('Should be built with 2 arguments; TaskService and Title type', () => expect(bodyComponent instanceof BodyComponent).toBeTruthy());
 
@@ -49,6 +49,5 @@ describe('Body Component', () => {
     expect(task.completed).toBeTruthy();
 
   });
-
 
 });

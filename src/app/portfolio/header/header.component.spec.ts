@@ -6,7 +6,7 @@ describe('Header Component', () => {
 
   beforeEach(() => headerComponent = new HeaderComponent());
 
-  it('Should exist', () => expect(HeaderComponent).toBeDefined());
+  it('Should exist', () => expect(headerComponent).toBeDefined());
 
   it('Should be built with zero arguments', () => expect(headerComponent instanceof HeaderComponent).toBeTruthy());
 

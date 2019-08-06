@@ -6,7 +6,7 @@ describe('Footer Component', () => {
 
   beforeEach(() => footerComponent = new FooterComponent());
 
-  it('Should exist', () => expect(FooterComponent).toBeDefined());
+  it('Should exist', () => expect(footerComponent).toBeDefined());
 
   it('Should be built with zero arguments', () => expect(footerComponent instanceof FooterComponent).toBeTruthy());
 
