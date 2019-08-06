@@ -33,11 +33,9 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   public setLineThrough(): object { return setLine(this.task); }
 
-  public onToggle(task: Task): void {
-    task.completed = !task.completed;
+  public onToggleUI(task: Task): void { task.completed = !task.completed; }
 
-    this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe();
-  }
+  public onToggleBackEnd(task: Task) { this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe(); }
 
   public onDelete(task: Task): void { this.deleteTask.emit(task); }
 
