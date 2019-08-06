@@ -20,12 +20,12 @@ export class FormComponent implements OnInit, OnDestroy {
 
   @Output() public addTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  private subscription: Subscription;
-
   public formGroup: FormGroup;
   public isValidForm: boolean = false;
   public validNumberPattern: string = '^[1-9][0-9]?$|^100$';
   public errorMessage: string = 'Please fill the form above';
+
+  private subscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
