@@ -8,6 +8,8 @@ import { taskMock } from '../services/mock/mock';
 
 import { Task } from '../interface/Task';
 
+import { mockTask } from '../services/mock/mock-service.spec';
+
 describe('Body Component', () => {
 
   let bodyComponent: BodyComponent, taskService: TaskService, titleService: Title;
@@ -35,5 +37,18 @@ describe('Body Component', () => {
     bodyComponent.onDelete(task);
 
   });
+
+  it('Should change the completed property of a task with the onToggleUI method', () => {
+
+    const task = mockTask;
+
+    expect(task.completed).toBeFalsy();
+
+    bodyComponent.onToggleUI(task);
+
+    expect(task.completed).toBeTruthy();
+
+  });
+
 
 });
