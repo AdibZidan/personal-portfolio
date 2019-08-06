@@ -17,8 +17,8 @@
 
     <label class="container" *ngIf="task.description">
 
-      <input type="checkbox" [checked]="task.completed" (click)="onToggleUI(task)" (click)="onToggleBackEnd(task)"
-        *ngIf="task.description">
+      <input type="checkbox" [checked]="task.completed" (click)="onToggleFromUI(task)"
+        (click)="onToggleFromBackEnd(task)" *ngIf="task.description">
 
       <p class="text" [ngClass]="setLineThrough()">
 

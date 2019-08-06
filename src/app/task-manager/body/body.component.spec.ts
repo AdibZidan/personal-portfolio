@@ -44,7 +44,7 @@ describe('Body Component', () => {
 
     expect(task.completed).toBeFalsy();
 
-    bodyComponent.onToggleUI(task);
+    bodyComponent.onToggleFromUI(task);
 
     expect(task.completed).toBeTruthy();
 
