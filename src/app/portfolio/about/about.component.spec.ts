@@ -12,13 +12,7 @@ describe('About Component', () => {
 
   it('Should be built with one argument; Title type', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
-  it('Should have a showArrow with a false value', () => {
-
-    const expectedArrowValue = aboutComponent.showArrow;
-
-    expect(expectedArrowValue).toBeFalsy();
-
-  });
+  it('Should have a showArrow with a false value', () => expect(aboutComponent.showArrow).toBeFalsy());
 
   it('Should have languages array', () => {
 
@@ -38,9 +32,9 @@ describe('About Component', () => {
       '& Angular 8'
     ];
 
-    const actualTechnologyStacks: string[] = aboutComponent.frontEndStacks;
+    const actualFrontEndStacks: string[] = aboutComponent.frontEndStacks;
 
-    expect(expectedFrontEndStacks).toEqual(actualTechnologyStacks);
+    expect(expectedFrontEndStacks).toEqual(actualFrontEndStacks);
 
   });
 
