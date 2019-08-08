@@ -1,13 +1,31 @@
 import { AppComponent } from './app.component';
 
+import { HeaderComponent } from './portfolio/header/header.component';
+
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
+import { RouterTestingModule } from '@angular/router/testing'
+
 describe('Application Component', () => {
 
-  let appComponent: AppComponent;
+  let appComponent: AppComponent, appFixture: ComponentFixture<AppComponent>;
 
-  beforeEach(() => appComponent = new AppComponent());
+  beforeAll(async(() =>
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [AppComponent, HeaderComponent]
+    }).compileComponents()));
 
-  it('Should exist', () => expect(appComponent).toBeDefined());
+  beforeAll(() => {
 
-  it('Should be built with zero arguments', () => expect(appComponent instanceof AppComponent).toBeTruthy());
+    appFixture = TestBed.createComponent(AppComponent);
+
+    appComponent = appFixture.componentInstance;
+
+  });
+
+  it('Should exist/be defined', () => expect(appComponent).toBeDefined());
+
+  it('Should be built/compiled', () => expect(appComponent instanceof AppComponent).toBeTruthy());
 
 });
