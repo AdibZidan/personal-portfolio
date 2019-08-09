@@ -1,15 +1,38 @@
-import { PortfolioComponent } from "./portfolio.component";
+import { PortfolioComponent } from './portfolio.component';
 
-import { Title } from '@angular/platform-browser';
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
+import { DebugElement } from '@angular/core';
 
 describe('Portfolio Component', () => {
 
-  let portfolioComponent: PortfolioComponent, titleService: Title;
+    let portfolioComponent: PortfolioComponent,
+        portfolioFixture: ComponentFixture<PortfolioComponent>,
+        debugElement: DebugElement,
+        htmlElement: HTMLElement;
 
-  beforeEach(() => portfolioComponent = new PortfolioComponent(titleService));
+    beforeAll(async(() => {
 
-  it('Should exist', () => expect(portfolioComponent).toBeDefined());
+        TestBed.configureTestingModule({
+            declarations: [PortfolioComponent]
+        }).compileComponents();
 
-  it('Should be built with one argument; Title type', () => expect(portfolioComponent instanceof PortfolioComponent).toBeTruthy());
+        portfolioFixture = TestBed.createComponent(PortfolioComponent);
+
+        portfolioComponent = portfolioFixture.componentInstance;
+
+        debugElement = portfolioFixture.debugElement;
+
+        htmlElement = debugElement.nativeElement;
+
+        portfolioFixture.detectChanges();
+
+    }));
+
+    afterAll(async(() => TestBed.resetTestingModule()));
+
+    it('Should exist/be defined', () => expect(portfolioComponent).toBeDefined());
+
+    it('Should be built/compiled', () => expect(portfolioComponent instanceof PortfolioComponent).toBeTruthy());
 
 });
