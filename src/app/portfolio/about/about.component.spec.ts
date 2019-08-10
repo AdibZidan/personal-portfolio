@@ -2,15 +2,42 @@ import { AboutComponent } from "./about.component";
 
 import { Title } from '@angular/platform-browser';
 
+import { ComponentFixture, async, TestBed } from '@angular/core/testing';
+
+import { DebugElement } from '@angular/core';
+
+import { FooterComponent } from '../footer/footer.component';
+
 describe('About Component', () => {
 
-  let aboutComponent: AboutComponent, titleService: Title;
+  let aboutComponent: AboutComponent,
+    aboutFixture: ComponentFixture<AboutComponent>,
+    titleService: Title,
+    debugElement: DebugElement,
+    htmlElement: HTMLElement;
 
-  beforeEach(() => aboutComponent = new AboutComponent(titleService));
+  beforeEach(async(() =>
+    TestBed.configureTestingModule({
+      declarations: [AboutComponent, FooterComponent]
+    }).compileComponents()));
 
-  it('Should exist', () => expect(aboutComponent).toBeDefined());
+  beforeEach(() => {
 
-  it('Should be built with one argument; Title type', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
+    aboutFixture = TestBed.createComponent(AboutComponent);
+
+    aboutComponent = aboutFixture.componentInstance;
+
+    titleService = TestBed.get(Title);
+
+    debugElement = aboutFixture.debugElement;
+
+    htmlElement = debugElement.nativeElement;
+
+  });
+
+  it('Should exist/be defined', () => expect(aboutComponent).toBeDefined());
+
+  it('Should be built/compiled', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
 
   it('Should have a showArrow with a false value', () => expect(aboutComponent.showArrow).toBeFalsy());
 
@@ -68,6 +95,88 @@ describe('About Component', () => {
       actualAge: number = aboutComponent.age;
 
     expect(expectedAge).toBe(actualAge);
+
+  });
+
+  it(`Should have an empty 'title' before 'ngOnInit'`, () => {
+
+    const expectedTitle: string = '';
+
+    const actualTitle: string = titleService.getTitle();
+
+    expect(expectedTitle).toBe(actualTitle);
+
+  });
+
+  it(`Should change the title to 'About Me' after 'ngOnInit'`, () => {
+
+    aboutFixture.detectChanges();
+
+    const expectedTitle: string = 'About Me';
+
+    const actualTitle: string = titleService.getTitle();
+
+    expect(expectedTitle).toBe(actualTitle);
+
+  });
+
+  it(`Should mimic an 'onClick' event and the value of 'showArrow' needs to be false`, () => {
+
+    aboutFixture.detectChanges();
+
+    aboutComponent.onClick();
+
+    const showArrow = aboutComponent.showArrow;
+
+    expect(showArrow).toBeFalsy();
+
+  });
+
+  it(`Should have a total of 6 'section' tags including the one from 'app-footer' tag`, () => {
+
+    const expectedTotalAmountOfSectionTags: number = htmlElement.querySelectorAll('section').length;
+
+    expect(expectedTotalAmountOfSectionTags).toBe(6);
+
+  });
+
+  it(`Should have a total of 13 'p' tags with the class of 'p'`, () => {
+
+    const expectedTotalAmountOfPTags: number = htmlElement.querySelectorAll('p.p').length;
+
+    expect(expectedTotalAmountOfPTags).toBe(13);
+
+  });
+
+  it(`Should have a total of 4 'h2' tags with the class of 'h2'`, () => {
+
+    const expectedTotalAmountOfH2Tags: number = htmlElement.querySelectorAll('h2.h2').length;
+
+    expect(expectedTotalAmountOfH2Tags).toBe(4);
+
+  });
+
+  it(`Should have a total of 3 'hr' tags`, () => {
+
+    const expectedTotalAmountOfHrTags: number = htmlElement.querySelectorAll('hr').length;
+
+    expect(expectedTotalAmountOfHrTags).toBe(3);
+
+  });
+
+  it(`Should have a total of 4 'anchor' tags including the one's from 'app-footer' tag`, () => {
+
+    const expectedTotalAmountOfAnchorTags: number = htmlElement.querySelectorAll('a').length;
+
+    expect(expectedTotalAmountOfAnchorTags).toBe(4);
+
+  });
+
+  it(`Should have a total of 3 'ul' tags with the class of 'technology-stack'`, () => {
+
+    const expectedTotalAmountOfUlTags: number = htmlElement.querySelectorAll('ul.technology-stack').length;
+
+    expect(expectedTotalAmountOfUlTags).toBe(3);
 
   });
 
