@@ -17,13 +17,13 @@ describe('Application Component', () => {
     debugElement: DebugElement,
     htmlElement: HTMLElement;
 
-  beforeAll(async(() =>
+  beforeEach(async(() =>
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, BrowserAnimationsModule],
       declarations: [AppComponent, HeaderComponent]
     }).compileComponents()));
 
-  beforeAll(() => {
+  beforeEach(() => {
 
     appFixture = TestBed.createComponent(AppComponent);
 
@@ -40,5 +40,29 @@ describe('Application Component', () => {
   it('Should exist/be defined', () => expect(appComponent).toBeDefined());
 
   it('Should be built/compiled', () => expect(appComponent instanceof AppComponent).toBeTruthy());
+
+  it(`Should have an 'app-header' tag`, () => {
+
+    const appHeader = htmlElement.querySelector('app-header');
+
+    expect(appHeader).toBeTruthy();
+
+  });
+
+  it(`Should have a 'section' tag`, () => {
+
+    const section: Element = htmlElement.querySelector('section');
+
+    expect(section).toBeTruthy();
+
+  });
+
+  it(`Should have a 'router-outlet' tag`, () => {
+
+    const routerOutlet: Element = htmlElement.querySelector('router-outlet');
+
+    expect(routerOutlet).toBeTruthy();
+
+  });
 
 });
