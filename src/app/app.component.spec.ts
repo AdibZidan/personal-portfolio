@@ -39,7 +39,9 @@ describe('Application Component', () => {
 
   it('Should exist/be defined', () => expect(appComponent).toBeDefined());
 
-  it('Should be built/compiled', () => expect(appComponent instanceof AppComponent).toBeTruthy());
+  it('Should be built/compiled', () =>
+    expect(appComponent instanceof AppComponent)
+      .toBeTruthy());
 
   it(`Should have an 'app-header' tag`, () => {
 
