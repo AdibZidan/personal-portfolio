@@ -8,7 +8,7 @@ import { tasksMock, taskMock } from './mock/mock';
 
 import { Task } from '../interface/Task';
 
-describe('Mock Service', () => {
+describe('Task Service', () => {
 
     let taskService: TaskService,
         httpMock: HttpTestingController,
