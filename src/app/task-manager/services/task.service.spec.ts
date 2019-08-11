@@ -51,6 +51,15 @@ describe('Mock Service', () => {
 
     });
 
+    it(`Should get the 'refresher' method`, () => {
+
+        const refresher = taskService.refresher;
+
+        expect(refresher).toBeTruthy();
+
+    });
+
+
 
     it('Should retrieve tasks via a GET request', () => {
 
