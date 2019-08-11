@@ -16,7 +16,6 @@ describe('Mock Service', () => {
         tasks: Task[],
         task: Task;
 
-
     beforeEach(async(() =>
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
@@ -58,8 +57,6 @@ describe('Mock Service', () => {
         expect(refresher).toBeTruthy();
 
     });
-
-
 
     it('Should retrieve tasks via a GET request', () => {
 
