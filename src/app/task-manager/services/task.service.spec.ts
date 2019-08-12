@@ -38,7 +38,9 @@ describe('Task Service', () => {
 
     afterEach(() => httpMock.verify());
 
-    it('Should be built', () => expect(taskService).toBeTruthy());
+    it('Should exist/be defined', () => expect(taskService).toBeDefined());
+
+    it('Should be built/compiled', () => expect(taskService instanceof TaskService).toBeTruthy());
 
     it(`Should have a 'baseUrl'`, () => {
 
