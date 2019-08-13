@@ -16,6 +16,10 @@ import { BodyComponent } from '../body/body.component';
 
 import { DialogComponent } from '../dialog/dialog.component';
 
+import { Observable } from 'rxjs';
+
+import { Task } from '../interface/Task';
+
 describe('Main Component', () => {
 
   let mainComponent: MainComponent,
@@ -54,10 +58,30 @@ describe('Main Component', () => {
 
   });
 
-  it('Should exist', () => expect(mainComponent).toBeDefined());
+  it('Should exist', () =>
+    expect(mainComponent)
+      .toBeDefined());
 
   it('Should be built/compiled', () =>
     expect(mainComponent instanceof MainComponent)
       .toBeTruthy());
+
+  fit(`Should have an undefined 'tasks$' before 'ngOnInit'`, () => {
+
+    const tasks$: Observable<Task[]> = mainComponent.tasks$;
+
+    expect(tasks$).toBeUndefined();
+
+  });
+
+  it(`Should have a 'date' property`, () => {
+
+    const expectedDate: number = Date.now();
+
+    const actualDate: number = mainComponent.date;
+
+    expect(expectedDate).toBe(actualDate);
+
+  });
 
 });
