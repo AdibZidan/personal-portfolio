@@ -1,25 +1,25 @@
-import { taskService, httpTestingController, mockTask } from '../mock/mock-service.spec';
+// import { taskService, httpTestingController, mockTask } from '../mock/mock-service.spec';
 
-import { TestRequest } from '@angular/common/http/testing';
+// import { TestRequest } from '@angular/common/http/testing';
 
-import { Task } from '../../interface/Task';
+// import { Task } from '../../interface/Task';
 
-describe('POST request', () => {
+// describe('POST request', () => {
 
-    it('Should add a task via a POST request', () => {
+//     it('Should add a task via a POST request', () => {
 
-        taskService.addTaskToBackEnd(mockTask).subscribe((taskToBeAdded: Task) => expect(taskToBeAdded).toEqual(mockTask));
+//         taskService.addTaskToBackEnd(mockTask).subscribe((taskToBeAdded: Task) => expect(taskToBeAdded).toEqual(mockTask));
 
-        const url: string = taskService.baseUrl;
+//         const url: string = taskService.baseUrl;
 
-        const request: TestRequest = httpTestingController.expectOne(url);
+//         const request: TestRequest = httpTestingController.expectOne(url);
 
-        const method: string = request.request.method;
+//         const method: string = request.request.method;
 
-        expect(method).toEqual('POST');
+//         expect(method).toEqual('POST');
 
-        request.flush(mockTask);
+//         request.flush(mockTask);
 
-    });
+//     });
 
-});
+// });

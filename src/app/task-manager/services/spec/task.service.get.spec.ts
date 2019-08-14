@@ -1,31 +1,31 @@
-import { taskService, mockTasks, httpTestingController } from '../mock/mock-service.spec';
+// import { taskService, mockTasks, httpTestingController } from '../mock/mock-service.spec';
 
-import { TestRequest } from '@angular/common/http/testing';
+// import { TestRequest } from '@angular/common/http/testing';
 
-describe('GET request', () => {
+// describe('GET request', () => {
 
-    it('Should retrieve tasks via a GET request', () => {
+//     it('Should retrieve tasks via a GET request', () => {
 
-        taskService.getTasksFromBackEnd().subscribe(tasks => {
+//         taskService.getTasksFromBackEnd().subscribe(tasks => {
 
-            const length: number = tasks.length;
+//             const length: number = tasks.length;
 
-            expect(length).toBe(3);
+//             expect(length).toBe(3);
 
-            expect(tasks).toEqual(mockTasks);
+//             expect(tasks).toEqual(mockTasks);
 
-        });
+//         });
 
-        const url: string = taskService.baseUrl;
+//         const url: string = taskService.baseUrl;
 
-        const request: TestRequest = httpTestingController.expectOne(url);
+//         const request: TestRequest = httpTestingController.expectOne(url);
 
-        const method: string = request.request.method;
+//         const method: string = request.request.method;
 
-        expect(method).toBe('GET');
+//         expect(method).toBe('GET');
 
-        request.flush(mockTasks);
+//         request.flush(mockTasks);
 
-    });
+//     });
 
-});
+// });

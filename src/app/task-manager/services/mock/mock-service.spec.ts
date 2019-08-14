@@ -1,29 +1,29 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+// import { TestBed } from '@angular/core/testing';
+// import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 
-import { TaskService } from '../task.service';
-import { Task } from '../../interface/Task';
-import { tasksMock, taskMock } from './mock';
+// import { TaskService } from '../task.service';
+// import { Task } from '../../interface/Task';
+// import { tasksMock, taskMock } from './mock';
 
-export let taskService: TaskService, httpTestingController: HttpTestingController;
+// export let taskService: TaskService, httpTestingController: HttpTestingController;
 
-export let mockTasks: Task[], mockTask: Task;
+// export let mockTasks: Task[], mockTask: Task;
 
-beforeEach(() => {
+// beforeEach(() => {
 
-    mockTasks = tasksMock;
+//     mockTasks = tasksMock;
 
-    mockTask = taskMock;
+//     mockTask = taskMock;
 
-    TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
-        providers: [TaskService]
-    });
+//     TestBed.configureTestingModule({
+//         imports: [HttpClientTestingModule],
+//         providers: [TaskService]
+//     });
 
-    taskService = TestBed.get(TaskService);
+//     taskService = TestBed.get(TaskService);
 
-    httpTestingController = TestBed.get(HttpTestingController);
+//     httpTestingController = TestBed.get(HttpTestingController);
 
-});
+// });
 
-afterEach(() => httpTestingController.verify());
+// afterEach(() => httpTestingController.verify());
