@@ -1,5 +1,4 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-
 import { Task } from './../../app/task-manager/interface/Task';
 
 export const easeIn = trigger('routeAnimations', [
@@ -17,7 +16,9 @@ export const fadeIn = trigger('fadeIn', [
 ]);
 
 export const setLine = (task: Task): object => {
-  const lineThrough: object = { 'is-complete': task.completed };
+  const lineThrough: object = {
+    'is-complete': task.completed
+  };
 
   return lineThrough;
 };
