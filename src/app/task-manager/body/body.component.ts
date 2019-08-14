@@ -29,7 +29,9 @@ export class BodyComponent implements OnInit, OnDestroy {
     }
   }
 
-  public setLineThrough(): object { return setLine(this.task); }
+  public setLineThrough(): object {
+    return setLine(this.task);
+  }
 
   public onToggleFromUI(task: Task): void {
     task.completed = !task.completed;
