@@ -1,50 +1,52 @@
-import { AboutComponent } from "./about.component";
-
-import { Title } from '@angular/platform-browser';
-
+import { AboutComponent } from './about.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-
+import { Title } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { FooterComponent } from '../footer/footer.component';
 
 describe('About Component', () => {
 
-  let aboutComponent: AboutComponent,
-    aboutFixture: ComponentFixture<AboutComponent>,
-    titleService: Title,
-    debugElement: DebugElement,
-    htmlElement: HTMLElement;
+  let aboutComponent: AboutComponent;
+  let aboutFixture: ComponentFixture<AboutComponent>;
+  let titleService: Title;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
-      declarations: [AboutComponent, FooterComponent]
+      declarations: [
+        AboutComponent,
+        FooterComponent
+      ]
     }).compileComponents()));
 
   beforeEach(() => {
 
     aboutFixture = TestBed.createComponent(AboutComponent);
-
     aboutComponent = aboutFixture.componentInstance;
-
     titleService = TestBed.get(Title);
-
     debugElement = aboutFixture.debugElement;
-
     htmlElement = debugElement.nativeElement;
 
   });
 
-  it('Should exist/be defined', () => expect(aboutComponent).toBeDefined());
+  it('Should exist/be defined', () =>
+    expect(aboutComponent)
+      .toBeDefined());
 
-  it('Should be built/compiled', () => expect(aboutComponent instanceof AboutComponent).toBeTruthy());
+  it('Should be built/compiled', () =>
+    expect(aboutComponent instanceof AboutComponent)
+      .toBeTruthy());
 
-  it('Should have a showArrow with a false value', () => expect(aboutComponent.showArrow).toBeFalsy());
+  it('Should have a showArrow with a false value', () =>
+    expect(aboutComponent.showArrow)
+      .toBeFalsy());
 
   it('Should have languages array', () => {
 
-    const expectedLanguages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
-
+    const expectedLanguages: string[] = [
+      'English,', 'Arabic,',
+      'Russian', '& German.'];
     const actualLanguages = aboutComponent.languages;
 
     expect(expectedLanguages).toEqual(actualLanguages);
@@ -56,9 +58,7 @@ describe('About Component', () => {
     const expectedFrontEndStacks: string[] = [
       'HTML5,', 'CSS3 / SCSS,',
       'JavaScript ES6+ / TypeScript',
-      '& Angular 8'
-    ];
-
+      '& Angular 8'];
     const actualFrontEndStacks: string[] = aboutComponent.frontEndStacks;
 
     expect(expectedFrontEndStacks).toEqual(actualFrontEndStacks);
@@ -67,8 +67,7 @@ describe('About Component', () => {
 
   it('Should have a backEndStack string', () => {
 
-    const expectedBackEndStack: string = 'Node.JS';
-
+    const expectedBackEndStack = 'Node.JS';
     const actualBackendStack: string = aboutComponent.backEndStack;
 
     expect(expectedBackEndStack).toBe(actualBackendStack);
@@ -79,9 +78,7 @@ describe('About Component', () => {
 
     const expectedOtherStacks: string[] = [
       'Docker,', 'Git/GitHub,', 'Ubuntu,',
-      'Windows 10,', 'NPM', '& Visual Studio Code.'
-    ];
-
+      'Windows 10,', 'NPM', '& Visual Studio Code.'];
     const actualOtherStacks: string[] = aboutComponent.otherStacks;
 
     expect(expectedOtherStacks).toEqual(actualOtherStacks);
@@ -90,9 +87,9 @@ describe('About Component', () => {
 
   it('Should return my current age', () => {
 
-    const bornYear: number = new Date('January 1, 1995').getFullYear(),
-      expectedAge: number = new Date().getFullYear() - bornYear,
-      actualAge: number = aboutComponent.age;
+    const bornYear: number = new Date('January 1, 1995').getFullYear();
+    const expectedAge: number = new Date().getFullYear() - bornYear;
+    const actualAge: number = aboutComponent.age;
 
     expect(expectedAge).toBe(actualAge);
 
@@ -100,8 +97,7 @@ describe('About Component', () => {
 
   it(`Should have an empty 'title' before 'ngOnInit'`, () => {
 
-    const expectedTitle: string = '';
-
+    const expectedTitle = '';
     const actualTitle: string = titleService.getTitle();
 
     expect(expectedTitle).toBe(actualTitle);
@@ -112,8 +108,7 @@ describe('About Component', () => {
 
     aboutFixture.detectChanges();
 
-    const expectedTitle: string = 'About Me';
-
+    const expectedTitle = 'About Me';
     const actualTitle: string = titleService.getTitle();
 
     expect(expectedTitle).toBe(actualTitle);
@@ -123,7 +118,6 @@ describe('About Component', () => {
   it(`Should mimic an 'onClick' event and the value of 'showArrow' needs to be false`, () => {
 
     aboutFixture.detectChanges();
-
     aboutComponent.onClick();
 
     const showArrow = aboutComponent.showArrow;
