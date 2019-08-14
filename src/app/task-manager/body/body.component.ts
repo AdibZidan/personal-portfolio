@@ -1,13 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
-
 import { fadeIn, setLine } from '../../../assets/animations/animations';
-
 import { TaskService } from '../services/task.service';
-
 import { Title } from '@angular/platform-browser';
-
 import { Task } from '../interface/Task';
-
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,7 +15,6 @@ import { Subscription } from 'rxjs';
 export class BodyComponent implements OnInit, OnDestroy {
 
   @Input() public task: Task;
-
   @Output() public deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
@@ -29,18 +23,32 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { this.changeTitle(); }
 
-  ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
+  ngOnDestroy(): void {
+    if (this.subscription !== undefined) {
+      this.subscription.unsubscribe();
+    }
+  }
 
   public setLineThrough(): object { return setLine(this.task); }
 
-  public onToggleFromUI(task: Task): void { task.completed = !task.completed; }
+  public onToggleFromUI(task: Task): void {
+    task.completed = !task.completed;
+  }
 
-  public onToggleFromBackEnd(task: Task): void { this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe(); }
+  public onToggleFromBackEnd(task: Task): void {
+    this.subscription = this.taskService.toggleTaskFromBackEnd(task).subscribe();
+  }
 
-  public onDelete(task: Task): void { this.deleteTask.emit(task); }
+  public onDelete(task: Task): void {
+    this.deleteTask.emit(task);
+  }
 
-  public async onEdit(task: Task): Promise<void> { await this.taskService.editTaskFromBackEnd(task).toPromise(); }
+  public async onEdit(task: Task): Promise<void> {
+    await this.taskService.editTaskFromBackEnd(task).toPromise();
+  }
 
-  private changeTitle(): void { this.titleService.setTitle('Task Manager'); }
+  private changeTitle(): void {
+    this.titleService.setTitle('Task Manager');
+  }
 
 }
