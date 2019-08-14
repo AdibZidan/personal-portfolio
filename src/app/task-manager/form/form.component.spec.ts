@@ -1,28 +1,18 @@
-import { FormComponent } from "./form.component";
-
+import { FormComponent } from './form.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
-
-import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
-
+import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material';
-
-import { Task } from '../interface/Task';
-
 import { taskMock } from './../services/mock/mock';
 
 describe('Form Component', () => {
 
-  let formComponent: FormComponent,
-    formFixture: ComponentFixture<FormComponent>,
-    debugElement: DebugElement,
-    htmlElement: HTMLElement,
-    formBuilder: FormBuilder,
-    formGroup: FormGroup,
-    matDialogRef: MatDialogRef<FormComponent>,
-    data: Task;
-
+  let formComponent: FormComponent;
+  let formFixture: ComponentFixture<FormComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
+  let formBuilder: FormBuilder;
+  let formGroup: FormGroup;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
@@ -31,7 +21,9 @@ describe('Form Component', () => {
         ReactiveFormsModule,
         MatDialogModule
       ],
-      declarations: [FormComponent],
+      declarations: [
+        FormComponent
+      ],
       providers: [
         { provide: MatDialogRef },
         { provide: MAT_DIALOG_DATA }
@@ -41,13 +33,9 @@ describe('Form Component', () => {
   beforeEach(() => {
 
     formFixture = TestBed.createComponent(FormComponent);
-
     formComponent = formFixture.componentInstance;
-
     debugElement = formFixture.debugElement;
-
     htmlElement = debugElement.nativeElement;
-
     formBuilder = TestBed.get(FormBuilder);
 
     formGroup = formBuilder.group({
@@ -60,7 +48,9 @@ describe('Form Component', () => {
 
   });
 
-  it('Should exist/be defined', () => expect(formComponent).toBeDefined());
+  it('Should exist/be defined', () =>
+    expect(formComponent)
+      .toBeDefined());
 
   it('Should be built/compiled', () =>
     expect(formComponent instanceof FormComponent)
@@ -92,11 +82,11 @@ describe('Form Component', () => {
 
   it(`Should have a valid 'formGroup' if the user adds the required details`, () => {
 
-    formGroup.controls['id'].setValue(1);
-    formGroup.controls['title'].setValue('This is the title');
-    formGroup.controls['description'].setValue('This is the description');
-    formGroup.controls['percentage'].setValue(100);
-    formGroup.controls['completed'].setValue(true);
+    formGroup.controls.id.setValue(1);
+    formGroup.controls.title.setValue('This is the title');
+    formGroup.controls.description.setValue('This is the description');
+    formGroup.controls.percentage.setValue(100);
+    formGroup.controls.completed.setValue(true);
 
     expect(formGroup.valid).toBeTruthy();
 
@@ -104,8 +94,7 @@ describe('Form Component', () => {
 
   it(`Should have a falsy 'isValidForm' property before 'onFormBuild' method`, () => {
 
-    const expectedIsValidForm: boolean = false;
-
+    const expectedIsValidForm = false;
     const actualIsValidForm: boolean = formComponent.isValidForm;
 
     expect(expectedIsValidForm).toBe(actualIsValidForm);
@@ -114,8 +103,7 @@ describe('Form Component', () => {
 
   it(`Should have a 'validNumberPattern' property`, () => {
 
-    const expectedValidNumberPattern: string = '^[1-9][0-9]?$|^100$';
-
+    const expectedValidNumberPattern = '^[1-9][0-9]?$|^100$';
     const actualValidNumberPattern: string = formComponent.validNumberPattern;
 
     expect(expectedValidNumberPattern).toBe(actualValidNumberPattern);
@@ -124,8 +112,7 @@ describe('Form Component', () => {
 
   it(`Should have a 'errorMessage' property`, () => {
 
-    const expectedErrorMessage: string = 'Please fill the form above';
-
+    const expectedErrorMessage = 'Please fill the form above';
     const actualErrorMessage: string = formComponent.errorMessage;
 
     expect(expectedErrorMessage).toBe(actualErrorMessage);

@@ -1,11 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, Inject, OnDestroy } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-
 import { Task } from '../interface/Task';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,25 +13,29 @@ import { Subscription } from 'rxjs';
 export class FormComponent implements OnInit, OnDestroy {
 
   @Input() public task: Task;
-
   @Output() public addTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   public formGroup: FormGroup;
-  public isValidForm: boolean = false;
-  public validNumberPattern: string = '^[1-9][0-9]?$|^100$';
-  public errorMessage: string = 'Please fill the form above';
+  public isValidForm = false;
+  public validNumberPattern = '^[1-9][0-9]?$|^100$';
+  public errorMessage = 'Please fill the form above';
 
   private subscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
     private matDialogRef: MatDialogRef<FormComponent>,
-    @Inject(MAT_DIALOG_DATA) private data: Task
+    @Inject(MAT_DIALOG_DATA)
+    private data: Task
   ) { }
 
-  ngOnInit(): void { this.onFormBuild(); }
+  ngOnInit(): void {
+    this.onFormBuild();
+  }
 
-  ngOnDestroy(): void { this.subscription.unsubscribe(); }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   onFormBuild(): void {
     this.task = this.data;
@@ -61,10 +61,16 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   }
 
-  get title(): AbstractControl { return this.formGroup.get('title'); }
+  get title(): AbstractControl {
+    return this.formGroup.get('title');
+  }
 
-  get description(): AbstractControl { return this.formGroup.get('description'); }
+  get description(): AbstractControl {
+    return this.formGroup.get('description');
+  }
 
-  get percentage(): AbstractControl { return this.formGroup.get('percentage'); }
+  get percentage(): AbstractControl {
+    return this.formGroup.get('percentage');
+  }
 
 }
