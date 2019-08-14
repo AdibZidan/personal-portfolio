@@ -1,34 +1,33 @@
 import { FooterComponent } from './footer.component';
-
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-
 import { DebugElement } from '@angular/core';
 
 describe('Footer Component', () => {
 
-  let footerComponent: FooterComponent,
-    footerFixture: ComponentFixture<FooterComponent>,
-    debugElement: DebugElement,
-    htmlElement: HTMLElement;
+  let footerComponent: FooterComponent;
+  let footerFixture: ComponentFixture<FooterComponent>;
+  let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
-      declarations: [FooterComponent]
+      declarations: [
+        FooterComponent
+      ]
     }).compileComponents()));
 
   beforeEach(() => {
 
     footerFixture = TestBed.createComponent(FooterComponent);
-
     footerComponent = footerFixture.componentInstance;
-
     debugElement = footerFixture.debugElement;
-
     htmlElement = debugElement.nativeElement;
 
   });
 
-  it('Should exist', () => expect(footerComponent).toBeDefined());
+  it('Should exist/be defined', () =>
+    expect(footerComponent
+    ).toBeDefined());
 
   it('Should be built/compiled', () =>
     expect(footerComponent instanceof FooterComponent)
@@ -36,8 +35,8 @@ describe('Footer Component', () => {
 
   it('Should return the current year', () => {
 
-    const expectedYear = new Date().getFullYear(),
-      actualYear = footerComponent.currentYear;
+    const expectedYear = new Date().getFullYear();
+    const actualYear = footerComponent.currentYear;
 
     expect(expectedYear).toBe(actualYear);
 
@@ -83,6 +82,4 @@ describe('Footer Component', () => {
 
   });
 
-
 });
-
