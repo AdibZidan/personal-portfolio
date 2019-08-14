@@ -24,7 +24,9 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription !== undefined) {
+      this.subscription.unsubscribe();
+    }
   }
 
   public getTasks(): void {
