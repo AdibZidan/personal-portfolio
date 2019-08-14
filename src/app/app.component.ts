@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { easeIn } from '../assets/animations/animations';
-
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -14,7 +12,7 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
 
   public prepare(outlet: RouterOutlet): RouterOutlet {
-    const animation: RouterOutlet = outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    const animation: RouterOutlet = outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
 
     return animation;
   }
