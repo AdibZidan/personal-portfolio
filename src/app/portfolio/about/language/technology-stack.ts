@@ -8,5 +8,5 @@ export const backEnd = 'Node.JS';
 
 export const other: string[] = [
     'Docker,', 'Git/GitHub,', 'Ubuntu,',
-    'Windows 10,', 'NPM', '& Visual Studio Code.'
+    'Windows 10,', 'NPM', '& Visual Studio Code'
 ];

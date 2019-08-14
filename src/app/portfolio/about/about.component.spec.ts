@@ -78,7 +78,7 @@ describe('About Component', () => {
 
     const expectedOtherStacks: string[] = [
       'Docker,', 'Git/GitHub,', 'Ubuntu,',
-      'Windows 10,', 'NPM', '& Visual Studio Code.'];
+      'Windows 10,', 'NPM', '& Visual Studio Code'];
     const actualOtherStacks: string[] = aboutComponent.otherStacks;
 
     expect(expectedOtherStacks).toEqual(actualOtherStacks);
