@@ -1,49 +1,49 @@
 import { PortfolioComponent } from './portfolio.component';
-
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-
 import { Title } from '@angular/platform-browser';
-
 import { DebugElement } from '@angular/core';
 
 describe('Portfolio Component', () => {
 
-    let portfolioComponent: PortfolioComponent,
-        portfolioFixture: ComponentFixture<PortfolioComponent>,
-        titleServive: Title,
-        debugElement: DebugElement,
-        htmlElement: HTMLElement;
+    let portfolioComponent: PortfolioComponent;
+    let portfolioFixture: ComponentFixture<PortfolioComponent>;
+    let titleServive: Title;
+    let debugElement: DebugElement;
+    let htmlElement: HTMLElement;
 
     beforeEach(async(() =>
         TestBed.configureTestingModule({
-            declarations: [PortfolioComponent],
-            providers: [Title]
+            declarations: [
+                PortfolioComponent
+            ],
+            providers: [
+                Title
+            ]
         }).compileComponents()));
 
     beforeEach(() => {
 
         portfolioFixture = TestBed.createComponent(PortfolioComponent);
-
         portfolioComponent = portfolioFixture.componentInstance;
-
         titleServive = TestBed.get(Title);
-
         debugElement = portfolioFixture.debugElement;
-
         htmlElement = debugElement.nativeElement;
 
     });
 
-    it('Should exist/be defined', () => expect(portfolioComponent).toBeDefined());
+    it('Should exist/be defined', () =>
+        expect(portfolioComponent)
+            .toBeDefined());
 
-    it('Should be built/compiled', () => expect(portfolioComponent instanceof PortfolioComponent).toBeTruthy());
+    it('Should be built/compiled', () =>
+        expect(portfolioComponent instanceof PortfolioComponent)
+            .toBeTruthy());
 
     it(`Should change the title to 'Portfolio' after 'ngOnInit'`, () => {
 
         portfolioFixture.detectChanges();
 
-        const expectedTitle: string = 'Portfolio';
-
+        const expectedTitle = 'Portfolio';
         const actualTitle: string = titleServive.getTitle();
 
         expect(expectedTitle).toBe(actualTitle);
