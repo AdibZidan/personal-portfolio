@@ -4,7 +4,7 @@ export const frontEnd: string[] = [
     '& Angular 8'
 ];
 
-export const backEnd: string = 'Node.JS';
+export const backEnd = 'Node.JS';
 
 export const other: string[] = [
     'Docker,', 'Git/GitHub,', 'Ubuntu,',

@@ -1,1 +1,4 @@
-export const languages: string[] = ['English,', 'Arabic,', 'Russian', '& German.'];
+export const languages: string[] = [
+    'English,', 'Arabic,',
+    'Russian', '& German.'
+];
