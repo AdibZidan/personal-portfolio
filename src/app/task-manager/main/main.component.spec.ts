@@ -66,21 +66,11 @@ describe('Main Component', () => {
     expect(mainComponent instanceof MainComponent)
       .toBeTruthy());
 
-  fit(`Should have an undefined 'tasks$' before 'ngOnInit'`, () => {
+  it(`Should have an undefined 'tasks$' before 'ngOnInit'`, () => {
 
     const tasks$: Observable<Task[]> = mainComponent.tasks$;
 
     expect(tasks$).toBeUndefined();
-
-  });
-
-  it(`Should have a 'date' property`, () => {
-
-    const expectedDate: number = Date.now();
-
-    const actualDate: number = mainComponent.date;
-
-    expect(expectedDate).toBe(actualDate);
 
   });
 
