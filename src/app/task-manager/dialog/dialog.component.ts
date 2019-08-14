@@ -1,11 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-
 import { FormComponent } from '../form/form.component';
-
 import { Task } from 'src/app/task-manager/interface/Task';
-
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +13,6 @@ import { Subscription } from 'rxjs';
 export class DialogComponent implements OnInit, OnDestroy {
 
   @Input() public task: Task;
-
   @Output() public save: EventEmitter<Task> = new EventEmitter<Task>();
 
   private subscription: Subscription;
@@ -26,7 +21,11 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void { }
 
-  ngOnDestroy(): void { if (this.subscription !== undefined) { this.subscription.unsubscribe(); } }
+  ngOnDestroy(): void {
+    if (this.subscription !== undefined) {
+      this.subscription.unsubscribe();
+    }
+  }
 
   onClick(): void {
     this.matDialogRef = this.dialog.open(FormComponent, {
