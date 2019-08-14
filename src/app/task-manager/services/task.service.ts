@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-
 import { Observable, Subject } from 'rxjs';
-
 import { tap } from 'rxjs/operators';
-
 import { environment } from 'src/environments/environment';
-
 import { Task } from '../interface/Task';
 
 @Injectable({ providedIn: 'root' })
@@ -15,12 +10,13 @@ import { Task } from '../interface/Task';
 export class TaskService {
 
   public baseUrl: string = environment.baseUrl;
-
-  private refresher$: Subject<Task> = new Subject<Task>();
+  public refresher$: Subject<Task> = new Subject<Task>();
 
   constructor(private httpClient: HttpClient) { }
 
-  get refresher() { return this.refresher$; }
+  get refresher() {
+    return this.refresher$;
+  }
 
   getTasksFromBackEnd(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(this.baseUrl);
@@ -31,13 +27,13 @@ export class TaskService {
   }
 
   toggleTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.baseUrl}/update/${task.id}`;
+    const url = `${this.baseUrl}/update/${task.id}`;
 
     return this.httpClient.put<Task>(url, task);
   }
 
   editTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.baseUrl}/edit/${task.id}`;
+    const url = `${this.baseUrl}/edit/${task.id}`;
 
     return this.httpClient
       .put<Task>(url, task)
@@ -45,7 +41,7 @@ export class TaskService {
   }
 
   deleteTaskFromBackEnd(task: Task): Observable<Task> {
-    const url: string = `${this.baseUrl}/delete/${task.id}`;
+    const url = `${this.baseUrl}/delete/${task.id}`;
 
     return this.httpClient.delete<Task>(url);
   }

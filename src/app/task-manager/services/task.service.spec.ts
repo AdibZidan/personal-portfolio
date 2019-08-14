@@ -1,51 +1,50 @@
 import { TaskService } from './task.service';
-
 import { async, TestBed } from '@angular/core/testing';
-
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
-
 import { tasksMock, taskMock } from './mock/mock';
-
 import { Task } from '../interface/Task';
 
 describe('Task Service', () => {
 
-    let taskService: TaskService,
-        httpMock: HttpTestingController,
-        baseUrl: string,
-        tasks: Task[],
-        task: Task;
+    let taskService: TaskService;
+    let httpTestingController: HttpTestingController;
+    let baseUrl: string;
+    let tasks: Task[];
+    let task: Task;
 
     beforeEach(async(() =>
         TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            providers: [TaskService]
+            imports: [
+                HttpClientTestingModule
+            ],
+            providers: [
+                TaskService
+            ]
         })));
 
     beforeEach(() => {
 
         taskService = TestBed.get(TaskService);
-
-        httpMock = TestBed.get(HttpTestingController);
-
+        httpTestingController = TestBed.get(HttpTestingController);
         baseUrl = taskService.baseUrl;
-
         tasks = tasksMock;
-
         task = taskMock;
 
     });
 
-    afterEach(() => httpMock.verify());
+    afterEach(() => httpTestingController.verify());
 
-    it('Should exist/be defined', () => expect(taskService).toBeDefined());
+    it('Should exist/be defined', () =>
+        expect(taskService)
+            .toBeDefined());
 
-    it('Should be built/compiled', () => expect(taskService instanceof TaskService).toBeTruthy());
+    it('Should be built/compiled', () =>
+        expect(taskService instanceof TaskService)
+            .toBeTruthy());
 
     it(`Should have a 'baseUrl'`, () => {
 
-        const expectedBaseUrl: string = 'https://www.adibzidan.com:3000/tasks';
-
+        const expectedBaseUrl = 'https://www.adibzidan.com:3000/tasks';
         const actualBaseUrl: string = taskService.baseUrl;
 
         expect(expectedBaseUrl).toBe(actualBaseUrl);
@@ -66,7 +65,7 @@ describe('Task Service', () => {
             .getTasksFromBackEnd()
             .subscribe((tasksToGet: Task[]) => {
 
-                const expectedLength: number = 3;
+                const expectedLength = 3;
 
                 const actualLength: number = tasksToGet.length;
 
@@ -76,7 +75,7 @@ describe('Task Service', () => {
 
             });
 
-        const request: TestRequest = httpMock.expectOne(baseUrl);
+        const request: TestRequest = httpTestingController.expectOne(baseUrl);
 
         const method: string = request.request.method;
 
@@ -93,7 +92,7 @@ describe('Task Service', () => {
             .subscribe((taskToAdd: Task) =>
                 expect(taskToAdd).toBe(task));
 
-        const request: TestRequest = httpMock.expectOne(baseUrl);
+        const request: TestRequest = httpTestingController.expectOne(baseUrl);
 
         const method: string = request.request.method;
 
@@ -110,9 +109,9 @@ describe('Task Service', () => {
             .subscribe((taskToToggle: Task) =>
                 expect(taskToToggle).toBe(task));
 
-        const baseUrlPutRequest: string = `${baseUrl}/update/${task.id}`;
+        const baseUrlPutRequest = `${baseUrl}/update/${task.id}`;
 
-        const request: TestRequest = httpMock.expectOne(baseUrlPutRequest);
+        const request: TestRequest = httpTestingController.expectOne(baseUrlPutRequest);
 
         const method: string = request.request.method;
 
@@ -129,9 +128,9 @@ describe('Task Service', () => {
             .subscribe((taskToEdit: Task) =>
                 expect(taskToEdit).toBe(task));
 
-        const baseUrlPutRequest: string = `${baseUrl}/edit/${task.id}`;
+        const baseUrlPutRequest = `${baseUrl}/edit/${task.id}`;
 
-        const request: TestRequest = httpMock.expectOne(baseUrlPutRequest);
+        const request: TestRequest = httpTestingController.expectOne(baseUrlPutRequest);
 
         const method: string = request.request.method;
 
@@ -148,9 +147,9 @@ describe('Task Service', () => {
             .subscribe((taskToDelete: Task) =>
                 expect(taskToDelete).toBe(task));
 
-        const baseUrlDeleteRequest: string = `${baseUrl}/delete/${task.id}`;
+        const baseUrlDeleteRequest = `${baseUrl}/delete/${task.id}`;
 
-        const request: TestRequest = httpMock.expectOne(baseUrlDeleteRequest);
+        const request: TestRequest = httpTestingController.expectOne(baseUrlDeleteRequest);
 
         const method: string = request.request.method;
 
