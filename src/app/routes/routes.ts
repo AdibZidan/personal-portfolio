@@ -1,10 +1,7 @@
 import { Routes } from '@angular/router';
-
-import {
-  lazyLoadPortfolioComponent,
-  lazyLoadAboutComponent,
-  lazyLoadTaskManager
-} from './lazy-load/lazyLoadComponent';
+import { PortfolioComponent } from '../portfolio/portfolio.component';
+import { AboutComponent } from '../portfolio/about/about.component';
+import { MainComponent } from '../task-manager/main/main.component';
 
 export const routes: Routes = [
   {
@@ -14,17 +11,17 @@ export const routes: Routes = [
   },
   {
     path: 'portfolio',
-    loadChildren: lazyLoadPortfolioComponent,
+    component: PortfolioComponent,
     data: { animation: 'portfolio' }
   },
   {
     path: 'about-me',
-    loadChildren: lazyLoadAboutComponent,
+    component: AboutComponent,
     data: { animation: 'about-me' }
   },
   {
     path: 'task-manager',
-    loadChildren: lazyLoadTaskManager,
+    component: MainComponent,
     data: {
       animation: 'task-manager'
     }
