@@ -44,7 +44,7 @@ describe('Task Service', () => {
 
     it(`Should have a 'baseUrl'`, () => {
 
-        const expectedBaseUrl = 'https://www.adibzidan.com:3000/tasks';
+        const expectedBaseUrl = 'https://localhost:8000/tasks';
         const actualBaseUrl: string = taskService.baseUrl;
 
         expect(expectedBaseUrl).toBe(actualBaseUrl);
