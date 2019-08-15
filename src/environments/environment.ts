@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  baseUrl: 'https://www.adibzidan.com:3000/tasks'
+  baseUrl: 'https://localhost:8000/tasks'
 };
