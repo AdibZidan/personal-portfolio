@@ -9,8 +9,10 @@ describe('Form Component', () => {
 
   let formComponent: FormComponent;
   let formFixture: ComponentFixture<FormComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+
   let formBuilder: FormBuilder;
   let formGroup: FormGroup;
 
@@ -21,9 +23,7 @@ describe('Form Component', () => {
         ReactiveFormsModule,
         MatDialogModule
       ],
-      declarations: [
-        FormComponent
-      ],
+      declarations: [FormComponent],
       providers: [
         { provide: MatDialogRef },
         { provide: MAT_DIALOG_DATA }
@@ -31,7 +31,6 @@ describe('Form Component', () => {
     }).compileComponents()));
 
   beforeEach(() => {
-
     formFixture = TestBed.createComponent(FormComponent);
     formComponent = formFixture.componentInstance;
     debugElement = formFixture.debugElement;
@@ -45,7 +44,6 @@ describe('Form Component', () => {
       percentage: [''],
       completed: [false]
     });
-
   });
 
   it('Should exist/be defined', () =>
@@ -57,31 +55,24 @@ describe('Form Component', () => {
       .toBeTruthy());
 
   it(`Should have an 'undefined' task input before 'ngOnInit'`, () => {
-
     const taskInput = formComponent.task;
 
     expect(taskInput).toBeUndefined();
-
   });
 
   it(`Should have a task 'input'`, () => {
-
     const taskInput = formComponent.task = taskMock;
 
     expect(taskInput).toBeDefined();
-
   });
 
   it(`Should have an invalid 'formGroup' if the user doesn't add the required details`, () => {
-
     const isValid: boolean = formGroup.valid;
 
     expect(isValid).toBeFalsy();
-
   });
 
   it(`Should have a valid 'formGroup' if the user adds the required details`, () => {
-
     formGroup.controls.id.setValue(1);
     formGroup.controls.title.setValue('This is the title');
     formGroup.controls.description.setValue('This is the description');
@@ -89,34 +80,27 @@ describe('Form Component', () => {
     formGroup.controls.completed.setValue(true);
 
     expect(formGroup.valid).toBeTruthy();
-
   });
 
   it(`Should have a falsy 'isValidForm' property before 'onFormBuild' method`, () => {
-
     const expectedIsValidForm = false;
     const actualIsValidForm: boolean = formComponent.isValidForm;
 
     expect(expectedIsValidForm).toBe(actualIsValidForm);
-
   });
 
   it(`Should have a 'validNumberPattern' property`, () => {
-
     const expectedValidNumberPattern = '^[1-9][0-9]?$|^100$';
     const actualValidNumberPattern: string = formComponent.validNumberPattern;
 
     expect(expectedValidNumberPattern).toBe(actualValidNumberPattern);
-
   });
 
   it(`Should have a 'errorMessage' property`, () => {
-
     const expectedErrorMessage = 'Please fill the form above';
     const actualErrorMessage: string = formComponent.errorMessage;
 
     expect(expectedErrorMessage).toBe(actualErrorMessage);
-
   });
 
 });
