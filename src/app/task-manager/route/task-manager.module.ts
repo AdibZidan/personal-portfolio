@@ -24,12 +24,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     FormsModule,
     MatDialogModule
   ],
-  entryComponents: [
-    FormComponent
-  ],
-  providers: [
-    { provide: MatDialogRef }
-  ]
+  entryComponents: [FormComponent],
+  providers: [{ provide: MatDialogRef }]
 })
 
 export class TaskManagerModule { }
