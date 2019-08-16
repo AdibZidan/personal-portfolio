@@ -8,7 +8,9 @@ describe('About Component', () => {
 
   let aboutComponent: AboutComponent;
   let aboutFixture: ComponentFixture<AboutComponent>;
+
   let titleService: Title;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -21,13 +23,13 @@ describe('About Component', () => {
     }).compileComponents()));
 
   beforeEach(() => {
-
     aboutFixture = TestBed.createComponent(AboutComponent);
     aboutComponent = aboutFixture.componentInstance;
+
     titleService = TestBed.get(Title);
+
     debugElement = aboutFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-
   });
 
   it('Should exist/be defined', () =>
@@ -43,18 +45,15 @@ describe('About Component', () => {
       .toBeFalsy());
 
   it('Should have languages array', () => {
-
     const expectedLanguages: string[] = [
       'English,', 'Arabic,',
       'Russian', '& German.'];
     const actualLanguages = aboutComponent.languages;
 
     expect(expectedLanguages).toEqual(actualLanguages);
-
   });
 
   it('Should have frontEndStacks array', () => {
-
     const expectedFrontEndStacks: string[] = [
       'HTML5,', 'CSS3 / SCSS,',
       'JavaScript ES6+ / TypeScript',
@@ -62,116 +61,92 @@ describe('About Component', () => {
     const actualFrontEndStacks: string[] = aboutComponent.frontEndStacks;
 
     expect(expectedFrontEndStacks).toEqual(actualFrontEndStacks);
-
   });
 
   it('Should have a backEndStack string', () => {
-
     const expectedBackEndStack = 'Node.JS';
     const actualBackendStack: string = aboutComponent.backEndStack;
 
     expect(expectedBackEndStack).toBe(actualBackendStack);
-
   });
 
   it('Should have otherStacks array', () => {
-
     const expectedOtherStacks: string[] = [
       'Docker,', 'Git/GitHub,', 'Ubuntu,',
       'Windows 10,', 'NPM', '& Visual Studio Code'];
     const actualOtherStacks: string[] = aboutComponent.otherStacks;
 
     expect(expectedOtherStacks).toEqual(actualOtherStacks);
-
   });
 
   it('Should return my current age', () => {
-
     const bornYear: number = new Date('January 1, 1995').getFullYear();
     const expectedAge: number = new Date().getFullYear() - bornYear;
     const actualAge: number = aboutComponent.age;
 
     expect(expectedAge).toBe(actualAge);
-
   });
 
   it(`Should have an empty 'title' before 'ngOnInit'`, () => {
-
     const expectedTitle = '';
     const actualTitle: string = titleService.getTitle();
 
     expect(expectedTitle).toBe(actualTitle);
-
   });
 
   it(`Should change the title to 'About Me' after 'ngOnInit'`, () => {
-
     aboutFixture.detectChanges();
 
     const expectedTitle = 'About Me';
     const actualTitle: string = titleService.getTitle();
 
     expect(expectedTitle).toBe(actualTitle);
-
   });
 
-  it(`Should mimic an 'onClick' event and the value of 'showArrow' needs to be false`, () => {
-
+  it(`Should mimic an 'onClick' event and the value of 'showArrow' property needs to be false`, () => {
     aboutFixture.detectChanges();
+
     aboutComponent.onClick();
 
-    const showArrow = aboutComponent.showArrow;
+    const isArrowShown: boolean = aboutComponent.showArrow;
 
-    expect(showArrow).toBeFalsy();
-
+    expect(isArrowShown).toBeFalsy();
   });
 
   it(`Should have a total of 6 'section' tags including the one from 'app-footer' tag`, () => {
-
     const expectedTotalAmountOfSectionTags: number = htmlElement.querySelectorAll('section').length;
 
     expect(expectedTotalAmountOfSectionTags).toBe(6);
-
   });
 
   it(`Should have a total of 13 'p' tags with the class of 'p'`, () => {
-
     const expectedTotalAmountOfPTags: number = htmlElement.querySelectorAll('p.p').length;
 
     expect(expectedTotalAmountOfPTags).toBe(13);
-
   });
 
   it(`Should have a total of 4 'h2' tags with the class of 'h2'`, () => {
-
     const expectedTotalAmountOfH2Tags: number = htmlElement.querySelectorAll('h2.h2').length;
 
     expect(expectedTotalAmountOfH2Tags).toBe(4);
-
   });
 
   it(`Should have a total of 3 'hr' tags`, () => {
-
     const expectedTotalAmountOfHrTags: number = htmlElement.querySelectorAll('hr').length;
 
     expect(expectedTotalAmountOfHrTags).toBe(3);
-
   });
 
   it(`Should have a total of 4 'anchor' tags including the one's from 'app-footer' tag`, () => {
-
     const expectedTotalAmountOfAnchorTags: number = htmlElement.querySelectorAll('a').length;
 
     expect(expectedTotalAmountOfAnchorTags).toBe(4);
-
   });
 
   it(`Should have a total of 3 'ul' tags with the class of 'technology-stack'`, () => {
-
     const expectedTotalAmountOfUlTags: number = htmlElement.querySelectorAll('ul.technology-stack').length;
 
     expect(expectedTotalAmountOfUlTags).toBe(3);
-
   });
 
 });
