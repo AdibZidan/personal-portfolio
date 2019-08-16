@@ -14,8 +14,10 @@ describe('Main Component', () => {
 
   let mainComponent: MainComponent;
   let mainFixture: ComponentFixture<MainComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+
   let taskService: TaskService;
 
   beforeEach(async(() =>
@@ -31,19 +33,17 @@ describe('Main Component', () => {
         BodyComponent,
         DialogComponent
       ],
-      providers: [
-        TaskService
-      ]
+      providers: [TaskService]
     }).compileComponents()));
 
   beforeEach(() => {
-
     mainFixture = TestBed.createComponent(MainComponent);
     mainComponent = mainFixture.componentInstance;
+
     debugElement = mainFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-    taskService = TestBed.get(TaskService);
 
+    taskService = TestBed.get(TaskService);
   });
 
   it('Should exist', () =>
@@ -55,11 +55,9 @@ describe('Main Component', () => {
       .toBeTruthy());
 
   it(`Should have an undefined 'tasks$' before 'ngOnInit'`, () => {
-
     const tasks$: Observable<Task[]> = mainComponent.tasks$;
 
     expect(tasks$).toBeUndefined();
-
   });
 
 });

@@ -13,7 +13,6 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public tasks$: Observable<Task[]>;
   public date: number = Date.now();
-
   public subscription: Subscription;
 
   constructor(private taskService: TaskService) { }
