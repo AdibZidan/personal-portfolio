@@ -8,17 +8,14 @@ describe('Dialog Component', () => {
 
   let dialogComponent: DialogComponent;
   let dialogFixture: ComponentFixture<DialogComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
-      imports: [
-        MatDialogModule
-      ],
-      declarations: [
-        DialogComponent
-      ],
+      imports: [MatDialogModule],
+      declarations: [DialogComponent],
       providers: [
         { provide: MatDialog },
         { provide: MatDialogRef }
@@ -26,12 +23,11 @@ describe('Dialog Component', () => {
     }).compileComponents()));
 
   beforeEach(() => {
-
     dialogFixture = TestBed.createComponent(DialogComponent);
     dialogComponent = dialogFixture.componentInstance;
+
     debugElement = dialogFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-
   });
 
   it('Should exist', () =>
@@ -43,11 +39,9 @@ describe('Dialog Component', () => {
       .toBeTruthy());
 
   it(`Should have a task 'input'`, () => {
-
     const taskInput = dialogComponent.task = taskMock;
 
     expect(taskInput).toBe(taskMock);
-
   });
 
 });
