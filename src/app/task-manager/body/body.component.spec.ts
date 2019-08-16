@@ -13,8 +13,10 @@ describe('Body Component', () => {
 
   let bodyComponent: BodyComponent;
   let bodyFixture: ComponentFixture<BodyComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
+
   let taskService: TaskService;
   let titleService: Title;
 
@@ -28,22 +30,18 @@ describe('Body Component', () => {
         BodyComponent,
         DialogComponent
       ],
-      providers: [
-        {
-          provide: MatDialogRef
-        }
-      ]
+      providers: [{ provide: MatDialogRef }]
     }).compileComponents()));
 
   beforeEach(() => {
-
     bodyFixture = TestBed.createComponent(BodyComponent);
     bodyComponent = bodyFixture.componentInstance;
+
     debugElement = bodyFixture.debugElement;
     htmlElement = debugElement.nativeElement;
+
     taskService = TestBed.get(TaskService);
     titleService = TestBed.get(Title);
-
   });
 
   it('Should exist', () =>
@@ -55,15 +53,12 @@ describe('Body Component', () => {
       .toBeTruthy());
 
   it(`Should have a task 'input'`, () => {
-
     const taskInput = bodyComponent.task = taskMock;
 
     expect(taskInput).toBe(taskMock);
-
   });
 
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
-
     const task = bodyComponent.task = taskMock;
 
     bodyComponent.deleteTask.subscribe((taskToDelete: Task) =>
@@ -71,11 +66,9 @@ describe('Body Component', () => {
         .toBe(task));
 
     bodyComponent.onDelete(task);
-
   });
 
   it(`Should toggle the completed property of a 'task' with the 'onToggleUI' method`, () => {
-
     const task = taskMock;
 
     expect(task.completed).toBeFalsy();
@@ -83,19 +76,15 @@ describe('Body Component', () => {
     bodyComponent.onToggleFromUI(task);
 
     expect(task.completed).toBeTruthy();
-
   });
 
   it(`Should change the title to 'Task Manager' after 'ngOnInit'`, () => {
-
     bodyComponent.ngOnInit();
 
     const expectedTitle = 'Task Manager';
-
     const actualTitle: string = titleService.getTitle();
 
     expect(expectedTitle).toBe(actualTitle);
-
   });
 
 });

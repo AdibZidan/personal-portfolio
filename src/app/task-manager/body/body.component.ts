@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { fadeIn, setLine } from '../../../assets/animations/animations';
-import { TaskService } from '../services/task.service';
-import { Title } from '@angular/platform-browser';
 import { Task } from '../interface/Task';
 import { Subscription } from 'rxjs';
+import { TaskService } from '../services/task.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-body',
@@ -17,7 +17,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   @Input() public task: Task;
   @Output() public deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  private subscription: Subscription;
+  public subscription: Subscription;
 
   constructor(private taskService: TaskService, private titleService: Title) { }
 
@@ -49,7 +49,7 @@ export class BodyComponent implements OnInit, OnDestroy {
     await this.taskService.editTaskFromBackEnd(task).toPromise();
   }
 
-  private changeTitle(): void {
+  public changeTitle(): void {
     this.titleService.setTitle('Task Manager');
   }
 
