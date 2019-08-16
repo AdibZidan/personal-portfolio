@@ -9,6 +9,7 @@ describe('Application Component', () => {
 
   let appComponent: AppComponent;
   let appFixture: ComponentFixture<AppComponent>;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -25,14 +26,13 @@ describe('Application Component', () => {
     }).compileComponents()));
 
   beforeEach(() => {
-
     appFixture = TestBed.createComponent(AppComponent);
     appComponent = appFixture.componentInstance;
+
     debugElement = appFixture.debugElement;
     htmlElement = debugElement.nativeElement;
 
     appFixture.detectChanges();
-
   });
 
   it('Should exist/be defined', () =>
@@ -44,27 +44,21 @@ describe('Application Component', () => {
       .toBeTruthy());
 
   it(`Should have an 'app-header' tag`, () => {
-
     const appHeader: Element = htmlElement.querySelector('app-header');
 
     expect(appHeader).toBeTruthy();
-
   });
 
   it(`Should have a 'section' tag`, () => {
-
     const section: Element = htmlElement.querySelector('section');
 
     expect(section).toBeTruthy();
-
   });
 
   it(`Should have a 'router-outlet' tag`, () => {
-
     const routerOutlet: Element = htmlElement.querySelector('router-outlet');
 
     expect(routerOutlet).toBeTruthy();
-
   });
 
 });
