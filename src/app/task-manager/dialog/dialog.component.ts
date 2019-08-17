@@ -15,7 +15,7 @@ export class DialogComponent implements OnInit, OnDestroy {
   @Input() public task: Task;
   @Output() public save: EventEmitter<Task> = new EventEmitter<Task>();
 
-  private subscription: Subscription;
+  public subscription: Subscription;
 
   constructor(private dialog: MatDialog, private matDialogRef: MatDialogRef<FormComponent>) { }
 
