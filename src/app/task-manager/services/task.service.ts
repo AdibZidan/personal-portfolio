@@ -14,25 +14,25 @@ export class TaskService {
 
   constructor(private httpClient: HttpClient) { }
 
-  get refresher() {
+  public get refresher() {
     return this.refresher$;
   }
 
-  getTasksFromBackEnd(): Observable<Task[]> {
+  public getTasksFromBackEnd(): Observable<Task[]> {
     return this.httpClient.get<Task[]>(this.baseUrl);
   }
 
-  addTaskToBackEnd(task: Task): Observable<Task> {
+  public addTaskToBackEnd(task: Task): Observable<Task> {
     return this.httpClient.post<Task>(this.baseUrl, task);
   }
 
-  toggleTaskFromBackEnd(task: Task): Observable<Task> {
+  public toggleTaskFromBackEnd(task: Task): Observable<Task> {
     const url = `${this.baseUrl}/update/${task.id}`;
 
     return this.httpClient.put<Task>(url, task);
   }
 
-  editTaskFromBackEnd(task: Task): Observable<Task> {
+  public editTaskFromBackEnd(task: Task): Observable<Task> {
     const url = `${this.baseUrl}/edit/${task.id}`;
 
     return this.httpClient
@@ -40,7 +40,7 @@ export class TaskService {
       .pipe(tap(() => this.refresher$.next()));
   }
 
-  deleteTaskFromBackEnd(task: Task): Observable<Task> {
+  public deleteTaskFromBackEnd(task: Task): Observable<Task> {
     const url = `${this.baseUrl}/delete/${task.id}`;
 
     return this.httpClient.delete<Task>(url);
