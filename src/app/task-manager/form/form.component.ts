@@ -19,8 +19,7 @@ export class FormComponent implements OnInit, OnDestroy {
   public isValidForm = false;
   public validNumberPattern = '^[1-9][0-9]?$|^100$';
   public errorMessage = 'Please fill the form above';
-
-  private subscription: Subscription;
+  public subscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,7 +38,7 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   }
 
-  onFormBuild(): void {
+  public onFormBuild(): void {
     this.task = this.data;
 
     this.formGroup = this.formBuilder.group({
@@ -55,7 +54,7 @@ export class FormComponent implements OnInit, OnDestroy {
     this.formGroup.patchValue(this.task);
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.formGroup.valid) {
       this.addTask.emit(this.formGroup.value);
       this.matDialogRef.close(this.formGroup.value);
@@ -63,15 +62,15 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   }
 
-  get title(): AbstractControl {
+  public get title(): AbstractControl {
     return this.formGroup.get('title');
   }
 
-  get description(): AbstractControl {
+  public get description(): AbstractControl {
     return this.formGroup.get('description');
   }
 
-  get percentage(): AbstractControl {
+  public get percentage(): AbstractControl {
     return this.formGroup.get('percentage');
   }
 
