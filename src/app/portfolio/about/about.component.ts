@@ -22,20 +22,16 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void { this.changeTitle(); }
 
   public onClick(): void {
-
     this.showArrow = false;
     this.scrollUp();
-
   }
 
   public get age(): number {
-
     const currentYear: number = new Date().getFullYear();
     const bornYear: number = new Date('January 1, 1995').getFullYear();
     const currentAge = currentYear - bornYear;
 
     return currentAge;
-
   }
 
   @HostListener('window:scroll', [])
