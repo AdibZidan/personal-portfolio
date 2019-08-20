@@ -33,8 +33,10 @@ describe('Form Component', () => {
   beforeEach(() => {
     formFixture = TestBed.createComponent(FormComponent);
     formComponent = formFixture.componentInstance;
+
     debugElement = formFixture.debugElement;
     htmlElement = debugElement.nativeElement;
+
     formBuilder = TestBed.get(FormBuilder);
 
     formGroup = formBuilder.group({
