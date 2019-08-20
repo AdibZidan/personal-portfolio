@@ -42,7 +42,7 @@ describe('About Component', () => {
 
   it('Should have a showArrow with a false value', () =>
     expect(aboutComponent.showArrow)
-      .toBeFalsy());
+      .toBe(false));
 
   it('Should have languages array', () => {
     const expectedLanguages: string[] = [
