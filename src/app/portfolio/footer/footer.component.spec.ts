@@ -24,8 +24,8 @@ describe('Footer Component', () => {
   });
 
   it('Should exist/be defined', () =>
-    expect(footerComponent
-    ).toBeDefined());
+    expect(footerComponent)
+      .toBeDefined());
 
   it('Should be built/compiled', () =>
     expect(footerComponent instanceof FooterComponent)
