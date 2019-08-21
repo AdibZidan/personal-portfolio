@@ -62,16 +62,16 @@ describe('Form Component', () => {
     expect(taskInput).toBeUndefined();
   });
 
-  it(`Should have a task 'input'`, () => {
+  it(`Should have a defined task 'input'`, () => {
     const taskInput = formComponent.task = taskMock;
 
     expect(taskInput).toBeDefined();
   });
 
-  it(`Should have an invalid 'formGroup' if the user doesn't add the required details`, () => {
+  it(`Should have an invalid 'formGroup' at the start`, () => {
     const isValid: boolean = formGroup.valid;
 
-    expect(isValid).toBeFalsy();
+    expect(isValid).toBe(false);
   });
 
   it(`Should have a valid 'formGroup' if the user adds the required details`, () => {
