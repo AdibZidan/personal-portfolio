@@ -19,7 +19,9 @@ export class AboutComponent implements OnInit {
 
   constructor(private titleService: Title) { }
 
-  ngOnInit(): void { this.changeTitle(); }
+  ngOnInit(): void {
+    this.changeTitle();
+  }
 
   public onClick(): void {
     this.showArrow = false;
@@ -36,11 +38,17 @@ export class AboutComponent implements OnInit {
 
   @HostListener('window:scroll', [])
 
-  public onScroll(): void { this.isUserOnBottom(); }
+  public onScroll(): void {
+    this.isUserOnBottom();
+  }
 
-  public scrollUp(): void { window.scroll({ top: 0, left: 0, behavior: 'smooth' }); }
+  public scrollUp(): void {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }
 
-  public isUserOnBottom(): void { this.onBottom(); }
+  public isUserOnBottom(): void {
+    this.onBottom();
+  }
 
   public onBottom(): void {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
@@ -48,6 +56,8 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  public changeTitle(): void { this.titleService.setTitle('About Me'); }
+  public changeTitle(): void {
+    this.titleService.setTitle('About Me');
+  }
 
 }
