@@ -21,7 +21,9 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   constructor(private taskService: TaskService, private titleService: Title) { }
 
-  ngOnInit(): void { this.changeTitle(); }
+  ngOnInit(): void {
+    this.changeTitle();
+  }
 
   ngOnDestroy(): void {
     if (this.subscription !== undefined) {
