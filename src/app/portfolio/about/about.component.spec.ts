@@ -40,20 +40,20 @@ describe('About Component', () => {
     expect(aboutComponent instanceof AboutComponent)
       .toBeTruthy());
 
-  it('Should have a showArrow with a false value', () =>
+  it(`Should have a 'showArrow' with a false value`, () =>
     expect(aboutComponent.showArrow)
       .toBe(false));
 
-  it('Should have languages array', () => {
+  it(`Should have 'languages' array`, () => {
     const expectedLanguages: string[] = [
       'English,', 'Arabic,',
       'Russian', '& German.'];
-    const actualLanguages = aboutComponent.languages;
+    const actualLanguages: string[] = aboutComponent.languages;
 
     expect(expectedLanguages).toEqual(actualLanguages);
   });
 
-  it('Should have frontEndStacks array', () => {
+  it(`Should have 'frontEndStacks' array`, () => {
     const expectedFrontEndStacks: string[] = [
       'HTML5,', 'CSS3 / SCSS,',
       'JavaScript ES6+ / TypeScript',
@@ -63,14 +63,14 @@ describe('About Component', () => {
     expect(expectedFrontEndStacks).toEqual(actualFrontEndStacks);
   });
 
-  it('Should have a backEndStack string', () => {
+  it(`Should have a 'backEndStack' string`, () => {
     const expectedBackEndStack = 'Node.JS';
     const actualBackendStack: string = aboutComponent.backEndStack;
 
     expect(expectedBackEndStack).toBe(actualBackendStack);
   });
 
-  it('Should have otherStacks array', () => {
+  it(`Should have 'otherStacks' array`, () => {
     const expectedOtherStacks: string[] = [
       'Docker,', 'Git/GitHub,', 'Ubuntu,',
       'Windows 10,', 'NPM', '& Visual Studio Code'];
@@ -79,7 +79,7 @@ describe('About Component', () => {
     expect(expectedOtherStacks).toEqual(actualOtherStacks);
   });
 
-  it('Should return my current age', () => {
+  it(`Should have my 'current age'`, () => {
     const bornYear: number = new Date('January 1, 1995').getFullYear();
     const expectedAge: number = new Date().getFullYear() - bornYear;
     const actualAge: number = aboutComponent.age;
@@ -103,7 +103,7 @@ describe('About Component', () => {
     expect(expectedTitle).toBe(actualTitle);
   });
 
-  it(`Should mimic an 'onClick' event and the value of 'showArrow' property needs to be false`, () => {
+  it(`Should mimic an 'onClick' event and the value of 'showArrow' property needs to stay false`, () => {
     aboutFixture.detectChanges();
 
     aboutComponent.onClick();
