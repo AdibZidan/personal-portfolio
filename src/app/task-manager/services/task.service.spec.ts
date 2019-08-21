@@ -45,7 +45,7 @@ describe('Task Service', () => {
     expect(expectedBaseUrl).toBe(actualBaseUrl);
   });
 
-  it(`Should get the 'refresher' method`, () => {
+  it(`Should have the 'refresher' method`, () => {
     const refresher = taskService.refresher;
 
     expect(refresher).toBeTruthy();
@@ -56,7 +56,6 @@ describe('Task Service', () => {
       .getTasksFromBackEnd()
       .subscribe((tasksToGet: Task[]) => {
         const expectedLength = 3;
-
         const actualLength: number = tasksToGet.length;
 
         expect(expectedLength).toBe(actualLength);
