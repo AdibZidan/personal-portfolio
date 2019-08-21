@@ -31,7 +31,7 @@ describe('Footer Component', () => {
     expect(footerComponent instanceof FooterComponent)
       .toBeTruthy());
 
-  it('Should return the current year', () => {
+  it(`Should return the 'current year'`, () => {
     const expectedYear: number = new Date().getFullYear();
     const actualYear: number = footerComponent.currentYear;
 
