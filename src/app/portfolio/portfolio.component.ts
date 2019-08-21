@@ -11,8 +11,12 @@ export class PortfolioComponent implements OnInit {
 
   constructor(private titleService: Title) { }
 
-  ngOnInit(): void { this.changeTitle(); }
+  ngOnInit(): void {
+    this.changeTitle();
+  }
 
-  public changeTitle(): void { this.titleService.setTitle('Portfolio'); }
+  public changeTitle(): void {
+    this.titleService.setTitle('Portfolio');
+  }
 
 }
