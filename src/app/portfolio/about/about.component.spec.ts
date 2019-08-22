@@ -3,6 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
+import { of } from 'rxjs';
 
 describe('About Component', () => {
 
@@ -113,12 +114,20 @@ describe('About Component', () => {
     expect(isArrowShown).toBeFalsy();
   });
 
-  it(`Should spy & call on 'onScroll' method`, () => {
+  it(`Should spy & call 'onScroll' method`, () => {
     spyOn(aboutComponent, 'onScroll').and.callThrough();
 
     aboutComponent.onScroll();
 
     expect(aboutComponent.onScroll).toHaveBeenCalled();
+  });
+
+  it(`Should spy & call 'onBottom' method`, () => {
+    spyOn(aboutComponent, 'onBottom').and.callThrough();
+
+    aboutComponent.onBottom();
+
+    expect(aboutComponent.onBottom).toHaveBeenCalled();
   });
 
   it(`Should have a total of 6 'section' tags including the one from 'app-footer' tag`, () => {
