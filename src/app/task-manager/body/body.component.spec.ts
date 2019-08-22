@@ -58,6 +58,12 @@ describe('Body Component', () => {
     expect(taskInput).toBe(taskMock);
   });
 
+  it(`Should have a defined 'deleteTask' 'output'`, () => {
+    const deleteTaskOutput = bodyComponent.deleteTask;
+
+    expect(deleteTaskOutput).toBeDefined();
+  });
+
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
 
