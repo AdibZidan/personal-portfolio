@@ -89,6 +89,16 @@ describe('Body Component', () => {
     expect(bodyComponent.setLineThrough).toHaveBeenCalled();
   });
 
+  it(`Should toggle the completed property of a 'task' with the 'onToggleFromUI' method`, () => {
+    const task = taskMock;
+
+    expect(task.completed).toBe(false);
+
+    bodyComponent.onToggleFromUI(task);
+
+    expect(task.completed).toBe(true);
+  });
+
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
 
@@ -99,16 +109,6 @@ describe('Body Component', () => {
           .toBe(task));
 
     bodyComponent.onDelete(task);
-  });
-
-  it(`Should toggle the completed property of a 'task' with the 'onToggleUI' method`, () => {
-    const task = taskMock;
-
-    expect(task.completed).toBe(false);
-
-    bodyComponent.onToggleFromUI(task);
-
-    expect(task.completed).toBe(true);
   });
 
   it(`Should change the title to 'Task Manager' after 'ngOnInit'`, () => {
