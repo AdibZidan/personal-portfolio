@@ -81,6 +81,14 @@ describe('Body Component', () => {
     expect(bodyComponent.ngOnDestroy).toHaveBeenCalled();
   });
 
+  it(`Should spy & call 'setLineThrough' method`, () => {
+    spyOn(bodyComponent, 'setLineThrough').and.callThrough();
+
+    bodyComponent.setLineThrough();
+
+    expect(bodyComponent.setLineThrough).toHaveBeenCalled();
+  });
+
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
 
