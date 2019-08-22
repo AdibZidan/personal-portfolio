@@ -119,6 +119,14 @@ describe('Body Component', () => {
     bodyComponent.onDelete(task);
   });
 
+  it(`Should spy & call 'onEdit' method`, () => {
+    spyOn(bodyComponent, 'onEdit').and.callThrough();
+
+    bodyComponent.onEdit(null);
+
+    expect(bodyComponent.onEdit).toHaveBeenCalled();
+  });
+
   it(`Should change the title to 'Task Manager' after 'ngOnInit'`, () => {
     bodyComponent.ngOnInit();
 
