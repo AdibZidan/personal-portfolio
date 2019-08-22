@@ -64,6 +64,13 @@ describe('Body Component', () => {
     expect(deleteTaskOutput).toBeDefined();
   });
 
+  it(`Should have an undefined 'subscription' property before 'ngOnInit'`, () => {
+    const subscription = bodyComponent.subscription;
+
+    expect(subscription).toBeUndefined();
+  });
+
+
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
 
