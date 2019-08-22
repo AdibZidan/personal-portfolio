@@ -99,6 +99,14 @@ describe('Body Component', () => {
     expect(task.completed).toBe(true);
   });
 
+  it(`Should spy & call 'onToggleFromBackEnd' method`, () => {
+    spyOn(bodyComponent, 'onToggleFromBackEnd').and.callThrough();
+
+    bodyComponent.onToggleFromBackEnd(null);
+
+    expect(bodyComponent.onToggleFromBackEnd).toHaveBeenCalled();
+  });
+
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
 
