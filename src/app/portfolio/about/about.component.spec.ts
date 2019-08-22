@@ -113,6 +113,14 @@ describe('About Component', () => {
     expect(isArrowShown).toBeFalsy();
   });
 
+  it(`Should spy & call on 'onScroll' method`, () => {
+    spyOn(aboutComponent, 'onScroll').and.callThrough();
+
+    aboutComponent.onScroll();
+
+    expect(aboutComponent.onScroll).toHaveBeenCalled();
+  });
+
   it(`Should have a total of 6 'section' tags including the one from 'app-footer' tag`, () => {
     const expectedTotalAmountOfSectionTags: number = htmlElement.querySelectorAll('section').length;
 
