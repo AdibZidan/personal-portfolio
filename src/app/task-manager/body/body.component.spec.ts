@@ -82,6 +82,8 @@ describe('Body Component', () => {
   });
 
   it(`Should spy & call 'setLineThrough' method`, () => {
+    bodyComponent.task = taskMock;
+
     spyOn(bodyComponent, 'setLineThrough').and.callThrough();
 
     bodyComponent.setLineThrough();
@@ -102,7 +104,7 @@ describe('Body Component', () => {
   it(`Should spy & call 'onToggleFromBackEnd' method`, () => {
     spyOn(bodyComponent, 'onToggleFromBackEnd').and.callThrough();
 
-    bodyComponent.onToggleFromBackEnd(null);
+    bodyComponent.onToggleFromBackEnd(taskMock);
 
     expect(bodyComponent.onToggleFromBackEnd).toHaveBeenCalled();
   });
@@ -122,7 +124,7 @@ describe('Body Component', () => {
   it(`Should spy & call 'onEdit' method`, () => {
     spyOn(bodyComponent, 'onEdit').and.callThrough();
 
-    bodyComponent.onEdit(null);
+    bodyComponent.onEdit(taskMock);
 
     expect(bodyComponent.onEdit).toHaveBeenCalled();
   });
