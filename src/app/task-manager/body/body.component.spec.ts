@@ -6,6 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material';
+import { Subscription } from 'rxjs';
 import { taskMock } from '../services/mock/mock';
 import { Task } from '../interface/Task';
 
@@ -70,6 +71,15 @@ describe('Body Component', () => {
     expect(subscription).toBeUndefined();
   });
 
+  it(`Should spy & call 'ngOnDestroy' method`, () => {
+    bodyComponent.subscription = new Subscription();
+
+    spyOn(bodyComponent, 'ngOnDestroy').and.callThrough();
+
+    bodyComponent.ngOnDestroy();
+
+    expect(bodyComponent.ngOnDestroy).toHaveBeenCalled();
+  });
 
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
     const task = bodyComponent.task = taskMock;
