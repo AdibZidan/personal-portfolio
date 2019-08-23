@@ -44,4 +44,10 @@ describe('Dialog Component', () => {
     expect(taskInput).toBe(taskMock);
   });
 
+  it(`Should have an undefined 'subscription' property before 'ngOnInit'`, () => {
+    const subscription = dialogComponent.subscription;
+
+    expect(subscription).toBeUndefined();
+  });
+
 });
