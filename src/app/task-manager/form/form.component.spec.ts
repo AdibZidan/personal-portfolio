@@ -4,6 +4,7 @@ import { DebugElement } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material';
 import { taskMock } from './../services/mock/mock';
+import { Subscription } from 'rxjs';
 
 describe('Form Component', () => {
 
@@ -115,6 +116,16 @@ describe('Form Component', () => {
     const subscription = formComponent.subscription;
 
     expect(subscription).toBeUndefined();
+  });
+
+  it(`Should spy & call 'ngOnDestroy' method`, () => {
+    formComponent.subscription = new Subscription();
+
+    spyOn(formComponent, 'ngOnDestroy').and.callThrough();
+
+    formComponent.ngOnDestroy();
+
+    expect(formComponent.ngOnDestroy).toHaveBeenCalled();
   });
 
 });
