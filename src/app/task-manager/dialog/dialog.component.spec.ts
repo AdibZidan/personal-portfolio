@@ -3,6 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material';
 import { taskMock } from '../services/mock/mock';
+import { Subscription } from 'rxjs';
 
 describe('Dialog Component', () => {
 
@@ -48,6 +49,18 @@ describe('Dialog Component', () => {
     const subscription = dialogComponent.subscription;
 
     expect(subscription).toBeUndefined();
+  });
+
+  it(`Should spy & call 'ngOnDestroy method'`, () => {
+    dialogFixture.detectChanges();
+
+    dialogComponent.subscription = new Subscription();
+
+    spyOn(dialogComponent, 'ngOnDestroy').and.callThrough();
+
+    dialogComponent.ngOnDestroy();
+
+    expect(dialogComponent.ngOnDestroy).toHaveBeenCalled();
   });
 
 });
