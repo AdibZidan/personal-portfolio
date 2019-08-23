@@ -111,4 +111,10 @@ describe('Form Component', () => {
     expect(expectedErrorMessage).toBe(actualErrorMessage);
   });
 
+  it(`Should have an undefined 'subscription' before 'ngOnInit'`, () => {
+    const subscription = formComponent.subscription;
+
+    expect(subscription).toBeUndefined();
+  });
+
 });
