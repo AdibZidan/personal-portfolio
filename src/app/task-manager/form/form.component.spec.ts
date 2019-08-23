@@ -68,6 +68,12 @@ describe('Form Component', () => {
     expect(taskInput).toBeDefined();
   });
 
+  it(`Should have an undefined 'formGroup' before 'ngOnInit'`, () => {
+    const undefinedFormGroup = formComponent.formGroup;
+
+    expect(undefinedFormGroup).toBeUndefined();
+  });
+
   it(`Should have an invalid 'formGroup' at the start`, () => {
     const isValid: boolean = formGroup.valid;
 
