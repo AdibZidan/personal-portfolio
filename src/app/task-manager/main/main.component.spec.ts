@@ -60,6 +60,13 @@ describe('Main Component', () => {
     expect(tasks$).toBeUndefined();
   });
 
+  it(`Should have a 'date' property`, async(() => {
+    const expectedDate: number = Date.now();
+    const actualDate: number = mainComponent.date;
+
+    expect(expectedDate).toBe(actualDate);
+  }));
+
   it(`Should have an  undefined 'subscription' property before 'ngOnInit'`, () => {
     const subscription = mainComponent.subscription;
 
