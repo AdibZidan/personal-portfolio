@@ -60,4 +60,10 @@ describe('Main Component', () => {
     expect(tasks$).toBeUndefined();
   });
 
+  it(`Should have an  undefined 'subscription' property before 'ngOnInit'`, () => {
+    const subscription = mainComponent.subscription;
+
+    expect(subscription).toBeUndefined();
+  });
+
 });
