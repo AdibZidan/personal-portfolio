@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormComponent } from '../form/form.component';
 import { BodyComponent } from '../body/body.component';
 import { DialogComponent } from '../dialog/dialog.component';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Task } from '../interface/Task';
 
 describe('Main Component', () => {
@@ -64,6 +64,16 @@ describe('Main Component', () => {
     const subscription = mainComponent.subscription;
 
     expect(subscription).toBeUndefined();
+  });
+
+  it(`Should spy & call 'ngOnDestroy' method`, () => {
+    mainComponent.subscription = new Subscription();
+
+    spyOn(mainComponent, 'ngOnDestroy').and.callThrough();
+
+    mainComponent.ngOnDestroy();
+
+    expect(mainComponent.ngOnDestroy).toHaveBeenCalled();
   });
 
 });
