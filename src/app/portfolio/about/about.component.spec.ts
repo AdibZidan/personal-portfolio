@@ -3,7 +3,6 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { Title } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
-import { of } from 'rxjs';
 
 describe('About Component', () => {
 
@@ -41,7 +40,7 @@ describe('About Component', () => {
     expect(aboutComponent instanceof AboutComponent)
       .toBeTruthy());
 
-  it(`Should have a 'showArrow' with a false value`, () =>
+  it(`Should have a 'showArrow' property with a false value`, () =>
     expect(aboutComponent.showArrow)
       .toBe(false));
 
@@ -111,7 +110,7 @@ describe('About Component', () => {
 
     const isArrowShown: boolean = aboutComponent.showArrow;
 
-    expect(isArrowShown).toBeFalsy();
+    expect(isArrowShown).toBe(false);
   });
 
   it(`Should spy & call 'onScroll' method`, () => {
