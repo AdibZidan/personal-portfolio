@@ -72,9 +72,9 @@ describe('Application Component', () => {
   });
 
   it(`Should have a 'router-outlet' tag`, () => {
-    const routerOutlet: Element = htmlElement.querySelector('router-outlet');
+    const routerOutletTag: Element = htmlElement.querySelector('router-outlet');
 
-    expect(routerOutlet).toBeTruthy();
+    expect(routerOutletTag).toBeTruthy();
   });
 
 });
