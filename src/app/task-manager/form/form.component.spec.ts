@@ -57,7 +57,7 @@ describe('Form Component', () => {
     expect(formComponent instanceof FormComponent)
       .toBeTruthy());
 
-  it(`Should have an 'undefined' task input before 'ngOnInit'`, () => {
+  it(`Should have an 'undefined task input' before 'ngOnInit'`, () => {
     const taskInput = formComponent.task;
 
     expect(taskInput).toBeUndefined();
@@ -88,7 +88,7 @@ describe('Form Component', () => {
     formGroup.controls.percentage.setValue(100);
     formGroup.controls.completed.setValue(true);
 
-    expect(formGroup.valid).toBeTruthy();
+    expect(formGroup.valid).toBe(true);
   });
 
   it(`Should have a falsy 'isValidForm' property before 'onFormBuild' method`, () => {
@@ -105,7 +105,7 @@ describe('Form Component', () => {
     expect(expectedValidNumberPattern).toBe(actualValidNumberPattern);
   });
 
-  it(`Should have a 'errorMessage' property`, () => {
+  it(`Should have an 'errorMessage' property`, () => {
     const expectedErrorMessage = 'Please fill the form above';
     const actualErrorMessage: string = formComponent.errorMessage;
 
