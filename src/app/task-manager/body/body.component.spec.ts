@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material';
 import { Subscription } from 'rxjs';
-import { taskMock } from '../../mocks/mock';
+import { taskMock } from '../../mocks/tasks-mock';
 import { Task } from '../interface/Task';
 
 describe('Body Component', () => {

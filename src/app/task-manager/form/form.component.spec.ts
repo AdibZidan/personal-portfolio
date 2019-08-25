@@ -3,7 +3,7 @@ import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material';
-import { taskMock } from '../../mocks/mock';
+import { taskMock } from '../../mocks/tasks-mock';
 import { Subscription } from 'rxjs';
 
 describe('Form Component', () => {

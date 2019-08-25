@@ -1,7 +1,7 @@
 import { TaskService } from './task.service';
 import { async, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
-import { tasksMock, taskMock } from '../../mocks/mock';
+import { tasksMock, taskMock } from '../../mocks/tasks-mock';
 import { Task } from '../interface/Task';
 
 describe('Task Service', () => {
