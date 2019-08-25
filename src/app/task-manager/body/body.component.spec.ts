@@ -110,15 +110,13 @@ describe('Body Component', () => {
   });
 
   it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
-    const task = bodyComponent.task = taskMock;
-
     bodyComponent
       .deleteTask
       .subscribe((taskToGetDeleted: Task) =>
         expect(taskToGetDeleted)
-          .toBe(task));
+          .toBe(taskMock));
 
-    bodyComponent.onDelete(task);
+    bodyComponent.onDelete(taskMock);
   });
 
   it(`Should spy & call 'onEdit' method`, () => {
