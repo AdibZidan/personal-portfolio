@@ -21,9 +21,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   providers: [
     { provide: MAT_DIALOG_DATA, useValue: {} }
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule { }
