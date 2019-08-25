@@ -1,4 +1,4 @@
-import { Task } from '../../interface/Task';
+import { Task } from '../task-manager/interface/Task';
 
 export const tasksMock: Task[] = [{
   id: 1,
