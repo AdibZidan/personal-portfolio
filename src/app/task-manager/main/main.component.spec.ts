@@ -15,10 +15,10 @@ describe('Main Component', () => {
   let mainComponent: MainComponent;
   let mainFixture: ComponentFixture<MainComponent>;
 
+  let taskService: TaskService;
+
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
-
-  let taskService: TaskService;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
@@ -40,10 +40,10 @@ describe('Main Component', () => {
     mainFixture = TestBed.createComponent(MainComponent);
     mainComponent = mainFixture.componentInstance;
 
+    taskService = TestBed.get(TaskService);
+
     debugElement = mainFixture.debugElement;
     htmlElement = debugElement.nativeElement;
-
-    taskService = TestBed.get(TaskService);
   });
 
   it('Should exist', () =>
