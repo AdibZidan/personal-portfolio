@@ -4,7 +4,7 @@ import {
   lazyLoadPortfolioComponent,
   lazyLoadAboutComponent,
   lazyLoadTaskManager
-} from './lazy-load/lazyLoadComponent';
+} from './lazy-load/lazy-load-components';
 
 export const routes: Routes = [
   {
@@ -25,8 +25,6 @@ export const routes: Routes = [
   {
     path: 'task-manager',
     loadChildren: lazyLoadTaskManager,
-    data: {
-      animation: 'task-manager'
-    }
+    data: { animation: 'task-manager' }
   }
 ];
