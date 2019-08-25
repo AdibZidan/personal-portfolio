@@ -2,7 +2,7 @@ import { DialogComponent } from './dialog.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material';
-import { taskMock } from '../services/mock/mock';
+import { taskMock } from '../../mocks/mock';
 import { Subscription } from 'rxjs';
 
 describe('Dialog Component', () => {
