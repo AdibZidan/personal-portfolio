@@ -1,14 +1,17 @@
 import { AppComponent } from './app.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './portfolio/header/header.component';
+import { RouterOutlet } from '@angular/router';
 
 describe('Application Component', () => {
 
   let appComponent: AppComponent;
   let appFixture: ComponentFixture<AppComponent>;
+
+  let routerOutlet: RouterOutlet;
 
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
@@ -16,18 +19,23 @@ describe('Application Component', () => {
   beforeEach(async(() =>
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        AppRoutingModule
       ],
       declarations: [
         AppComponent,
         HeaderComponent
+      ],
+      providers: [
+        { provide: RouterOutlet }
       ]
     }).compileComponents()));
 
   beforeEach(() => {
     appFixture = TestBed.createComponent(AppComponent);
     appComponent = appFixture.componentInstance;
+
+    routerOutlet = TestBed.get(RouterOutlet);
 
     debugElement = appFixture.debugElement;
     htmlElement = debugElement.nativeElement;
@@ -42,6 +50,14 @@ describe('Application Component', () => {
   it('Should be built/compiled', () =>
     expect(appComponent instanceof AppComponent)
       .toBeTruthy());
+
+  it(`Should spy & call 'prepare' method`, () => {
+    spyOn(appComponent, 'prepare').and.callThrough();
+
+    appComponent.prepare(routerOutlet);
+
+    expect(appComponent.prepare).toHaveBeenCalled();
+  });
 
   it(`Should have an 'app-header' tag`, () => {
     const appHeader: Element = htmlElement.querySelector('app-header');
