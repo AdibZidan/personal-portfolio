@@ -57,7 +57,7 @@ describe('Form Component', () => {
     expect(formComponent instanceof FormComponent)
       .toBeTruthy());
 
-  it(`Should have an 'undefined task input' before 'ngOnInit'`, () => {
+  it(`Should have an undefined 'task input' before 'ngOnInit'`, () => {
     const taskInput = formComponent.task;
 
     expect(taskInput).toBeUndefined();
@@ -112,10 +112,10 @@ describe('Form Component', () => {
     expect(expectedErrorMessage).toBe(actualErrorMessage);
   });
 
-  it(`Should have an undefined 'subscription' before 'ngOnInit'`, () => {
+  it(`Should have a defined 'subscription' property before 'ngOnInit'`, () => {
     const subscription = formComponent.subscription;
 
-    expect(subscription).toBeUndefined();
+    expect(subscription).toBeDefined();
   });
 
   it(`Should spy & call 'ngOnDestroy' method`, () => {
