@@ -15,16 +15,14 @@ export class DialogComponent implements OnInit, OnDestroy {
   @Input() public task: Task;
   @Output() public save: EventEmitter<Task> = new EventEmitter<Task>();
 
-  public subscription: Subscription;
+  public subscription: Subscription = new Subscription();
 
   constructor(private dialog: MatDialog, private matDialogRef: MatDialogRef<FormComponent>) { }
 
   ngOnInit(): void { }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
   onClick(): void {
