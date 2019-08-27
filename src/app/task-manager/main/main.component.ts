@@ -13,7 +13,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public tasks$: Observable<Task[]>;
   public date: number = Date.now();
-  public subscription: Subscription;
+  public subscription: Subscription = new Subscription();
 
   constructor(private taskService: TaskService) { }
 
@@ -23,9 +23,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
   public getTasks(): void {
