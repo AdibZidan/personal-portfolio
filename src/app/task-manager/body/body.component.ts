@@ -17,7 +17,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   @Input() public task: Task;
   @Output() public deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  public subscription: Subscription;
+  public subscription: Subscription = new Subscription();
 
   constructor(private taskService: TaskService, private titleService: Title) { }
 
@@ -26,9 +26,7 @@ export class BodyComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
   public setLineThrough(): object {
