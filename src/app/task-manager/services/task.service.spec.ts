@@ -38,7 +38,7 @@ describe('Task Service', () => {
     expect(taskService instanceof TaskService)
       .toBeTruthy());
 
-  it(`Should have a 'baseUrl'`, () => {
+  it(`Should have a 'baseUrl' property`, () => {
     const expectedBaseUrl = 'https://localhost:8000/tasks';
     const actualBaseUrl: string = taskService.baseUrl;
 
