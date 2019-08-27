@@ -60,15 +60,13 @@ describe('Main Component', () => {
     expect(tasks$).toBeUndefined();
   });
 
-  it(`Should have an  undefined 'subscription' property before 'ngOnInit'`, () => {
+  it(`Should have a defined 'subscription' property before 'ngOnInit'`, () => {
     const subscription = mainComponent.subscription;
 
-    expect(subscription).toBeUndefined();
+    expect(subscription).toBeDefined();
   });
 
   it(`Should spy & call 'ngOnDestroy' method`, () => {
-    mainComponent.subscription = new Subscription();
-
     spyOn(mainComponent, 'ngOnDestroy').and.callThrough();
 
     mainComponent.ngOnDestroy();
