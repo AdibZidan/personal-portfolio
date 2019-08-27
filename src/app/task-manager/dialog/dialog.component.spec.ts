@@ -2,7 +2,6 @@ import { DialogComponent } from './dialog.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material';
-import { Subscription } from 'rxjs';
 
 describe('Dialog Component', () => {
 
@@ -38,22 +37,20 @@ describe('Dialog Component', () => {
     expect(dialogComponent instanceof DialogComponent)
       .toBeTruthy());
 
-  it(`Should have an 'undefined task input' before 'ngOnInit'`, () => {
+  it(`Should have an undefined 'task input' before 'ngOnInit'`, () => {
     const taskInput = dialogComponent.task;
 
     expect(taskInput).toBeUndefined();
   });
 
-  it(`Should have an undefined 'subscription' property before 'ngOnInit'`, () => {
+  it(`Should have a defined 'subscription' property before 'ngOnInit'`, () => {
     const subscription = dialogComponent.subscription;
 
-    expect(subscription).toBeUndefined();
+    expect(subscription).toBeDefined();
   });
 
   it(`Should spy & call 'ngOnDestroy method'`, () => {
     dialogFixture.detectChanges();
-
-    dialogComponent.subscription = new Subscription();
 
     spyOn(dialogComponent, 'ngOnDestroy').and.callThrough();
 
