@@ -19,7 +19,7 @@ export class FormComponent implements OnInit, OnDestroy {
   public isValidForm = false;
   public validNumberPattern = '^[1-9][0-9]?$|^100$';
   public errorMessage = 'Please fill the form above';
-  public subscription: Subscription;
+  public subscription: Subscription = new Subscription();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -33,9 +33,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.subscription !== undefined) {
-      this.subscription.unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 
   public onFormBuild(): void {
