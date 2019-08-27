@@ -65,10 +65,10 @@ describe('Body Component', () => {
     expect(deleteTaskOutput).toBeDefined();
   });
 
-  it(`Should have an undefined 'subscription' property before 'ngOnInit'`, () => {
+  it(`Should have an defined 'subscription' property before 'ngOnInit'`, () => {
     const subscription = bodyComponent.subscription;
 
-    expect(subscription).toBeUndefined();
+    expect(subscription).toBeDefined();
   });
 
   it(`Should spy & call 'ngOnDestroy' method`, () => {
