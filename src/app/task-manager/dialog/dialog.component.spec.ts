@@ -29,6 +29,8 @@ describe('Dialog Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => dialogFixture.destroy());
+
   it('Should exist', () =>
     expect(dialogComponent)
       .toBeDefined());

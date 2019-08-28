@@ -49,6 +49,8 @@ describe('Form Component', () => {
     });
   });
 
+  afterEach(() => formFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(formComponent)
       .toBeDefined());

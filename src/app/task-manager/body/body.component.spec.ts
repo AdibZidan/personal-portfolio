@@ -45,6 +45,8 @@ describe('Body Component', () => {
     titleService = TestBed.get(Title);
   });
 
+  afterEach(() => bodyFixture.destroy());
+
   it('Should exist', () =>
     expect(bodyComponent)
       .toBeDefined());

@@ -29,6 +29,8 @@ describe('Portfolio Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => portfolioFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(portfolioComponent)
       .toBeDefined());

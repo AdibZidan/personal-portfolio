@@ -46,6 +46,8 @@ describe('Main Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => mainFixture.destroy());
+
   it('Should exist', () =>
     expect(mainComponent)
       .toBeDefined());

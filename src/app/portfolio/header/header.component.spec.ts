@@ -25,6 +25,8 @@ describe('Header Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => headerFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(headerComponent)
       .toBeDefined());

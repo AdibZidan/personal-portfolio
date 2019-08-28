@@ -32,6 +32,8 @@ describe('About Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => aboutFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(aboutComponent)
       .toBeDefined());

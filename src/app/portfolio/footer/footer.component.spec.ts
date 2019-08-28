@@ -23,6 +23,8 @@ describe('Footer Component', () => {
     htmlElement = debugElement.nativeElement;
   });
 
+  afterEach(() => footerFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(footerComponent)
       .toBeDefined());

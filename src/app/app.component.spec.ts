@@ -43,6 +43,8 @@ describe('Application Component', () => {
     appFixture.detectChanges();
   });
 
+  afterEach(() => appFixture.destroy());
+
   it('Should exist/be defined', () =>
     expect(appComponent)
       .toBeDefined());
