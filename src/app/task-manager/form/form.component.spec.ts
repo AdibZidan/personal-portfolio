@@ -121,8 +121,6 @@ describe('Form Component', () => {
   });
 
   it(`Should spy & call 'ngOnDestroy' method`, () => {
-    formComponent.subscription = new Subscription();
-
     spyOn(formComponent, 'ngOnDestroy').and.callThrough();
 
     formComponent.ngOnDestroy();
