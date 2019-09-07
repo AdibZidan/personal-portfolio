@@ -11,8 +11,8 @@ For the Back-End, I'm using Node.JS; which is in a private repository.
 ## Instructions:
 
 Make sure to install the latest version of:
-- [Node.JS & npm](https://nodejs.org/en/).
-- Run `sudo npm i` to install all necessary dependencies
+- [Node.JS & npm](https://nodejs.org/en/)
+- Run `sudo npm i` to install all the necessary dependencies
 
 ## Accomplishments:
 
