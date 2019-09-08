@@ -1,12 +1,14 @@
+import { Task } from '../task-manager/interface/Task';
+
 export class FormGroupMock {
 
-  public id: string;
+  public id: number;
   public title: string;
   public description: string;
   public percentage: number;
   public completed: boolean;
 
-  constructor(data?: any) {
+  constructor(data?: Task) {
     const defaults = {
       id: '',
       title: '',
@@ -24,15 +26,15 @@ export class FormGroupMock {
   }
 
   public getFormGroupMock() {
-    const formMock = new FormGroupMock();
+    const formGroupMock = new FormGroupMock();
 
-    formMock.id = '1';
-    formMock.title = 'Test title';
-    formMock.description = 'Test description';
-    formMock.percentage = 100;
-    formMock.completed = true;
+    formGroupMock.id = 1;
+    formGroupMock.title = 'Test title';
+    formGroupMock.description = 'Test description';
+    formGroupMock.percentage = 100;
+    formGroupMock.completed = true;
 
-    return formMock;
+    return formGroupMock;
   }
 
 }
