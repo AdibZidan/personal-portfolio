@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { frontEnd, backEnd, other } from './language/technology-stack';
-import { languages } from './language/languages';
+import { frontEnd, backEnd, other } from './languages/technology-stack';
+import { languages } from './languages/languages';
 import { Title } from '@angular/platform-browser';
 
 @Component({
