@@ -56,7 +56,7 @@ describe('Application Component', () => {
   it(`Should spy & call 'prepare' method`, () => {
     spyOn(appComponent, 'prepare').and.callThrough();
 
-    appComponent.prepare(routerOutlet);
+    appFixture.detectChanges();
 
     expect(appComponent.prepare).toHaveBeenCalled();
   });
