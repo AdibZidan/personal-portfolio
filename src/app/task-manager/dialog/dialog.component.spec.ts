@@ -74,6 +74,13 @@ describe('Dialog Component', () => {
       expect(button).toBeTruthy();
     });
 
+    it(`Should have edit as its 'innerHtml'`, () => {
+      const expectedButtonHTML = 'EDIT';
+      const actualButtonHTML = button.innerHTML.trim();
+
+      expect(actualButtonHTML).toEqual(expectedButtonHTML);
+    });
+
   });
 
 });
