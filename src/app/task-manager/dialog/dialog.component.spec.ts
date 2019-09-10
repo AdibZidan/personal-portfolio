@@ -69,6 +69,11 @@ describe('Dialog Component', () => {
       button = htmlElement.querySelector('button.button');
     });
 
+    it(`Should have a defined/truthy 'button'`, () => {
+      expect(button).toBeDefined();
+      expect(button).toBeTruthy();
+    });
+
   });
 
 });
