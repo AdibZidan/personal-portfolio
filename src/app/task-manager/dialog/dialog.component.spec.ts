@@ -61,4 +61,14 @@ describe('Dialog Component', () => {
     expect(dialogComponent.ngOnDestroy).toHaveBeenCalled();
   });
 
+  describe('Dialog Component HTML', () => {
+
+    let button: HTMLButtonElement;
+
+    beforeEach(() => {
+      button = htmlElement.querySelector('button.button');
+    });
+
+  });
+
 });
