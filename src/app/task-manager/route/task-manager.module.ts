@@ -26,7 +26,7 @@ import { MatDialogRef, MatDialogModule } from '@angular/material';
   ],
   entryComponents: [FormComponent],
   providers: [
-    { provide: MatDialogRef }
+    { provide: MatDialogRef, useValue: undefined }
   ]
 })
 
