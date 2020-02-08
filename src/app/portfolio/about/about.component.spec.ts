@@ -59,7 +59,7 @@ describe('About Component', () => {
     const expectedFrontEndStacks: string[] = [
       'HTML5,', 'CSS3 / SCSS,',
       'JavaScript ES6+ / TypeScript',
-      '& Angular 8'];
+      '& Angular 9'];
     const actualFrontEndStacks: string[] = aboutComponent.frontEndStacks;
 
     expect(expectedFrontEndStacks).toEqual(actualFrontEndStacks);
