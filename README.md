@@ -1,8 +1,8 @@
-# Angular-Projects
+# My Personal Portfolio
 
 This project is live. Head over [here](https://www.adibzidan.com) to access it.
 
-This repository includes my Portfolio, About Me and Task-Manager; which are a work in progress.
+This repository includes my Portfolio, About Me and Task-Manager.
 
 The Task-Manager is built using Angular 8 and is already CRUD ready.
 
@@ -12,7 +12,7 @@ For the Back-End, I'm using Node.JS; which is in a private repository.
 
 Make sure to install the latest version of:
 - [Node.JS & npm](https://nodejs.org/en/)
-- Run `sudo npm i` to install all the necessary dependencies
+- Run `npm i` to install all the necessary dependencies
 
 ## Accomplishments:
 
@@ -41,3 +41,5 @@ Make sure to install the latest version of:
 - NGINX
 - PM2
 - & **many more**!
+
+`Updated on the 8th of February, 2020 @ 10:30 P.M`
