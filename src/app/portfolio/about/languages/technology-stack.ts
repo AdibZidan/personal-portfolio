@@ -4,9 +4,9 @@ export const frontEnd: string[] = [
   '& Angular 9'
 ];
 
-export const backEnd = 'Node.JS';
+export const backEnd = 'Node.JS & Java 8';
 
 export const other: string[] = [
-  'Docker,', 'Git/GitHub,', 'Ubuntu,',
-  'Windows 10,', 'NPM', '& Visual Studio Code'
+  'MongoDB,', 'MongooseJS,', 'Docker,', 'Git/GitHub,', 'Ubuntu,',
+  'Windows 10,', 'NPM,', 'IntelliJ IDEA', '& Visual Studio Code'
 ];
