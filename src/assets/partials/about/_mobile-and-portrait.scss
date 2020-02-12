@@ -1,12 +1,12 @@
 @mixin mobile-and-portrait {
   .about {
-    width: 95%;
+    width: 85%;
     align-content: center;
     align-items: center;
 
     .inner {
       .h2 {
-        font-size: 2rem;
+        font-size: 3rem;
         padding: 0.7rem;
       }
 
@@ -18,11 +18,28 @@
       ul,
       li {
         line-height: 2.2;
-        font-size: 0.9rem;
+      }
+
+      .languages,
+      p {
+        text-align: justify;
       }
 
       .technologies {
+        display: flex;
+        flex-direction: column;
         margin-bottom: 20px;
+
+        .technologies-1 {
+          align-self: center;
+          width: 100%;
+          margin: 10px;
+          background-color: lighten($color: $primary-background-color, $amount: 0.6);
+
+          span {
+            font-size: 1.9rem;
+          }
+        }
       }
 
       .arrow {

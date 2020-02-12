@@ -2,37 +2,51 @@
   .header {
     font-size: 0.8rem;
 
+    .menu {
+      position: fixed;
+      top: -5px;
+      left: 0;
+
+      div {
+        width: 35px;
+        height: 5px;
+        background-color: #f4a950;
+        margin: 6px 0;
+      }
+    }
+
     .menu-navigation {
+      display: none;
       justify-content: space-around;
       padding: 20px;
-    }
 
-    .navigation-item {
-      i:nth-child(2) {
-        width: 0;
-        transition-property: none;
+      .navigation-item {
+        i:nth-child(2) {
+          width: 0;
+          transition-property: none;
+        }
+
+        &:hover i:nth-child(2) {
+          width: 0;
+        }
       }
 
-      &:hover i:nth-child(2) {
-        width: 0;
+      .navigation-link {
+        &:hover {
+          transition-property: none;
+        }
+
+        &:not(:hover) {
+          transition-property: none;
+        }
       }
-    }
 
-    .navigation-link {
-      &:hover {
+      .active {
         transition-property: none;
-      }
 
-      &:not(:hover) {
-        transition-property: none;
-      }
-    }
-
-    .active {
-      transition-property: none;
-
-      &:hover {
-        transition-property: none;
+        &:hover {
+          transition-property: none;
+        }
       }
     }
   }
