@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class HeaderComponent implements OnInit {
 
+  public isVisible: boolean = true;
+
   constructor() { }
 
   ngOnInit(): void { }
+
+  public onClick(): void {
+    this.isVisible = !this.isVisible;
+  }
 
 }
