@@ -2,11 +2,25 @@
 
   <nav class="menu">
 
-    <div class="hamburger">
+    <div class="hamburger" (click)="onClick()" *ngIf="isVisible">
       <div></div>
       <div></div>
       <div></div>
     </div>
+
+    <aside *ngIf="!isVisible" class="{'hide': isVisible === true ? : 'show'}">
+      <a (click)="onClick()" [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">
+        Portfolio
+      </a>
+
+      <a (click)="onClick()" [routerLink]="['/about-me']" routerLinkActive="active" class="navigation-link">
+        About Me
+      </a>
+
+      <a (click)="onClick()" [routerLink]="['/task-manager']" routerLinkActive="active" class="navigation-link">
+        Task Manager
+      </a>
+    </aside>
 
     <ul class="menu-navigation">
 
