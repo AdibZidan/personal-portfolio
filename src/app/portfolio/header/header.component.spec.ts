@@ -35,6 +35,21 @@ describe('Header Component', () => {
     expect(headerComponent instanceof HeaderComponent)
       .toBeTruthy());
 
+  it(`Should have an initial truthy 'isVisible' property`, () => {
+    const expectedIsVisibleProperty: boolean = true;
+    const actualIsVisibleProperty: boolean = headerComponent.isVisible;
+
+    expect(expectedIsVisibleProperty).toEqual(actualIsVisibleProperty);
+  });
+
+  it(`Should negate 'isVisible' property via 'onClick' method`, () => {
+    expect(headerComponent.isVisible).toEqual(true);
+
+    headerComponent.onClick();
+
+    expect(headerComponent.isVisible).toEqual(false);
+  });
+
   it(`Should have a 'header' tag with the 'header' class`, () => {
     const header: Element = htmlElement.querySelector('header.header');
 
