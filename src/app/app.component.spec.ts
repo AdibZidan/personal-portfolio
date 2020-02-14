@@ -11,8 +11,6 @@ describe('Application Component', () => {
   let appComponent: AppComponent;
   let appFixture: ComponentFixture<AppComponent>;
 
-  let routerOutlet: RouterOutlet;
-
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -34,8 +32,6 @@ describe('Application Component', () => {
   beforeEach(() => {
     appFixture = TestBed.createComponent(AppComponent);
     appComponent = appFixture.componentInstance;
-
-    routerOutlet = TestBed.get(RouterOutlet);
 
     debugElement = appFixture.debugElement;
     htmlElement = debugElement.nativeElement;
