@@ -26,7 +26,7 @@ describe('About Component', () => {
     aboutFixture = TestBed.createComponent(AboutComponent);
     aboutComponent = aboutFixture.componentInstance;
 
-    titleService = TestBed.get(Title);
+    titleService = TestBed.inject(Title);
 
     debugElement = aboutFixture.debugElement;
     htmlElement = debugElement.nativeElement;
@@ -66,7 +66,7 @@ describe('About Component', () => {
   });
 
   it(`Should have a 'backEndStack' string`, () => {
-    const expectedBackEndStack = 'Node.JS';
+    const expectedBackEndStack = 'Node.JS & Java 8';
     const actualBackendStack: string = aboutComponent.backEndStack;
 
     expect(expectedBackEndStack).toBe(actualBackendStack);
@@ -74,8 +74,9 @@ describe('About Component', () => {
 
   it(`Should have 'otherStacks' array`, () => {
     const expectedOtherStacks: string[] = [
-      'Docker,', 'Git/GitHub,', 'Ubuntu,',
-      'Windows 10,', 'NPM', '& Visual Studio Code'];
+      'MongoDB,', 'MongooseJS,', 'Docker,', 'Git/GitHub,', 'Ubuntu,',
+      'Windows 10,', 'NPM,', 'IntelliJ IDEA', '& Visual Studio Code'
+    ];
     const actualOtherStacks: string[] = aboutComponent.otherStacks;
 
     expect(expectedOtherStacks).toEqual(actualOtherStacks);
@@ -158,7 +159,7 @@ describe('About Component', () => {
   it(`Should have a total of 4 'anchor' tags including the one's from 'app-footer' tag`, () => {
     const expectedTotalAmountOfAnchorTags: number = htmlElement.querySelectorAll('a').length;
 
-    expect(expectedTotalAmountOfAnchorTags).toBe(4);
+    expect(expectedTotalAmountOfAnchorTags).toBe(3);
   });
 
   it(`Should have a total of 3 'ul' tags with the class of 'technology-stack'`, () => {

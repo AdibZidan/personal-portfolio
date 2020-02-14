@@ -31,7 +31,10 @@ describe('Body Component', () => {
         BodyComponent,
         DialogComponent
       ],
-      providers: [{ provide: MatDialogRef }]
+      providers: [{
+        provide: MatDialogRef,
+        useValue: undefined
+      }]
     }).compileComponents()));
 
   beforeEach(() => {
@@ -41,8 +44,8 @@ describe('Body Component', () => {
     debugElement = bodyFixture.debugElement;
     htmlElement = debugElement.nativeElement;
 
-    taskService = TestBed.get(TaskService);
-    titleService = TestBed.get(Title);
+    taskService = TestBed.inject(TaskService);
+    titleService = TestBed.inject(Title);
   });
 
   afterEach(() => bodyFixture.destroy());

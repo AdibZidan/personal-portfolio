@@ -23,7 +23,7 @@ describe('Portfolio Component', () => {
     portfolioFixture = TestBed.createComponent(PortfolioComponent);
     portfolioComponent = portfolioFixture.componentInstance;
 
-    titleService = TestBed.get(Title);
+    titleService = TestBed.inject(Title);
 
     debugElement = portfolioFixture.debugElement;
     htmlElement = debugElement.nativeElement;
@@ -75,13 +75,13 @@ describe('Portfolio Component', () => {
   it(`Should have a total of 3 'anchor' tags`, () => {
     const totalNumberOfAnchors: number = htmlElement.querySelectorAll('a').length;
 
-    expect(totalNumberOfAnchors).toBe(3);
+    expect(totalNumberOfAnchors).toBe(2);
   });
 
   it(`Should have a total of 3 'icon' tags`, () => {
     const totalNumberOfIcons: number = htmlElement.querySelectorAll('i').length;
 
-    expect(totalNumberOfIcons).toBe(3);
+    expect(totalNumberOfIcons).toBe(2);
   });
 
 });

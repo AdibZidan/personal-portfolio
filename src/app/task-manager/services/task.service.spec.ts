@@ -20,8 +20,8 @@ describe('Task Service', () => {
     })));
 
   beforeEach(() => {
-    taskService = TestBed.get(TaskService);
-    httpTestingController = TestBed.get(HttpTestingController);
+    taskService = TestBed.inject(TaskService);
+    httpTestingController = TestBed.inject(HttpTestingController);
 
     baseUrl = taskService.baseUrl;
     tasks = tasksMock;

@@ -40,7 +40,7 @@ describe('Main Component', () => {
     mainFixture = TestBed.createComponent(MainComponent);
     mainComponent = mainFixture.componentInstance;
 
-    taskService = TestBed.get(TaskService);
+    taskService = TestBed.inject(TaskService);
 
     debugElement = mainFixture.debugElement;
     htmlElement = debugElement.nativeElement;

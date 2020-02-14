@@ -49,7 +49,7 @@ describe('Footer Component', () => {
   it(`Should have a total of 2 'p' tags`, () => {
     const expectedTotalAmountOfPTag: number = htmlElement.querySelectorAll('p').length;
 
-    expect(expectedTotalAmountOfPTag).toBe(2);
+    expect(expectedTotalAmountOfPTag).toBe(1);
   });
 
   it(`Should have 1 'nav' & 'section' tags`, () => {
@@ -64,8 +64,8 @@ describe('Footer Component', () => {
     const expectedNumberOfAnchorTags: number = htmlElement.querySelectorAll('a').length;
     const expectedNumberOfIconTags: number = htmlElement.querySelectorAll('i').length;
 
-    expect(expectedNumberOfAnchorTags).toBe(3);
-    expect(expectedNumberOfIconTags).toBe(4);
+    expect(expectedNumberOfAnchorTags).toBe(2);
+    expect(expectedNumberOfIconTags).toBe(2);
   });
 
 });

@@ -17,7 +17,10 @@ describe('Dialog Component', () => {
       declarations: [DialogComponent],
       providers: [
         { provide: MatDialog },
-        { provide: MatDialogRef }
+        {
+          provide: MatDialogRef,
+          useValue: undefined
+        }
       ]
     }).compileComponents()));
 

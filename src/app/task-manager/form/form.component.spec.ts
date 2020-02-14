@@ -4,7 +4,6 @@ import { DebugElement } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material';
 import { taskMock } from '../../mocks/tasks-mock';
-import { Subscription } from 'rxjs';
 
 describe('Form Component', () => {
 
@@ -26,8 +25,14 @@ describe('Form Component', () => {
       ],
       declarations: [FormComponent],
       providers: [
-        { provide: MatDialogRef },
-        { provide: MAT_DIALOG_DATA }
+        {
+          provide: MatDialogRef,
+          useValue: undefined
+        },
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: undefined
+        }
       ]
     }).compileComponents()));
 
@@ -38,7 +43,7 @@ describe('Form Component', () => {
     debugElement = formFixture.debugElement;
     htmlElement = debugElement.nativeElement;
 
-    formBuilder = TestBed.get(FormBuilder);
+    formBuilder = TestBed.inject(FormBuilder);
 
     formGroup = formBuilder.group({
       id: [''],
