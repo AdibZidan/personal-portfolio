@@ -1,6 +1,6 @@
 <header class="header">
 
-  <nav class="menu">
+  <nav class="menu" @fadeIn>
 
     <div class="hamburger" (click)="onClick()" *ngIf="isVisible">
       <div></div>
@@ -8,7 +8,7 @@
       <div></div>
     </div>
 
-    <aside *ngIf="!isVisible" class="{'hide': isVisible === true ? : 'show'}">
+    <aside *ngIf="!isVisible" class="{'hide': isVisible === true ? : 'show'}" @fadeIn>
       <a (click)="onClick()" [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">
         Portfolio
       </a>
