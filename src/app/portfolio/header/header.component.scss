@@ -18,27 +18,6 @@
     }
   }
 
-  .navigation-item {
-    position: relative;
-
-    i {
-      display: block;
-      width: 100%;
-      height: 1px;
-    }
-
-    i:nth-child(2) {
-      position: absolute;
-      background-color: $primary-color;
-      width: 0;
-      transition: width 1s ease;
-    }
-
-    &:hover i:nth-child(2) {
-      width: 100%;
-    }
-  }
-
   .navigation-link {
     color: #cacaca;
     text-decoration: none;
