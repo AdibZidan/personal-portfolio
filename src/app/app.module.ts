@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { GoogleAnalyticsService } from './google-analytics/google-analytics.service';
 
 @NgModule({
   declarations: [
@@ -24,4 +25,8 @@ import { MAT_DIALOG_DATA } from '@angular/material';
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+
+  constructor(private googleAnalyticsService: GoogleAnalyticsService) { }
+
+}
