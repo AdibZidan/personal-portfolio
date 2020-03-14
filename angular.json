@@ -145,7 +145,7 @@
   "defaultProject": "i4-angular-projects",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
