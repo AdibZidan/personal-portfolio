@@ -1,10 +1,10 @@
-import { AppComponent } from './app.component';
-import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './portfolio/header/header.component';
 import { RouterOutlet } from '@angular/router';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AppRoutingModule } from './shared/modules/application/app-routing.module';
 
 describe('Application Component', () => {
 

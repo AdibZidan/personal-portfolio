@@ -1,0 +1,48 @@
+@import "../../../../assets/partials/colors";
+@import "../../../../assets/partials/media-queries/media-task-manager";
+
+.button {
+  float: right;
+
+  padding: 10px;
+  cursor: pointer;
+
+  background-color: $primary-background-color;
+  color: #cacaca;
+
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  letter-spacing: 1px;
+
+  transition: transform 120ms ease-in;
+
+  &:hover {
+    color: $primary-color;
+  }
+
+  &:active {
+    background-color: rgb(199, 80, 99);
+    color: #cacaca;
+
+    transform: scale(0.95);
+  }
+}
+
+.edit {
+  margin-right: 10px;
+
+  &:active {
+    color: $primary-color;
+    background-color: $primary-background-color;
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@include mobile-screen-and-portrait;
+@include low-resolution-tab-let;
+@include tab-let;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { easeIn } from '../assets/animations/animations';
 import { RouterOutlet } from '@angular/router';
+import { easeIn } from '../assets/animations/animations';
 
 @Component({
   selector: 'app-root',

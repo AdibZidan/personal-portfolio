@@ -1,0 +1,47 @@
+@import "../../../styles.scss";
+@import "../../../assets/partials/media-queries/media-header";
+
+.header {
+  width: 100%;
+  background-color: lighten($color: $primary-background-color, $amount: 2);
+
+  .menu-navigation {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    padding: 30px;
+
+    .navigation-item {
+      text-decoration: none;
+      list-style: none;
+    }
+  }
+
+  .navigation-link {
+    color: #cacaca;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
+      @include easeOut();
+    }
+
+    &:not(:hover) {
+      @include easeIn;
+    }
+  }
+
+  .active {
+    color: $primary-color;
+    @include easeIn;
+
+    &:hover {
+      color: #cacaca;
+      @include easeOut;
+    }
+  }
+}
+
+@include mobileScreenAndPortrait;
+@include lowResolutionTablet;
+@include tablet;
