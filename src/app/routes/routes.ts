@@ -26,5 +26,9 @@ export const routes: Routes = [
     path: 'task-manager',
     loadChildren: lazyLoadTaskManager,
     data: { animation: 'task-manager' }
+  },
+  {
+    path: '**',
+    loadChildren: lazyLoadPortfolioComponent
   }
 ];
