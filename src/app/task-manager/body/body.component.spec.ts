@@ -19,7 +19,6 @@ describe('Body Component', () => {
   let htmlElement: HTMLElement;
 
   let taskService: TaskService;
-  let titleService: Title;
 
   beforeEach(async(() =>
     TestBed.configureTestingModule({
@@ -45,7 +44,6 @@ describe('Body Component', () => {
     htmlElement = debugElement.nativeElement;
 
     taskService = TestBed.inject(TaskService);
-    titleService = TestBed.inject(Title);
   });
 
   afterEach(() => bodyFixture.destroy());
@@ -130,15 +128,6 @@ describe('Body Component', () => {
     bodyComponent.onEdit(taskMock);
 
     expect(bodyComponent.onEdit).toHaveBeenCalled();
-  });
-
-  it(`Should change the title to 'Task Manager' after 'ngOnInit'`, () => {
-    bodyComponent.ngOnInit();
-
-    const expectedTitle = 'Task Manager';
-    const actualTitle: string = titleService.getTitle();
-
-    expect(expectedTitle).toBe(actualTitle);
   });
 
 });

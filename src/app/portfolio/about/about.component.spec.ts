@@ -9,8 +9,6 @@ describe('About Component', () => {
   let aboutComponent: AboutComponent;
   let aboutFixture: ComponentFixture<AboutComponent>;
 
-  let titleService: Title;
-
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -25,8 +23,6 @@ describe('About Component', () => {
   beforeEach(() => {
     aboutFixture = TestBed.createComponent(AboutComponent);
     aboutComponent = aboutFixture.componentInstance;
-
-    titleService = TestBed.inject(Title);
 
     debugElement = aboutFixture.debugElement;
     htmlElement = debugElement.nativeElement;
@@ -88,22 +84,6 @@ describe('About Component', () => {
     const actualAge: number = aboutComponent.age;
 
     expect(expectedAge).toBe(actualAge);
-  });
-
-  it(`Should have an empty 'title' before 'ngOnInit'`, () => {
-    const expectedTitle = '';
-    const actualTitle: string = titleService.getTitle();
-
-    expect(expectedTitle).toBe(actualTitle);
-  });
-
-  it(`Should change the title to 'About Me' after 'ngOnInit'`, () => {
-    aboutFixture.detectChanges();
-
-    const expectedTitle = 'About Me';
-    const actualTitle: string = titleService.getTitle();
-
-    expect(expectedTitle).toBe(actualTitle);
   });
 
   it(`Should mimic an 'onClick' event and the value of 'showArrow' property needs to stay false`, () => {

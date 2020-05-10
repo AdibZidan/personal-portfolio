@@ -8,8 +8,6 @@ describe('Portfolio Component', () => {
   let portfolioComponent: PortfolioComponent;
   let portfolioFixture: ComponentFixture<PortfolioComponent>;
 
-  let titleService: Title;
-
   let debugElement: DebugElement;
   let htmlElement: HTMLElement;
 
@@ -22,8 +20,6 @@ describe('Portfolio Component', () => {
   beforeEach(() => {
     portfolioFixture = TestBed.createComponent(PortfolioComponent);
     portfolioComponent = portfolioFixture.componentInstance;
-
-    titleService = TestBed.inject(Title);
 
     debugElement = portfolioFixture.debugElement;
     htmlElement = debugElement.nativeElement;
@@ -38,15 +34,6 @@ describe('Portfolio Component', () => {
   it('Should be built/compiled', () =>
     expect(portfolioComponent instanceof PortfolioComponent)
       .toBeTruthy());
-
-  it(`Should change the title to 'Portfolio' after 'ngOnInit'`, () => {
-    portfolioFixture.detectChanges();
-
-    const expectedTitle = 'Portfolio';
-    const actualTitle: string = titleService.getTitle();
-
-    expect(expectedTitle).toBe(actualTitle);
-  });
 
   it(`Should have a 'main' tag with the class of 'home'`, () => {
     const main: Element = htmlElement.querySelector('main.home');
