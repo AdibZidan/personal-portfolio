@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { easeIn } from '../assets/animations/animations';
+import { TitleService } from './shared/services/title/title.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +10,36 @@ import { easeIn } from '../assets/animations/animations';
   styleUrls: ['./app.component.scss'],
   animations: [easeIn]
 })
+export class AppComponent implements OnInit {
 
-export class AppComponent {
+  public subscription: Subscription = new Subscription();
 
-  public prepare(outlet: RouterOutlet): RouterOutlet {
-    const animation: RouterOutlet = outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
+  constructor(
+    private titleService: TitleService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
-    return animation;
+  ngOnInit(): void {
+    this.dynamicallyChangeRouteUrl();
+  }
+
+  public dynamicallyChangeRouteUrl(): void {
+    this.subscription = this.titleService
+      .getDynamicRoute$(
+        this.router,
+        this.activatedRoute
+      );
+  }
+
+  public prepare(routerOutlet: RouterOutlet): RouterOutlet {
+    return this.getAnimation(routerOutlet);
+  }
+
+  private getAnimation(routerOutlet: RouterOutlet): RouterOutlet {
+    return routerOutlet &&
+      routerOutlet.activatedRouteData &&
+      routerOutlet.activatedRouteData.animation;
   }
 
 }
