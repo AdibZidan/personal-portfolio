@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,14 +8,8 @@ import { Title } from '@angular/platform-browser';
 
 export class PortfolioComponent implements OnInit {
 
-  constructor(private titleService: Title) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.changeTitle();
-  }
-
-  public changeTitle(): void {
-    this.titleService.setTitle('Portfolio');
-  }
+  ngOnInit(): void { }
 
 }

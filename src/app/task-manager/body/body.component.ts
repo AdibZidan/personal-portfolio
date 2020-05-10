@@ -3,7 +3,6 @@ import { fadeIn, setLine } from '../../../assets/animations/animations';
 import { Task } from '../interface/Task';
 import { Subscription } from 'rxjs';
 import { TaskService } from '../services/task.service';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-body',
@@ -19,11 +18,9 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   public subscription: Subscription = new Subscription();
 
-  constructor(private taskService: TaskService, private titleService: Title) { }
+  constructor(private taskService: TaskService) { }
 
-  ngOnInit(): void {
-    this.changeTitle();
-  }
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -47,10 +44,6 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   public async onEdit(task: Task): Promise<void> {
     await this.taskService.editTaskFromBackEnd(task).toPromise();
-  }
-
-  public changeTitle(): void {
-    this.titleService.setTitle('Task Manager');
   }
 
 }

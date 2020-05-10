@@ -1,7 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { frontEnd, backEnd, other } from './languages/technology-stack';
 import { languages } from './languages/languages';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about',
@@ -17,11 +16,9 @@ export class AboutComponent implements OnInit {
   public backEndStack = backEnd;
   public otherStacks = other;
 
-  constructor(private titleService: Title) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.changeTitle();
-  }
+  ngOnInit(): void { }
 
   public onClick(): void {
     this.showArrow = false;
@@ -54,10 +51,6 @@ export class AboutComponent implements OnInit {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       this.showArrow = true;
     }
-  }
-
-  public changeTitle(): void {
-    this.titleService.setTitle('About Me');
   }
 
 }
