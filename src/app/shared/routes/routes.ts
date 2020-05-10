@@ -10,22 +10,34 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'portfolio',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      tite: `Adib's Portfolio`
+    }
   },
   {
     path: 'portfolio',
     loadChildren: lazyLoadPortfolioComponent,
-    data: { animation: 'portfolio' }
+    data: {
+      animation: 'portfolio',
+      title: `Adib's Portfolio`
+    }
   },
   {
     path: 'about-me',
     loadChildren: lazyLoadAboutComponent,
-    data: { animation: 'about-me' }
+    data: {
+      animation: 'about-me',
+      title: 'About Me'
+    }
   },
   {
     path: 'task-manager',
     loadChildren: lazyLoadTaskManager,
-    data: { animation: 'task-manager' }
+    data: {
+      animation: 'task-manager',
+      title: 'Task Manager'
+    }
   },
   {
     path: '**',
