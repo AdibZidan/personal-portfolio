@@ -1,7 +1,7 @@
 import { DialogComponent } from './dialog.component';
 import { ComponentFixture, async, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material';
+import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 
 describe('Dialog Component', () => {
 

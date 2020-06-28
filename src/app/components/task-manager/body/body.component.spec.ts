@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogModule, MatDialogRef } from '@angular/material';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { taskMock } from 'src/app/shared/mocks/tasks-mock';
 import { Task } from '../../../shared/interfaces/task.interface';

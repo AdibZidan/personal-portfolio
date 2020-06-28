@@ -7,7 +7,7 @@ import { MainComponent } from '../../../components/task-manager/main/main.compon
 import { TaskManagerRoutingModule } from './task-manager-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatDialogRef, MatDialogModule } from '@angular/material';
+import { MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
