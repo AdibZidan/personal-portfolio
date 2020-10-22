@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-
 import {
-  lazyLoadPortfolioComponent,
   lazyLoadAboutComponent,
+  lazyLoadPortfolioComponent,
   lazyLoadTaskManager
 } from './lazy-load/lazy-load-components';
 
@@ -41,6 +40,10 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: lazyLoadPortfolioComponent
+    pathMatch: 'full',
+    loadChildren: lazyLoadPortfolioComponent,
+    data: {
+      title: `Adib's Portfolio`
+    }
   }
 ];

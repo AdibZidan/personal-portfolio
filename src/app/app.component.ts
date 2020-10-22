@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { easeIn } from '../assets/animations/animations';
 import { TitleService } from './shared/services/title/title.service';
 
@@ -10,30 +9,18 @@ import { TitleService } from './shared/services/title/title.service';
   styleUrls: ['./app.component.scss'],
   animations: [easeIn]
 })
-export class AppComponent implements OnInit, OnDestroy {
-
-  public subscription: Subscription = new Subscription();
+export class AppComponent implements OnInit {
 
   constructor(
-    private titleService: TitleService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private titleService: TitleService
   ) { }
 
   ngOnInit(): void {
     this.dynamicallyChangeRouteUrl();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
   public dynamicallyChangeRouteUrl(): void {
-    this.subscription = this.titleService
-      .getDynamicRoute$(
-        this.router,
-        this.activatedRoute
-      );
+    this.titleService.setTitle();
   }
 
   public prepare(routerOutlet: RouterOutlet): RouterOutlet {
