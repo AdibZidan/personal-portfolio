@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { fadeIn } from 'src/assets/animations/animations';
 
 @Component({
@@ -7,13 +7,9 @@ import { fadeIn } from 'src/assets/animations/animations';
   styleUrls: ['./header.component.scss'],
   animations: [fadeIn]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   public isVisible: boolean = true;
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
   public onClick(): void {
     this.isVisible = !this.isVisible;
