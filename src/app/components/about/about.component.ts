@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 import { languages } from '../../shared/languages/languages';
 import { backEnd, frontEnd, other } from '../../shared/languages/technology-stack';
 
@@ -7,46 +8,39 @@ import { backEnd, frontEnd, other } from '../../shared/languages/technology-stac
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
-  public showArrow = false;
-  public languages = languages;
-  public frontEndStacks = frontEnd;
-  public backEndStack = backEnd;
-  public otherStacks = other;
+  public isArrowShown: boolean = false;
+  public languages: string[] = languages;
+  public frontEndStacks: string[] = frontEnd;
+  public backEndStack: string = backEnd;
+  public otherStacks: string[] = other;
 
-  constructor() { }
+  constructor(
+    private viewportScroller: ViewportScroller
+  ) { }
 
-  ngOnInit(): void { }
-
-  public onClick(): void {
-    this.showArrow = false;
-    this.scrollUp();
-  }
-
-  @HostListener('window:scroll', [])
+  @HostListener('window:scroll')
   public onScroll(): void {
-    this.isUserOnBottom();
-  }
+    const yAxis: number = this.viewportScroller.getScrollPosition()[1];
 
-  public scrollUp(): void {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }
-
-  public isUserOnBottom(): void {
-    this.onBottom();
-  }
-
-  public onBottom(): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      this.showArrow = true;
+    if (yAxis > 700) {
+      this.isArrowShown = true;
+    } else {
+      this.isArrowShown = false;
     }
+  }
+
+  public scrollToTop(): void {
+    window.scroll({
+      top: 0, left: 0, behavior: 'smooth'
+    });
   }
 
   public get age(): number {
     const currentYear: number = new Date().getFullYear();
     const bornYear: number = new Date('January 1, 1995').getFullYear();
-    const currentAge = currentYear - bornYear;
+    const currentAge: number = currentYear - bornYear;
 
     return currentAge;
   }

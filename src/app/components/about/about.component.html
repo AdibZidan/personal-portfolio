@@ -108,15 +108,9 @@
 
     </section>
 
-    <ng-container *ngIf="showArrow">
-
-      <div class="arrow">
-
-        <i class="fas fa-arrow-up fa-1x" title="Scroll up" (click)="onClick()"></i>
-
-      </div>
-
-    </ng-container>
+    <div class="arrow" [class.is-shown]="isArrowShown" (click)="scrollToTop()">
+      <i class="fas fa-arrow-up fa-1x" title="Scroll up"></i>
+    </div>
 
   </div>
 
