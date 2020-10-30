@@ -1,29 +1,35 @@
 <header class="title">
-
   <h2>
     What's your task?
   </h2>
-
 </header>
 
 <main class="tasks">
-
   <p>
-    <span class="remove date">Today is: {{ date | date:'mediumDate' }} and it's {{ date | date:'mediumTime' }}</span>
+    <span class="remove date">
+      Today is: {{ date | date:'mediumDate' }} and it's {{ date | date:'mediumTime' }}
+    </span>
   </p>
 
   <ng-container *ngIf="tasks$ | async as tasks">
-
-    <app-form [task]="tasks" (addTask)="addTask($event)"></app-form>
+    <app-form
+      [task]="tasks"
+      (addTask)="addTask($event)">
+    </app-form>
 
     <p>
-      <span *ngIf="tasks.length > 1" class="remove">
-        There are {{ tasks.length }} tasks
-      </span>
+      <ng-container *ngIf="tasks.length > 1">
+        <span class="remove">
+          There are {{ tasks.length }} tasks
+        </span>
+      </ng-container>
     </p>
 
-    <app-body *ngFor="let task of tasks" [task]="task" (deleteTask)="deleteTask($event)"></app-body>
-
+    <ng-container *ngFor="let task of tasks">
+      <app-body
+        [task]="task"
+        (deleteTask)="deleteTask($event)">
+      </app-body>
+    </ng-container>
   </ng-container>
-
 </main>

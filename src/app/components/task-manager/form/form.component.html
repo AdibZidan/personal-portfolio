@@ -1,63 +1,77 @@
 <div class="outer">
-
   <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-
-    <input class="input" type="text" placeholder="Task *" formControlName="title" required>
+    <input
+      required
+      class="input"
+      type="text"
+      placeholder="Task *"
+      formControlName="title">
 
     <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
-
       <ng-container *ngIf="title">
         <span>Minimum of 3 characters is required</span>
       </ng-container>
-
     </ng-container>
 
-    <input class="input" type="text" placeholder="Description *" formControlName="description" required>
+    <input
+      required
+      class="input"
+      type="text"
+      placeholder="Description *"
+      formControlName="description">
 
     <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
-
       <ng-container *ngIf="description">
         <span>Minimum of 6 characters is required</span>
       </ng-container>
-
     </ng-container>
 
-    <input class="input percentage" type="number" placeholder="Percentage" [pattern]="validNumberPattern"
-      formControlName="percentage" onkeydown="return event.keyCode !== 69">
+    <input
+      [pattern]="validNumberPattern"
+      class="input percentage"
+      type="number"
+      placeholder="Percentage"
+      formControlName="percentage"
+      onkeydown="return event.keyCode !== 69">
 
     <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
-
       <ng-container *ngIf="validNumberPattern">
         <span>Between 1 and 100 is allowed</span>
       </ng-container>
-
     </ng-container>
 
     <div class="inner form-inner">
-
-      <label class="label" for="completed"><span class="completed">Completed?</span></label>
-
+      <label
+        class="label"
+        for="completed">
+        <span class="completed">Completed?</span>
+      </label>
     </div>
 
     <div class="checkbox">
-
       <label class="container">
-
         <input type="checkbox" formControlName="completed">
-        <span class="checkmark"></span>
-
+        <span
+          class="checkmark">
+        </span>
       </label>
-
     </div>
 
     <ng-container *ngIf="!isValidForm">
-      <input [disabled]="!isValidForm" title="{{ errorMessage }}" class="submit disabled" type="submit" value="SUBMIT">
+      <input
+        [disabled]="!isValidForm"
+        [title]="errorMessage"
+        class="submit disabled"
+        type="submit"
+        value="SUBMIT">
     </ng-container>
 
     <ng-container *ngIf="isValidForm">
-      <input [disabled]="isValidForm || !isValidForm" class="submit disabled" type="submit" value="SUBMIT">
+      <input
+        [disabled]="isValidForm || !isValidForm"
+        class="submit disabled"
+        type="submit"
+        value="SUBMIT">
     </ng-container>
-
   </form>
-
 </div>

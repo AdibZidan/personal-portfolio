@@ -2,35 +2,50 @@
   <article class="task">
     <h2>
       {{ task.title }}
+
       <div>
-        <button disabled class="button disabled" (click)="onDelete(task)">
-          X
+        <button
+          disabled
+          class="button disabled"
+          (click)="onDelete(task)">
+          &times;
         </button>
 
-        <app-dialog [task]="task" (save)="onEdit($event)">
+        <app-dialog
+          [task]="task"
+          (save)="onEdit($event)">
         </app-dialog>
       </div>
     </h2>
 
-    <label class="container" *ngIf="task.description">
-      <input
-        type="checkbox"
-        [checked]="task.completed"
-        (click)="onToggleFromUI(task)"
-        (click)="onToggleFromBackEnd(task)"
-        *ngIf="task.description">
+    <ng-container *ngIf="task.description">
+      <label class="container">
+        <ng-container *ngIf="task.description">
+          <input
+            type="checkbox"
+            [checked]="task.completed"
+            (click)="onToggleFromUI(task)"
+            (click)="onToggleFromBackEnd(task)">
+        </ng-container>
 
-      <p class="text" [ngClass]="setLineThrough()">
-        <span class="percentage" *ngIf="task.percentage">
-          {{ task.percentage }}%
+        <p class="text" [ngClass]="setLineThrough()">
+          <ng-container *ngIf="task.percentage">
+            <span class="percentage">
+              {{ task.percentage }}%
+            </span>
+          </ng-container>
+
+          <ng-container *ngIf="task.description">
+            <span>
+              {{ task.description }}
+            </span>
+          </ng-container>
+        </p>
+
+        <span
+          class="checkmark">
         </span>
-
-        <span *ngIf="task.description">
-          {{ task.description }}
-        </span>
-      </p>
-
-      <span class="checkmark"></span>
-    </label>
+      </label>
+    </ng-container>
   </article>
 </section>

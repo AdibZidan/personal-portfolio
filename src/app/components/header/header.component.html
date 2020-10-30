@@ -1,43 +1,68 @@
 <header class="header">
-
   <nav class="menu" @fadeIn>
+    <ng-container *ngIf="isVisible">
+      <div class="hamburger" (click)="onClick()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </ng-container>
 
-    <div class="hamburger" (click)="onClick()" *ngIf="isVisible">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <ng-container *ngIf="!isVisible">
+      <aside class="{'hide': isVisible === true ? : 'show'}" @fadeIn>
+        <a
+          (click)="onClick()"
+          [routerLink]="['/portfolio']"
+          routerLinkActive="active"
+          class="navigation-link">
+          Portfolio
+        </a>
 
-    <aside *ngIf="!isVisible" class="{'hide': isVisible === true ? : 'show'}" @fadeIn>
-      <a (click)="onClick()" [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">
-        Portfolio
-      </a>
+        <a
+          (click)="onClick()"
+          [routerLink]="['/about-me']"
+          routerLinkActive="active"
+          class="navigation-link">
+          About Me
+        </a>
 
-      <a (click)="onClick()" [routerLink]="['/about-me']" routerLinkActive="active" class="navigation-link">
-        About Me
-      </a>
-
-      <a (click)="onClick()" [routerLink]="['/task-manager']" routerLinkActive="active" class="navigation-link">
-        Task Manager
-      </a>
-    </aside>
+        <a
+          (click)="onClick()"
+          [routerLink]="['/task-manager']"
+          routerLinkActive="active"
+          class="navigation-link">
+          Task Manager
+        </a>
+      </aside>
+    </ng-container>
 
     <ul class="menu-navigation">
-
       <li class="navigation-item">
-        <a [routerLink]="['/portfolio']" routerLinkActive="active" class="navigation-link">Portfolio</a>
+        <a
+          [routerLink]="['/portfolio']"
+          routerLinkActive="active"
+          class="navigation-link">
+          Portfolio
+        </a>
       </li>
 
       <li class="navigation-item">
-        <a [routerLink]="['/about-me']" routerLinkActive="active" class="navigation-link">About Me</a>
+        <a
+          [routerLink]="['/about-me']"
+          routerLinkActive="active"
+          class="navigation-link">
+          About Me
+        </a>
       </li>
 
       <li class="navigation-item task-manager">
-        <a [routerLink]="['/task-manager']" routerLinkActive="active" class="navigation-link">Task Manager</a>
+        <a
+          [routerLink]="['/task-manager']"
+          routerLinkActive="active"
+          class="navigation-link">
+          Task Manager
+        </a>
       </li>
-
     </ul>
-
   </nav>
-
 </header>
