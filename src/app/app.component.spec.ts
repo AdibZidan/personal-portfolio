@@ -1,20 +1,23 @@
-import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './shared/modules/application/app-routing.module';
+import { TitleService } from './shared/services/title/title.service';
 
 describe('Application Component', () => {
 
-  let appComponent: AppComponent;
-  let appFixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let router: Router;
+  let titleService: TitleService;
+  let routerOutlet: RouterOutlet;
+  let title: Title;
 
-  let debugElement: DebugElement;
-  let htmlElement: HTMLElement;
-
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
@@ -25,54 +28,73 @@ describe('Application Component', () => {
         HeaderComponent
       ],
       providers: [
-        { provide: RouterOutlet }
+        {
+          provide: RouterOutlet,
+          useValue: {
+            activatedRouteData: {
+              animation: 'Test animation',
+              title: 'Test title'
+            }
+          }
+        },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            children: [{
+              snapshot: {
+                data: {
+                  title: 'Test title'
+                }
+              }
+            }]
+          }
+        }
       ]
-    }).compileComponents()));
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    appFixture = TestBed.createComponent(AppComponent);
-    appComponent = appFixture.componentInstance;
-
-    debugElement = appFixture.debugElement;
-    htmlElement = debugElement.nativeElement;
-
-    appFixture.detectChanges();
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+    titleService = TestBed.inject(TitleService);
+    routerOutlet = TestBed.inject(RouterOutlet);
+    title = TestBed.inject(Title);
   });
 
-  afterEach(() => appFixture.destroy());
-
-  it('Should exist/be defined', () =>
-    expect(appComponent)
-      .toBeDefined());
-
-  it('Should be built/compiled', () =>
-    expect(appComponent instanceof AppComponent)
-      .toBeTruthy());
-
-  it(`Should spy & call 'prepare' method`, () => {
-    spyOn(appComponent, 'prepare').and.callThrough();
-
-    appFixture.detectChanges();
-
-    expect(appComponent.prepare).toHaveBeenCalled();
+  it('Should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`Should have an 'app-header' tag`, () => {
-    const appHeader: Element = htmlElement.querySelector('app-header');
+  describe('Methods', () => {
+    it(`Should change the route's title`, () => {
+      spyOn(
+        router.events,
+        'pipe'
+      ).and.returnValue(
+        of(new NavigationEnd(0, 'test', 'test'))
+      );
 
-    expect(appHeader).toBeTruthy();
-  });
+      component.ngOnInit();
 
-  it(`Should have a 'section' tag`, () => {
-    const section: Element = htmlElement.querySelector('section');
+      expect(title.getTitle()).toEqual('Test title');
+    });
 
-    expect(section).toBeTruthy();
-  });
+    it('Should prepare the router outlet', () => {
+      spyOn(
+        component,
+        'prepare'
+      ).and.callThrough();
 
-  it(`Should have a 'router-outlet' tag`, () => {
-    const routerOutletTag: Element = htmlElement.querySelector('router-outlet');
+      component.prepare(routerOutlet);
 
-    expect(routerOutletTag).toBeTruthy();
+      expect(component.prepare).toHaveBeenCalledWith({
+        activatedRouteData: {
+          animation: 'Test animation',
+          title: 'Test title'
+        }
+      });
+    });
   });
 
 });

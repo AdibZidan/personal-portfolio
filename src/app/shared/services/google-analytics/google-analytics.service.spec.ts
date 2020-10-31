@@ -1,5 +1,4 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { async, TestBed } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { GoogleAnalyticsService } from './google-analytics.service';
 
@@ -7,12 +6,9 @@ describe('Google Analytics Service', () => {
 
   let service: GoogleAnalyticsService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        RouterTestingModule
-      ]
+      imports: [RouterTestingModule]
     });
   }));
 
@@ -20,14 +16,8 @@ describe('Google Analytics Service', () => {
     service = TestBed.inject(GoogleAnalyticsService);
   });
 
-  it('Should exist/be defined', () => {
-    expect(service)
-      .toBeDefined();
-  });
-
-  it('Should be built/compiled', () => {
-    expect(service)
-      .toBeTruthy();
+  it('Should create', () => {
+    expect(service).toBeTruthy();
   });
 
 });

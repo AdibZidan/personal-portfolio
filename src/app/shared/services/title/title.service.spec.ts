@@ -44,8 +44,7 @@ describe('Title Service', () => {
   });
 
   it('Should create', () => {
-    expect(service)
-      .toBeTruthy();
+    expect(service).toBeTruthy();
   });
 
   it('Should set the title', () => {
