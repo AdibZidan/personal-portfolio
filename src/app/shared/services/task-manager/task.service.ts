@@ -12,7 +12,9 @@ export class TaskService {
   public baseUrl: string = environment.baseUrl;
   public refresher$: Subject<Task> = new Subject<Task>();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   public get refresher(): Subject<Task> {
     return this.refresher$;

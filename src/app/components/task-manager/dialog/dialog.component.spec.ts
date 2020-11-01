@@ -1,89 +1,103 @@
+import { EventEmitter } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Observable, of } from 'rxjs';
+import { Task } from 'src/app/shared/interfaces/task.interface';
+import { taskMock } from 'src/app/shared/mocks/tasks-mock';
+import { FormComponent } from '../form/form.component';
 import { DialogComponent } from './dialog.component';
-import { ComponentFixture, async, TestBed } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 
 describe('Dialog Component', () => {
 
-  let dialogComponent: DialogComponent;
-  let dialogFixture: ComponentFixture<DialogComponent>;
+  let component: DialogComponent;
+  let fixture: ComponentFixture<DialogComponent>;
 
-  let debugElement: DebugElement;
-  let htmlElement: HTMLElement;
+  let matDialog: MatDialog;
+  let matDialogRef: MatDialogRef<FormComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [MatDialogModule],
       declarations: [DialogComponent],
-      providers: [
-        { provide: MatDialog },
-        {
-          provide: MatDialogRef,
-          useValue: undefined
-        }
-      ]
-    }).compileComponents()));
+      providers: [{
+        provide: MatDialogRef,
+        useValue: {}
+      }]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    dialogFixture = TestBed.createComponent(DialogComponent);
-    dialogComponent = dialogFixture.componentInstance;
+    fixture = TestBed.createComponent(DialogComponent);
+    component = fixture.componentInstance;
 
-    debugElement = dialogFixture.debugElement;
-    htmlElement = debugElement.nativeElement;
+    matDialog = TestBed.inject(MatDialog);
+    matDialogRef = TestBed.inject(MatDialogRef);
   });
 
-  afterEach(() => dialogFixture.destroy());
-
-  it('Should exist', () =>
-    expect(dialogComponent)
-      .toBeDefined());
-
-  it('Should be built/compiled', () =>
-    expect(dialogComponent instanceof DialogComponent)
-      .toBeTruthy());
-
-  it(`Should have an undefined 'task input' before 'ngOnInit'`, () => {
-    const taskInput = dialogComponent.task;
-
-    expect(taskInput).toBeUndefined();
+  it('Should create', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`Should have a defined 'subscription' property before 'ngOnInit'`, () => {
-    const subscription = dialogComponent.subscription;
+  describe('Properties', () => {
+    it('Should have an undefined task input property', () => {
+      expect(component.task).toBeUndefined();
+    });
 
-    expect(subscription).toBeDefined();
+    it('Should have a defined save output property', () => {
+      expect(component.save).toEqual(new EventEmitter<Task>());
+    });
   });
 
-  it(`Should spy & call 'ngOnDestroy method'`, () => {
-    dialogFixture.detectChanges();
-
-    spyOn(dialogComponent, 'ngOnDestroy').and.callThrough();
-
-    dialogComponent.ngOnDestroy();
-
-    expect(dialogComponent.ngOnDestroy).toHaveBeenCalled();
-  });
-
-  describe('Dialog Component HTML', () => {
-
-    let button: HTMLButtonElement;
-
+  describe('Methods', () => {
     beforeEach(() => {
-      button = htmlElement.querySelector('button.button');
+      component.task = taskMock;
     });
 
-    it(`Should have a defined/truthy 'button'`, () => {
-      expect(button).toBeDefined();
-      expect(button).toBeTruthy();
+    it('Should unsubscribe', () => {
+      spyOn(
+        component.subscription,
+        'unsubscribe'
+      );
+
+      expect(component.subscription.unsubscribe).not.toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(0);
+
+      component.ngOnDestroy();
+
+      expect(component.subscription.unsubscribe).toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(1);
     });
 
-    it(`Should have edit as its 'innerHtml'`, () => {
-      const expectedButtonHTML = 'EDIT';
-      const actualButtonHTML = button.innerHTML.trim();
+    it('Should open the dialog', () => {
+      spyOn(matDialog, 'open')
+        .and.returnValue({
+          afterClosed: (): Observable<Task> =>
+            of(component.task)
+        });
 
-      expect(actualButtonHTML).toEqual(expectedButtonHTML);
+      spyOn(
+        component.save,
+        'emit'
+      );
+
+      component.onClick();
+
+      expect(matDialog.open).toHaveBeenCalled();
+      expect(matDialog.open).toHaveBeenCalledTimes(1);
+      expect(matDialog.open).toHaveBeenCalledWith(
+        FormComponent,
+        {
+          data: component.task,
+          autoFocus: true,
+          disableClose: true,
+          width: '0 auto',
+          panelClass: 'dialog'
+        }
+      );
+      expect(component.save.emit).toHaveBeenCalled();
+      expect(component.save.emit).toHaveBeenCalledTimes(1);
+      expect(component.save.emit).toHaveBeenCalledWith(component.task);
     });
-
   });
 
 });

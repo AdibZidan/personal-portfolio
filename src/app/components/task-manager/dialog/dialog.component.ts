@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Task } from '../../../shared/interfaces/task.interface';
@@ -9,7 +9,7 @@ import { FormComponent } from '../form/form.component';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
-export class DialogComponent implements OnInit, OnDestroy {
+export class DialogComponent implements OnDestroy {
 
   @Input()
   public task: Task;
@@ -23,8 +23,6 @@ export class DialogComponent implements OnInit, OnDestroy {
     private dialog: MatDialog,
     private matDialogRef: MatDialogRef<FormComponent>
   ) { }
-
-  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

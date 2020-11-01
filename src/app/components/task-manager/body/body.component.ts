@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { fadeIn, setLineThrough } from '../../../../assets/animations/animations';
 import { Task } from '../../../shared/interfaces/task.interface';
@@ -10,7 +10,7 @@ import { TaskService } from '../../../shared/services/task-manager/task.service'
   styleUrls: ['./body.component.scss'],
   animations: [fadeIn]
 })
-export class BodyComponent implements OnInit, OnDestroy {
+export class BodyComponent implements OnDestroy {
 
   @Input()
   public task: Task;
@@ -20,9 +20,9 @@ export class BodyComponent implements OnInit, OnDestroy {
 
   public subscription: Subscription = new Subscription();
 
-  constructor(private taskService: TaskService) { }
-
-  ngOnInit(): void { }
+  constructor(
+    private taskService: TaskService
+  ) { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

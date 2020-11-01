@@ -1,132 +1,136 @@
-import { HttpClientModule } from '@angular/common/http';
-import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { EventEmitter } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
+import { Task } from 'src/app/shared/interfaces/task.interface';
+import { taskServiceSpy } from 'src/app/shared/mocks/task-service.mock';
 import { taskMock } from 'src/app/shared/mocks/tasks-mock';
-import { Task } from '../../../shared/interfaces/task.interface';
 import { TaskService } from '../../../shared/services/task-manager/task.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { BodyComponent } from './body.component';
 
 describe('Body Component', () => {
 
-  let bodyComponent: BodyComponent;
-  let bodyFixture: ComponentFixture<BodyComponent>;
+  let component: BodyComponent;
+  let fixture: ComponentFixture<BodyComponent>;
 
-  let debugElement: DebugElement;
-  let htmlElement: HTMLElement;
+  let taskService: jasmine.SpyObj<TaskService>;
 
-  let taskService: TaskService;
-
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientModule,
+        HttpClientTestingModule,
         MatDialogModule
       ],
       declarations: [
         BodyComponent,
         DialogComponent
       ],
-      providers: [{
-        provide: MatDialogRef,
-        useValue: undefined
-      }]
-    }).compileComponents()));
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: undefined
+        },
+        {
+          provide: TaskService,
+          useValue: taskServiceSpy
+        }
+      ]
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    bodyFixture = TestBed.createComponent(BodyComponent);
-    bodyComponent = bodyFixture.componentInstance;
+    fixture = TestBed.createComponent(BodyComponent);
+    component = fixture.componentInstance;
 
-    debugElement = bodyFixture.debugElement;
-    htmlElement = debugElement.nativeElement;
-
-    taskService = TestBed.inject(TaskService);
+    taskService = TestBed.inject(TaskService) as jasmine.SpyObj<TaskService>;
   });
 
-  afterEach(() => bodyFixture.destroy());
-
-  it('Should exist', () =>
-    expect(bodyComponent)
-      .toBeDefined());
-
-  it('Should be built/compiled', () =>
-    expect(bodyComponent instanceof BodyComponent)
-      .toBeTruthy());
-
-  it(`Should have a task 'input'`, () => {
-    const taskInput = bodyComponent.task = taskMock;
-
-    expect(taskInput).toBe(taskMock);
+  it('Should exist', () => {
+    expect(component).toBeTruthy();
   });
 
-  it(`Should have a defined 'deleteTask' 'output'`, () => {
-    const deleteTaskOutput = bodyComponent.deleteTask;
+  describe('Properties', () => {
+    it('Should have an undefined task input property', () => {
+      expect(component.task).toBeUndefined();
+    });
 
-    expect(deleteTaskOutput).toBeDefined();
+    it('Should have a defined deleteTask output property', () => {
+      expect(component.deleteTask).toEqual(new EventEmitter<Task>());
+    });
+
+    it('Should have a defined subscription property', () => {
+      expect(component.subscription).toEqual(new Subscription());
+    });
   });
 
-  it(`Should have an defined 'subscription' property before 'ngOnInit'`, () => {
-    const subscription = bodyComponent.subscription;
+  describe('Methods', () => {
+    beforeEach(() => {
+      component.task = taskMock;
+    });
 
-    expect(subscription).toBeDefined();
-  });
+    it('Should unsubscribe', () => {
+      spyOn(
+        component.subscription,
+        'unsubscribe'
+      );
 
-  it(`Should spy & call 'ngOnDestroy' method`, () => {
-    bodyComponent.subscription = new Subscription();
+      expect(component.subscription.unsubscribe).not.toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(0);
 
-    spyOn(bodyComponent, 'ngOnDestroy').and.callThrough();
+      component.ngOnDestroy();
 
-    bodyComponent.ngOnDestroy();
+      expect(component.subscription.unsubscribe).toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(1);
+    });
 
-    expect(bodyComponent.ngOnDestroy).toHaveBeenCalled();
-  });
+    it('Should set a line through a task', () => {
+      expect(component.setLineThrough()).toEqual({
+        'is-complete': component.task.completed
+      });
+    });
 
-  it(`Should spy & call 'setLineThrough' method`, () => {
-    bodyComponent.task = taskMock;
+    it('Should toggle the task from the UI', () => {
+      expect(component.task.completed).toEqual(false);
 
-    spyOn(bodyComponent, 'setLineThrough').and.callThrough();
+      component.onToggleFromUI(component.task);
 
-    bodyComponent.setLineThrough();
+      expect(component.task.completed).toEqual(true);
+    });
 
-    expect(bodyComponent.setLineThrough).toHaveBeenCalled();
-  });
+    it('Should toggle the task from task service', () => {
+      taskService.toggleTaskFromBackEnd.and.returnValue(of(component.task));
 
-  it(`Should toggle the completed property of a 'task' with the 'onToggleFromUI' method`, () => {
-    const task = taskMock;
+      component.onToggleFromBackEnd(component.task);
 
-    expect(task.completed).toBe(false);
+      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalled();
+      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalledTimes(1);
+      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalledWith(component.task);
+    });
 
-    bodyComponent.onToggleFromUI(task);
+    it('Should emit task deletion', () => {
+      spyOn(
+        component.deleteTask,
+        'emit'
+      );
 
-    expect(task.completed).toBe(true);
-  });
+      component.onDelete(component.task);
 
-  it(`Should spy & call 'onToggleFromBackEnd' method`, () => {
-    spyOn(bodyComponent, 'onToggleFromBackEnd').and.callThrough();
+      expect(component.deleteTask.emit).toHaveBeenCalled();
+      expect(component.deleteTask.emit).toHaveBeenCalledTimes(1);
+      expect(component.deleteTask.emit).toHaveBeenCalledWith(component.task);
+    });
 
-    bodyComponent.onToggleFromBackEnd(taskMock);
+    it('Should edit a task', () => {
+      taskService.editTaskFromBackEnd.and.returnValue(of(component.task));
 
-    expect(bodyComponent.onToggleFromBackEnd).toHaveBeenCalled();
-  });
+      component.onEdit(component.task);
 
-  it(`Should emit 'deleteTask' with 'onDelete' method`, () => {
-    bodyComponent
-      .deleteTask
-      .subscribe((taskToGetDeleted: Task) =>
-        expect(taskToGetDeleted)
-          .toBe(taskMock));
-
-    bodyComponent.onDelete(taskMock);
-  });
-
-  it(`Should spy & call 'onEdit' method`, () => {
-    spyOn(bodyComponent, 'onEdit').and.callThrough();
-
-    bodyComponent.onEdit(taskMock);
-
-    expect(bodyComponent.onEdit).toHaveBeenCalled();
+      expect(taskService.editTaskFromBackEnd).toHaveBeenCalledTimes(1);
+      expect(taskService.editTaskFromBackEnd).toHaveBeenCalledWith(component.task);
+      expect(taskService.editTaskFromBackEnd).toHaveBeenCalled();
+    });
   });
 
 });

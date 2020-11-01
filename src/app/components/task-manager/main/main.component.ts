@@ -14,7 +14,9 @@ export class MainComponent implements OnInit, OnDestroy {
   public date: number = Date.now();
   public subscription: Subscription = new Subscription();
 
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService
+  ) { }
 
   ngOnInit(): void {
     this.getTasks();

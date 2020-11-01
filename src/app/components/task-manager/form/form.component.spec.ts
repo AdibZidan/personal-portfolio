@@ -1,22 +1,21 @@
-import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { taskMock } from '../../../shared/mocks/tasks-mock';
+import { EventEmitter } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { Task } from 'src/app/shared/interfaces/task.interface';
+import { taskMock } from 'src/app/shared/mocks/tasks-mock';
 import { FormComponent } from './form.component';
 
 describe('Form Component', () => {
 
-  let formComponent: FormComponent;
-  let formFixture: ComponentFixture<FormComponent>;
+  let component: FormComponent;
+  let fixture: ComponentFixture<FormComponent>;
 
-  let debugElement: DebugElement;
-  let htmlElement: HTMLElement;
+  let matDialog: MatDialog;
+  let matDialogRef: MatDialogRef<FormComponent>;
 
-  let formBuilder: FormBuilder;
-  let formGroup: FormGroup;
-
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
@@ -27,110 +26,177 @@ describe('Form Component', () => {
       providers: [
         {
           provide: MatDialogRef,
-          useValue: undefined
+          useValue: {
+            close: () => { }
+          }
         },
         {
           provide: MAT_DIALOG_DATA,
-          useValue: undefined
+          useValue: {}
         }
       ]
-    }).compileComponents()));
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    formFixture = TestBed.createComponent(FormComponent);
-    formComponent = formFixture.componentInstance;
+    fixture = TestBed.createComponent(FormComponent);
+    component = fixture.componentInstance;
 
-    debugElement = formFixture.debugElement;
-    htmlElement = debugElement.nativeElement;
+    matDialog = TestBed.inject(MatDialog);
+    matDialogRef = TestBed.inject(MatDialogRef);
+  });
 
-    formBuilder = TestBed.inject(FormBuilder);
+  it('Should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-    formGroup = formBuilder.group({
-      id: [''],
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(6)]],
-      percentage: [''],
-      completed: [false]
+  describe('Properties', () => {
+    it('Should have an undefined task input property', () => {
+      expect(component.task).toBeUndefined();
+    });
+
+    it('Should have a defined addTask output property', () => {
+      expect(component.addTask).toEqual(new EventEmitter<Task>());
+    });
+
+    it('Should have an undefined formGroup property', () => {
+      expect(component.formGroup).toBeUndefined();
+    });
+
+    it('Should have a defined isValidForm property', () => {
+      expect(component.isValidForm).toEqual(false);
+    });
+
+    it('Should have a defined validNumberPattern property', () => {
+      const expectedValidNumberPattern: string = '^[1-9][0-9]?$|^100$';
+
+      expect(component.validNumberPattern).toEqual(expectedValidNumberPattern);
+    });
+
+    it('Should have a defined errorMessage property', () => {
+      const expectedErrorMessage: string = 'Please fill the form above';
+
+      expect(component.errorMessage).toEqual(expectedErrorMessage);
+    });
+
+    it('Should have a defined subscription property', () => {
+      expect(component.subscription).toEqual(new Subscription());
     });
   });
 
-  afterEach(() => formFixture.destroy());
+  describe('Methods', () => {
+    beforeEach(() => {
+      component.task = taskMock;
+      component.ngOnInit();
+      fixture.detectChanges();
+    });
 
-  it('Should exist/be defined', () =>
-    expect(formComponent)
-      .toBeDefined());
+    it('Should unsubscribe', () => {
+      spyOn(
+        component.subscription,
+        'unsubscribe'
+      );
 
-  it('Should be built/compiled', () =>
-    expect(formComponent instanceof FormComponent)
-      .toBeTruthy());
+      expect(component.subscription.unsubscribe).not.toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(0);
 
-  it(`Should have an undefined 'task input' before 'ngOnInit'`, () => {
-    const taskInput = formComponent.task;
+      component.ngOnDestroy();
 
-    expect(taskInput).toBeUndefined();
-  });
+      expect(component.subscription.unsubscribe).toHaveBeenCalled();
+      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(1);
+    });
 
-  it(`Should have a defined task 'input'`, () => {
-    const taskInput = formComponent.task = taskMock;
+    it('Should assign the task property to data', () => {
+      // Reason that the task is an empty object is because MAT_DIALOG_DATA uses an empty object by default.
+      // See the providers array at the top.
+      expect(component.task).toEqual({} as any);
+    });
 
-    expect(taskInput).toBeDefined();
-  });
+    it('Should initialize the form', () => {
+      component.onSubmit();
 
-  it(`Should have an undefined 'formGroup' before 'ngOnInit'`, () => {
-    const undefinedFormGroup = formComponent.formGroup;
+      expect(component.formGroup).toBeDefined();
+      expect(component.formGroup.valid).toEqual(false);
+      expect(component.isValidForm).toEqual(false);
+    });
 
-    expect(undefinedFormGroup).toBeUndefined();
-  });
+    it('Should validate the title input', () => {
+      component.formGroup.controls.title.markAsTouched();
+      expect(component.formGroup.controls.title.errors).toEqual({
+        required: true
+      });
 
-  it(`Should have an invalid 'formGroup' at the start`, () => {
-    const isValid: boolean = formGroup.valid;
+      component.formGroup.controls.title.setValue('12');
+      expect(component.formGroup.controls.title.errors).toEqual({
+        minlength: {
+          requiredLength: 3,
+          actualLength: 2
+        }
+      });
 
-    expect(isValid).toBe(false);
-  });
+      component.formGroup.controls.title.setValue('123');
+      expect(component.formGroup.controls.title.errors).toBeNull();
+    });
 
-  it(`Should have a valid 'formGroup' if the user adds the required details`, () => {
-    formGroup.controls.id.setValue(1);
-    formGroup.controls.title.setValue('This is the title');
-    formGroup.controls.description.setValue('This is the description');
-    formGroup.controls.percentage.setValue(100);
-    formGroup.controls.completed.setValue(true);
+    it('Should validate the description input', () => {
+      component.formGroup.controls.description.markAsTouched();
+      expect(component.formGroup.controls.description.errors).toEqual({
+        required: true
+      });
 
-    expect(formGroup.valid).toBe(true);
-  });
+      component.formGroup.controls.description.setValue('123');
+      expect(component.formGroup.controls.description.errors).toEqual({
+        minlength: {
+          requiredLength: 6,
+          actualLength: 3
+        }
+      });
 
-  it(`Should have a falsy 'isValidForm' property before 'onFormBuild' method`, () => {
-    const expectedIsValidForm = false;
-    const actualIsValidForm: boolean = formComponent.isValidForm;
+      component.formGroup.controls.description.setValue('123456');
+      expect(component.formGroup.controls.description.errors).toBeNull();
+    });
 
-    expect(expectedIsValidForm).toBe(actualIsValidForm);
-  });
+    it('Should validate the percentage input', () => {
+      component.formGroup.controls.percentage.markAsTouched();
+      expect(component.formGroup.controls.percentage.errors).toBeNull();
+    });
 
-  it(`Should have a 'validNumberPattern' property`, () => {
-    const expectedValidNumberPattern = '^[1-9][0-9]?$|^100$';
-    const actualValidNumberPattern: string = formComponent.validNumberPattern;
+    it('Should initially have a completed input value with the value of false', () => {
+      expect(component.formGroup.controls.completed.value).toEqual(false);
+    });
 
-    expect(expectedValidNumberPattern).toBe(actualValidNumberPattern);
-  });
+    it('Should allow for form submission if the form is valid', () => {
+      component.formGroup.controls.title.setValue('Test Title');
+      component.formGroup.controls.description.setValue('Test Description');
+      component.formGroup.controls.percentage.setValue(100);
 
-  it(`Should have an 'errorMessage' property`, () => {
-    const expectedErrorMessage = 'Please fill the form above';
-    const actualErrorMessage: string = formComponent.errorMessage;
+      expect(component.title.value).toEqual('Test Title');
+      expect(component.description.value).toEqual('Test Description');
+      expect(component.percentage.value).toEqual(100);
+      expect(component.formGroup.valid).toEqual(true);
 
-    expect(expectedErrorMessage).toBe(actualErrorMessage);
-  });
+      spyOn(component.addTask, 'emit');
+      spyOn(matDialogRef, 'close');
+      spyOn(component.formGroup, 'reset');
 
-  it(`Should have a defined 'subscription' property before 'ngOnInit'`, () => {
-    const subscription = formComponent.subscription;
+      component.onSubmit();
 
-    expect(subscription).toBeDefined();
-  });
-
-  it(`Should spy & call 'ngOnDestroy' method`, () => {
-    spyOn(formComponent, 'ngOnDestroy').and.callThrough();
-
-    formComponent.ngOnDestroy();
-
-    expect(formComponent.ngOnDestroy).toHaveBeenCalled();
+      expect(component.addTask.emit).toHaveBeenCalledWith({
+        id: '',
+        title: 'Test Title',
+        description: 'Test Description',
+        percentage: 100,
+        completed: false
+      });
+      expect(matDialogRef.close).toHaveBeenCalledWith({
+        id: '',
+        title: 'Test Title',
+        description: 'Test Description',
+        percentage: 100,
+        completed: false
+      });
+      expect(component.formGroup.reset).toHaveBeenCalled();
+    });
   });
 
 });

@@ -31,31 +31,14 @@ export class FormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.onFormBuild();
+    this.assignTaskToData();
+    this.initializeForm();
+    this.listenForFormValueChange();
+    this.patchTask();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  public onFormBuild(): void {
-    this.task = this.data;
-
-    this.formGroup = this.formBuilder.group({
-      id: [''],
-      title: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(6)]],
-      percentage: [''],
-      completed: [false]
-    });
-
-    this.subscription = this.formGroup
-      .valueChanges
-      .subscribe((): boolean =>
-        this.isValidForm = this.formGroup.valid
-      );
-
-    this.formGroup.patchValue(this.task);
   }
 
   public onSubmit(): void {
@@ -76,6 +59,32 @@ export class FormComponent implements OnInit, OnDestroy {
 
   public get percentage(): AbstractControl {
     return this.formGroup.get('percentage');
+  }
+
+  private assignTaskToData(): void {
+    this.task = this.data;
+  }
+
+  private initializeForm(): void {
+    this.formGroup = this.formBuilder.group({
+      id: [''],
+      title: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(6)]],
+      percentage: [''],
+      completed: [false]
+    });
+  }
+
+  private listenForFormValueChange(): void {
+    this.subscription = this.formGroup
+      .valueChanges
+      .subscribe((): boolean =>
+        this.isValidForm = this.formGroup.valid
+      );
+  }
+
+  private patchTask(): void {
+    this.formGroup.patchValue(this.task);
   }
 
 }
