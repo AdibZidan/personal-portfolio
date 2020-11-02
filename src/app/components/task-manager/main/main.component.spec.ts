@@ -1,8 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { of } from 'rxjs';
 import { taskServiceSpy } from 'src/app/shared/mocks/task-service.mock';
+import { taskMock } from 'src/app/shared/mocks/tasks-mock';
 import { TaskService } from '../../../shared/services/task-manager/task.service';
 import { BodyComponent } from '../body/body.component';
 import { DialogComponent } from '../dialog/dialog.component';
@@ -55,25 +56,44 @@ describe('Main Component', () => {
       expect(component.date).toBeDefined();
     });
 
-    it('Should have a defined subscription property', () => {
-      expect(component.subscription).toEqual(new Subscription());
+    it('Should have a empty subscriptions property', () => {
+      expect(component.subscriptions).toEqual([]);
     });
   });
 
   describe('Methods', () => {
-    it('Should unsubscribe', () => {
-      spyOn(
-        component.subscription,
-        'unsubscribe'
-      );
+    it('Should fetch the tasks', () => {
+      component.ngOnInit();
 
-      expect(component.subscription.unsubscribe).not.toHaveBeenCalled();
-      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(0);
+      expect(component.tasks$).toEqual(taskService.getTasksFromBackEnd());
+      expect(component.subscriptions.length).toEqual(0);
+    });
 
-      component.ngOnDestroy();
+    it('Should have an updated time after a second', fakeAsync(() => {
+      component.date = 0;
+      component.ngOnInit();
 
-      expect(component.subscription.unsubscribe).toHaveBeenCalled();
-      expect(component.subscription.unsubscribe).toHaveBeenCalledTimes(1);
+      tick(1000);
+
+      expect(component.date).toBeGreaterThan(0);
+
+      discardPeriodicTasks();
+    }));
+
+    it('Should add the task', () => {
+      taskService.addTaskToBackEnd.and.returnValue(of(taskMock));
+      component.addTask(taskMock);
+
+      expect(taskService.addTaskToBackEnd).toHaveBeenCalledWith(taskMock);
+      expect(component.subscriptions.length).toEqual(1);
+    });
+
+    it('Should delete the task', () => {
+      taskService.deleteTaskFromBackEnd.and.returnValue(of(taskMock));
+      component.deleteTask(taskMock);
+
+      expect(taskService.deleteTaskFromBackEnd).toHaveBeenCalledWith(taskMock);
+      expect(component.subscriptions.length).toEqual(1);
     });
   });
 

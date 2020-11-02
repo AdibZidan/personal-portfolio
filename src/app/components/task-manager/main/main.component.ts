@@ -10,9 +10,9 @@ import { TaskService } from '../../../shared/services/task-manager/task.service'
 })
 export class MainComponent implements OnInit, OnDestroy {
 
+  public subscriptions: Subscription[] = [];
   public tasks$: Observable<Task[]>;
   public date: number = Date.now();
-  public subscription: Subscription = new Subscription();
 
   constructor(
     private taskService: TaskService
@@ -24,33 +24,37 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  public getTasks(): void {
-    this.tasks$ = this.taskService.getTasksFromBackEnd();
-    this.subscription = this.taskService
-      .refresher
-      .subscribe((): void => this.getTasks());
+    this.subscriptions
+      .forEach((subscription: Subscription): void =>
+        subscription.unsubscribe()
+      );
   }
 
   public addTask(task: Task): void {
-    this.subscription = this.taskService
+    const subscription: Subscription = this.taskService
       .addTaskToBackEnd(task)
       .subscribe((): void =>
         this.getTasks()
       );
+
+    this.subscriptions.push(subscription);
   }
 
   public deleteTask(task: Task): void {
-    this.subscription = this.taskService
+    const subscription: Subscription = this.taskService
       .deleteTaskFromBackEnd(task)
       .subscribe((): void =>
         this.getTasks()
       );
+
+    this.subscriptions.push(subscription);
   }
 
-  public updateTime(): void {
+  private getTasks(): void {
+    this.tasks$ = this.taskService.getTasksFromBackEnd();
+  }
+
+  private updateTime(): void {
     setInterval((): number =>
       this.date = Date.now(),
       1000

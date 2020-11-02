@@ -5,8 +5,9 @@ import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Task } from '../../interfaces/task.interface';
 
-@Injectable({ providedIn: 'root' })
-
+@Injectable({
+  providedIn: 'root'
+})
 export class TaskService {
 
   public baseUrl: string = environment.baseUrl;
