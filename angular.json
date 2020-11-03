@@ -95,7 +95,8 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "codeCoverage": true
+            "codeCoverage": true,
+            "codeCoverageExclude": ["src/app/shared/routes/lazy-load/lazy-load-components.ts"]
           }
         },
         "lint": {
