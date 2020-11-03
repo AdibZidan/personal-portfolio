@@ -1,10 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, discardPeriodicTasks, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { taskServiceSpy } from '@shared/mocks/task-service.mock';
+import { taskMock } from '@shared/mocks/tasks-mock';
+import { TaskService } from '@shared/services/task-manager/task.service';
 import { of } from 'rxjs';
-import { taskServiceSpy } from 'src/app/shared/mocks/task-service.mock';
-import { taskMock } from 'src/app/shared/mocks/tasks-mock';
-import { TaskService } from '../../../shared/services/task-manager/task.service';
 import { BodyComponent } from '../body/body.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { FormComponent } from '../form/form.component';
@@ -65,7 +65,7 @@ describe('Main Component', () => {
     it('Should fetch the tasks', () => {
       component.ngOnInit();
 
-      expect(component.tasks$).toEqual(taskService.getTasksFromBackEnd());
+      expect(component.tasks$).toEqual(taskService.getTasks$());
       expect(component.subscriptions.length).toEqual(0);
     });
 
@@ -81,18 +81,18 @@ describe('Main Component', () => {
     }));
 
     it('Should add the task', () => {
-      taskService.addTaskToBackEnd.and.returnValue(of(taskMock));
+      taskService.addTask$.and.returnValue(of(taskMock));
       component.addTask(taskMock);
 
-      expect(taskService.addTaskToBackEnd).toHaveBeenCalledWith(taskMock);
+      expect(taskService.addTask$).toHaveBeenCalledWith(taskMock);
       expect(component.subscriptions.length).toEqual(1);
     });
 
     it('Should delete the task', () => {
-      taskService.deleteTaskFromBackEnd.and.returnValue(of(taskMock));
+      taskService.deleteTask$.and.returnValue(of(taskMock));
       component.deleteTask(taskMock);
 
-      expect(taskService.deleteTaskFromBackEnd).toHaveBeenCalledWith(taskMock);
+      expect(taskService.deleteTask$).toHaveBeenCalledWith(taskMock);
       expect(component.subscriptions.length).toEqual(1);
     });
   });

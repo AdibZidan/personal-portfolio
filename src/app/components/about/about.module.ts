@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { AboutComponent } from '@components/about/about.component';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 import { AboutRoutingModule } from './about-routing.module';
-import { AboutComponent } from '../../../components/about/about.component';
-import { FooterComponent } from '../../components/footer/footer.component';
 
 @NgModule({
   declarations: [

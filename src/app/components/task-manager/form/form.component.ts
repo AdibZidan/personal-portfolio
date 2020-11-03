@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Task } from '@shared/interfaces/task.interface';
 import { Subscription } from 'rxjs';
-import { Task } from '../../../shared/interfaces/task.interface';
 
 @Component({
   selector: 'app-form',

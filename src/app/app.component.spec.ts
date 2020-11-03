@@ -3,9 +3,9 @@ import { Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { of } from 'rxjs';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AppRoutingModule } from './shared/modules/application/app-routing.module';
 import { TitleService } from './shared/services/title/title.service';
 
 describe('Application Component', () => {

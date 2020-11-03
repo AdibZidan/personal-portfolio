@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Task } from '@shared/interfaces/task.interface';
+import { TaskService } from '@shared/services/task-manager/task.service';
 import { Observable, Subscription } from 'rxjs';
-import { Task } from '../../../shared/interfaces/task.interface';
-import { TaskService } from '../../../shared/services/task-manager/task.service';
 
 @Component({
   selector: 'app-main',
@@ -32,7 +32,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public addTask(task: Task): void {
     const subscription: Subscription = this.taskService
-      .addTaskToBackEnd(task)
+      .addTask$(task)
       .subscribe((): void =>
         this.getTasks()
       );
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
   public deleteTask(task: Task): void {
     const subscription: Subscription = this.taskService
-      .deleteTaskFromBackEnd(task)
+      .deleteTask$(task)
       .subscribe((): void =>
         this.getTasks()
       );
@@ -51,7 +51,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   private getTasks(): void {
-    this.tasks$ = this.taskService.getTasksFromBackEnd();
+    this.tasks$ = this.taskService.getTasks$();
   }
 
   private updateTime(): void {

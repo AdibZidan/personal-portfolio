@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fadeIn } from 'src/assets/animations/animations';
+import { fadeIn } from '@animations';
 
 @Component({
   selector: 'app-header',

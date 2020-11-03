@@ -11,7 +11,7 @@ export const routes: Routes = [
     redirectTo: 'portfolio',
     pathMatch: 'full',
     data: {
-      tite: `Adib's Portfolio`
+      title: `Adib's Portfolio`
     }
   },
   {

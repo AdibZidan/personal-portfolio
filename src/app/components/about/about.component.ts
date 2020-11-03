@@ -1,7 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
-import { languages } from '../../shared/languages/languages';
-import { backEnd, frontEnd, other } from '../../shared/languages/technology-stack';
+import { languages } from '@shared/languages/languages';
+import { backEnd, frontEnd, other } from '@shared/languages/technology-stack';
 
 @Component({
   selector: 'app-about',

@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { AppComponent } from '../../../app.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { GoogleAnalyticsService } from '../../services/google-analytics/google-analytics.service';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from '@app';
+import { HeaderComponent } from '@components/header/header.component';
+import { GoogleAnalyticsService } from '@shared/services/google-analytics/google-analytics.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,8 @@ import { GoogleAnalyticsService } from '../../services/google-analytics/google-a
 
 export class AppModule {
 
-  constructor(private googleAnalyticsService: GoogleAnalyticsService) { }
+  constructor(
+    private googleAnalyticsService: GoogleAnalyticsService
+  ) { }
 
 }

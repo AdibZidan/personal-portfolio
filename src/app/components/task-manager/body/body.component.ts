@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { fadeIn, setLineThrough } from '@animations';
+import { Task } from '@shared/interfaces/task.interface';
+import { TaskService } from '@shared/services/task-manager/task.service';
 import { Subscription } from 'rxjs';
-import { fadeIn, setLineThrough } from '../../../../assets/animations/animations';
-import { Task } from '../../../shared/interfaces/task.interface';
-import { TaskService } from '../../../shared/services/task-manager/task.service';
 
 @Component({
   selector: 'app-body',
@@ -38,7 +38,7 @@ export class BodyComponent implements OnDestroy {
 
   public onToggleFromBackEnd(task: Task): void {
     this.subscription = this.taskService
-      .toggleTaskFromBackEnd(task)
+      .toggleTask$(task)
       .subscribe();
   }
 
@@ -48,7 +48,7 @@ export class BodyComponent implements OnDestroy {
 
   public async onEdit(task: Task): Promise<void> {
     await this.taskService
-      .editTaskFromBackEnd(task)
+      .editTask$(task)
       .toPromise();
   }
 

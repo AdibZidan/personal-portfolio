@@ -17,6 +17,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app": [
+        "src/app/app.component"
+      ],
+      "@components/*": [
+        "src/app/components/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@animations": [
+        "src/assets/animations/animations"
+      ]
+    }
   }
 }

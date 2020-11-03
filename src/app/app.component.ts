@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { easeIn } from '../assets/animations/animations';
+import { easeIn } from '@animations';
 import { TitleService } from './shared/services/title/title.service';
 
 @Component({

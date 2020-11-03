@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Task } from '../../app/shared/interfaces/task.interface';
+import { Task } from '@shared/interfaces/task.interface';
 
 export const easeIn = trigger('routeAnimations', [
   transition('* <=> *', [

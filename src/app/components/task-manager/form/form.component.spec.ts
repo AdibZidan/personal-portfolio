@@ -2,9 +2,9 @@ import { EventEmitter } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Task } from '@shared/interfaces/task.interface';
+import { taskMock } from '@shared/mocks/tasks-mock';
 import { Subscription } from 'rxjs';
-import { Task } from 'src/app/shared/interfaces/task.interface';
-import { taskMock } from 'src/app/shared/mocks/tasks-mock';
 import { FormComponent } from './form.component';
 
 describe('Form Component', () => {

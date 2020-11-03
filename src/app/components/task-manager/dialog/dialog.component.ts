@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Task } from '@shared/interfaces/task.interface';
 import { Subscription } from 'rxjs';
-import { Task } from '../../../shared/interfaces/task.interface';
 import { FormComponent } from '../form/form.component';
 
 @Component({
@@ -39,7 +39,7 @@ export class DialogComponent implements OnDestroy {
       );
   }
 
-  private getDialogProperties() {
+  private getDialogProperties(): object {
     return {
       data: this.task,
       autoFocus: true,

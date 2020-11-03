@@ -1,8 +1,8 @@
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { TestBed, waitForAsync } from '@angular/core/testing';
+import { Task } from '@shared/interfaces/task.interface';
+import { taskMock, tasksMock } from '@shared/mocks/tasks-mock';
 import { Subject } from 'rxjs';
-import { Task } from '../../interfaces/task.interface';
-import { taskMock, tasksMock } from '../../mocks/tasks-mock';
 import { TaskService } from './task.service';
 
 describe('Task Service', () => {
@@ -50,7 +50,7 @@ describe('Task Service', () => {
   describe('Methods', () => {
     it('Should retrieve tasks via a GET request', () => {
       taskService
-        .getTasksFromBackEnd()
+        .getTasks$()
         .subscribe((tasksToGet: Task[]) => {
           const expectedLength = 3;
           const actualLength: number = tasksToGet.length;
@@ -69,7 +69,7 @@ describe('Task Service', () => {
 
     it('Should add tasks via a POST request', () => {
       taskService
-        .addTaskToBackEnd(task)
+        .addTask$(task)
         .subscribe((taskToAdd: Task) =>
           expect(taskToAdd).toBe(task));
 
@@ -83,7 +83,7 @@ describe('Task Service', () => {
 
     it('Should toggle a task via a PUT request', () => {
       taskService
-        .toggleTaskFromBackEnd(task)
+        .toggleTask$(task)
         .subscribe((taskToToggle: Task) =>
           expect(taskToToggle).toBe(task));
 
@@ -98,7 +98,7 @@ describe('Task Service', () => {
 
     it('Should edit a task via a PUT request', () => {
       taskService
-        .editTaskFromBackEnd(task)
+        .editTask$(task)
         .subscribe((taskToEdit: Task) =>
           expect(taskToEdit).toBe(task));
 
@@ -113,7 +113,7 @@ describe('Task Service', () => {
 
     it('Should delete a task via a DELETE request', () => {
       taskService
-        .deleteTaskFromBackEnd(task)
+        .deleteTask$(task)
         .subscribe((taskToDelete: Task) =>
           expect(taskToDelete).toBe(task));
 

@@ -1,16 +1,16 @@
+import { Task } from '@shared/interfaces/task.interface';
 import { Subject } from 'rxjs';
-import { Task } from '../interfaces/task.interface';
 
 export const taskServiceSpy = jasmine.createSpyObj(
   'TaskService',
   [
-    'getTasksFromBackEnd',
-    'addTaskToBackEnd',
-    'toggleTaskFromBackEnd',
-    'editTaskFromBackEnd',
-    'deleteTaskFromBackEnd'
+    'getTasks$',
+    'addTask$',
+    'toggleTask$',
+    'editTask$',
+    'deleteTask$'
   ]
 );
 
-taskServiceSpy.refresher$ = new Subject<Task>();
-taskServiceSpy.refresher = taskServiceSpy.refresher$;
+taskServiceSpy._refresher$ = new Subject<Task>();
+taskServiceSpy.refresher = taskServiceSpy._refresher$;

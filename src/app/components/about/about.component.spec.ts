@@ -1,6 +1,6 @@
 import { ViewportScroller } from '@angular/common';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 import { AboutComponent } from './about.component';
 
 describe('About Component', () => {

@@ -2,11 +2,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EventEmitter } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Task } from '@shared/interfaces/task.interface';
+import { taskServiceSpy } from '@shared/mocks/task-service.mock';
+import { taskMock } from '@shared/mocks/tasks-mock';
+import { TaskService } from '@shared/services/task-manager/task.service';
 import { of, Subscription } from 'rxjs';
-import { Task } from 'src/app/shared/interfaces/task.interface';
-import { taskServiceSpy } from 'src/app/shared/mocks/task-service.mock';
-import { taskMock } from 'src/app/shared/mocks/tasks-mock';
-import { TaskService } from '../../../shared/services/task-manager/task.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { BodyComponent } from './body.component';
 
@@ -100,13 +100,13 @@ describe('Body Component', () => {
     });
 
     it('Should toggle the task from task service', () => {
-      taskService.toggleTaskFromBackEnd.and.returnValue(of(component.task));
+      taskService.toggleTask$.and.returnValue(of(component.task));
 
       component.onToggleFromBackEnd(component.task);
 
-      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalled();
-      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalledTimes(1);
-      expect(taskService.toggleTaskFromBackEnd).toHaveBeenCalledWith(component.task);
+      expect(taskService.toggleTask$).toHaveBeenCalled();
+      expect(taskService.toggleTask$).toHaveBeenCalledTimes(1);
+      expect(taskService.toggleTask$).toHaveBeenCalledWith(component.task);
     });
 
     it('Should emit task deletion', () => {
@@ -123,13 +123,13 @@ describe('Body Component', () => {
     });
 
     it('Should edit a task', () => {
-      taskService.editTaskFromBackEnd.and.returnValue(of(component.task));
+      taskService.editTask$.and.returnValue(of(component.task));
 
       component.onEdit(component.task);
 
-      expect(taskService.editTaskFromBackEnd).toHaveBeenCalledTimes(1);
-      expect(taskService.editTaskFromBackEnd).toHaveBeenCalledWith(component.task);
-      expect(taskService.editTaskFromBackEnd).toHaveBeenCalled();
+      expect(taskService.editTask$).toHaveBeenCalledTimes(1);
+      expect(taskService.editTask$).toHaveBeenCalledWith(component.task);
+      expect(taskService.editTask$).toHaveBeenCalled();
     });
   });
 
