@@ -3,5 +3,5 @@ export interface Task {
   title: string;
   description: string;
   percentage: number;
-  completed: boolean;
+  isComplete: boolean;
 }

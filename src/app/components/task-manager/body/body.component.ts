@@ -33,7 +33,7 @@ export class BodyComponent implements OnDestroy {
   }
 
   public onToggleFromUI(task: Task): void {
-    task.completed = !task.completed;
+    task.isComplete = !task.isComplete;
   }
 
   public onToggleFromBackEnd(task: Task): void {

@@ -17,7 +17,7 @@ export const fadeIn = trigger('fadeIn', [
 
 export const setLineThrough = (task: Task): object => {
   const lineThrough: object = {
-    'is-complete': task.completed
+    'is-complete': task.isComplete
   };
 
   return lineThrough;

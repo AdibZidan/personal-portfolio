@@ -10,15 +10,16 @@ import { Task } from '../../interfaces/task.interface';
 })
 export class TaskService {
 
-  public baseUrl: string = environment.baseUrl;
-  public refresher$: Subject<Task> = new Subject<Task>();
+  private _refresher$: Subject<Task> = new Subject<Task>();
+
+  public readonly baseUrl: string = environment.baseUrl;
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
   public get refresher(): Subject<Task> {
-    return this.refresher$;
+    return this._refresher$;
   }
 
   public getTasksFromBackEnd(): Observable<Task[]> {
@@ -40,7 +41,7 @@ export class TaskService {
 
     return this.httpClient
       .put<Task>(url, task)
-      .pipe(tap(() => this.refresher$.next()));
+      .pipe(tap(() => this._refresher$.next()));
   }
 
   public deleteTaskFromBackEnd(task: Task): Observable<Task> {

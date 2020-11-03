@@ -24,7 +24,7 @@ describe('Footer Component', () => {
     it('Should return the current year', () => {
       const expectedYear: number = new Date().getFullYear();
 
-      expect(footerComponent.currentYear).toBe(expectedYear);
+      expect(footerComponent.currentYear).toEqual(expectedYear);
     });
   });
 

@@ -87,16 +87,16 @@ describe('Body Component', () => {
 
     it('Should set a line through a task', () => {
       expect(component.setLineThrough()).toEqual({
-        'is-complete': component.task.completed
+        'is-complete': component.task.isComplete
       });
     });
 
     it('Should toggle the task from the UI', () => {
-      expect(component.task.completed).toEqual(false);
+      expect(component.task.isComplete).toEqual(false);
 
       component.onToggleFromUI(component.task);
 
-      expect(component.task.completed).toEqual(true);
+      expect(component.task.isComplete).toEqual(true);
     });
 
     it('Should toggle the task from task service', () => {

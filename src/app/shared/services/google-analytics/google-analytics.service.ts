@@ -8,7 +8,9 @@ declare let ga: Function;
 
 export class GoogleAnalyticsService {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router
+  ) { }
 
   public track(): void {
     this.router.events

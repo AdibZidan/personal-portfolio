@@ -30,7 +30,7 @@ describe('About Component', () => {
 
   describe('Properties', () => {
     it('Should have an initial isArrowShown property with the value of false', () => {
-      expect(component.isArrowShown).toBe(false);
+      expect(component.isArrowShown).toEqual(false);
     });
 
     it('Should have languages property', () => {
