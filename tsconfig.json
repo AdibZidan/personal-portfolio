@@ -30,6 +30,9 @@
       ],
       "@animations": [
         "src/assets/animations/animations"
+      ],
+      "@environments/*": [
+        "src/environments/*"
       ]
     }
   }

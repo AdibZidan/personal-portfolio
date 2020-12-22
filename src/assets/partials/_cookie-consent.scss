@@ -1,0 +1,52 @@
+@mixin cookie-consent {
+  .cc-theme-edgeless.cc-window {
+    background-color: #1a2027 !important;
+    border-radius: 5px;
+    border: 2px solid #2f2f2f;
+
+    .cc-floating,
+    .cc-theme-edgeless,
+    .cc-message {
+      color: #fff;
+      text-align: justify !important;
+    }
+
+    .cc-btn {
+      color: #fff !important;
+    }
+
+    .cc-deny {
+      transition: background-color 0.7s ease;
+
+      &:hover {
+        background-color: #bf0000 !important;
+        transition: background-color 0.7s ease;
+      }
+    }
+
+    .cc-allow {
+      background: #329862 !important;
+      transition: background-color 0.7s ease;
+
+      &:hover {
+        background-color: #38ab6e !important;
+        transition: background-color 0.7s ease;
+      }
+    }
+  }
+
+  .cc-revoke,
+  .cc-window {
+    z-index: 2 !important;
+  }
+
+  .cc-highlight .cc-btn:first-child:focus,
+  .cc-highlight .cc-btn:hover {
+    outline: none !important;
+    text-decoration: none !important;
+  }
+
+  .cc-bottom {
+    text-decoration: none !important;
+  }
+}
