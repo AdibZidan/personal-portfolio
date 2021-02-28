@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
-import { fadeIn } from '@animations';
+import { fadeIn, fadeOut } from '@animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  animations: [fadeIn]
+  animations: [
+    fadeIn,
+    fadeOut
+  ]
 })
 export class HeaderComponent {
 
