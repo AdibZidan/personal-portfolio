@@ -85,11 +85,11 @@ describe('About Component', () => {
     });
 
     it('Should scroll to the top once the button is clicked', () => {
-      spyOn(window, 'scroll');
+      const scrollSpy: jasmine.Spy = spyOn(window, 'scroll');
 
       component.scrollToTop();
 
-      expect(window.scroll).toHaveBeenCalledWith({
+      expect(scrollSpy).toHaveBeenCalledWith({
         top: 0, left: 0, behavior: 'smooth'
       });
     });

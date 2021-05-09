@@ -130,7 +130,7 @@ describe('Application Component', () => {
           animation: 'Test animation',
           title: 'Test title'
         }
-      });
+      } as any);
     });
   });
 

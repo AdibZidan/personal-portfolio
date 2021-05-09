@@ -73,7 +73,7 @@ describe('Dialog Component', () => {
         .and.returnValue({
           afterClosed: (): Observable<Task> =>
             of(component.task)
-        });
+        } as any);
 
       spyOn(
         component.save,

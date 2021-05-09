@@ -187,14 +187,14 @@ describe('Form Component', () => {
         description: 'Test Description',
         percentage: 100,
         completed: false
-      });
+      } as any);
       expect(matDialogRef.close).toHaveBeenCalledWith({
         id: '',
         title: 'Test Title',
         description: 'Test Description',
         percentage: 100,
         completed: false
-      });
+      } as any);
       expect(component.formGroup.reset).toHaveBeenCalled();
     });
   });
