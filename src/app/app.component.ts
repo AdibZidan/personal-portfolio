@@ -27,6 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.dynamicallyChangeRouteUrl();
     this.allowRequestsOnlyOnCookieAcceptance();
+    this.hideCookieConsentPopUpOnConsent();
   }
 
   public ngOnDestroy(): void {
