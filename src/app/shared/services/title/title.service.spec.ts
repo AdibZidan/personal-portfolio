@@ -49,6 +49,7 @@ describe('Title Service', () => {
 
   it('Should set the title', () => {
     service.setTitle();
+
     expect(title.getTitle()).toEqual('Test Title');
   });
 

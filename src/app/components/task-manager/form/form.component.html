@@ -1,77 +1,55 @@
 <div class="outer">
-  <form class="form" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <input
-      required
-      class="input"
-      type="text"
-      placeholder="Task *"
-      formControlName="title">
+  <form
+    [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()">
 
-    <ng-container *ngIf="title.invalid && (title.dirty || title.touched)">
-      <ng-container *ngIf="title">
-        <span>Minimum of 3 characters is required</span>
-      </ng-container>
-    </ng-container>
+    <app-input
+      formControlName="title"
+      [label]="'Title'"
+      [type]="'text'"
+      [placeholder]="'Task *'">
+    </app-input>
 
-    <input
-      required
-      class="input"
-      type="text"
-      placeholder="Description *"
-      formControlName="description">
+    <app-input
+      formControlName="description"
+      [label]="'Description'"
+      [type]="'text'"
+      [placeholder]="'Description *'">
+    </app-input>
 
-    <ng-container *ngIf="description.invalid && (description.dirty || description.touched)">
-      <ng-container *ngIf="description">
-        <span>Minimum of 6 characters is required</span>
-      </ng-container>
-    </ng-container>
-
-    <input
-      [pattern]="validNumberPattern"
-      class="input percentage"
-      type="number"
-      placeholder="Percentage"
+    <app-input
       formControlName="percentage"
-      onkeydown="return event.keyCode !== 69">
-
-    <ng-container *ngIf="percentage.invalid && (percentage.dirty || percentage.touched)">
-      <ng-container *ngIf="validNumberPattern">
-        <span>Between 1 and 100 is allowed</span>
-      </ng-container>
-    </ng-container>
+      onkeydown="return event.keyCode !== 69"
+      [className]="'percentage'"
+      [label]="'Percentage'"
+      [type]="'number'"
+      [placeholder]="'Percentage'">
+    </app-input>
 
     <div class="inner form-inner">
-      <label
-        class="label"
-        for="completed">
+      <label for="completed">
         <span class="completed">Completed?</span>
       </label>
     </div>
 
     <div class="checkbox">
       <label class="container">
-        <input type="checkbox" formControlName="completed">
+        <input
+          type="checkbox"
+          formControlName="isComplete">
+
         <span
           class="checkmark">
         </span>
       </label>
     </div>
 
-    <ng-container *ngIf="!isValidForm">
-      <input
-        [disabled]="!isValidForm"
-        [title]="errorMessage"
-        class="submit disabled"
-        type="submit"
-        value="SUBMIT">
-    </ng-container>
-
-    <ng-container *ngIf="isValidForm">
-      <input
-        [disabled]="isValidForm || !isValidForm"
-        class="submit disabled"
-        type="submit"
-        value="SUBMIT">
-    </ng-container>
+    <button
+      [disabled]="formGroup.invalid"
+      [class.disabled]="formGroup.invalid"
+      class="submit"
+      type="submit">
+      SUBMIT
+    </button>
   </form>
 </div>

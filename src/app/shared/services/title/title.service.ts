@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
 })
 export class TitleService {
 
-  constructor(
+  public constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private title: Title

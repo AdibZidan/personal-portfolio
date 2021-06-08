@@ -71,13 +71,11 @@ describe('Application Component', () => {
   });
 
   describe('Methods', () => {
-    let titleServiceSpy: jasmine.Spy;
     let cookieServiceDeleteAllSpy: jasmine.Spy;
     let googleAnalyticsServiceTrackSpy: jasmine.Spy;
     let ngcCookieConsentServiceDestroySpy: jasmine.Spy;
 
     beforeEach(() => {
-      titleServiceSpy = spyOn(titleService, 'setTitle');
       cookieServiceDeleteAllSpy = spyOn(cookieService, 'deleteAll');
       googleAnalyticsServiceTrackSpy = spyOn(googleAnalyticsService, 'track');
       ngcCookieConsentServiceDestroySpy = spyOn(ngcCookieConsentService, 'destroy');

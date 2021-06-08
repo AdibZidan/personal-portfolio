@@ -6,30 +6,22 @@
 
 <main class="tasks">
   <p>
-    <span class="remove date">
-      Today is: {{ date | date:'mediumDate' }} and it's {{ date | date:'mediumTime' }}
-    </span>
+    <ng-container *ngIf="date$ | async as date">
+      <span class="remove date">
+        Today is: {{ date | date : 'mediumDate' }} and it's {{ date | date : 'mediumTime' }}
+      </span>
+    </ng-container>
   </p>
 
-  <ng-container *ngIf="tasks$ | async as tasks">
-    <app-form
-      [task]="tasks"
-      (addTask)="addTask($event)">
-    </app-form>
+  <app-form></app-form>
 
+  <ng-container *ngIf="numberOfTasksMessage$ | async as numberOfTasksMessage">
     <p>
-      <ng-container *ngIf="tasks.length > 1">
-        <span class="remove">
-          There are {{ tasks.length }} tasks
-        </span>
-      </ng-container>
+      <span class="remove">
+        {{ numberOfTasksMessage }}
+      </span>
     </p>
-
-    <ng-container *ngFor="let task of tasks">
-      <app-body
-        [task]="task"
-        (deleteTask)="deleteTask($event)">
-      </app-body>
-    </ng-container>
   </ng-container>
+
+  <app-body></app-body>
 </main>

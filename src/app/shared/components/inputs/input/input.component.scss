@@ -1,0 +1,38 @@
+@import "../../../../../assets/partials/colors";
+
+input {
+  width: 100%;
+  cursor: pointer;
+  margin: 5px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $primary-background-color-lighten;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: $primary-background-color;
+  color: #cacaca;
+
+  &::placeholder {
+    padding-left: 10px;
+    border: none;
+    color: #cacaca;
+  }
+
+  &:hover::-webkit-input-placeholder {
+    color: $primary-color;
+  }
+
+  &:active {
+    background-color: $primary-background-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.percentage::-webkit-inner-spin-button,
+  &.percentage::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+}

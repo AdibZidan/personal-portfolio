@@ -5,11 +5,12 @@ import { filter } from 'rxjs/operators';
 
 declare let gtag: Function;
 
-@Injectable({ providedIn: 'root' })
-
+@Injectable({
+  providedIn: 'root'
+})
 export class GoogleAnalyticsService {
 
-  constructor(
+  public constructor(
     private router: Router,
     private ngcCookieConsentService: NgcCookieConsentService
   ) {

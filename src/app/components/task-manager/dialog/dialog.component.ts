@@ -1,6 +1,9 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { Task } from '@shared/interfaces/task.interface';
+import { updateOne } from '@shared/store/actions/task/task.actions';
+import { AppState } from '@shared/store/interfaces/app-state.interface';
 import { Subscription } from 'rxjs';
 import { FormComponent } from '../form/form.component';
 
@@ -11,31 +14,31 @@ import { FormComponent } from '../form/form.component';
 })
 export class DialogComponent implements OnDestroy {
 
+  private _subscription: Subscription = new Subscription();
+
   @Input()
-  public task: Task;
+  public task!: Task;
 
-  @Output()
-  public save: EventEmitter<Task> = new EventEmitter<Task>();
-
-  public subscription: Subscription = new Subscription();
-
-  constructor(
+  public constructor(
+    private store$: Store<AppState>,
     private dialog: MatDialog,
     private matDialogRef: MatDialogRef<FormComponent>
   ) { }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  public ngOnDestroy(): void {
+    this._subscription.unsubscribe();
   }
 
-  public onClick(): void {
-    this.matDialogRef = this.dialog
-      .open(FormComponent, this.getDialogProperties());
+  public openDialog(): void {
+    this.matDialogRef = this.dialog.open(
+      FormComponent,
+      this.getDialogProperties()
+    );
 
-    this.subscription = this.matDialogRef
+    this._subscription = this.matDialogRef
       .afterClosed()
       .subscribe((task: Task): void =>
-        this.save.emit(task)
+        this.store$.dispatch(updateOne(task))
       );
   }
 
@@ -43,8 +46,7 @@ export class DialogComponent implements OnDestroy {
     return {
       data: this.task,
       autoFocus: true,
-      disableClose: true,
-      width: '0 auto',
+      hasBackdrop: true,
       panelClass: 'dialog'
     };
   }

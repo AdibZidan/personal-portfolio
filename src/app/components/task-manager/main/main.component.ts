@@ -1,64 +1,36 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Task } from '@shared/interfaces/task.interface';
-import { TaskService } from '@shared/services/task-manager/task.service';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '@shared/store/interfaces/app-state.interface';
+import { selectNumberOfTasksMessage } from '@shared/store/selectors/tasks/tasks.selector';
+import { interval, Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit, OnDestroy {
+export class MainComponent implements OnInit {
 
-  public subscriptions: Subscription[] = [];
-  public tasks$: Observable<Task[]>;
-  public date: number = Date.now();
+  public date$!: Observable<number>;
 
-  constructor(
-    private taskService: TaskService
+  public numberOfTasksMessage$: Observable<string> = this.store$.select(selectNumberOfTasksMessage());
+
+  public constructor(
+    private store$: Store<AppState>
   ) { }
 
-  ngOnInit(): void {
-    this.getTasks();
-    this.updateTime();
+  public ngOnInit(): void {
+    this.incrementSeconds();
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions
-      .forEach((subscription: Subscription): void =>
-        subscription.unsubscribe()
-      );
-  }
-
-  public addTask(task: Task): void {
-    const subscription: Subscription = this.taskService
-      .addTask$(task)
-      .subscribe((): void =>
-        this.getTasks()
-      );
-
-    this.subscriptions.push(subscription);
-  }
-
-  public deleteTask(task: Task): void {
-    const subscription: Subscription = this.taskService
-      .deleteTask$(task)
-      .subscribe((): void =>
-        this.getTasks()
-      );
-
-    this.subscriptions.push(subscription);
-  }
-
-  private getTasks(): void {
-    this.tasks$ = this.taskService.getTasks$();
-  }
-
-  private updateTime(): void {
-    setInterval((): number =>
-      this.date = Date.now(),
-      1000
-    );
+  private incrementSeconds(): void {
+    this.date$ = interval(1_000)
+      .pipe(
+        startWith(new Date()),
+        map((): number =>
+          Date.now()
+        ));
   }
 
 }

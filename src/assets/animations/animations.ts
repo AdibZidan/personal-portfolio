@@ -1,5 +1,4 @@
 import { animate, AnimationTriggerMetadata, style, transition, trigger } from '@angular/animations';
-import { Task } from '@shared/interfaces/task.interface';
 
 export const easeIn: AnimationTriggerMetadata = trigger('routeAnimations', [
   transition('* <=> *', [
@@ -21,11 +20,3 @@ export const fadeOut: AnimationTriggerMetadata = trigger('fadeOut', [
     animate('500ms', style({ opacity: 0 }))
   ])
 ]);
-
-export const setLineThrough = (task: Task): object => {
-  const lineThrough: object = {
-    'is-complete': task.isComplete
-  };
-
-  return lineThrough;
-};

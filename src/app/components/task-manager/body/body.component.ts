@@ -1,55 +1,29 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
-import { fadeIn, setLineThrough } from '@animations';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Task } from '@shared/interfaces/task.interface';
-import { TaskService } from '@shared/services/task-manager/task.service';
-import { Subscription } from 'rxjs';
+import { deleteOne, setIsCompleted } from '@shared/store/actions/task/task.actions';
+import { AppState } from '@shared/store/interfaces/app-state.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
-  styleUrls: ['./body.component.scss'],
-  animations: [fadeIn]
+  styleUrls: ['./body.component.scss']
 })
-export class BodyComponent implements OnDestroy {
+export class BodyComponent {
 
-  @Input()
-  public task: Task;
+  public tasks$: Observable<Task[]> = this.store$.select('tasks');
 
-  @Output()
-  public deleteTask: EventEmitter<Task> = new EventEmitter<Task>();
-
-  public subscription: Subscription = new Subscription();
-
-  constructor(
-    private taskService: TaskService
+  public constructor(
+    private store$: Store<AppState>
   ) { }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  public setIsCompleted(task: Task): void {
+    this.store$.dispatch(setIsCompleted(task));
   }
 
-  public setLineThrough(): object {
-    return setLineThrough(this.task);
-  }
-
-  public onToggleFromUI(task: Task): void {
-    task.isComplete = !task.isComplete;
-  }
-
-  public onToggleFromBackEnd(task: Task): void {
-    this.subscription = this.taskService
-      .toggleTask$(task)
-      .subscribe();
-  }
-
-  public onDelete(task: Task): void {
-    this.deleteTask.emit(task);
-  }
-
-  public async onEdit(task: Task): Promise<void> {
-    await this.taskService
-      .editTask$(task)
-      .toPromise();
+  public deleteOne(id: number): void {
+    this.store$.dispatch(deleteOne({ id }));
   }
 
 }

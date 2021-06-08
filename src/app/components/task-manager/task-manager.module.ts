@@ -7,6 +7,7 @@ import { BodyComponent } from '@components/task-manager/body/body.component';
 import { DialogComponent } from '@components/task-manager/dialog/dialog.component';
 import { FormComponent } from '@components/task-manager/form/form.component';
 import { MainComponent } from '@components/task-manager/main/main.component';
+import { SharedModule } from '@shared/shared.module';
 import { TaskManagerRoutingModule } from './task-manager-routing.module';
 
 @NgModule({
@@ -18,13 +19,13 @@ import { TaskManagerRoutingModule } from './task-manager-routing.module';
   ],
   imports: [
     CommonModule,
-    TaskManagerRoutingModule,
-    RouterModule,
-    ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    RouterModule,
+    SharedModule,
+    TaskManagerRoutingModule
   ],
-  entryComponents: [FormComponent],
   providers: [{
     provide: MatDialogRef,
     useValue: undefined

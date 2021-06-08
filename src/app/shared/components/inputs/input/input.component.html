@@ -1,0 +1,16 @@
+<input
+  [class]="className"
+  [required]="isRequired"
+  [type]="type"
+  [pattern]="type === 'number' ? validNumberPattern : ''"
+  [placeholder]="placeholder"
+  [disabled]="isDisabled"
+  [value]="value"
+  (input)="customOnChange($event)"
+  (blur)="onTouched()"
+>
+
+<app-validation-messages
+  [abstractControl]="abstractControl"
+  [label]="label">
+</app-validation-messages>

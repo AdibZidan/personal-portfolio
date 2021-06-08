@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap");
 
-
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 @import "./assets/partials/scrollbar";
@@ -34,7 +33,6 @@ body {
   background-color: $primary-background-color-lighten;
   color: #cacaca;
   color: $primary-color;
-
   border-radius: 25px;
   box-shadow: -2px 2px 5px 0 rgba(0, 0, 0, 1);
 }
