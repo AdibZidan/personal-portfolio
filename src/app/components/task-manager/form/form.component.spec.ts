@@ -45,8 +45,8 @@ describe('Form Component', () => {
   });
 
   describe('Properties', () => {
-    it('Should have an undefined formGroup property', () => {
-      expect(component.formGroup).toBeUndefined();
+    it('Should have a defined formGroup property', () => {
+      expect(component.formGroup).toBeDefined();
     });
   });
 
