@@ -4,9 +4,11 @@ This project is live. Head over [here](https://www.adibzidan.com) to access it.
 
 This repository includes my Portfolio, About Me and Task-Manager.
 
-The Task-Manager is built using Angular 8 and is already CRUD ready.
+The Task-Manager is built using Angular 12 and is already CRUD ready.
 
-For the Back-End, I'm using Node.JS; which is in a private repository.
+~~For the Back-End, I'm using Node.JS; which is in a private repository.~~
+
+As of August 10th, 2021, I've replaced the Back-End with the NgRx state framework.
 
 ## Instructions:
 
@@ -42,4 +44,4 @@ Make sure to install the latest version of:
 - PM2
 - & **many more**!
 
-`Updated on the 8th of February, 2020 @ 10:30 P.M`
+`Updated on the 10th of August, 2021 @ 6:50 P.M`
