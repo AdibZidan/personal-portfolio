@@ -122,8 +122,10 @@
     </section>
 
     <div
+      appOnScroll
       class="arrow"
       [class.is-shown]="isArrowShown"
+      (isArrowShownEmitter)="setIsArrowShown($event)"
       (click)="scrollToTop()">
       <i
         class="fas fa-arrow-up fa-1x"

@@ -1,4 +1,3 @@
-import { ViewportScroller } from '@angular/common';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { AboutComponent } from './about.component';
@@ -7,7 +6,6 @@ describe('About Component', () => {
 
   let component: AboutComponent;
   let fixture: ComponentFixture<AboutComponent>;
-  let viewportScroller: ViewportScroller;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -21,7 +19,6 @@ describe('About Component', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
-    viewportScroller = TestBed.inject(ViewportScroller);
   });
 
   it('Should create', () => {
@@ -29,6 +26,13 @@ describe('About Component', () => {
   });
 
   describe('Properties', () => {
+    it('Should have my current age', () => {
+      const bornYear: number = new Date('January 1, 1995').getFullYear();
+      const expectedAge: number = new Date().getFullYear() - bornYear;
+
+      expect(component.age).toEqual(expectedAge);
+    });
+
     it('Should have an initial isArrowShown property with the value of false', () => {
       expect(component.isArrowShown).toEqual(false);
     });
@@ -67,21 +71,14 @@ describe('About Component', () => {
   });
 
   describe('Methods', () => {
-    it(`Shouldn't show scroll to top arrow if the yAxis is less than 700`, () => {
-      component.onScroll();
-
-      expect(component.isArrowShown).toEqual(false);
-    });
-
-    it('Should show scroll to top arrow if the yAxis is greater than 700', () => {
-      spyOn(
-        viewportScroller,
-        'getScrollPosition'
-      ).and.returnValue([0, 701]);
-
-      component.onScroll();
+    it('Should set the isArrowShown property', () => {
+      component.setIsArrowShown(true);
 
       expect(component.isArrowShown).toEqual(true);
+
+      component.setIsArrowShown(false);
+
+      expect(component.isArrowShown).toEqual(false);
     });
 
     it('Should scroll to the top once the button is clicked', () => {
@@ -92,13 +89,6 @@ describe('About Component', () => {
       expect(scrollSpy).toHaveBeenCalledWith({
         top: 0, left: 0, behavior: 'smooth'
       });
-    });
-
-    it('Should have my current age', () => {
-      const bornYear: number = new Date('January 1, 1995').getFullYear();
-      const expectedAge: number = new Date().getFullYear() - bornYear;
-
-      expect(component.age).toEqual(expectedAge);
     });
   });
 
