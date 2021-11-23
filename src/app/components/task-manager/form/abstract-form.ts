@@ -8,7 +8,7 @@ export abstract class AbstractForm implements OnInit {
 
   public abstract formGroupProperties: any;
 
-  public constructor(
+  protected constructor(
     private formBuilder: FormBuilder
   ) { }
 

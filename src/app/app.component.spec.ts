@@ -8,9 +8,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgcCookieConsentConfig, NgcCookieConsentService, WindowService } from 'ngx-cookieconsent';
 import { of } from 'rxjs';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { TitleService } from './shared/services/title/title.service';
+import { AppComponent } from '@app';
+import { HeaderComponent } from '@components/header/header.component';
+import { TitleService } from '@shared/services/title/title.service';
 
 describe('Application Component', () => {
 

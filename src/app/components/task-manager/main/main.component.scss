@@ -3,8 +3,7 @@
 
 .title {
   max-width: 900px;
-  margin: auto;
-  margin-top: 60px;
+  margin: 60px auto auto;
   padding: 30px 20px;
 
   display: flex;
@@ -26,8 +25,7 @@
 
 .tasks {
   max-width: 900px;
-  margin: auto;
-  margin-bottom: 60px;
+  margin: auto auto 60px;
   min-height: 450px;
 
   color: $primary-color-lighten;

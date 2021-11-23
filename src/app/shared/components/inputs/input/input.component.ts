@@ -24,7 +24,7 @@ export class InputComponent extends AbstractControlValueAccessor {
   public validNumberPattern = PERCENTAGE_PATTERN;
 
   public customOnChange(event: Event): void {
-    const value: string = (<HTMLInputElement>event.target).value;
+    const value: string = (event.target as HTMLInputElement).value;
 
     this.writeValue(value);
     this.onChange(value);

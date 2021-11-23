@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
@@ -13,7 +13,7 @@ import { FORM_GROUP_PROPS } from './form-group-props';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent extends AbstractForm {
+export class FormComponent extends AbstractForm implements OnInit {
 
   formGroupProperties: any = FORM_GROUP_PROPS;
 

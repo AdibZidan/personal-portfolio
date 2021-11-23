@@ -27,7 +27,7 @@ export class GoogleAnalyticsService {
           gtag(
             'config',
             'UA-145386393-1',
-            { 'page_path': navigationEnd.urlAfterRedirects }
+            { page_path: navigationEnd.urlAfterRedirects }
           );
         });
     }
@@ -43,7 +43,7 @@ export class GoogleAnalyticsService {
         gtag(
           'config',
           'UA-145386393-1',
-          { 'page_path': router.url }
+          { page_path: router.url }
         );
       }
     })();

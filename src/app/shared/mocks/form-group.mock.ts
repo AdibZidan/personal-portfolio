@@ -2,7 +2,7 @@ import { FormControl, FormGroup, ValidatorFn } from '@angular/forms';
 
 export class FormGroupMock {
 
-  private _formGroup!: FormGroup;
+  private readonly _formGroup!: FormGroup;
 
   public constructor() {
     this._formGroup = new FormGroup({});
